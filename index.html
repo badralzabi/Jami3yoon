@@ -1,210 +1,242 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>تحميل تطبيق جامعيّون</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #f0f4f8;
-      color: #333;
-      line-height: 1.6;
-    }
-    .wrapper {
-      max-width: 720px;
-      margin: 50px auto;
-      padding: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="logo.jpg">
+    <title>تحميل تطبيق جامعيّون</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header {
-      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-      padding: 30px;
-      border-radius: 16px;
-      text-align: center;
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    header img.logo {
-      width: 80px;
-      margin-bottom: 12px;
-      border-radius: 50px;
-    }
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-    header p.subtitle {
-      font-size: 1rem;
-      opacity: 0.85;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    section {
-      margin: 30px 0;
-    }
+        .wrapper {
+            max-width: 720px;
+            margin: 50px auto;
+            padding: 20px;
+        }
 
-    .about, .features, .stats, .contact {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .about h2, .features h2, .stats h2, .contact h2 {
-      margin-bottom: 15px;
-      color: #1e3a8a;
-      font-size: 1.4rem;
-    }
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
 
-    .features ul {
-      list-style: none;
-      padding-right: 20px;
-    }
-    .features li::before {
-      content: "✔";
-      margin-left: 8px;
-      color: #10b981;
-    }
+        header img.logo {
+            width: 80px;
+            margin-bottom: 12px;
+            border-radius: 50px;
+        }
 
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-    }
-    .stats .item {
-      flex: 1;
-    }
-    .stats .item h3 {
-      font-size: 1.5rem;
-      color: #3b82f6;
-    }
-    .stats .item p {
-      font-size: 0.9rem;
-      color: #555;
-    }
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
 
-    .screenshots {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    .screenshots img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
+        header p.subtitle {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
 
-    .download {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .download a {
-      display: inline-block;
-      background: #f97316;
-      color: #fff;
-      padding: 14px 28px;
-      font-size: 1.1rem;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .download a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
+        section {
+            margin: 30px 0;
+        }
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.85rem;
-      color: #555;
-      text-align: center;
-    }
-    footer a {
-      color: #1e3a8a;
-      text-decoration: none;
-    }
-    .instagram-button {
-        background: linear-gradient(45deg, #fc00ff, #00dbde); /* تدرج الألوان الخاص بانستقرام */
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        border: none;
-        padding: 15px 30px;
-        border-radius: 20px; 
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-    }
-    
-    .instagram-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-   
-  </style>
+        .about,
+        .features,
+        .stats,
+        .contact {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .about h2,
+        .features h2,
+        .stats h2,
+        .contact h2 {
+            margin-bottom: 15px;
+            color: #1e3a8a;
+            font-size: 1.4rem;
+        }
+
+        .features ul {
+            list-style: none;
+            padding-right: 20px;
+        }
+
+        .features li::before {
+            content: "✔";
+            margin-left: 8px;
+            color: #10b981;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stats .item {
+            flex: 1;
+        }
+
+        .stats .item h3 {
+            font-size: 1.5rem;
+            color: #3b82f6;
+        }
+
+        .stats .item p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .screenshots img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .download {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .download a {
+            display: inline-block;
+            background: #f97316;
+            color: #fff;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .download a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #555;
+            text-align: center;
+        }
+
+        footer a {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+
+        .instagram-button {
+            background: linear-gradient(45deg, #fc00ff, #00dbde);
+            /* تدرج الألوان الخاص بانستقرام */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .instagram-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
+
 <body>
-  <div class="wrapper">
-    <header>
-      <img src="logo.png" alt="شعار جامعيّون" class="logo">
-      <h1>جامعيّون</h1>
-      <p class="subtitle">كل ما يحتاجه الطالب في مكان واحد</p>
-    </header>
+    <div class="wrapper">
+        <header>
+            <img src="logo.jpg" alt="شعار جامعيّون" class="logo">
+            <h1>جامعيّون</h1>
+            <p class="subtitle">كل ما يحتاجه الطالب في مكان واحد</p>
+        </header>
 
-    <section class="about">
-      <h2>عن المنصة</h2>
-      <p>جامعيّون هي منصّة جامعيّة شاملة توفّر كل ما يحتاجه طالب الجامعة.</p>
-    </section>
+        <section class="about">
+            <h2>عن المنصة</h2>
+            <p>جامعيّون هي منصّة جامعيّة شاملة توفّر كل ما يحتاجه طالب الجامعة.</p>
+        </section>
 
-    <section class="features">
-      <h2>مميزات التطبيق</h2>
-      <ul>
-        <li>واجهة سهلة وسريعة</li>
-        <li>قسم للدوسيات يحوي ملخصات والمواد PDF</li>
-        <li>كويزات سريعة لتقييم نفسك</li>
-        <li>قسم كامل ل ادارة المهام بتصميم عصري</li>
-        <li>حساب المعدل التراكمي والفصلي</li>
-        <li>اقسام كثيرة ومتنوعة</li>
-      </ul>
-    </section>
+        <section class="features">
+            <h2>مميزات التطبيق</h2>
+            <ul>
+                <li>واجهة سهلة وسريعة</li>
+                <li>قسم للدوسيات يحوي ملخصات والمواد PDF</li>
+                <li>مصادر لشرح موادك على يوتيوب</li>
+                <li>قسم كامل ل ادارة المهام بتصميم عصري</li>
+                <li>حساب المعدل التراكمي والفصلي</li>
+                <li>قسم لادارة الميزانية</li>
+                <li>نصائح قيمة </li>
+                <li>اقسام كثيرة مفيدة جداً</li>
+            </ul>
+        </section>
 
-   
-  
-      <div class="download">
-        <a href="app-release.apk" download>📲 تحميل APK الآن</a>
-      </div>
 
-      <section class="stats">
-        <div class="item">
-          <h3>+50</h3>
-          <p>تحميل</p>
+
+        <div class="download">
+            <a href="app-release.apk" download>📲 تحميل APK الآن</a>
         </div>
-        <div class="item">
-          <h3>+120</h3>
-          <p>مادة دراسية</p>
-        </div>
-        
-      </section>
-      <section class="screenshots">
-        <img src="screenshot1.jpg" alt="لقطة شاشة 1">
-        <img src="screenshot2.jpg" alt="لقطة شاشة 2">
-        <img src="screenshot3.jpg" alt="لقطة شاشة 3">
-      </section>
 
-    
+        <section class="stats">
+            <div class="item">
+                <h3>عدد لا محدود</h3>
+                <p>ملخصات</p>
+            </div>
+            <div class="item">
+                <h3>عدد لا محدود</h3>
+                <p>مادة دراسية</p>
+            </div>
 
-   
+        </section>
+        <section class="screenshots">
+            <img src="screenshot1.jpg" alt="لقطة شاشة 1">
+            <img src="screenshot2.jpg" alt="لقطة شاشة 2">
+            <img src="screenshot3.jpg" alt="لقطة شاشة 3">
+        </section>
 
-    <section class="contact">
-      <h2>تواصل معنا عبر انستقرام</h2>
-      <button class="instagram-button"><a href="#" style="text-decoration: none; color:white;">تواصل معنا</a></button>
 
-    </section>
 
-    <footer>
-      © 2025 جامعيّون. جميع الحقوق محفوظة.<br>
-      تابعنا على <a href="#">تويتر</a> و <a href="#">إنستغرام</a>
-    </footer>
-  </div>
+
+
+        <section class="contact">
+            <h2>تواصل معنا عبر انستقرام</h2>
+            <button class="instagram-button"><a href="#" style="text-decoration: none; color:white;">تواصل
+                    معنا</a></button>
+
+        </section>
+
+        <footer>
+            © 2025 جامعيّون. جميع الحقوق محفوظة.<br>
+            تابعنا على <a href="#">تويتر</a> و <a href="#">إنستغرام</a>
+        </footer>
+    </div>
 </body>
+
 </html>
