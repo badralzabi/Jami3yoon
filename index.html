@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" href="logo.jpg">
+    <link rel="icon" type="image/png" href="logo.jpg">
     <title>تحميل تطبيق جامعيّون</title>
     <style>
         * {
@@ -152,7 +152,6 @@
 
         .instagram-button {
             background: linear-gradient(45deg, #fc00ff, #00dbde);
-            /* تدرج الألوان الخاص بانستقرام */
             color: white;
             font-size: 16px;
             font-weight: bold;
@@ -168,10 +167,27 @@
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
+        /* النص الجانبي الثابت */
+        .fixed-code {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #1e3a8a;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: bold;
+            z-index: 9999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 
 <body>
+
+    <div class="fixed-code">الرمز الحالي للتطبيق: 122</div>
+
     <div class="wrapper">
         <header>
             <img src="logo.jpg" alt="شعار جامعيّون" class="logo">
@@ -190,15 +206,13 @@
                 <li>واجهة سهلة وسريعة</li>
                 <li>قسم للدوسيات يحوي ملخصات والمواد PDF</li>
                 <li>مصادر لشرح موادك على يوتيوب</li>
-                <li>قسم كامل ل ادارة المهام بتصميم عصري</li>
+                <li>قسم كامل ل إدارة المهام بتصميم عصري</li>
                 <li>حساب المعدل التراكمي والفصلي</li>
                 <li>قسم لادارة الميزانية</li>
-                <li>نصائح قيمة </li>
-                <li>اقسام كثيرة مفيدة جداً</li>
+                <li>نصائح قيمة</li>
+                <li>أقسام كثيرة مفيدة جداً</li>
             </ul>
         </section>
-
-
 
         <div class="download">
             <a href="app-release.apk" download>📲 تحميل APK الآن</a>
@@ -213,23 +227,19 @@
                 <h3>عدد لا محدود</h3>
                 <p>مادة دراسية</p>
             </div>
-
         </section>
+
         <section class="screenshots">
             <img src="screenshot1.jpg" alt="لقطة شاشة 1">
             <img src="screenshot2.jpg" alt="لقطة شاشة 2">
             <img src="screenshot3.jpg" alt="لقطة شاشة 3">
         </section>
 
-
-
-
-
         <section class="contact">
             <h2>تواصل معنا عبر انستقرام</h2>
-            <button class="instagram-button"><a href="#" style="text-decoration: none; color:white;">تواصل
-                    معنا</a></button>
-
+            <button class="instagram-button">
+                <a href="#" style="text-decoration: none; color:white;">تواصل معنا</a>
+            </button>
         </section>
 
         <footer>
@@ -237,6 +247,6 @@
             تابعنا على <a href="#">تويتر</a> و <a href="#">إنستغرام</a>
         </footer>
     </div>
-</body>
 
+</body>
 </html>
