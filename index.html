@@ -3,206 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="logo.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://placehold.co/80x80/1e3a8a/ffffff?text=Logo">
     <title>تحميل تطبيق جامعيّون</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Custom styles for the page, complementing Tailwind */
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: #f0f4f8;
+            font-family: 'Inter', sans-serif;
+            background: #f0f4f8; /* Light gray background */
             color: #333;
             line-height: 1.6;
         }
 
-        .wrapper {
-            max-width: 720px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-
-        header {
+        /* Gradient for header */
+        .header-bg {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            color: #fff;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        header img.logo {
-            width: 80px;
-            margin-bottom: 12px;
-            border-radius: 50px;
+        /* Instagram button gradient */
+        .instagram-button-bg {
+            background: linear-gradient(45deg, #fc00ff, #00dbde);
         }
 
-        header h1 {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-
-        header p.subtitle {
-            font-size: 1rem;
-            opacity: 0.85;
-        }
-
-        section {
-            margin: 30px 0;
-        }
-
-        .about,
-        .features,
-        .stats,
-        .contact {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .about h2,
-        .features h2,
-        .stats h2,
-        .contact h2 {
-            margin-bottom: 15px;
-            color: #1e3a8a;
-            font-size: 1.4rem;
-        }
-
-        .features ul {
-            list-style: none;
-            padding-right: 20px;
-        }
-
-        .features li::before {
+        /* Custom checked icon for features list */
+        .features ul li::before {
             content: "✔";
             margin-left: 8px;
-            color: #10b981;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-        }
-
-        .stats .item {
-            flex: 1;
-        }
-
-        .stats .item h3 {
-            font-size: 1.5rem;
-            color: #3b82f6;
-        }
-
-        .stats .item p {
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .screenshots {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .screenshots img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .download {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .download a {
-            display: inline-block;
-            background: #f97316;
-            color: #fff;
-            padding: 14px 28px;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .download a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        footer {
-            margin-top: 40px;
-            font-size: 0.85rem;
-            color: #555;
-            text-align: center;
-        }
-
-        footer a {
-            color: #1e3a8a;
-            text-decoration: none;
-        }
-
-        .instagram-button {
-            background: linear-gradient(45deg, #fc00ff, #00dbde);
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .instagram-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* النص الجانبي الثابت */
-        .fixed-code {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: #1e3a8a;
-            color: white;
-            padding: 10px 16px;
-            border-radius: 12px;
-            font-weight: bold;
-            z-index: 9999;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            color: #10b981; /* Green checkmark */
         }
     </style>
 </head>
 
-<body>
+<body class="font-inter">
 
-    <a href="https://www.instagram.com/bh.adr/" target="_blank"><div class="fixed-code">مطور التطبيق: بدر الزعبي</div></a>
+    <!-- Fixed developer link -->
+    <a href="https://www.instagram.com/bh.adr/" target="_blank"
+        class="fixed top-5 left-5 bg-blue-900 text-white p-3 rounded-xl font-bold shadow-lg z-50 transition-all duration-300 hover:scale-105">
+        مطور التطبيق: بدر الزعبي
+    </a>
 
-    <div class="wrapper">
-        <header>
-            <img src="logo.jpg" alt="شعار جامعيّون" class="logo">
-            <h1>جامعيّون</h1>
-            <p class="subtitle">كل ما يحتاجه الطالب في مكان واحد</p>
+    <div class="max-w-3xl mx-auto p-5 my-10">
+        <!-- Header Section -->
+        <header class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mb-8">
+            <img src="https://placehold.co/80x80/1e3a8a/ffffff?text=Logo" alt="شعار جامعيّون"
+                class="logo w-20 h-20 mb-3 mx-auto rounded-full border-2 border-white">
+            <h1 class="text-4xl font-extrabold mb-2">جامعيّون</h1>
+            <p class="text-lg opacity-90">كل ما يحتاجه الطالب في مكان واحد</p>
         </header>
 
-        <section class="about">
-            <h2>عن المنصة</h2>
-            <p>جامعيّون هي منصّة جامعيّة شاملة توفّر كل ما يحتاجه طالب الجامعة.</p>
+        <!-- About Section -->
+        <section class="bg-white p-6 rounded-xl shadow-md mb-8">
+            <h2 class="text-2xl font-bold text-blue-900 mb-4">عن المنصة</h2>
+            <p class="text-gray-700 leading-relaxed">جامعيّون هي منصّة جامعيّة شاملة توفّر كل ما يحتاجه طالب الجامعة من
+                ملخصات ومواد دراسية، ومصادر شرح على يوتيوب، وأدوات لإدارة المهام والميزانية، بالإضافة إلى نصائح قيمة
+                وأقسام أخرى مفيدة جداً.</p>
         </section>
 
-        <section class="features">
-            <h2>مميزات التطبيق</h2>
-            <ul>
+        <!-- Features Section -->
+        <section class="bg-white p-6 rounded-xl shadow-md mb-8">
+            <h2 class="text-2xl font-bold text-blue-900 mb-4">مميزات التطبيق</h2>
+            <ul class="list-none pr-5 text-gray-700 space-y-2">
                 <li>واجهة سهلة وسريعة</li>
                 <li>قسم للدوسيات يحوي ملخصات والمواد PDF</li>
                 <li>مصادر لشرح موادك على يوتيوب</li>
@@ -214,39 +76,175 @@
             </ul>
         </section>
 
-        <div class="download">
-            <a href="https://download1334.mediafire.com/8cf9nagdrxogOQD-P8CY-GYh5xc_WiQMg6RPP_-3N6UgEe6TVrf_NxJ3VElQ1VIYEdNVAiF-EJj_Fp0sbWM4WXfBqDxg8chvKAxRtDvXEgxd-xD5IKO8UD45NYhX3LFfiMsH4-r_-G1ZHQXgarbsls_QQ3G-bJH8KFka7ZZv160/pnjeotb3pponpd3/%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%D9%91%D9%88%D9%86.apk" target="_blank">📲 تحميل APK الآن</a>
-        </div>
+        <!-- Download Section -->
+        <section class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-blue-900 mb-6">تحميل التطبيق</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Android Download Button -->
+                <a   download="جامعيون.apk" href="#"
+                    target="_blank"
+                    class="download-button bg-green-600 hover:bg-green-700 text-white py-4 px-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M7 10v4h3v-4H7zm4 0v4h3v-4h-3zm4 0v4h3v-4h-3zM5 18h14V6H5v12zm-2 0V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    </svg>
+                    <span>تحميل للأندرويد (APK)</span>
+                </a>
 
-        <section class="stats">
-            <div class="item">
-                <h3>عدد لا محدود</h3>
-                <p>ملخصات</p>
-            </div>
-            <div class="item">
-                <h3>عدد لا محدود</h3>
-                <p>مادة دراسية</p>
+                <!-- iOS Download Button -->
+                <a href="#" id="ios-download"
+                    class="download-button bg-gray-700 hover:bg-gray-800 text-white py-4 px-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 0c-3.314 0-6 2.686-6 6v12c0 3.314 2.686 6 6 6s6-2.686 6-6V6c0-3.314-2.686-6-6-6zm0 2c2.21 0 4 1.79 4 4v12c0 2.21-1.79 4-4 4s-4-1.79-4-4V6c0-2.21 1.79-4 4-4zM9 9h6v2H9V9zm0 4h6v2H9v-2z" />
+                    </svg>
+                    <span>تحميل للآيفون (قريباً)</span>
+                </a>
+
+                <!-- Windows Download Button -->
+                <a href="#" id="windows-download"
+                    class="download-button bg-blue-700 hover:bg-blue-800 text-white py-4 px-6 rounded-xl text-lg font-semibold shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1 5h2v2h-2V5zm0 4h2v2h-2V9zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z" />
+                    </svg>
+                    <span>تحميل للويندوز (قريباً)</span>
+                </a>
             </div>
         </section>
 
-        <section class="screenshots">
-            <img src="screenshot1.jpg" alt="لقطة شاشة 1">
-            <img src="screenshot2.jpg" alt="لقطة شاشة 2">
-            <img src="screenshot3.jpg" alt="لقطة شاشة 3">
+        <!-- Stats Section -->
+        <section class="bg-white p-6 rounded-xl shadow-md mb-8">
+            <h2 class="text-2xl font-bold text-blue-900 mb-4">إحصائيات</h2>
+            <div class="flex flex-col md:flex-row justify-around text-center space-y-6 md:space-y-0">
+                <div class="item flex-1">
+                    <h3 class="text-4xl font-extrabold text-blue-600">عدد لا محدود</h3>
+                    <p class="text-gray-600 text-lg">ملخصات</p>
+                </div>
+                <div class="item flex-1">
+                    <h3 class="text-4xl font-extrabold text-blue-600">عدد لا محدود</h3>
+                    <p class="text-gray-600 text-lg">مادة دراسية</p>
+                </div>
+            </div>
         </section>
 
-        <section class="contact">
-            <h2>تواصل معنا عبر انستقرام</h2>
-            <button class="instagram-button">
-                <a href="https://www.instagram.com/jami3iyoun/"  target="_blank"  style="text-decoration: none; color:white;">تواصل معنا</a>
+        <!-- Screenshots Section -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-blue-900 mb-4 text-center">لقطات شاشة من التطبيق</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <img src="https://placehold.co/300x500/e2e8f0/333333?text=Screenshot+1" alt="لقطة شاشة 1"
+                    class="w-full rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                <img src="https://placehold.co/300x500/e2e8f0/333333?text=Screenshot+2" alt="لقطة شاشة 2"
+                    class="w-full rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+                <img src="https://placehold.co/300x500/e2e8f0/333333?text=Screenshot+3" alt="لقطة شاشة 3"
+                    class="w-full rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105">
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="bg-white p-6 rounded-xl shadow-md mb-8 text-center">
+            <h2 class="text-2xl font-bold text-blue-900 mb-4">تواصل معنا عبر انستقرام</h2>
+            <button class="instagram-button-bg text-white py-3 px-8 rounded-full text-lg font-bold shadow-lg
+                           transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-purple-300">
+                <a href="https://www.instagram.com/jami3iyoun/" target="_blank"
+                    class="text-white no-underline block w-full h-full">تواصل معنا</a>
             </button>
         </section>
 
-        <footer>
+        <!-- Footer Section -->
+        <footer class="mt-10 text-center text-gray-600 text-sm">
             © 2025 جامعيّون. جميع الحقوق محفوظة.<br>
-            تابعنا على <a href="#">تويتر</a> و <a href="#">إنستغرام</a>
+            تابعنا على
+            <a href="#" class="text-blue-900 hover:underline">تويتر</a> و
+            <a href="#" class="text-blue-900 hover:underline">إنستغرام</a>
         </footer>
     </div>
 
+    <script>
+        // JavaScript for handling download clicks and showing messages
+        document.addEventListener('DOMContentLoaded', () => {
+            const iosDownloadButton = document.getElementById('ios-download');
+            const windowsDownloadButton = document.getElementById('windows-download');
+
+            // Function to show a custom alert message
+            const showCustomAlert = (message) => {
+                const alertBox = document.createElement('div');
+                alertBox.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+                alertBox.innerHTML = `
+                    <div class="bg-white p-6 rounded-xl shadow-2xl text-center max-w-sm w-full transform transition-all duration-300 scale-95 opacity-0" id="alert-content">
+                        <p class="text-xl font-semibold mb-4 text-gray-800">${message}</p>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg font-medium transition-colors duration-200" id="alert-ok-button">
+                            حسناً
+                        </button>
+                    </div>
+                `;
+                document.body.appendChild(alertBox);
+
+                // Animate in
+                setTimeout(() => {
+                    document.getElementById('alert-content').classList.remove('scale-95', 'opacity-0');
+                    document.getElementById('alert-content').classList.add('scale-100', 'opacity-100');
+                }, 10);
+
+                document.getElementById('alert-ok-button').addEventListener('click', () => {
+                    // Animate out
+                    document.getElementById('alert-content').classList.remove('scale-100', 'opacity-100');
+                    document.getElementById('alert-content').classList.add('scale-95', 'opacity-0');
+                    setTimeout(() => {
+                        alertBox.remove();
+                    }, 300); // Match transition duration
+                });
+            };
+
+            // Event listener for iOS download button
+            if (iosDownloadButton) {
+                iosDownloadButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    showCustomAlert('إصدار الآيفون سيتم توفيره قريباً جداً! ترقبونا.');
+                });
+            }
+
+            // Event listener for Windows download button
+            if (windowsDownloadButton) {
+                windowsDownloadButton.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    showCustomAlert('إصدار الويندوز سيتم توفيره قريباً جداً! ترقبونا.');
+                });
+            }
+
+            // Optional: Add a subtle scroll-to-top button
+            const createScrollToTopButton = () => {
+                const button = document.createElement('button');
+                button.innerHTML = '⬆️'; // Up arrow emoji
+                button.className = 'fixed bottom-5 right-5 bg-blue-600 text-white p-3 rounded-full shadow-lg text-2xl ' +
+                                   'transition-all duration-300 opacity-0 transform scale-0 hover:bg-blue-700 focus:outline-none';
+                button.style.zIndex = '1000';
+                document.body.appendChild(button);
+
+                const toggleVisibility = () => {
+                    if (window.scrollY > 300) {
+                        button.classList.remove('opacity-0', 'scale-0');
+                        button.classList.add('opacity-100', 'scale-100');
+                    } else {
+                        button.classList.remove('opacity-100', 'scale-100');
+                        button.classList.add('opacity-0', 'scale-0');
+                    }
+                };
+
+                window.addEventListener('scroll', toggleVisibility);
+                button.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                toggleVisibility(); // Initial check
+            };
+
+            createScrollToTopButton();
+        });
+    </script>
 </body>
+
 </html>
