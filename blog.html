@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدونة جامعيّون</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      
+        :root {
+            --primary-color: #004d9c;
+            --secondary-color: #0077c2;
+            --accent-color: #ff7f50;
+            --text-dark: #1f2937;
+            --bg-light: #f3f4f6;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            padding-bottom: 70px;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body class="font-cairo">
+   
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 p-4 hidden md:block">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            
+            <a href="#" class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold text-2xl">
+<img src="./logo/logo-jamii.png" 
+     alt="Logo" 
+     class="w-12 h-12 rounded-full">
+                <span>جامعيّون</span>
+            </a>
+          
+            <ul class="flex space-x-6 space-x-reverse font-semibold">
+                <li><a href="#" class="text-gray-700 hover:text-accent-color transition-colors duration-200">الرئيسية</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-accent-color transition-colors duration-200">مقالات</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-accent-color transition-colors duration-200">عن المدونة</a></li>
+                <li><a href="#" class="text-gray-700 hover:text-accent-color transition-colors duration-200">تواصل معنا</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div id="blog-container" class="max-w-6xl mx-auto p-5 md:mt-24">
+        
+        <header id="blog-header" class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mb-12 transform -rotate-1 perspective-1000">
+            <h1 class="text-5xl font-extrabold mb-2 leading-tight">مدونة جامعيّون</h1>
+            <p class="text-xl opacity-90">دليلك الشامل للحياة الجامعية</p>
+        </header>
+
+        
+        <div id="blog-list-view" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <main id="blog-posts-container" class="lg:col-span-2 space-y-8">
+               
+            </main>
+
+           
+            <aside class="space-y-8 lg:mt-0 mt-8">
+              
+                <div class="bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll">
+                    <h3 class="text-2xl font-bold text-primary-color mb-4 border-b border-gray-200 pb-2">أحدث المقالات</h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li><a href="#" class="hover:text-accent-color transition-colors duration-200">دليل شامل لكتابة البحث العلمي</a></li>
+                        <li><a href="#" class="hover:text-accent-color transition-colors duration-200">نصائح للامتحانات النهائية</a></li>
+                        <li><a href="#" class="hover:text-accent-color transition-colors duration-200">التعامل مع ضغط الدراسة</a></li>
+                    </ul>
+                </div>
+
+                
+                <div class="bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll">
+                    <h3 class="text-2xl font-bold text-primary-color mb-4 border-b border-gray-200 pb-2">فئات المدونة</h3>
+                    <ul id="category-list" class="flex flex-wrap gap-2 text-sm text-gray-700">
+                       
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        
+        <div id="single-post-view" class="hidden">
+            <button id="back-button" class="flex items-center space-x-2 space-x-reverse text-primary-color font-semibold mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+                <span>العودة إلى المدونة</span>
+            </button>
+            <div id="article-content" class="bg-card-bg p-6 rounded-2xl shadow-lg">
+                
+            </div>
+        </div>
+    </div>
+    
+   
+    <footer class="mobile-nav md:hidden p-4">
+        <ul class="flex justify-around items-center text-center">
+            <li class="flex-1">
+                <a href="#" class="flex flex-col items-center justify-center p-2 text-primary-color">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                    <span class="text-xs mt-1">الرئيسية</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="#" class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
+                    </svg>
+                    <span class="text-xs mt-1">المقالات</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="#" class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22 17.062c-2.617-3.924-4.846-5.46-8.914-6.324-1.103-.231-1.928-.964-1.928-2.062 0-1.101.825-1.833 1.928-2.064 4.068-.864 6.297-2.399 8.914-6.324L21 2c-3.235 3.235-5.235 5.235-9 5.235S4.235 5.235 1 2l-1 1.062c2.617 3.924 4.846 5.46 8.914 6.324 1.103.231 1.928.964 1.928 2.062 0 1.101-.825 1.833-1.928 2.064-4.068.864-6.297 2.399-8.914 6.324l1 1.062c3.235-3.235 5.235-5.235 9-5.235s5.765 2 9 5.235l1-1.062z" />
+                    </svg>
+                    <span class="text-xs mt-1">الفئات</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        const blogPosts = [
+            {
+                id: 1,
+                title: "كيفية تنظيم وقتك للدراسة بفعالية",
+                category: "نصائح",
+                date: "15 سبتمبر 2025",
+                summary: "يعد تنظيم الوقت تحديًا كبيرًا للطلاب الجامعيين. في هذه المقالة، سنقدم لك أفضل الاستراتيجيات لإدارة وقتك بذكاء، مما يساعدك على تحقيق التوازن بين الدراسة والحياة الاجتماعية...",
+                image: "https://placehold.co/800x450/f0f4f8/1f2937?text=مقال+عن+تنظيم+الوقت",
+                content: `
+                    <p>يعتبر تنظيم الوقت أحد أهم المهارات التي يجب على كل طالب جامعي إتقانها لتحقيق النجاح الأكاديمي والشخصي. دون خطة واضحة، قد تجد نفسك غارقًا في المهام، مما يؤدي إلى الإجهاد وتراجع الأداء.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">1. ابدأ بوضع جدول زمني</h2>
+                    <p>قم بتحديد كل مهامك الأكاديمية والشخصية. استخدم جدولًا أسبوعيًا أو شهريًا لتسجيل مواعيد المحاضرات، المشاريع، المذاكرة، وحتى أوقات الراحة.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">2. تقنية "بومودورو" للمذاكرة</h2>
+                    <p>تعتمد هذه التقنية على تقسيم وقت المذاكرة إلى فترات زمنية قصيرة، عادة 25 دقيقة، مع فواصل قصيرة بينها. يساعد هذا على زيادة التركيز وتجنب الإرهاق.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">3. لا تنسَ أوقات الراحة</h2>
+                    <p>من الضروري تخصيص وقت للاسترخاء والترفيه. النشاطات مثل ممارسة الرياضة، قضاء الوقت مع الأصدقاء، أو حتى مشاهدة فيلم يمكن أن تساعد في تجديد طاقتك.</p>
+                    <p>في النهاية، تذكر أن الهدف ليس فقط إنجاز المهام، بل تحقيق التوازن والعيش حياة جامعية صحية وممتعة.</p>
+                `
+            },
+            {
+                id: 2,
+                title: "أفضل 5 تطبيقات يجب على كل طالب امتلاكها",
+                category: "تكنولوجيا",
+                date: "10 سبتمبر 2025",
+                summary: "في عصر التكنولوجيا، يمكن للتطبيقات أن تحدث فرقًا كبيرًا في حياتك الأكاديمية. اكتشف معنا أفضل خمسة تطبيقات مصممة لمساعدتك على تنظيم مهامك، وتتبع ميزانيتك، والتعاون مع زملائك...",
+                image: "https://placehold.co/800x450/f0f4f8/1f2937?text=مقال+عن+تطبيقات",
+                content: `
+                    <p>في عالم اليوم الرقمي، أصبح الهاتف الذكي أداة لا غنى عنها للطلاب. ولكن هل تستخدمه بفعالية لتحسين أدائك الأكاديمي؟ إليك أفضل 5 تطبيقات يمكن أن تغير حياتك الجامعية.</p>
+                    <ol class="list-decimal list-inside space-y-4">
+                        <li>
+                            <h3 class="font-bold">Google Calendar</h3>
+                            <p>لتنظيم مواعيدك ومحاضراتك ومواعيد تسليم المشاريع. يمكنك مزامنته مع زملائك في الفريق لتسهيل التخطيط للمشاريع الجماعية.</p>
+                        </li>
+                        <li>
+                            <h3 class="font-bold">Notion</h3>
+                            <p>أداة قوية لتدوين الملاحظات، تنظيم المهام، وبناء قواعد بيانات شخصية لكل موادك. واجهته المرنة تجعله مثاليًا لأي شخص يبحث عن نظام متكامل.</p>
+                        </li>
+                        <li>
+                            <h3 class="font-bold">Forest</h3>
+                            <p>إذا كنت تعاني من التشتت، هذا التطبيق يساعدك على البقاء مركزًا من خلال تحويل وقتك إلى شجرة تنمو. إذا استخدمت هاتفك، تموت الشجرة!</p>
+                        </li>
+                    </ol>
+                    <p>هذه التطبيقات ليست مجرد أدوات، بل هي شركاء في رحلتك الأكاديمية. جربها الآن واكتشف الفارق!</p>
+                `
+            },
+            {
+                id: 3,
+                title: "دليل المبتدئين لإدارة ميزانية الطالب",
+                category: "مالية",
+                date: "5 سبتمبر 2025",
+                summary: "قد يكون الإنفاق الجامعي مربكًا بعض الشيء. هذا الدليل المبسط سيساعدك على تعلم كيفية تتبع نفقاتك، والادخار للمستقبل، وتجنب الديون الطلابية...",
+                image: "https://placehold.co/800x450/f0f4f8/1f2937?text=مقال+عن+الميزانية",
+                content: `
+                    <p>قد يكون إدارة المال أمرًا صعبًا في الجامعة، خاصة مع نفقات الكتب، السكن، والطعام. لكن مع القليل من التخطيط، يمكنك السيطرة على أمورك المالية.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">1. تتبع نفقاتك</h2>
+                    <p>ابدأ بتسجيل كل ما تنفقه. يمكنك استخدام تطبيق ميزانية أو حتى دفتر ملاحظات بسيط. هذا سيساعدك على تحديد أين يذهب مالك.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">2. ضع ميزانية واقعية</h2>
+                    <p>بعد معرفة نفقاتك، قم بتحديد ميزانية لكل فئة (مثل الطعام، النقل، الترفيه). كن واقعيًا لتجنب الإحباط.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">3. فكّر في المستقبل</h2>
+                    <p>حتى لو كان المبلغ صغيرًا، حاول توفير جزء من دخلك كل شهر. هذا سيمنحك شعورًا بالأمان المالي ويهيئك للمستقبل.</p>
+                `
+            },
+            {
+                id: 4,
+                title: "التعامل مع ضغط الدراسة",
+                category: "حياة جامعية",
+                date: "1 سبتمبر 2025",
+                summary: "الضغط الأكاديمي أمر لا مفر منه، لكن يمكن إدارته. تعرف على كيفية الحفاظ على صحتك العقلية والجسدية خلال الفترات الصعبة، وتعلّم تقنيات الاسترخاء الفعالة...",
+                image: "https://placehold.co/800x450/f0f4f8/1f2937?text=مقال+عن+ضغط+الدراسة",
+                content: `
+                    <p>الضغط الأكاديمي جزء طبيعي من الحياة الجامعية، ولكنه لا يجب أن يسيطر عليك. تعلم كيفية إدارة هذا الضغط يمكن أن يحسن من صحتك العقلية ويزيد من إنتاجيتك.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">1. خذ فترات راحة منتظمة</h2>
+                    <p>المذاكرة لساعات طويلة دون توقف يمكن أن تكون ضارة. احرص على أخذ فترات راحة قصيرة كل ساعة لتصفية ذهنك واستعادة تركيزك.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">2. مارس الرياضة</h2>
+                    <p>النشاط البدني هو وسيلة رائعة لتخفيف التوتر. حتى المشي السريع لمدة 20 دقيقة يمكن أن يحدث فرقًا كبيرًا في حالتك المزاجية.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">3. تحدث إلى شخص تثق به</h2>
+                    <p>لا تخف من مشاركة مشاعرك مع الأصدقاء أو العائلة. التعبير عن مخاوفك يمكن أن يكون أول خطوة نحو حل المشكلة.</p>
+                `
+            }
+        ];
+
+        const blogListView = document.getElementById('blog-list-view');
+        const singlePostView = document.getElementById('single-post-view');
+        const blogPostsContainer = document.getElementById('blog-posts-container');
+        const categoryList = document.getElementById('category-list');
+        const articleContent = document.getElementById('article-content');
+        const backButton = document.getElementById('back-button');
+        const categories = [...new Set(blogPosts.map(post => post.category))];
+        
+        // Function to render a single blog post
+        function renderSinglePost(postId) {
+            const post = blogPosts.find(p => p.id === postId);
+            if (!post) return;
+
+            // Populate the single post view with content
+            articleContent.innerHTML = `
+                <h1 class="text-4xl font-bold mb-4">${post.title}</h1>
+                <p class="text-gray-500 text-sm mb-6">نُشرت في ${post.date}</p>
+                <img src="${post.image}" alt="${post.title}" class="w-full h-auto rounded-lg mb-8">
+                <div class="prose max-w-none text-gray-700 leading-relaxed space-y-4">
+                    ${post.content}
+                </div>
+            `;
+            
+            // Show single post view and hide blog list
+            blogListView.classList.add('hidden');
+            singlePostView.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Function to render the list of blog posts
+        function renderPosts(filterCategory = null) {
+            blogPostsContainer.innerHTML = '';
+            let filteredPosts = filterCategory ? blogPosts.filter(post => post.category === filterCategory) : blogPosts;
+            
+            filteredPosts.forEach(post => {
+                const articleElement = document.createElement('article');
+                articleElement.className = 'bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll transform transition-transform duration-300 hover:scale-[1.01] cursor-pointer';
+                articleElement.dataset.postId = post.id;
+                articleElement.innerHTML = `
+                    <img src="${post.image}" alt="صورة المقالة" class="w-full h-auto rounded-lg mb-4">
+                    <h2 class="text-3xl font-bold mb-2 text-primary-color">${post.title}</h2>
+                    <p class="text-gray-500 text-sm mb-4">نُشرت في ${post.date}</p>
+                    <p class="text-gray-700 leading-relaxed">${post.summary}</p>
+                    <span class="text-accent-color font-semibold mt-4 block">اقرأ المزيد &rarr;</span>
+                `;
+                
+                articleElement.addEventListener('click', () => {
+                    renderSinglePost(post.id);
+                });
+
+                blogPostsContainer.appendChild(articleElement);
+            });
+
+            // Re-apply fade-in animation logic to new elements
+            setupAnimations();
+        }
+
+        // Function to render category buttons
+        function renderCategories() {
+            categoryList.innerHTML = '';
+            const allButton = document.createElement('li');
+            allButton.className = 'bg-primary-color text-white rounded-full px-4 py-1 transition-colors duration-200 cursor-pointer';
+            allButton.textContent = 'الكل';
+            allButton.addEventListener('click', () => {
+                renderPosts();
+                updateCategoryButtons(allButton);
+            });
+            categoryList.appendChild(allButton);
+
+            categories.forEach(category => {
+                const categoryItem = document.createElement('li');
+                categoryItem.className = 'bg-gray-200 hover:bg-gray-300 rounded-full px-4 py-1 transition-colors duration-200 cursor-pointer';
+                categoryItem.textContent = category;
+                categoryItem.addEventListener('click', () => {
+                    renderPosts(category);
+                    updateCategoryButtons(categoryItem);
+                });
+                categoryList.appendChild(categoryItem);
+            });
+        }
+
+        function updateCategoryButtons(activeButton) {
+            document.querySelectorAll('#category-list li').forEach(button => {
+                button.classList.remove('bg-primary-color', 'text-white');
+                button.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            activeButton.classList.remove('bg-gray-200', 'text-gray-700');
+            activeButton.classList.add('bg-primary-color', 'text-white');
+        }
+
+        function setupAnimations() {
+            const fadeInElements = document.querySelectorAll('.fade-in-on-scroll');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            function checkVisibility(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+            const observer = new IntersectionObserver(checkVisibility, observerOptions);
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
+        // Add event listener for the back button
+        backButton.addEventListener('click', () => {
+            singlePostView.classList.add('hidden');
+            blogListView.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCategories();
+            renderPosts();
+        });
+    </script>
+</body>
+
+</html>
