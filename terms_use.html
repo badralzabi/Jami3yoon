@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شروط الاستخدام - جامعيّون</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+       
+        :root {
+            --primary-color: #004d9c;
+            --secondary-color: #0077c2;
+            --accent-color: #ff7f50;
+            --text-dark: #003464;
+            --bg-light: #f3f4f6;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            padding-bottom: 70px;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="font-cairo">
+   <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 p-4">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+   
+    <a href="#" class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold text-2xl">
+      <img src="./logo/logo-jamii.png" alt="Logo" class="w-12 h-12 rounded-full">
+      <span>جامعيون</span>
+    </a>
+
+    
+    <button id="menu-btn" class="block md:hidden text-gray-700 focus:outline-none">
+      ☰
+    </button>
+
+    <ul id="menu" class="hidden md:flex space-x-6 space-x-reverse font-semibold">
+      <li><a href="./index.html" class="text-[--text-dark] hover:text-accent-color transition-colors duration-200">العودة للرئيسية</a></li>
+      <li><a href="./blog.html" class="text-[--text-dark] hover:text-accent-color transition-colors duration-200">المدونة</a></li>
+      <li><a href="./down.html" class="text-[--text-dark] hover:text-accent-color transition-colors duration-200">حمّل تطبيق جامعيون</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("menu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("flex");
+    menu.classList.toggle("flex-col");
+    menu.classList.toggle("mt-4");
+  });
+</script>
+    <div class="max-w-4xl mx-auto p-5 mt-24">
+       
+        <header class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mb-12">
+            <h1 class="text-5xl font-extrabold mb-2 leading-tight">شروط الاستخدام</h1>
+            <p class="text-xl opacity-90">القواعد والتعليمات لاستخدام خدماتنا</p>
+        </header>
+
+        
+        <div class="bg-card-bg p-8 rounded-2xl shadow-lg fade-in-on-scroll prose max-w-none text-[--text-dark]">
+            <h2 class="text-2xl font-bold mb-4">1. الموافقة على الشروط</h2>
+            <p class="mb-6">باستخدامك لموقع "جامعيّون" أو أي من خدماتنا، فإنك توافق على الالتزام بشروط الاستخدام هذه. إذا كنت لا توافق على هذه الشروط، يرجى عدم استخدام الموقع.</p>
+
+            <h2 class="text-2xl font-bold mb-4">2. حقوق الملكية الفكرية</h2>
+            <p class="mb-6">جميع المحتويات الموجودة على هذا الموقع، بما في ذلك النصوص، الرسومات، الشعارات، والصور، هي ملكية حصرية لـ "جامعيّون" ومحمية بموجب قوانين حقوق النشر. لا يجوز نسخ، تعديل، أو نشر أي جزء من المحتوى دون موافقة كتابية مسبقة منا.</p>
+
+            <h2 class="text-2xl font-bold mb-4">3. سلوك المستخدم</h2>
+            <p class="mb-6">يجب على المستخدمين عدم استخدام الموقع بطريقة تسيء للآخرين، أو تنتهك القوانين، أو تضر بسلامة الموقع. يمنع منعاً باتاً نشر أي محتوى مسيء، غير لائق، أو غير قانوني.</p>
+
+            <h2 class="text-2xl font-bold mb-4">4. إخلاء المسؤولية</h2>
+            <p class="mb-6">يتم توفير المحتوى على هذا الموقع "كما هو" وبدون أي ضمانات. نحن لا نتحمل المسؤولية عن أي أخطاء أو سهو في المحتوى، أو عن أي أضرار قد تنشأ عن استخدامك للموقع.</p>
+
+            <h2 class="text-2xl font-bold mb-4">5. التغييرات على الشروط</h2>
+            <p>نحتفظ بالحق في تعديل شروط الاستخدام هذه في أي وقت. سيتم نشر التغييرات على هذه الصفحة، ويعتبر استمرارك في استخدام الموقع بعد نشر التغييرات بمثابة موافقة منك على الشروط الجديدة.</p>
+        </div>
+    </div>
+
+    
+    <footer class="mt-12 text-center text-gray-500 text-sm">
+        © 2025 جامعيون. جميع الحقوق محفوظة.
+    </footer>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeInElements = document.querySelectorAll('.fade-in-on-scroll');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            function checkVisibility(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }
+            const observer = new IntersectionObserver(checkVisibility, observerOptions);
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>
