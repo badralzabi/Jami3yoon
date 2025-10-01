@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="صفحة جديدة لمدونة جامعيون بالتصميم والألوان المعتمدة.">
+    <meta name="robots" content="index, follow">
+    <title>عن مدونة جامعون</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #004d9c;
+            --secondary-color: #0077c2;
+            --accent-color: #ff7f50;
+            --text-dark: #1f2937;
+            --bg-light: #f3f4f6;
+            --card-bg: #f0fbff;
+            --card-border: #d7eefb;
+        }
+
+        .text-primary-color {
+            color: var(--primary-color);
+        }
+
+        .text-accent-color {
+            color: var(--accent-color);
+        }
+
+        .bg-primary-color {
+            background-color: var(--primary-color);
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .bg-card-bg {
+            background: var(--card-bg);
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+
+<body class="font-cairo">
+
+    <div id="page-container" class="max-w-6xl mx-auto p-5 mt-5">
+
+        <header id="page-header"
+            class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mb-12">
+            <h1 class="text-5xl font-extrabold mb-2 leading-tight">عن مدونة جامعيون</h1>
+            <p class="text-xl opacity-90">نحن هنا لدعمك في رحلتك الجامعية</p>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div id="about-content" class="lg:col-span-2 space-y-8">
+                
+                <section class="bg-card-bg p-8 rounded-2xl shadow-xl post-card">
+                    <h2 class="text-3xl font-bold text-primary-color mb-5 border-b border-card-border pb-3">رسالتنا ورؤيتنا 💡</h2>
+                    <p class="text-gray-700 leading-loose mb-6">
+                        تأسست مبادرة **جامعيون** من طلاب جامعيين لخدمة زملائهم الطلاب. هدفنا هو أن نكون **المصدر الشامل والموثوق** لكل ما يحتاجه الطالب الجامعي في رحلته الأكاديمية والشخصية، سواء كان ذلك عبر تطبيقنا أو مبادراتنا الميدانية.
+                    </p>
+
+                    <ul class="space-y-4 text-gray-700 list-inside list-disc pr-5">
+                        <li class="font-semibold text-primary-color">الرؤية: <span class="text-gray-700 font-normal">مجتمع جامعي واعٍ، منتج، ومستعد لسوق العمل.</span></li>
+                        <li class="font-semibold text-primary-color">الرسالة: <span class="text-gray-700 font-normal">تقديم محتوى نوعي، فرص تدريب، أدوات مساعدة، ودعم مجتمعي مستمر للطالب.</span></li>
+                    </ul>
+                </section>
+
+                <section class="bg-card-bg p-8 rounded-2xl shadow-xl post-card">
+                    <h2 class="text-3xl font-bold text-primary-color mb-5 border-b border-card-border pb-3">ما نقدمه للطالب الجامعي 🎁</h2>
+                    <div class="space-y-6">
+                        
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <span class="text-accent-color text-2xl font-extrabold">1.</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-primary-color">الدعم الأكاديمي والموارد</h3>
+                                <p class="text-gray-700">توفير ملخصات، دوسيات، أسئلة سنوات سابقة، ومصادر دراسية موثوقة لمختلف التخصصات عبر تطبيقنا. هذا هو العصب الأساسي لتخفيف معاناة البحث عن المواد الدراسية.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <span class="text-accent-color text-2xl font-extrabold">2.</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-primary-color">الفرص والتدريب</h3>
+                                <p class="text-gray-700">تنظيم ورش عمل ودورات مجانية بشهادات معتمدة (ميدانية وأونلاين)، زيارات ميدانية للشركات، وتقديم فرص تطوع لكسب الخبرة العملية وساعات التطوع.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 space-x-reverse">
+                            <span class="text-accent-color text-2xl font-extrabold">3.</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-primary-color">المحتوى الإثرائي</h3>
+                                <p class="text-gray-700">مقالات في المدونة تغطي مهارات الحياة الجامعية، إدارة الوقت، الصحة النفسية، والاستعداد المهني لمساعدتك على النمو الشامل.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="p-6 bg-primary-color/10 border border-primary-color/30 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-primary-color mb-3">تطوع معنا وكن جزءاً من جامعيون! 🚀</h3>
+                    <p class="text-gray-700">
+                        إذا كنت طالباً جامعياً ولديك شغف بتقديم المساعدة ولديك خبرة أو مشروع تريد مشاركته، ندعوك للانضمام إلى فريقنا! انضم إلينا لترك أثر إيجابي في المجتمع الطلابي واكسب ساعات تطوع وخبرة لا تُقدر بثمن.
+                    </p>
+                    <a href="https://bhadr1.github.io/entesap/" class="mt-4 inline-block bg-primary-color text-white font-bold px-6 py-2 rounded-full hover:bg-blue-900 transition-colors duration-300">
+  قدم طلب تطوع &rarr;
+</a>
+
+                </section>
+
+            </div>
+
+            <aside class="space-y-8 lg:mt-0 mt-8">
+                
+                <div class="bg-card-bg p-6 rounded-2xl shadow-lg border border-card-border">
+                    <h3 class="text-2xl font-bold text-primary-color mb-4 border-b border-gray-200 pb-2">روابط سريعة 🔗</h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li>
+                            <a href=".../download" target="_blank"
+                                class="flex items-center space-x-2 space-x-reverse hover:text-accent-color transition-colors duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                                <span>تحميل تطبيق جامعيون</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/jamaiyoon/" target="_blank"
+                                class="flex items-center space-x-2 space-x-reverse hover:text-accent-color transition-colors duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm3.321 8.879a3.176 3.176 0 00-3.176-3.176 3.176 3.176 0 00-3.176 3.176 3.176 3.176 0 003.176 3.176 3.176 3.176 0 003.176-3.176zM15 15.5H9v-5.5a3 3 0 013-3h1a4 4 0 014 4v.5z"/></svg>
+                                <span>حسابنا على إنستغرام</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.nahno.org/ngo/%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%D9%91%D9%88%D9%86-75712" target="_blank"
+                                class="flex items-center space-x-2 space-x-reverse hover:text-accent-color transition-colors duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 10h-2V7h-3V5H7v2H4.5A2.5 2.5 0 002 9.5v5A2.5 2.5 0 004.5 17h15a2.5 2.5 0 002.5-2.5v-3A2.5 2.5 0 0019 10zM5 14.5a.5.5 0 110-1 .5.5 0 010 1zm12.5 0a.5.5 0 110-1 .5.5 0 010 1z"/></svg>
+                                <span>مبادرة جامعيون على منصة نحن</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+    </div>
+</body>
+</html>
