@@ -9,58 +9,83 @@
 
 <url>
   <loc>https://jamaiyoon.com/</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://jamaiyoon.com/Studentgu/</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://jamaiyoon.com/download/</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://jamaiyoon.com/blog/</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jamaiyoon.com/download/</loc>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://jamaiyoon.com/policy/</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://jamaiyoon.com/terms/</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://jamaiyoon.com/Studentgu/index.html</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <loc>https://jamaiyoon.com/index.html</loc>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jamaiyoon.com/blog/about_blog/</loc>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://jamaiyoon.com/blog/?id=1</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://jamaiyoon.com/blog/?id=4</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://jamaiyoon.com/policy/index.html</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <loc>https://jamaiyoon.com/blog/index.html</loc>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://jamaiyoon.com/terms/index.html</loc>
-  <lastmod>2025-09-30T18:08:58+00:00</lastmod>
+  <loc>https://jamaiyoon.com/blog</loc>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
   <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jamaiyoon.com/blog/index.html?id=1</loc>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jamaiyoon.com/blog/index.html?id=4</loc>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jamaiyoon.com/blog?id=1</loc>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://jamaiyoon.com/blog?id=4</loc>
+  <lastmod>2025-10-01T14:29:15+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 
 
