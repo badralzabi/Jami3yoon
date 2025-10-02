@@ -72,9 +72,34 @@
   <lastmod>2025-10-02T13:32:10+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-        <url>
+ <url>
   <loc>https://jamaiyoon.com/blog/?id=6</loc>
   <lastmod>2025-10-02T13:34:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+      <url>
+  <loc>https://jamaiyoon.com/blog/?id=7</loc>
+  <lastmod>2025-10-02T21:17:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jamaiyoon.com/blog/?id=8</loc>
+  <lastmod>2025-10-02T21:18:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+      <url>
+  <loc>https://jamaiyoon.com/blog/?id=9</loc>
+  <lastmod>2025-10-02T21:19:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+      <url>
+  <loc>https://jamaiyoon.com/blog/?id=10</loc>
+  <lastmod>2025-10-02T21:20:40+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+      <url>
+  <loc>https://jamaiyoon.com/blog/?id=11</loc>
+  <lastmod>2025-10-02T21:21:10+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
@@ -86,4 +111,5 @@
 
 
 </urlset>
+
 
