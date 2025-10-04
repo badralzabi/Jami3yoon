@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="مدونة جامعيون: مصدر شامل للمقالات، النصائح الأكاديمية، وأحدث الموارد لدعم الطالب الجامعي في رحلته التعليمية والمهنية.">
+    <meta name="description"
+        content="مدونة جامعيون: مصدر شامل للمقالات، النصائح الأكاديمية، وأحدث الموارد لدعم الطالب الجامعي في رحلته التعليمية والمهنية.">
     <meta name="robots" content="index, follow">
     <title>مدونة جامعيون</title>
 
@@ -22,7 +23,7 @@
             --bg-light: #f3f4f6;
             --card-bg: #f0fbff;
             --card-border: #d7eefb;
-            
+
         }
 
         .text-primary-color {
@@ -100,52 +101,95 @@
     <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 p-4 hidden md:block">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
 
-            <a href="#" onclick="changeView(null); return false;"
+            <a href="index.html"
                 class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold text-2xl">
                 <img src="../logo-jamii.png" alt="Logo" class="w-12 h-12 rounded-full">
                 <span>جامعيون</span>
             </a>
 
-            <ul class="flex space-x-6 space-x-reverse font-semibold">
-                <li><a href="../index.html" onclick="changeView(null); return false;"
+            <ul class="flex space-x-6 space-x-reverse font-semibold items-center">
+                <li><a href="index.html"
                         class="text-gray-700 hover:text-accent-color transition-colors duration-200">الرئيسية</a></li>
-                <li><a href="" class="text-gray-700 hover:text-accent-color transition-colors duration-200">مقالات</a>
+                <li><a href="index.html"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">مقالات</a>
                 </li>
-                <li><a href="./about_blog/" class="text-gray-700 hover:text-accent-color transition-colors duration-200">عن
+                <li><a href="./about_blog/"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">عن
                         المدونة</a></li>
-                <li><a href="../contact" class="text-gray-700 hover:text-accent-color transition-colors duration-200">اتصل بنا</a></li>
+                <li><a href="../contact"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">اتصل بنا</a></li>
+                <li>
+                    <button id="search-desktop-btn"
+                        class="p-2 text-gray-700 hover:text-primary-color transition-colors duration-200"
+                        aria-label="زر البحث">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z" />
+                        </svg>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
-
     <div id="blog-container" class="max-w-6xl mx-auto p-5 md:mt-24">
 
         <header id="blog-header"
             class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mb-12 transform -rotate-1 perspective-1000">
             <h1 class="text-5xl font-extrabold mb-2 leading-tight">مدونة جامعيون</h1>
             <p class="text-xl opacity-90">دليلك الشامل للحياة الجامعية</p>
+
+            <div id="search-desktop-field" class="mt-6 hidden">
+                <div class="relative max-w-lg mx-auto">
+                    <input type="text" id="search-input-desktop" placeholder="ابحث في المقالات..."
+                        class="w-full p-3 pl-12 pr-4 rounded-full text-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-accent-color"
+                        aria-label="حقل البحث">
+                    <button id="search-submit-desktop"
+                        class="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary-color hover:text-accent-color transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zM4 10c0-3.309 2.691-6 6-6s6 2.691 6 6-2.691 6-6 6-6-2.691-6-6z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
         </header>
 
 
         <div id="blog-list-view" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
             <main id="blog-posts-container" class="lg:col-span-2 space-y-8">
-
             </main>
 
 
             <aside class="space-y-8 lg:mt-0 mt-8">
+                <div class="bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll md:hidden">
+                    <h3 class="text-2xl font-bold text-primary-color mb-4 border-b border-gray-200 pb-2">البحث</h3>
+                    <div class="relative">
+                        <input type="text" id="search-input-mobile" placeholder="ابحث في المقالات..."
+                            class="w-full p-3 pr-12 rounded-full text-lg text-gray-800 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent-color"
+                            aria-label="حقل البحث">
+                        <button id="search-submit-mobile"
+                            class="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary-color hover:text-accent-color transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zM4 10c0-3.309 2.691-6 6-6s6 2.691 6 6-2.691 6-6 6-6-2.691-6-6z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
 
                 <div class="bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll">
                     <h3 class="text-2xl font-bold text-primary-color mb-4 border-b border-gray-200 pb-2">أحدث المقالات
                     </h3>
                     <ul class="space-y-4 text-gray-700">
-                        <li><a href="./index.html/?id=14" onclick="changeView(1); return false;"
+                        <li><a href="./articles/article-14.html"
                                 class="hover:text-accent-color transition-colors duration-200">
-                               بناء ملف LinkedIn احترافي وأنت لا تزال طالبًا: استثمارك الذي يبدأ الآن</a></li>
-                        <li><a href="./index.html/?id=15" onclick="changeView(4); return false;"
+                                بناء ملف LinkedIn احترافي وأنت لا تزال طالبًا: استثمارك الذي يبدأ الآن</a></li>
+                        <li><a href="./articles/article-15.html"
                                 class="hover:text-accent-color transition-colors duration-200">
-                              رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز</a></li>
+                                رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز</a></li>
                     </ul>
                 </div>
 
@@ -154,33 +198,18 @@
                     <h3 class="text-2xl font-bold text-primary-color mb-4 border-b border-gray-200 pb-2">فئات المدونة
                     </h3>
                     <ul id="category-list" class="flex flex-wrap gap-2 text-sm text-gray-700">
-
                     </ul>
                 </div>
             </aside>
         </div>
 
-
-        <div id="single-post-view" class="hidden">
-            <button id="back-button"
-                class="flex items-center space-x-2 space-x-reverse text-primary-color hover:text-secondary-color font-semibold mb-8 transition-colors duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                </svg>
-                <span>العودة إلى المدونة</span>
-            </button>
-            <div id="article-content" class="bg-card-bg p-6 rounded-2xl shadow-lg">
-
-            </div>
-        </div>
     </div>
 
 
     <footer class="mobile-nav md:hidden p-4">
         <ul class="flex justify-around items-center text-center">
             <li class="flex-1">
-                <a href="./index.html" onclick="changeView(null); return false;"
-                    class="flex flex-col items-center justify-center p-2 text-primary-color">
+                <a href="index.html" class="flex flex-col items-center justify-center p-2 text-primary-color">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
                     </svg>
@@ -188,7 +217,17 @@
                 </a>
             </li>
             <li class="flex-1">
-                <a href="./about_blog" onclick="changeView(null); return false;"
+                <button id="search-mobile-nav-btn"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zM4 10c0-3.309 2.691-6 6-6s6 2.691 6 6-2.691 6-6 6-6-2.691-6-6z" />
+                    </svg>
+                    <span class="text-xs mt-1">بحث</span>
+                </button>
+            </li>
+            <li class="flex-1">
+                <a href="./about_blog"
                     class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                         <path
@@ -209,1968 +248,227 @@
             </li>
         </ul>
     </footer>
-
     <script>
         const blogPosts = [
-
-
             {
                 id: 1,
                 title: "ما هو جامعيون",
                 category: "نصائح أكاديمية",
                 date: "28 سبتمبر 2025",
-                summary: "جامعيون بدأ ك تطبيق جامعي ثمّ توسع ل يصبح مبادرة طلابية جامعية تهتم بطالب الجامعة وهدفها طالب الجامعة، نقدم كل شيئ يحتاجه الطالب في رحلته وحياته الجامعية ........",
+                summary: "جامعيون بدأ ك تطبيق جامعي ثمّ توسع ل يصبح مبادرة طلابية جامعية تهتم بطالب الجامعة وهدفها طالب الجامعة، نقدم كل شيئ يحتاجه الطالب في رحلته وحياته الجامعية",
                 image: "./img/jamiion.jpg",
-                content: `
-                    <p>
-                        توسع جامعيون ليصبح مبادرة طلابية مسجلة على منصة نحن الوطنية للتطوع، توسعنا لاننا مؤمنون بأن التوسع سوف يعطي اثر اكبر للطالب على كل المستويات ولنقدم مساعدة أكثر للطالب.
-                    </p>
-                    <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">1. كيف يساعد جامعيون الطالب الجامعي</h2>
-                   
-                    <p>
-                        نحن نعلم بمعاناة الطالب لأننا طلاب جامعيون، ولذلك طورنا تطبيق جامعيون الذي يحوي أقسام لا محدودة منها كل شيئ يخص المواد ندعوك لتحميل التطبيق وتستكشفها ب نفسك <a href="https://jamiyoon.vercel.app/down.html" target="_blank" style="color:blue;">من هنا</a> .
-                        <br>
-                        <br>
-                        <b>جامعيون</b> كــ مبادرة طلابية مسجلة على منصة <a href="https://www.nahno.org/ngo/%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%D9%91%D9%88%D9%86-75712" target="_blank" style="color:#2dccd3;">نحن</a> الوطنية للتطوع من قلب طلاب جامعيون لقلب طلاب جامعيون، 
-                        <br>
-                        <b>ماذا نوفر للطالب الجامعي في مبادرة جامعيون؟
-                        </b>
-                        <div style="background-color: #d7eefb; padding:20px;  border-radius:25px; ">
-                        <ol>
-                            <li>1- ورشات ودورات مجانية بشاهدة معتمدة</li>
-                            <p style="font-size:12px; font-weight: bold;">**الورشات ميدانية (وجاهية) واون لاين</p>
-                            <br>
-                            <li>2- فرص مشاركة بتخصص الطالب، أي نقدم فرصة للطالب أن يشارك مشروعه او خبرته في تخصصه ليحضى بالدعم.</li>
-                            <br>
-                             <li>3- زيارات ميدانية لعدة منشئات وشركات وتقديم فرص للطالب.</li>
-                             <br>
-                             <li>4- فرص تطوع مع جامعيون ليكتسب الطالب خبرة في مجال التطوع الذي اختاره والحصول على ساعات تطوع.</li>
-                            <br>
-
-                        <li>5- مبادرات حقيقية ليشارك فيها الطالب وينشر المعرفة ويكتسب الخبرة.</li>
-                            <br>
-                        <li>6- دعم ومساندة حقيقيين للطالب على ارض الواقع . </li>
-                        <br>
-                            <li>7- هذه ما هي الا نبذة تعريفية بسيطة جداً عن جامعيون .</li>
-                           
-                        </ol>
-                    </div>
-                    </p>
-
-                    <br>
-                     <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">1. ما هي الفرص التي يقدمها جامعيون للطالب</h2>
-
-                    <p>
-
-                        من منطلقنا لتقديم الدعم للطالب الجامعي على كل المستويات منها <b>تقديم فرص للطالب</b> تشمل:
-                        
-                    </p>
-                    
-                    <ul>
-                        <li>1- ورشات ودورات مجانية <b>بشهادة معتمدة</b>.</li>
-                        <li>2- مشاركة الطالب مشاريعه.</li>
-                        <li>3- نشر نشاطات بشكل مستمر بشتى المجالات ليشارك فيهاالطالب. <b style="font-size:14px;">مثل نشاط تقني يشارك فيه الطالب بموقع الكتروني طوره او تطبيق الخ...</b>  </li> 
-                        <span style="font-size:13px" >*الهدف من ذلك هو <b>ان يضهر الطالب خبراته لإيجاد فرص عمل، ولاكتساب الخبرة وتكوين علاقات تفيده في مجاله.</b></span>
-                        <li>4- ملخصات، ودوسيات، ومصادر لدراسة المواد، واسئلة سنوات..</li>
-                        <span style="font-size:13px" >* لاننا نعلم أن <b>هذا اكثر شيئ يعاني منه طالب الجامعة. </b></span>
-
-                    </ul>
-
-                    <br>
-                    
-                    <br>
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">كيف تتعرف علينا بشكل أكبر:</h2>
-
-
-        <p>
-<b>تابعنا </b> على حسابنا الرسمي على انستقرام <a href="https://www.instagram.com/jamaiyoon/" target="_blank" style="color:rgb(251 1 113);">من هنا</a>
-
-
-        </p>
-                    
-                `
+                slug: "ما_هو_جامعيون.html"
             },
-
-            
-           {
-    id: 2,
-    title: "الاستفادة القصوى من الأدوات التقنية في الحياة الجامعية: مفاتيح النجاح الأكاديمي والمهني",
-    category: "نصائح أكاديمية",
-    date: "1 أكتوبر 2025",
-    summary: "مقال شامل يوضح كيف يمكن للطلاب الجامعيين استخدام الأدوات التقنية مثل الذكاء الاصطناعي، والتخزين السحابي، وأدوات إدارة المشاريع لتحقيق التميز الأكاديمي والمهني.",
-    image: "./img//Keys to_success.avif",
-    content: `
-        <!-- تنسيق أساسي للعناوين والنقاط لتظهر بشكل منظم وجميل -->
-        <style>
-            .text-primary-color { color: #004d9c; } /* لون أزرق أساسي مستوحى من المثال السابق */
-            .article-list { padding-right: 1.5rem; margin-top: 0.75rem; }
-        </style>
-        
-        <p>
-            لم تعد الحياة الجامعية مقتصرة على حضور المحاضرات وتدوين الملاحظات بالدفاتر الورقية. في عصرنا الرقمي، أصبحت <b>الأدوات والحلول التقنية</b> هي البوصلة التي توجه الطالب نحو التميز الأكاديمي والاستعداد لسوق العمل. إن استثمار الطالب الجامعي في هذه الأدوات ليس ترفاً، بل هو ضرورة حتمية لتعزيز الإنتاجية، وإدارة الوقت، والتعاون بفعالية عالية.
-        </p>
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">1. تعزيز الإنتاجية الأكاديمية وإدارة المحتوى</h2>
-        <p>تساعد التكنولوجيا في تحويل الفوضى المعلوماتية إلى نظام رقمي قابل للبحث والاسترجاع من أي مكان:</p>
-        
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>ملاحظات منظمة وتخزين سحابي:</b> تطبيقات مثل **Notion** أو **OneNote** تتيح للطالب تدوين الملاحظات وتنظيمها بشكل هيكلي ومترابط، وتسمح بربطها بالمهام والمواعيد النهائية. وفي الوقت نفسه، يضمن استخدام خدمات التخزين السحابي مثل **Google Drive** أو **Dropbox** أن تكون جميع الملفات والمشاريع آمنة ومتاحة على مدار الساعة، مما يلغي القلق بشأن فقدان البيانات.
-            </li>
-            <li>
-                <b>أدوات المراجع والاقتباس:</b> لطلاب البحث والدراسات العليا، تُعد برامج إدارة المراجع مثل **Mendeley** أو **Zotero** أدوات لا غنى عنها. إنها تسهل عملية تجميع المصادر، وتوليد الاقتباسات بأساليب مختلفة (مثل MLA أو APA) في ثوانٍ، مما يختصر وقتاً طويلاً كان يُهدر في التنسيق اليدوي.
-            </li>
-        </ul>
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">2. الذكاء الاصطناعي كمساعد للتعلم والبحث</h2>
-        <p>أصبح الذكاء الاصطناعي (AI) ثورة حقيقية في مساعدة الطالب الجامعي، لا كبديل عن التعلم، بل كأداة قوية:</p>
-        
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>مساعدو الصياغة والأفكار:</b> يمكن استخدام نماذج اللغة الكبيرة (LLMs) مثل **Gemini** للمساعدة في صياغة المسودات الأولية للأبحاث، أو لتلخيص النصوص الطويلة والمعقدة، أو حتى لتبادل الأفكار وتوليد زوايا جديدة للمشاريع الأكاديمية.
-            </li>
-            <li>
-                <b>تخصيص مسار التعلم:</b> تقدم منصات التعلم الإلكتروني الحديثة مسارات تعليمية مخصصة بناءً على أداء الطالب، وتساعد خوارزميات الذكاء الاصطناعي في تحديد نقاط القوة والضعف لتركيز الجهود بشكل فعال.
-            </li>
-        </ul>
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">3. التواصل والعمل الجماعي عن بُعد</h2>
-        <p>في ظل المشاريع المشتركة والتعليم الهجين، أصبحت أدوات التعاون الرقمي ضرورة لضمان التفاعل السلس بين أعضاء الفريق:</p>
-        
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>الاجتماعات والمناقشات الرقمية:</b> منصات مثل **Zoom** و **Microsoft Teams** ليست مخصصة فقط للمحاضرات عن بُعد، بل هي مساحات عمل مثالية لعقد اجتماعات الفريق بكفاءة، وتسجيل النقاشات للرجوع إليها لاحقاً.
-            </li>
-            <li>
-                <b>العمل المتزامن على المستندات:</b> تتيح أدوات التحرير المشتركة (مثل **Google Docs** و **Word Online**) لأعضاء الفريق العمل على نفس المشروع في الوقت نفسه، مما يضمن التحديث الفوري وتقليل تضارب التعديلات، وهو ما يسرع من عملية تسليم المشروع النهائي.
-            </li>
-        </ul>
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">4. إدارة الوقت والمهام بكفاءة</h2>
-        <p>أكثر ما يعاني منه الطالب الجامعي هو إدارة جدول زمني مزدحم. التقنية تقدم الحلول لتبسيط هذه العملية:</p>
-        
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>التقويمات الرقمية والتذكيرات:</b> استخدام **Google Calendar** أو **Outlook Calendar** لتنظيم المواعيد النهائية، وجداول المحاضرات، والالتزامات الاجتماعية. إن خاصية التذكير التلقائي تضمن عدم تفويت أي مهمة مهمة.
-            </li>
-            <li>
-                <b>تطبيقات إدارة المشاريع:</b> تطبيقات مثل **Trello** أو **Todoist** تساعد في تقسيم المشاريع الأكاديمية الكبيرة إلى مهام صغيرة قابلة للإدارة، مما يجعل عبء العمل أقل إرهاقاً وأكثر تنظيماً.
-            </li>
-        </ul>
-
-        <br>
-        <p>
-            <b>خاتمة:</b>
-        </p>
-        <p>
-            إن الطالب الجامعي الذي يتبنى الأدوات التقنية الحديثة لا يضمن فقط إدارة أفضل لوقته ودراسته، بل يجهز نفسه كذلك لبيئة العمل المستقبلية التي تعتمد كلياً على المهارات الرقمية والمرونة التكنولوجية. هذه الأدوات هي جسر العبور من التعليم التقليدي إلى مستقبل مهني واعد. فاجعلوا من التكنولوجيا شريككم الأول للنجاح في رحلتكم الجامعية.
-        </p>
-    `
-},
-
-{
-    id: 3,
-    title: "أهم الأدوات التقنية لطالب الجامعة: ترسانة رقمية لتفوق أكاديمي لا يُضاهى",
-    category: "أدوات أكاديمية",
-    date: "2 أكتوبر 2025",
-    summary: "دليل شامل لأبرز التطبيقات والبرامج التقنية التي يجب أن يمتلكها طالب الجامعة، لتعزيز الإنتاجية، وتنظيم الملاحظات، وإدارة الوقت بفعالية.",
-    image: "./img/Technical_to.jpg",
-    content: `
-        <style>
-            .text-primary-color { color: #004d9c; } /* لون أزرق أساسي */
-            .article-list { padding-right: 1.5rem; margin-top: 0.75rem; }
-            .section-separator { margin-top: 3rem; margin-bottom: 3rem; border: 0; border-top: 1px solid #ccc; }
-        </style>
-        
-        <h2 class="text-3xl font-bold mt-6 mb-4 text-primary-color">مقدمة: التقنية كشريك في رحلة التعلم</h2>
-        <p>
-            في عصرنا الحالي، لم تعد التكنولوجيا مجرد وسيلة ترفيه، بل أصبحت **أداة أساسية** لتعزيز الكفاءة الأكاديمية. طالب الجامعة الذي يتقن استخدام الأدوات التقنية المناسبة يستطيع أن يوفر الوقت، وينظم دراسته بشكل أفضل، ويحتفظ بالمعلومات بكفاءة أعلى. إن امتلاك "ترسانة رقمية" قوية هو المفتاح للتحول من طالب تقليدي إلى طالب **ذكي ومنتج**. سنستعرض هنا أهم الفئات والأدوات التي يحتاجها كل طالب جامعي.
-        </p>
-        
-        <hr class="section-separator" />
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الأول: تنظيم الملاحظات والتعلم النشط</h2>
-        <p>لقد ولى زمن تدوين الملاحظات على الورق فحسب. هذه الأدوات تجعل ملاحظاتك حية وقابلة للبحث.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">1. تطبيقات تدوين الملاحظات والمزامنة</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>Evernote / Notion:</b> تطبيقات شاملة تسمح بتنظيم الملاحظات، وجدولة المهام، وإنشاء صفحات ويكي خاصة بمشاريعك. تعتبر **Notion** مثالية لطلاب التخصصات التي تتطلب ربطاً بين الأفكار والمشاريع المتعددة (قواعد بيانات، جداول، ملاحظات نصية).
-            </li>
-            <li>
-                <b>OneNote (من مايكروسوفت):</b> الأداة الأقوى للطلاب الذين يفضلون الكتابة باليد على الأجهزة اللوحية (مثل Surface أو iPad)، حيث يسمح بترتيب الملاحظات في دفاتر وأقسام ودمج الصور والمقاطع الصوتية.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">2. التعلم والاستدعاء النشط</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>Anki:</b> هو ملك تطبيقات البطاقات التعليمية التي تعتمد على تقنية **التكرار المتباعد (Spaced Repetition)**. إنه يحدد لك موعد مراجعة البطاقة بناءً على "منحنى النسيان" الخاص بك، مما يضمن تذكر المعلومات لفترة أطول بأقل جهد ممكن.
-            </li>
-            <li>
-                <b>Quizlet:</b> يوفر مجموعة متنوعة من الألعاب والاختبارات التفاعلية المصممة لتثبيت المفاهيم الأساسية، بالإضافة إلى مكتبة ضخمة من البطاقات التعليمية التي أنشأها المستخدمون.
-            </li>
-        </ul>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الثاني: إدارة الوقت والمهام والتركيز</h2>
-        <p>تنظيم اليوم وإدارة ضغط المواعيد النهائية هو التحدي الأكبر. هذه الأدوات تجعل الأمر سهلاً.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">3. تنظيم المهام والمشاريع</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>Google Calendar / Outlook Calendar:</b> الأداة الأساسية لجدولة المحاضرات، والمواعيد النهائية، وأوقات المذاكرة المخصصة. ميزة المزامنة تضمن أن جدولك معك أينما ذهبت.
-            </li>
-            <li>
-                <b>Todoist / Trello:</b> تطبيقات متقدمة لإدارة المهام. **Todoist** رائع لتنظيم قائمة المهام اليومية والشخصية، بينما **Trello** (باستخدام لوحة كانبان) ممتاز لتنظيم المشاريع الجماعية ذات المراحل المتعددة.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">4. تعزيز التركيز وتقليل التشتيت</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>Forest / Focus To-Do:</b> تطبيقات تعتمد على تقنية **بومودورو (Pomodoro)**. فكرة **Forest** هي زرع شجرة تنمو أثناء فترة تركيزك، وتموت إذا غادرت التطبيق، مما يخلق حافزاً بصرياً قوياً للبقاء مركزاً.
-            </li>
-            <li>
-                <b>Freedom / Cold Turkey:</b> أدوات لحجب المواقع المشتتة (مثل وسائل التواصل الاجتماعي) والتطبيقات المزعجة على جهاز الكمبيوتر والهاتف لفترة زمنية محددة. لا يمكنك إلغاء الحظر حتى انتهاء الوقت، مما يضمن الالتزام.
-            </li>
-        </ul>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الثالث: الكتابة الأكاديمية والمراجع</h2>
-        <p>الورقة البحثية أو التقرير الجيد لا يقتصر على المحتوى، بل يشمل أيضاً التنسيق والاستشهاد بالمصادر.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">5. أدوات التدقيق اللغوي والكتابة</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>Grammarly:</b> أداة لا غنى عنها للتدقيق النحوي والإملائي وتحسين أسلوب الكتابة باللغة الإنجليزية. تساعدك على صقل لغتك لتقديم أبحاث خالية من الأخطاء.
-            </li>
-            <li>
-                <b>Google Docs / Microsoft Word Online:</b> العمل على مستندات سحابية يتيح التعاون الفوري مع أعضاء الفريق دون الحاجة لتبادل الملفات، ويوفر ميزات الحفظ التلقائي التي تحمي عملك من الضياع.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">6. إدارة المراجع والاستشهادات</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>Zotero / Mendeley:</b> برامج لإدارة المراجع والاستشهادات. تسمح لك بحفظ المصادر والمقالات، وتصنيفها، وتوليد قائمة المراجع بجميع الأنماط الأكاديمية (APA, MLA, Chicago) بنقرة زر واحدة داخل مستندك. إنها توفر وقتاً هائلاً في المراحل النهائية من كتابة الأبحاث.
-            </li>
-            <li>
-                <b>Scribbr Citation Generator:</b> أداة بسيطة وسريعة على الويب لإنشاء استشهادات سريعة لمصادر فردية.
-            </li>
-        </ul>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">خاتمة: الاستثمار في الأدوات المناسبة</h2>
-        <p>
-            النجاح الأكاديمي لم يعد يعتمد على الدراسة بجهد طويل فحسب، بل على الدراسة **بذكاء** وفعالية. هذه الأدوات التقنية هي استثمار حقيقي في وقتك ومستقبلك. لا تحتاج إلى استخدامها جميعاً، لكن اختيار الأداة المناسبة لكل وظيفة (ملاحظات، تنظيم، تركيز، بحث) سيحول فوضى الدراسة الجامعية إلى نظام إنتاجي متكامل.
-        </p>
-        <p>
-            ابدأ بتجربة أداة واحدة من كل قسم لمدة أسبوع، واختر ما يناسب أسلوبك في التعلم. ففي النهاية، أفضل أداة هي تلك التي تستخدمها بانتظام!
-        </p>
-    `
-},
- 
-
-{
-    id: 5,
-    title: "كيف تذاكر بذكاء وليس بجهد: دليل الطالب لتعظيم الإنتاجية الأكاديمية",
-    category: "مهارات الدراسة",
+            {
+                id: 2,
+                title: "أهم الأدوات التقنية لطالب الجامعة: ترسانة رقمية لتفوق أكاديمي لا يُضاهى",
+                category: "أدوات أكاديمية",
+                date: "2 أكتوبر 2025",
+                summary: "دليل شامل لأبرز التطبيقات والبرامج التقنية التي يجب أن يمتلكها طالب الجامعة، لتعزيز الإنتاجية، وتنظيم الملاحظات، وإدارة الوقت بفعالية.",
+                image: "./img/Technical_to.jpg",
+                slug: "ادوات-تقنية-الجامعة.html"
+            },
+            {
+                id: 3,
+                title: "الاستفادة القصوى من الأدوات التقنية في الحياة الجامعية: مفاتيح النجاح الأكاديمي والمهني",
+                category: "نصائح أكاديمية",
+                date: "1 أكتوبر 2025",
+                summary: "مقال شامل يوضح كيف يمكن للطلاب الجامعيين استخدام الأدوات التقنية مثل الذكاء الاصطناعي، والتخزين السحابي، وأدوات إدارة المشاريع لتحقيق التميز الأكاديمي والمهني.",
+                image: "./img//Keys to_success.avif",
+                slug: "ادوات-تقنية-للنجاح.html"
+            },
+              {
+                id: 4,
+                title: "كيف تذاكر بذكاء وليس بجهد: دليل الطالب لتعظيم الإنتاجية الأكاديمية",
+                category: "مهارات الدراسة",
     date: "2 أكتوبر 2025",
     summary: "استراتيجيات فعالة لزيادة كفاءة التعلم وتقليل الجهد العقلي المهدر، بما في ذلك تقنية بومودورو، الاستدعاء النشط، والتكرار المتباعد، والنوم الحيوي.",
     image: "./img/Student_guide.jpg",
-    content: `
-        <!-- تنسيق أساسي للعناوين والنقاط -->
-        <style>
-            .text-primary-color { color: #004d9c; } /* لون أزرق أساسي مستوحى من المثال السابق */
-            .article-list { padding-right: 1.5rem; margin-top: 0.75rem; }
-            .section-separator { margin-top: 3rem; margin-bottom: 3rem; border: 0; border-top: 1px solid #ccc; }
-        </style>
-        
-        <h2 class="text-3xl font-bold mt-6 mb-4 text-primary-color">مقدمة: التحول من الجهد إلى الفعالية</h2>
-        <p>
-            لطالما ارتبط التفوق الأكاديمي بالجهد والساعات الطويلة التي يقضيها الطالب على مكتبه. ولكن، في ظل ضغط المواد الجامعية وتراكم المشاريع، أصبح مفهوم <b>"الدراسة بذكاء"</b> هو المفتاح الحقيقي للنجاح. الدراسة بذكاء تعني تطبيق استراتيجيات معرفية وتنظيمية تهدف إلى زيادة كفاءة التعلم وتقليل الجهد العقلي المهدر، مما يتيح لك تحقيق نتائج أفضل في وقت أقل. الجهد ضروري، ولكن الذكاء يوجه هذا الجهد نحو النقطة الصحيحة.
-        </p>
-        
-        <hr class="section-separator" />
+                slug: "مذاكرة-بذكاء.html"
+            },
 
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الأول: الأساسيات التنظيمية والتخطيط الذكي</h2>
-        <p>الاستذكار الذكي يبدأ قبل فتح أول صفحة؛ يبدأ بالتنظيم الدقيق للوقت والمكان.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">1. الإدارة الزمنية المتقنة (لا تدرس فقط، بل خطط للدراسة)</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>تقنية بومودورو (Pomodoro Technique):</b> قسّم وقت دراستك إلى فترات زمنية قصيرة ومركزة. عادة ما تكون 25 دقيقة من العمل العميق تليها 5 دقائق من الراحة. بعد أربع فترات (بومودورو)، خذ استراحة أطول تتراوح بين 20 إلى 30 دقيقة. هذه التقنية تحافظ على تركيزك حاداً وتمنع الإرهاق.
-            </li>
-            <li>
-                <b>قاعدة الـ 80/20 (مبدأ باريتو):</b> غالباً ما تأتي 80% من نتائجك من 20% من جهودك. حدد أهم 20% من الموضوعات أو المفاهيم التي تحمل أكبر وزن في الامتحان أو تمثل النواة الأساسية للمادة، وخصص لها الجزء الأكبر من وقت دراستك.
-            </li>
-            <li>
-                <b>جدولة الراحة أولاً:</b> لا تضع جدولاً لمهامك فقط، بل <b>حدد أوقات الراحة والنوم</b> في الجدول كأولوية قصوى. الدماغ يحتاج إلى الراحة لتثبيت الذكريات ومعالجة المعلومات.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">2. بيئة التعلم المحفزة (استوديو الدراسة)</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>فصل المكان:</b> خصص مكاناً ثابتاً للدراسة يكون خالياً تماماً من عوامل التشتيت. إذا كنت تدرس في مكتبتك الجامعية، اذهب لنفس المكان قدر الإمكان لربط عقلك تلقائياً بحالة الدراسة.
-            </li>
-            <li>
-                <b>الأدوات الرقمية لتقليل التشتيت:</b> استخدم تطبيقات حجب المواقع أو وضع "عدم الإزعاج" على هاتفك خلال فترات البومودورو.
-            </li>
-            <li>
-                <b>التغذية والترطيب:</b> حافظ على زجاجة ماء قريبة ووجبات خفيفة صحية؛ فالجفاف ونقص السكر يؤثران بشكل مباشر على قدرتك على التركيز والاستيعاب.
-            </li>
-        </ul>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الثاني: استراتيجيات التعلم النشط (Active Learning)</h2>
-        <p>الدراسة بذكاء تعني التفاعل مع المعلومات بدلاً من مجرد قراءتها. هذا هو المفتاح الحقيقي لتثبيت الذاكرة طويلة المدى.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">3. تقنية الاستدعاء النشط (Active Recall)</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>طريقة البطاقات التعليمية (Flashcards):</b> سواء كانت ورقية أو رقمية (مثل تطبيق <b>Anki</b>)، اكتب السؤال أو المفهوم على جهة والجواب على الجهة الأخرى.
-            </li>
-            <li>
-                <b>طريقة "السؤال/الإجابة":</b> بعد قراءة قسم صغير، أغلق الكتاب واسأل نفسك: "ما هي النقاط الرئيسية في هذا القسم؟" أو "كيف يرتبط هذا المفهوم بما درسته سابقاً؟" ثم اكتب الإجابة. هذا يختبر ما تعلمته فعلياً.
-            </li>
-            <li>
-                <b>تحويل العناوين إلى أسئلة:</b> قم بتحويل أي عنوان رئيسي أو فرعي في الكتاب إلى سؤال مباشر، وحاول الإجابة عليه قبل قراءة المحتوى.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">4. التكرار المتباعد (Spaced Repetition)</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>تجنب الحشو (Cramming):</b> الحشو ليلة الامتحان يؤدي إلى تذكر المعلومات لفترة قصيرة فقط. بدلاً من ذلك، راجع المواد على مدار أيام أو أسابيع.
-            </li>
-            <li>
-                <b>جدولة المراجعات:</b> راجع المادة لأول مرة بعد يوم واحد من دراستها، ثم بعد ثلاثة أيام، ثم بعد أسبوع، ثم بعد أسبوعين. هذا يتوافق مع منحنى النسيان للدماغ.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">5. تقنية فاينمان (The Feynman Technique)</h3>
-        <ol class="list-decimal article-list space-y-3">
-            <li>
-                <b>اشرح المفهوم:</b> حاول شرح المفهوم بصوت عالٍ أو كتابةً لشخص لا يعرف شيئاً عنه (مثلاً طفل في العاشرة). استخدم لغة بسيطة وواضحة.
-            </li>
-            <li>
-                <b>حدد الثغرات:</b> أين تعثرت؟ أين احتجت للرجوع إلى الكتاب؟ هذه هي "ثغرات المعرفة" لديك.
-            </li>
-            <li>
-                <b>راجع وسد الثغرات:</b> ارجع إلى المادة الأصلية وادرس تلك النقاط الضعيفة بعمق أكبر.
-            </li>
-            <li>
-                <b>بسط وتشبيه:</b> استخدم التشبيهات والقصص البسيطة لتوضيح المفهوم. كلما كان الشرح أبسط، كان فهمك أعمق.
-            </li>
-        </ol>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الثالث: تدوين الملاحظات الذكي ومعالجة المعلومات</h2>
-        <p>الملاحظات الفعالة هي ملخصات ذات معنى وليست مجرد نسخ حرفي للمحاضرة.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">6. التركيز على الهيكلية والربط</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>خرائط المفاهيم (Mind Maps):</b> استخدم الرسوم البيانية لربط الأفكار والمفاهيم ببعضها البعض. ضع الفكرة الرئيسية في المركز وتفرع منها للأفكار الفرعية. هذا يساعد عقلك على رؤية الصورة الكلية.
-            </li>
-            <li>
-                <b>طريقة كورنيل (Cornell Method):</b> قسّم صفحة الملاحظات إلى ثلاثة أقسام: عمود للملاحظات أثناء الشرح، وعمود لـ "الأسئلة والكلمات المفتاحية" بعد الشرح مباشرة، وقسم سفلي صغير لـ "الملخص" الذي تكتبه بنفسك.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">7. التلخيص وإعادة الصياغة</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>استخدم كلماتك الخاصة:</b> بعد الانتهاء من القراءة، أغلق المصدر وقم بتلخيص الفقرات أو الأقسام بكلماتك الخاصة. إذا كنت تستخدم نفس كلمات الكتاب، فأنت تنسخ ولست تفهم.
-            </li>
-            <li>
-                <b>إنشاء الاختصارات والرموز:</b> طور نظامك الخاص من الاختصارات والرموز لتسريع عملية تدوين الملاحظات دون إغفال المحتوى المهم.
-            </li>
-        </ul>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الرابع: العقل السليم في الجسم السليم (تجنب الإرهاق)</h2>
-        <p>الجزء الأكثر ذكاءً في الدراسة هو إدراك أن عقلك أداة تحتاج إلى صيانة.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">8. دور النوم الحيوي</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>تثبيت الذاكرة:</b> النوم ليس مجرد راحة، بل هو عملية أساسية يقوم فيها الدماغ بمعالجة وتنظيم وتثبيت المعلومات التي تعلمتها خلال اليوم وتحويلها إلى ذاكرة طويلة المدى.
-            </li>
-            <li>
-                <b>تجنب الدراسة بعد 24 ساعة من الحرمان:</b> عندما تكون منهكاً، تقل كفاءة الدراسة بشكل كبير. النوم الجيد (7-9 ساعات) قبل وبعد الدراسة أمر بالغ الأهمية.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">9. الحركة واليقظة</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>استراحة الحركة:</b> خلال استراحة الـ 5 دقائق في تقنية بومودورو، انهض وتحرك. المشي القصير لمدة 10 دقائق يمكن أن يعيد تنشيط الدورة الدموية ويزيد من تدفق الأكسجين إلى الدماغ.
-            </li>
-            <li>
-                <b>التأمل وتفريغ الذهن:</b> خصص 5 دقائق للتنفس العميق أو التأمل الواعي (Mindfulness) للمساعدة في تقليل التوتر وتصفية الذهن، مما يزيد من قدرتك على التركيز عند العودة للدراسة.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">10. التخطيط للمكافآت والترفيه</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>المكافآت الصغيرة:</b> كافئ نفسك بعد إكمال هدف دراسي صغير (مثلاً الانتهاء من فصل كامل). المكافآت تحفز نظام الدوبامين في الدماغ، مما يربط الدراسة بالمتعة ويعزز دافعك للعودة إليها.
-            </li>
-            <li>
-                <b>الحد من تعدد المهام (Multitasking):</b> التركيز على مهمة واحدة في وقت واحد هو قمة الذكاء في الدراسة. تعدد المهام يقلل كفاءة العمل بنسبة تصل إلى 40% ويزيد من الشعور بالضغط والإجهاد.
-            </li>
-        </ul>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">خاتمة</h2>
-        <p>
-            الدراسة بذكاء هي رحلة مستمرة لتعلم أفضل الطرق التي يعمل بها عقلك. إنها تتطلب الانضباط ليس في عدد الساعات، بل في تطبيق التقنيات الصحيحة، مثل الاستدعاء النشط، والتكرار المتباعد، والحفاظ على صحة عقلك وجسدك. عندما تبدأ في تطبيق هذه الاستراتيجيات، ستجد أنك تنجز المزيد من المذاكرة في وقت أقل، وتتذكر المعلومات لفترة أطول، والأهم من ذلك، تستمتع برحلتك الأكاديمية دون أن تقع ضحية للإرهاق والجهد المفرط.
-        </p>
-        <p>
-            ابدأ اليوم بتطبيق تقنية واحدة فقط من هذه التقنيات، وشاهد كيف تتغير نتائجك.
-        </p>
-    `
-},
-
-{
-    id: 6,
-    title: "كيف تحصل على A+ في موادك: استراتيجيات مجربة لتحقيق التفوق الأكاديمي",
+            {
+                id: 5,
+                 title: "كيف تحصل على A+ في موادك: استراتيجيات مجربة لتحقيق التفوق الأكاديمي",
     category: "نصائح أكاديمية",
     date: "2 أكتوبر 2025",
     summary: "دليل عملي للطلاب الطموحين، يركز على الاستراتيجيات التي تتجاوز مجرد الدراسة بجهد، لضمان أعلى الدرجات وأفضل فهم للمواد الجامعية.",
     image: "./img/A+_in_university.jpg",
-    content: `
-        <style>
-            .text-primary-color { color: #004d9c; } /* لون أزرق أساسي */
-            .article-list { padding-right: 1.5rem; margin-top: 0.75rem; }
-            .section-separator { margin-top: 3rem; margin-bottom: 3rem; border: 0; border-top: 1px solid #ccc; }
-        </style>
-        
-        <h2 class="text-3xl font-bold mt-6 mb-4 text-primary-color">مقدمة: ما وراء المذاكرة.. عقلية المتفوق</h2>
-        <p>
-            الحصول على تقدير **A+** ليس مسألة حظ أو ساعات دراسة طويلة فحسب؛ بل هو نتيجة لتطبيق **استراتيجيات محددة** وعقلية تركز على الجودة وليس الكم. الطالب الذي يحصل على هذه الدرجة لا يكتفي بفهم المادة، بل يتقنها ويستعرضها بطريقة تفوق التوقعات. يتطلب هذا الأمر مزيجاً من الإعداد المسبق، والتعلم النشط، والمهارات المتميزة في تقديم الأداء.
-        </p>
-        
-        <hr class="section-separator" />
+                slug: "الحصول-على-A-plus.html"
+            },
 
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الأول: الإعداد المسبق والعمل في بداية الفصل</h2>
-        <p>رحلة الـ A+ تبدأ في اليوم الأول من الفصل، وليس في ليلة الامتحان.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">1. تحليل خطة المادة (Syllabus)</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>أوزان الدرجات:</b> حدد بدقة **كيف تتوزع الدرجات**. إذا كانت المشاريع تمثل 50% من العلامة، فامنحها 50% من تركيزك. يجب أن تعرف ما هو الأكثر أهمية لتوجيه جهدك بذكاء.
-            </li>
-            <li>
-                <b>المواعيد النهائية الحرجة:</b> ضع جميع مواعيد الاختبارات، والواجبات الكبرى، وتواريخ تسليم الأبحاث على تقويمك الرقمي **منذ البداية**. لا تدع أي موعد يفاجئك.
-            </li>
-            <li>
-                <b>توقعات الأستاذ:</b> اقرأ قسم "التوقعات" و"أهداف التعلم". فهم ما يبحث عنه الأستاذ في الإجابات سيمنحك ميزة تنافسية.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">2. القراءة المسبقة والتجهيز الذهني</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>تصفح المحاضرة القادمة:</b> قبل حضور المحاضرة، اقرأ العناوين الرئيسية والفرعية في الكتاب. هذه "الخلفية" البسيطة تحولك من مستقبل سلبي للمعلومات إلى طالب **جاهز للاستيعاب والربط**.
-            </li>
-            <li>
-                <b>تدوين الأسئلة:</b> أثناء القراءة المسبقة، دوّن أي أسئلة أو نقاط غامضة. خلال المحاضرة، ستجد أن الأستاذ يجيب عنها تلقائياً، أو يمكنك طرحها بنفسك لإظهار مشاركتك واهتمامك.
-            </li>
-        </ul>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الثاني: التعلم النشط وتثبيت المعلومة</h2>
-        <p>لتحصل على A+، يجب أن تكون مستودعاً للمعرفة، لا مجرد ناقل لها.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">3. قوة الاستدعاء النشط (Active Recall)</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>الاختبار الذاتي المستمر:</b> لا تكتفِ بالقراءة أو التلخيص. أغلق المادة، وحاول كتابة كل ما تذكره عن الموضوع. إذا تعثرت، عد وراجع تلك النقطة فقط. هذه العملية تقوي الذاكرة وتحدد نقاط ضعفك بدقة.
-            </li>
-            <li>
-                <b>طريقة البطاقات التفسيرية:</b> بدلاً من كتابة الكلمة والتعريف، اكتب السؤال الذي يحتاج إلى تفسير. على سبيل المثال، بدلاً من "الكلمة: الانتحال"، اكتب "اشرح متى يعتبر الاقتباس انتحالاً في الأبحاث الجامعية؟". الإجابة التفسيرية تزيد من العمق.
-            </li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">4. المراجعة المتباعدة والخرائط الذهنية</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>تجنب "الحشو":</b> استخدم تطبيقات مثل **Anki** أو قم بجدولة مراجعاتك بفترات زمنية متزايدة (يوم، ثلاثة أيام، أسبوع). المعلومة التي تراجعها 5 مرات بفواصل زمنية أفضل بكثير من مراجعتها 10 مرات في ليلة واحدة.
-            </li>
-            <li>
-                <b>خرائط المفاهيم:</b> ارسم خريطة تربط بين الفصول والمواضيع. الـ A+ يتطلب فهم **العلاقة بين المفاهيم المختلفة** وليس مجرد تذكر تعريف كل مفهوم على حدة.
-            </li>
-        </ul>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">القسم الثالث: الأداء الأمثل في الامتحانات والمشاريع</h2>
-        <p>الدرجة النهائية تعتمد على كيفية عرض معرفتك تحت الضغط وفي التقييمات.</p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">5. إتقان فن الامتحانات</h3>
-        <ol class="list-decimal article-list space-y-3">
-            <li>
-                <b>تدرب على الامتحانات السابقة:</b> إذا أمكن، احصل على نماذج امتحانات السنوات الماضية أو الأسئلة التي يركز عليها الأستاذ. الممارسة لا تقتصر على معرفة الإجابات، بل على **إدارة الوقت** تحت ظروف الاختبار.
-            </li>
-            <li>
-                <b>قراءة السؤال مرتين:</b> اقرأ السؤال كاملاً ومرتين قبل الإجابة. تأكد من أنك تفهم ما هو مطلوب تحديداً (قارن، حلل، اشرح، انتقد). الإجابة على السؤال الخطأ تؤدي إلى خسارة كامل الدرجة.
-            </li>
-            <li>
-                <b>الهيكلية في الإجابات المقالية:</b> ابدأ بمقدمة تحدد فيها إجابتك الرئيسية (Thesis Statement)، ثم اتبعها بنقاط داعمة منظمة في فقرات، واختم بملخص. الهيكلية الواضحة تسهل على المصحح فهمك، وتزيد الدرجة.
-            </li>
-        </ol>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-primary-color">6. التعامل مع الواجبات والأبحاث</h3>
-        <ul class="list-disc article-list space-y-3">
-            <li>
-                <b>قدم شيئاً إضافياً:</b> لترتقي من A إلى A+، أضف لمسة شخصية أو بحثاً عميقاً يتجاوز ما طلب منك بوضوح. (مثلاً، اقتراح حل عملي، أو ربط المفهوم بدراسة حالة غير مذكورة).
-            </li>
-            <li>
-                <b>المراجعة والتدقيق (مرتين):</b> استخدم أداة تدقيق نحوي مثل **Grammarly**، ثم اطلب من زميل أو صديق مراجعة عملك. الأخطاء البسيطة في التنسيق أو القواعد قد تفقدك النقاط الثمينة التي تحتاجها لـ A+.
-            </li>
-        </ul>
-
-        <hr class="section-separator" />
-        
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">خاتمة: الاتساق هو سر الاستمرارية</h2>
-        <p>
-            رحلة الحصول على A+ هي رحلة **انضباط واتساق**. لا تحتاج إلى أن تكون عبقرياً، بل تحتاج إلى أن تكون منظماً وملتزماً بالاستراتيجيات الصحيحة بشكل يومي. استبدل الحشو المتقطع بـ **الدراسة الذكية المتباعدة**، وتفاعل مع المعلومة بدلاً من استهلاكها السلبي، وتأكد من فهمك لمعايير التقييم في كل مقرر.
-        </p>
-        <p>
-            تذكر دائماً أن جهدك يجب أن يكون موجهاً إلى الأهداف الأكثر وزناً في علاماتك. ابدأ بتطبيق أول ثلاث خطوات في مادتك الأصعب وشاهد كيف يتحسن تقديرك.
-        </p>
-    `
-},
             {
-    id: 7,
-    title: "10 طرق فعّالة لإدارة وقتك خلال الفصل الدراسي",
+                id: 6,
+                 title: "10 طرق فعّالة لإدارة وقتك خلال الفصل الدراسي",
     category: "نصائح أكاديمية",
     date: "02 أكتوبر 2025",
     summary: "إدارة الوقت هي سر التفوق الجامعي. في هذا المقال نقدم 10 استراتيجيات فعّالة تساعد الطالب الجامعي على تنظيم وقته خلال الفصل الدراسي، والتوازن بين المحاضرات، الواجبات، المشاريع، والحياة الشخصية.",
     image: "./img/Time_management.avif",
-    content: `
-        <p>
-            <b>إدارة الوقت</b> تعتبر واحدة من أهم المهارات التي يحتاجها أي طالب جامعي ليحقق النجاح الأكاديمي والشخصي. 
-            فخلال الفصل الدراسي يملئ جدول الطالب بالمحاضرات، الواجبات، المشاريع، الامتحانات، 
-            وحتى الأنشطة الاجتماعية والتطوعية. 
-            <br><br>
-            لذلك فإن الطالب الذي يتقن فن إدارة الوقت سيكون قادرًا على الإنجاز أكثر، 
-            تقليل الضغط النفسي، والموازنة بين دراسته وحياته الخاصة.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">1. ضع خطة أسبوعية واضحة</h2>
-        <p>
-            ابدأ أسبوعك بتحديد جميع المحاضرات، مواعيد تسليم الواجبات، والمهام المطلوب إنجازها. 
-            استخدام دفتر ورقي أو تطبيق رقمي مثل Google Calendar أو Notion سيساعدك على رؤية الصورة الكاملة لأسبوعك.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">2. استخدم تقنية "بومودورو"</h2>
-        <p>
-            تقنية <b>Pomodoro</b> تعتمد على تقسيم وقت المذاكرة إلى 25 دقيقة تركيز + 5 دقائق راحة. 
-            بعد 4 جلسات، خذ استراحة أطول (15–20 دقيقة). 
-            هذه الطريقة تعزز التركيز وتمنع الإرهاق.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">3. رتب أولوياتك</h2>
-        <p>
-            ليس كل المهام بنفس الأهمية. 
-            تعلم قاعدة "مصفوفة آيزنهاور" التي تقسم المهام إلى: 
-            عاجل ومهم، مهم لكن غير عاجل، عاجل غير مهم، وغير عاجل وغير مهم. 
-            هذا يساعدك على إنجاز المهم أولًا.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">4. ابتعد عن المشتتات</h2>
-        <p>
-            أغلق الإشعارات على هاتفك، واستخدم تطبيقات مثل <b>Forest</b> أو <b>StayFocusd</b> 
-            لحجب المواقع التي تضيع وقتك. 
-            تذكر أن 30 دقيقة تركيز كامل تعادل ساعات من الدراسة المتقطعة.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">5. خصص وقتًا للراحة</h2>
-        <p>
-            لا تجعل جدولك ممتلئًا بالكامل بالدراسة. 
-            الدماغ يحتاج إلى استراحة ليستعيد نشاطه. 
-            خصص وقتًا لممارسة الرياضة أو الهوايات أو حتى لمجرد الاسترخاء.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">6. راجع أهدافك يوميًا</h2>
-        <p>
-            قبل النوم، راجع ما أنجزته وما لم تنجزه. 
-            هذا التقييم اليومي يساعدك على تحسين جدولك باستمرار 
-            ويعطيك شعورًا بالإنجاز والتحفيز.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">7. قسم المهام الكبيرة إلى أجزاء صغيرة</h2>
-        <p>
-            المشاريع أو الأبحاث الطويلة قد تبدو مرعبة إذا نظرت إليها دفعة واحدة. 
-            قسمها إلى خطوات صغيرة بجدول زمني واضح، 
-            مثلاً: (اليوم كتابة المقدمة – غدًا مراجعة المراجع – بعد غد كتابة الفصل الأول...).
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">8. تعلم قول "لا"</h2>
-        <p>
-            ليس عليك المشاركة في كل نشاط أو قبول كل دعوة. 
-            إذا كان ذلك يؤثر على وقتك الدراسي، تعلم أن تقول "لا" بلطف. 
-            الأولويات الأكاديمية تأتي أولاً.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">9. استفد من الأوقات القصيرة</h2>
-        <p>
-            أوقات الانتظار بين المحاضرات أو في المواصلات يمكن استغلالها لمراجعة الملاحظات أو قراءة ملخص. 
-            حتى 15 دقيقة من المراجعة اليومية تحدث فرقًا كبيرًا على المدى الطويل.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">10. التزم بالمرونة</h2>
-        <p>
-            ليس كل يوم سيكون مثاليًا. 
-            قد تضطر لتغيير جدولك أو إعادة ترتيب أولوياتك. 
-            المرونة تساعدك على التكيف مع الظروف الطارئة دون فقدان السيطرة.
-        </p>
-
-        <br>
-        <div style="background-color:#d7eefb; padding:20px; border-radius:20px; margin-top:20px;">
-            <h3 class="text-xl font-bold mb-2 text-primary-color">💡 خلاصة المقال</h3>
-            <p>
-                إدارة الوقت ليست مجرد مهارة، بل هي أسلوب حياة. 
-                الطالب الذي يعرف كيف ينظم وقته سيحصل على درجات أعلى، 
-                ويعيش حياة جامعية متوازنة، 
-                ويكون مستعدًا أكثر للحياة العملية بعد التخرج.
-            </p>
-        </div>
-
-        <br>
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">كيف تبدأ الآن؟</h2>
-        <p>
-            اختر 3 من هذه الطرق وابدأ بتطبيقها هذا الأسبوع. 
-            لا تنتظر أن يصبح جدولك مثاليًا، 
-            فقط ابدأ بخطوة صغيرة وستلاحظ الفرق تدريجيًا. 
-            <br>
-            وتذكر دائمًا: <b>الوقت هو أثمن مورد في حياتك الجامعية.</b>
-        </p>
-    `
-},
-{
-    id: 8,
-    title: "كيف تتعامل مع ضغط الامتحانات وتقلل من التوتر؟",
+                slug: "ادارة-الوقت-بالجامعة.html"
+            },
+             {
+                id: 7,
+                 title: "كيف تتعامل مع ضغط الامتحانات وتقلل من التوتر؟",
     category: "نصائح أكاديمية",
-    date: "02 أكتوبر 2025",
+     date: "02 أكتوبر 2025",
     summary: "فترة الامتحانات تعتبر من أصعب الفترات على الطالب الجامعي، حيث يزداد القلق والتوتر بشكل ملحوظ. في هذا المقال نقدم استراتيجيات عملية مدعمة بالأمثلة والصور تساعدك على تقليل التوتر والتعامل مع ضغط الامتحانات بذكاء.",
     image: "./img/Exam_pressure.jpg",
-    content: `
-        <p>
-            <b>التوتر في فترة الامتحانات</b> شعور طبيعي يعيشه معظم طلاب الجامعة، 
-            لكنه قد يتحول إلى عائق يؤثر على التركيز والأداء الأكاديمي. 
-            الطالب الذكي ليس الذي يذاكر ساعات طويلة بلا توقف، بل الذي يعرف كيف يدير وقته وطاقته 
-            ويتحكم في مشاعره خلال هذه المرحلة الحساسة.
-            <br><br>
-            في هذا المقال سنستعرض مجموعة من الطرق والنصائح العملية 
-            التي ستساعدك على التعامل مع الضغط النفسي وتقليل التوتر 
-            حتى تؤدي أفضل ما لديك في الامتحانات.
-        </p>
+                slug: "التعامل-مع-ضغط-الامتحانات.html"
+            },
 
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">1. خطط مسبقًا ولا تترك الدراسة لآخر لحظة</h2>
-        <p>
-            من أكثر أسباب التوتر هو <b>التأجيل والتسويف</b>. 
-            عندما تبدأ مبكرًا وتضع خطة واضحة لمراجعة المواد، ستشعر بثقة أكبر وتقل مستويات القلق.
-            <br>
-            قسّم المادة إلى أجزاء صغيرة، وحدد لكل يوم هدفًا واقعيًا يمكن إنجازه.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">2. اعتنِ بصحتك الجسدية</h2>
-        <p>
-            الجسم السليم ينعكس مباشرة على صفاء الذهن. 
-            حاول الالتزام بوجبات غذائية متوازنة تحتوي على:
-        </p>
-        <ul>
-            <li>🥦 خضار وفواكه تمدك بالطاقة والفيتامينات.</li>
-            <li>🥩 بروتين يساعد على تقوية التركيز.</li>
-            <li>💧 شرب الماء بانتظام لتجنب الجفاف.</li>
-        </ul>
-        <p>
-            وتجنب الإفراط في الكافيين والمشروبات الغازية التي تزيد التوتر بدل أن تقلله.
-        </p>
-
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">3. مارس الرياضة أو على الأقل المشي</h2>
-        <p>
-            20 دقيقة من المشي يوميًا كفيلة بتقليل هرمونات التوتر وتحفيز إفراز هرمونات السعادة. 
-            الرياضة تنشط الدورة الدموية وتحسن التركيز بشكل ملحوظ.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">4. استخدم تقنيات الاسترخاء</h2>
-        <p>
-            هناك عدة تقنيات تساعدك على تهدئة عقلك مثل:
-        </p>
-        <ol>
-            <li>🧘‍♂️ تمارين التنفس العميق (تنفس 4 ثوان – احبس 4 ثوان – ازفر 4 ثوان).</li>
-            <li>🎧 الاستماع إلى موسيقى هادئة أو تلاوة قرآنية.</li>
-            <li>✨ ممارسة التأمل أو اليوغا لعدة دقائق يوميًا.</li>
-        </ol>
-
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">5. لا تهمل النوم</h2>
-        <p>
-            السهر الطويل قبل الامتحان قد يعطيك وقتًا إضافيًا للدراسة، 
-            لكنه يضعف الذاكرة والتركيز. 
-            حاول الحصول على 7-8 ساعات نوم يوميًا خاصة في الليالي السابقة للامتحانات.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">6. قسم وقت المذاكرة بذكاء</h2>
-        <p>
-            لا تدرس لساعات طويلة متواصلة. 
-            استخدم تقنية <b>البومودورو</b> أو ضع فواصل قصيرة كل ساعة 
-            لاستعادة نشاطك.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">7. لا تقارن نفسك بالآخرين</h2>
-        <p>
-            كل طالب له أسلوبه وقدرته الخاصة. 
-            المقارنة بالزملاء تزيد التوتر فقط. 
-            ركز على خطتك أنت ولا تجعل الآخرين معيارًا لنجاحك.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">8. تواصل مع أصدقائك أو أسرتك</h2>
-        <p>
-            أحيانًا مجرد التحدث مع شخص قريب يقلل من حدة القلق. 
-            لا تعزل نفسك تمامًا، وشارك مشاعرك مع من تثق بهم.
-        </p>
-
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">9. حضر نفسك ليوم الامتحان</h2>
-        <p>
-            حضر كل شيء قبل الامتحان بليلة: الأقلام، البطاقة الجامعية، الماء، وأي أدوات مسموح بها. 
-            هذا يقلل من ارتباكك في صباح يوم الامتحان.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">10. ثق بنفسك</h2>
-        <p>
-            تذكر أن الامتحان مجرد وسيلة لقياس مستواك، وليس نهاية العالم. 
-            الثقة بالنفس والهدوء هما مفتاح الأداء الجيد. 
-            كرر عبارات إيجابية مثل: <b>"أنا مستعد – سأبذل جهدي – يمكنني النجاح"</b>.
-        </p>
-
-        <br>
-        <div style="background-color:#d7eefb; padding:20px; border-radius:20px; margin-top:20px;">
-            <h3 class="text-xl font-bold mb-2 text-primary-color">💡 خلاصة المقال</h3>
-            <p>
-                التوتر أمر طبيعي في فترة الامتحانات، لكن لا يجب أن يتحول إلى عائق. 
-                من خلال التخطيط الجيد، الاهتمام بالصحة، أخذ فترات راحة، 
-                واستخدام تقنيات الاسترخاء، يمكنك أن تسيطر على قلقك 
-                وتؤدي الامتحانات بأفضل صورة ممكنة.
-            </p>
-        </div>
-
-        <br>
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">ابدأ اليوم</h2>
-        <p>
-            اختر استراتيجيتين أو ثلاث من هذه الطرق وابدأ بتطبيقها من الآن. 
-            لا تنتظر حتى يقترب الامتحان لتجربها. 
-            وتذكر دائمًا أن صحتك النفسية والجسدية أهم من أي علامة.
-        </p>
-    `
-},
-
-
-{
-    id: 9,
-    title: "أهمية وضع أهداف أكاديمية واضحة وكيف تحققها",
+            {
+                id: 8,
+                 title: "أهمية وضع أهداف أكاديمية واضحة وكيف تحققها",
     category: "نصائح أكاديمية",
     date: "02 أكتوبر 2025",
     summary: "وضع أهداف أكاديمية واضحة يساعد الطالب الجامعي على تحسين تركيزه، تنظيم وقته، وتحقيق نجاح أكبر خلال مسيرته الدراسية. في هذا المقال نشرح كيف تحدد أهدافك وتحققها خطوة بخطوة.",
     image: "./img/vector-1753165713918-c9135fccd819.avif",
-    content: `
-        <p>
-            كل طالب يسعى للنجاح يحتاج إلى خارطة طريق واضحة تُعرفه أين هو وأين يريد الوصول. 
-            هذه الخارطة هي <b>الأهداف الأكاديمية</b>. 
-            الأهداف ليست مجرد أحلام أو رغبات، بل هي خطة واضحة تحدد خطواتك للوصول إلى النجاح الأكاديمي.
-        </p>
+                slug: "تحقيق-الاهداف-الاكاديمية.html"
+            },
 
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">1. لماذا تعتبر الأهداف الأكاديمية مهمة؟</h2>
-        <p>
-            الأهداف الأكاديمية تساعدك على:
-        </p>
-        <ul>
-            <li>🎯 تحسين تركيزك وتوجيه طاقتك نحو ما هو مهم.</li>
-            <li>🗓 تنظيم وقتك بشكل أفضل.</li>
-            <li>📈 متابعة تقدمك وتحقيق الإنجازات تدريجيًا.</li>
-            <li>💡 زيادة تحفيزك الذاتي.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">2. كيفية تحديد أهداف أكاديمية واضحة</h2>
-        <p>
-            قبل أي شيء، يجب أن تكون أهدافك:
-        </p>
-        <ol>
-            <li><b>واضحة ومحددة:</b> مثلاً "أريد الحصول على معدل 3.5 في الفصل القادم" بدلاً من "أريد النجاح".</li>
-            <li><b>قابلة للقياس:</b> حدد كيف ستعرف أنك حققتها.</li>
-            <li><b>واقعية:</b> تأكد أن الهدف ممكن تحقيقه ضمن ظروفك الحالية.</li>
-            <li><b>مرتبط بالوقت:</b> ضع موعدًا لإنجاز الهدف.</li>
-        </ol>
-
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">3. خطة عمل لتحقيق الأهداف</h2>
-        <p>
-            الهدف بدون خطة هو مجرد حلم. لذا يجب وضع خطة واضحة لتحقيق أهدافك الأكاديمية:
-        </p>
-        <ul>
-            <li>📅 قسم الهدف إلى مهام صغيرة ومحددة.</li>
-            <li>⏰ حدد جدولًا زمنيًا لكل مهمة.</li>
-            <li>✅ راقب تقدمك أسبوعيًا وقم بالتعديل إذا لزم الأمر.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">4. أدوات تساعدك على تتبع أهدافك</h2>
-        <p>
-            يمكنك استخدام أدوات رقمية لتنظيم وتتبع أهدافك، مثل:
-        </p>
-        <ol>
-            <li><b>Google Calendar</b>: لتحديد المواعيد والمراجعات.</li>
-            <li><b>Notion</b>: لإنشاء خطة دراسية مفصلة.</li>
-            <li><b>Trello</b>: لتنظيم المهام بطريقة مرئية.</li>
-        </ol>
-
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">5. التغلب على العقبات</h2>
-        <p>
-            أثناء السعي لتحقيق أهدافك، قد تواجه عقبات. الأهم هو:
-        </p>
-        <ul>
-            <li>🔄 إعادة تقييم الهدف إذا لزم الأمر.</li>
-            <li>💪 الحفاظ على التحفيز والتركيز.</li>
-            <li>🤝 طلب الدعم من الأصدقاء أو المرشدين الأكاديميين.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">6. الاحتفال بالإنجازات</h2>
-        <p>
-            لا تنتظر حتى تصل للهدف النهائي فقط للاحتفال. 
-            احتفل بالإنجازات الصغيرة على طول الطريق، فهذا يعزز معنوياتك ويزيد رغبتك في الاستمرار.
-        </p>
-
-        <br>
-        <div style="background-color:#d7eefb; padding:20px; border-radius:20px; margin-top:20px;">
-            <h3 class="text-xl font-bold mb-2 text-primary-color">💡 خلاصة المقال</h3>
-            <p>
-                وضع أهداف أكاديمية واضحة ليس رفاهية، بل ضرورة لكل طالب يسعى للتفوق. 
-                الأهداف تعطيك اتجاهًا، تحافظ على تركيزك، وتجعلك أقرب لتحقيق أحلامك الأكاديمية والمهنية.
-            </p>
-        </div>
-
-        <br>
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">ابدأ الآن</h2>
-        <p>
-            خصص وقتًا اليوم لكتابة ثلاثة أهداف أكاديمية للفصل القادم، وضع خطة صغيرة لتحقيقها. 
-            التزامك بهذه الخطوة سيكون بداية رحلة نجاحك الأكاديمي.
-        </p>
-    `
-},
-
-{
-    id: 10,
-    title: "أفضل الأدوات الرقمية لتنظيم الدراسة وزيادة الإنتاجية",
+            {
+                id: 9,
+                 title: "أفضل الأدوات الرقمية لتنظيم الدراسة وزيادة الإنتاجية",
     category: "أدوات أكاديمية",
     date: "02 أكتوبر 2025",
     summary: "في عالم الدراسة الحديث، أصبح استخدام الأدوات الرقمية أمرًا لا غنى عنه للنجاح الأكاديمي. في هذا المقال، نستعرض أفضل التطبيقات والمنصات التي تساعد الطلاب على إدارة وقتهم، تنظيم مهامهم، وتحقيق أقصى استفادة من وقت الدراسة.",
     image: "./img/Digital_tools.jpg",
-    content: `
-        <p>
-            في زمن تتسارع فيه المعلومات وتتعدد المهام، يحتاج الطالب الجامعي إلى أدوات ذكية تُساعده في تنظيم دراسته، تحسين إنتاجيته، وتقليل التوتر الناتج عن ضغط المواعيد والاختبارات.
-        </p>
+                slug: "ادوات-رقمية-للدراسة.html"
+            },
 
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">1. لماذا تحتاج أدوات دراسية رقمية؟</h2>
-        <ul>
-            <li>🧠 تنظيم المعلومات بشكل أفضل.</li>
-            <li>📅 إدارة الوقت والمواعيد بكفاءة.</li>
-            <li>✅ تتبع المهام والواجبات بسهولة.</li>
-            <li>📚 تحسين التركيز أثناء الدراسة.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">2. مقارنة بين أفضل الأدوات الدراسية</h2>
-        <p>
-            إليك جدول مقارنة سريع بين أبرز الأدوات الرقمية التي يستخدمها الطلاب:
-        </p>
-
-        <div class="overflow-x-auto mt-4 mb-6">
-            <table class="table-auto w-full border border-gray-300 text-sm">
-                <thead class="bg-blue-100 text-gray-700">
-                    <tr>
-                        <th class="px-4 py-2 border">الأداة</th>
-                        <th class="px-4 py-2 border">الوظيفة الرئيسية</th>
-                        <th class="px-4 py-2 border">مميزات</th>
-                        <th class="px-4 py-2 border">مثال استخدام</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="hover:bg-gray-50">
-                        <td class="border px-4 py-2 font-bold">Notion</td>
-                        <td class="border px-4 py-2">إدارة المعرفة والملاحظات</td>
-                        <td class="border px-4 py-2">مرن، يدعم القوائم، الجداول، التكاملات</td>
-                        <td class="border px-4 py-2">إنشاء قاعدة بيانات للمحاضرات</td>
-                    </tr>
-                    <tr class="hover:bg-gray-50">
-                        <td class="border px-4 py-2 font-bold">Todoist</td>
-                        <td class="border px-4 py-2">إدارة المهام</td>
-                        <td class="border px-4 py-2">تصنيفات، تذكيرات، سهولة الاستخدام</td>
-                        <td class="border px-4 py-2">قائمة مهام أسبوعية للمذاكرة</td>
-                    </tr>
-                    <tr class="hover:bg-gray-50">
-                        <td class="border px-4 py-2 font-bold">Google Keep</td>
-                        <td class="border px-4 py-2">تدوين ملاحظات سريعة</td>
-                        <td class="border px-4 py-2">بسيط، متزامن مع الجوال والحاسوب</td>
-                        <td class="border px-4 py-2">تدوين أفكار أثناء المحاضرة</td>
-                    </tr>
-                    <tr class="hover:bg-gray-50">
-                        <td class="border px-4 py-2 font-bold">Forest</td>
-                        <td class="border px-4 py-2">التركيز ومنع التشتت</td>
-                        <td class="border px-4 py-2">أسلوب تحفيزي، غرس الأشجار أثناء التركيز</td>
-                        <td class="border px-4 py-2">جلسات دراسة بدون مقاطعة</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">3. كيف تختار الأداة المناسبة لك؟</h2>
-        <ol>
-            <li><b>حدد احتياجك:</b> هل تحتاج لتنظيم الوقت، الملاحظات، أم التركيز؟</li>
-            <li><b>اختر واجهة مريحة:</b> الأداة يجب أن تكون سهلة الاستخدام وتناسب أسلوبك.</li>
-            <li><b>جرّب قبل الالتزام:</b> استخدم النسخ المجانية أولًا.</li>
-        </ol>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">4. دمج الأدوات مع روتينك الدراسي</h2>
-        <p>
-            لا يكفي تحميل التطبيقات، بل يجب دمجها ضمن روتينك اليومي:
-        </p>
-        <ul>
-            <li>🕗 حدد وقتًا كل صباح لتحديث قائمة المهام.</li>
-            <li>📓 استخدم أداة واحدة لتدوين جميع ملاحظاتك.</li>
-            <li>🌱 خصص جلسات تركيز باستخدام Forest أو وضع التركيز في جهازك.</li>
-        </ul>
-
-        <div style="background-color:#f1f8e9; padding:20px; border-radius:20px; margin-top:20px;">
-            <h3 class="text-xl font-bold mb-2 text-primary-color">💡 خلاصة المقال</h3>
-            <p>
-                استخدام الأدوات الرقمية ليس ترفًا بل ضرورة لطلاب هذا الجيل. 
-                اختر ما يناسبك، وادمجه في عاداتك الدراسية اليومية، وراقب كيف تتغير إنتاجيتك للأفضل.
-            </p>
-        </div>
-
-        <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">ابدأ الآن</h2>
-        <p>
-            حمّل تطبيقًا دراسيًا جديدًا هذا الأسبوع، وابدأ باستخدامه لمدة 7 أيام. 
-            لاحظ الفرق في تنظيمك، وشارك تجربتك مع زملائك.
-        </p>
-    `
-},
-
-{
-    id: 11,
-    title: "10 عادات دراسية تميّز الطلاب المتفوقين (وكيف تتبناها أنت أيضًا)",
+             {
+                id: 10,
+                 title: "10 عادات دراسية تميّز الطلاب المتفوقين (وكيف تتبناها أنت أيضًا)",
     category: "نصائح أكاديمية",
     date: "02 أكتوبر 2025",
     summary: "هل تساءلت يومًا ما الذي يجعل بعض الطلاب يتفوقون باستمرار بينما يعاني آخرون؟ السر ليس الذكاء فقط، بل عادات يومية مدروسة. في هذا المقال نقدم لك 10 عادات دراسية يعتمد عليها المتفوقون، وكيف يمكنك تطبيقها بسهولة.",
     image: "./img/Study_habits.avif",
-    content: `
-        <p>
-            التفوق الدراسي لا يأتي من الحظ، ولا يقتصر على "الأذكياء فقط". 
-            بل هو نتيجة تراكمية لعادات يومية ذكية ومستمرة. الطلاب المتفوقون لا يدرسون أكثر دائمًا، لكنهم يدرسون <b>بذكاء</b>.
-            في هذا المقال، سنكشف عن 10 عادات دراسية يتبعها الطلاب الناجحون، مع نصائح عملية لتطبيق كل عادة في حياتك.
-        </p>
+                slug: "عادات-دراسية-للتفوق.html"
+            },
 
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">1. ⏰ يلتزمون بروتين يومي منظم</h2>
-        <p>
-            الطلاب المتفوقون لا يدرسون فقط وقت ما يشعرون بالرغبة، بل يخصصون وقتًا يوميًا محددًا للدراسة، حتى لو كان قليلًا.
-        </p>
-        <ul>
-            <li>🕗 يحددون وقتًا ثابتًا للدراسة يوميًا.</li>
-            <li>📵 يبعدون المشتتات أثناء هذه الفترات.</li>
-            <li>📈 يحولون الروتين إلى عادة تلقائية.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">2. 🎯 يضعون أهدافًا واضحة لكل جلسة دراسة</h2>
-        <p>
-            لا يفتحون الكتاب بشكل عشوائي. كل جلسة لها هدف محدد: "مراجعة الفصل 3"، "حل 10 أسئلة"، أو "تلخيص المحاضرة".
-        </p>
-        <p><b>نصيحة:</b> قبل البدء، اكتب هدفك على ورقة أو في تطبيق المهام.</p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">3. ✍️ يأخذون ملاحظات ذكية</h2>
-        <p>
-            لا يكتبون كل شيء، بل يلخصون بالأفكار الرئيسية، الرسوم، والأسئلة المهمة.
-        </p>
-        <ul>
-            <li>📒 يستخدمون تقنيات مثل "Cornell Notes".</li>
-            <li>🧠 يعيدون كتابة المعلومة بأسلوبهم الخاص.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">4. 📚 يراجعون بانتظام وليس قبل الاختبار فقط</h2>
-        <p>
-            المتفوقون لا يؤجلون، بل يراجعون أسبوعيًا لتثبيت المعلومات في الذاكرة الطويلة.
-        </p>
-        <p>🔁 استخدم تقنية <b>Spaced Repetition</b> (المراجعة المتكررة المتباعدة).</p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">5. 🧩 يربطون المعلومات بدل حفظها فقط</h2>
-        <p>
-            الحفظ وحده لا يكفي، بل فهم المعلومة وربطها بمعلومة سابقة يجعلها أكثر ثباتًا.
-        </p>
-        <p>💡 مثال: اربط مفاهيم الكيمياء بالحياة اليومية أو بمادة أخرى.</p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">6. 🗂 ينظمون ملفاتهم وملاحظاتهم</h2>
-        <p>
-            الفوضى تؤدي إلى ضياع الوقت والجهد. الطلاب المتفوقون ينظمون ملفاتهم الرقمية والورقية بانتظام.
-        </p>
-        <ul>
-            <li>📁 يستخدمون مجلدات لكل مادة.</li>
-            <li>🧾 يسمون الملفات بوضوح: "محاضرة 5 - الأحياء - الإنزيمات".</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">7. 📱 يستخدمون التكنولوجيا بشكل ذكي</h2>
-        <p>
-            بدلاً من إضاعة الوقت على الهاتف، يستخدمون تطبيقات إنتاجية مثل:
-        </p>
-        <ul>
-            <li><b>Notion:</b> لتنظيم المحتوى والملاحظات.</li>
-            <li><b>Quizlet:</b> لإنشاء بطاقات مراجعة ذكية.</li>
-            <li><b>Pomodoro Timer:</b> لتقسيم وقت الدراسة بفعالية.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">8. 💬 لا يخجلون من طرح الأسئلة</h2>
-        <p>
-            المتفوقون يسألون في القاعة، في مجموعات الدراسة، أو حتى عبر الإيميل. لا يعتبرون السؤال ضعفًا بل بحثًا عن الفهم.
-        </p>
-        <p>🤝 تفاعلهم مع الأساتذة وزملائهم يعزز الفهم ويقلل الغموض.</p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">9. 🧘‍♂️ يعتنون بصحتهم النفسية والجسدية</h2>
-        <p>
-            النوم، الأكل الصحي، وممارسة الرياضة ليست رفاهية بل جزء أساسي من النجاح الأكاديمي.
-        </p>
-        <ul>
-            <li>😴 ينامون 7-8 ساعات يوميًا.</li>
-            <li>🥗 يتناولون أطعمة تعزز التركيز مثل المكسرات والخضار.</li>
-            <li>🏃‍♀️ يتحركون ولو لنصف ساعة يوميًا.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">10. 📊 يقيمون أنفسهم بانتظام</h2>
-        <p>
-            الطلاب المتفوقون لا ينتظرون النتائج، بل يراجعون أداءهم كل أسبوع:
-        </p>
-        <ul>
-            <li>✅ ما الذي تعلمته؟</li>
-            <li>⚠️ ما الذي قصرت فيه؟</li>
-            <li>🎯 ما خطتك للأسبوع القادم؟</li>
-        </ul>
-
-        <div style="background-color:#e0f7fa; padding:20px; border-radius:20px; margin-top:20px;">
-            <h3 class="text-xl font-bold mb-2 text-primary-color">💡 خلاصة المقال</h3>
-            <p>
-                التفوق الدراسي ليس صفة يولد بها البعض، بل نتيجة لاختيارات يومية وعادات ذكية. 
-                ابدأ بتطبيق عادة واحدة فقط من هذه العادات، وراقب كيف تتغير دراستك إلى الأفضل.
-            </p>
-        </div>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">ابدأ الآن</h2>
-        <p>
-            ✍️ اكتب الآن على ورقة: "أول عادة سأبدأ بها هذا الأسبوع هي: ______"، 
-            والتزم بها لمدة 7 أيام، ثم أضف عادة أخرى. 
-            النجاح لا يأتي دفعة واحدة، بل عادة واحدة في كل مرة.
-        </p>
-    `
-},
-
-            {
-id: 12,
-title: "كيف تختار تخصصك الجامعي بوعي؟ خارطة طريق لقرار مصيري",
+             {
+                id: 11,
+                title: "كيف تختار تخصصك الجامعي بوعي؟ خارطة طريق لقرار مصيري",
 category: "الأكاديميات والتخصصات",
 date: "3 أكتوبر 2025",
 summary:"القرار الجامعي ليس مجرد تسجيل اسم في قائمة، بل هو صياغة للمستقبل المهني والشخصي. هذا المقال يقدم لك خارطة طريق منهجية ومفصلة لعملية الاختيار، بعيداً عن ضغوط الأهل أو الدرجات فقط، لتبني قرارك على أساس صلب من الشغف، والقدرة، والواقعية السوقية.",
 
 image: "./img/university_major.webp",
-     content: `<p>تخيّل أنك تقف عند مفترق طرق واسع ومُضاء، وكل طريق يحمل لافتة باسم تخصص: هندسة، طب، آداب، أعمال... الضغط كبير، والنصائح المتضاربة لا تتوقف.إن اختيار التخصص الجامعي ليس مجرد خطوة إجرائية بعد الثانوية العامة، بل هو أول وأهم استثمار في مستقبلك.الخطأ الشائع هو الاعتماد الكلي على درجات الثانوية أو رغبات الأهل، متناسين أهمية <b>البوصلة الداخلية</b> و<b>تغيرات سوق العمل</b>.في هذا الدليل التفصيلي، سنقسم عملية الاختيار إلى مراحل مدروسة لتقترب من قرارك بوعي تام.</p>    <!-- المرحلة الأولى: اكتشاف الذات والبوصلة الداخلية -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">1. 🧭 الاكتشاف الذاتي: البوصلة الداخلية لا تخطئ</h2>
-    <p>
-        قبل النظر إلى أي جامعة أو أي قوائم تخصصات، يجب أن تبدأ الرحلة من الداخل. التخصص الأنسب لك هو التخصص الذي يلتقي فيه شغفك الحقيقي مع قدراتك الكامنة.
-    </p>
+                slug: "اختيار-التخصص-الجامعي.html"
+            },
 
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. تحليل الشغف والاهتمامات:</h3>
-    <ul>
-        <li>✨ <b>ما الذي يحفزك؟</b> دوّن 5 أنشطة أو مواضيع يمكن أن تقضي فيها ساعات دون أن تشعر بالملل. قد تكون حل المشكلات المعقدة، الكتابة، التصميم، أو التعامل مع الناس.</li>
-        <li>💡 <b>فكر في الإلهام:</b> ما هي التخصصات أو المجالات التي تقرأ عنها في وقت فراغك دون طلب؟ الإجابة على هذا السؤال تكشف جزءاً كبيراً من شغفك.</li>
-        <li>🔄 <b>الشغف مقابل الاهتمام العابر:</b> اهتمامك بمسلسل طبي لا يعني بالضرورة شغفًا بالطب؛ الشغف الحقيقي هو الرغبة في خوض تحديات المجال وصعوباته.</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. تحديد القدرات ونقاط القوة:</h3>
-    <p>
-        اسأل نفسك: "ما المادة التي أحصل فيها على درجات عالية بجهد أقل؟" هذا مؤشر قوي على قدرتك الفطرية.
-    </p>
-    <ul>
-        <li>🔢 <b>مهارات تحليلية ومنطقية:</b> إذا كنت تجيد الرياضيات والفيزياء، فقد تميل إلى الهندسة أو علوم الحاسوب أو التمويل.</li>
-        <li>✍️ <b>مهارات لغوية وإبداعية:</b> إذا كنت تحب الكتابة والتعبير والتحليل الأدبي، فقد تكون الآداب، الإعلام، أو القانون خيارك.</li>
-        <li>🧑‍🤝‍🧑 <b>مهارات اجتماعية وشخصية:</b> إذا كنت تستمتع بالتفاعل، وحل الخلافات، والمساعدة، فكر في علم النفس، الموارد البشرية، أو التعليم.</li>
-    </ul>
-
-    <!-- المرحلة الثانية: البحث العميق في التخصصات -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">2. 📚 التحقيق في التخصص: ابحث وراء الاسم البراق</h2>
-    <p>
-        قد يكون اسم التخصص جذابًا، لكن الواقع الأكاديمي والمهني قد يكون مختلفًا. التخصص هو مجموعة من المواد الدراسية، والوظيفة هي مجموعة من المهام اليومية. عليك دراسة الاثنين.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. قراءة الخطة الدراسية بالتفصيل:</h3>
-    <ul>
-        <li>📄 <b>تصفح موقع الجامعة:</b> ابحث عن الخطة الدراسية (Curriculum) لهذا التخصص، وليس فقط المواد التمهيدية، بل المواد المتقدمة في السنة الثالثة والرابعة.</li>
-        <li>⚠️ <b>ما الذي ستدرسه حقاً؟</b> هل أنت مستعد لـ 4 سنوات من دراسة الكيمياء العضوية إذا اخترت الصيدلة؟ أو البرمجة بلغات معقدة إذا اخترت علوم الحاسوب؟</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. إجراء المقابلات (Interviewing):</h3>
-    <p>
-        أفضل طريقة لمعرفة حقيقة التخصص هي سؤال من عاش التجربة. تواصل مع:
-    </p>
-    <ul>
-        <li>🎓 <b>الخريجين الجدد:</b> اسألهم عن صعوبة المواد، وفرص العمل بعد التخرج مباشرة، وهل ندموا على اختيارهم.</li>
-        <li>👨‍🏫 <b>الأساتذة والمستشارين:</b> اطلب لقاءً مع رئيس القسم أو أحد أعضاء الهيئة التدريسية لمعرفة التوجهات البحثية المستقبلية للتخصص.</li>
-        <li>💼 <b>الموظفين في المجال:</b> إذا كنت تفكر في المحاسبة، تواصل مع محاسب فعلي واسأله عن روتينه اليومي وأكبر تحدياته.</li>
-    </ul>
-
-    <!-- المرحلة الثالثة: تحليل سوق العمل والواقعية -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">3. 📈 قراءة سوق العمل: التخصص المطلوب مقابل المشبّع</h2>
-    <p>
-        الشغف مهم، لكن الواقعية أهم. يجب أن تكون على دراية كاملة بمتطلبات السوق المحلي والعالمي. التخصص الذي كان مطلوبًا بشدة قبل 10 سنوات قد يكون مشبعًا اليوم.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. مرونة التخصص وقابليته للتطور:</h3>
-    <ul>
-        <li>🚪 <b>هل يفتح أبوابًا متعددة؟</b> تخصص مثل "إدارة الأعمال" يفتح لك أبوابًا في التمويل، التسويق، الموارد البشرية، والعمل الخاص. بينما تخصص شديد التخصص قد يغلق بعض الأبواب.</li>
-        <li>🤖 <b>مقاومة الأتمتة:</b> فكر في التخصصات التي يصعب على الذكاء الاصطناعي أو الآلات أن تحل محلها بالكامل (مثل المهن التي تتطلب تعاطفًا بشريًا أو إبداعًا خالصًا).</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. التكلفة والعائد المادي (ROI):</h3>
-    <p>
-        لا تتردد في إجراء بحث بسيط عن متوسط الرواتب المتوقعة للخريجين الجدد في هذا التخصص في بلدك.
-    </p>
-    <ul>
-        <li>💰 <b>الدخل المتوقع:</b> هل الدخل المتوقع يوازي حجم الجهد والتكلفة الدراسية التي ستبذلها؟ كن واقعيًا بشأن توقعاتك المالية.</li>
-        <li>🌍 <b>الانتشار العالمي:</b> هل هو تخصص معترف به عالميًا؟ هذا يهم إذا كنت تخطط للهجرة أو العمل عن بعد.</li>
-    </ul>
-
-    <!-- المرحلة الرابعة: اتخاذ القرار والموازنة -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">4. ⚖️ الموازنة بين العقل والشغف: المنطقة الآمنة</h2>
-    <p>
-        في أغلب الأحيان، لا يكون هناك تخصص يجمع كل المميزات. القرار الحكيم هو إيجاد التوازن بين ما تحب (الشغف) وما تجيد (القدرة) وما يحتاجه السوق (الواقعية).
-    </p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. كيف تدمج شغفك بالتخصص العملي؟</h3>
-    <p>
-        إذا كان شغفك هو الفن، وكانت الواقعية تدفعك نحو تخصص مالي، يمكنك اختيار تخصص "التسويق" والتركيز على مجال "التصميم الجرافيكي" أو "التسويق الإبداعي" فيه. هذا هو فن الموازنة: اختيار تخصص عملي يمكن أن تدمج فيه شغفك الجانبي.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. التعامل مع الضغوط الخارجية:</h3>
-    <ul>
-        <li>👪 <b>رأي الأهل:</b> استمع جيدًا لرأي الأهل، فهو ينبع غالبًا من الخوف والحب، ولكن قدم لهم تقريراً مفصلاً وموضوعيًا (من خلال المراحل السابقة) يوضح لماذا اخترت هذا التخصص تحديدًا.</li>
-        <li>📢 <b>رأي المجتمع:</b> لا تتبع التخصص "الموضة" أو "المشهور"؛ فما يناسب غيرك قد لا يناسبك.</li>
-    </ul>
-
-    <!-- المرحلة الخامسة: خطة العمل والتحرك -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">5. 🚀 خطة العمل: قرارك ليس نهاية المطاف</h2>
-    <p>
-        بمجرد أن تستقر على خيار ما، يجب أن تبدأ بخطة عمل فورية. وتذكر دائمًا أن مرونة القرار هي قوة، وليس ضعفًا.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. تجربة التخصص قبل التسجيل:</h3>
-    <ul>
-        <li>💻 <b>الدورات الإلكترونية المجانية:</b> سجل في دورات تمهيدية عبر الإنترنت (مثل كورسات على Coursera أو EdX) في التخصص الذي تفكر فيه. ستعطيك هذه الدورات فكرة حقيقية عن طبيعة المواد.</li>
-        <li>📝 <b>العمل التطوعي أو التدريب الصيفي:</b> إذا أمكن، حاول الحصول على فرصة تدريب في مجال التخصص لترى البيئة المهنية عن قرب.</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. الاستعداد لخطة بديلة (B-Plan):</h3>
-    <p>
-        ماذا لو لم يعجبك التخصص بعد سنة؟ هذا أمر طبيعي جدًا! تأكد من:
-    </p>
-    <ul>
-        <li>🔁 <b>إمكانية التحويل:</b> تحقق من شروط الجامعة بخصوص التحويل بين الكليات والتخصصات.</li>
-        <li>🧠 <b>المهارات المكتسبة:</b> أيًا كان التخصص، ركز على اكتساب المهارات المطلوبة في كل المجالات: التواصل، حل المشكلات، العمل الجماعي، والذكاء العاطفي. هذه هي الأصول الحقيقية التي لن تضيع.</li>
-    </ul>
-
-    <div style="background-color:#fff3e0; padding:25px; border-radius:20px; margin-top:30px; border-left: 5px solid #ff9800;">
-        <h3 class="text-xl font-bold mb-3 text-primary-color">💡 الخلاصة: قرار واعٍ لا ندم بعده</h3>
-        <p>
-            القرار الأفضل ليس دائمًا التخصص "الأصعب" أو "الأعلى راتبًا"، بل هو التخصص الذي يمنحك الطاقة للمضي قدمًا، والذي يمكن أن تتقن فيه الإبداع.
-            ابدأ اليوم بعملية الاكتشاف الذاتي، ثم ادمج النتائج مع متطلبات السوق. تذكر أن رحلة الألف ميل تبدأ بخطوة، والقرار الجامعي يبدأ بتأمل صادق.
-        </p>
-    </div>
-
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">خطواتك التالية الآن:</h2>
-    <p>
-        خذ ورقة وقلمًا، أو افتح ملفًا إلكترونيًا. قم بإنشاء ثلاثة أعمدة: <b>الشغف</b> (ما أحب)، <b>القدرة</b> (ما أجيد)، <b>الواقعية</b> (ما هو مطلوب). وقم بملء هذه الأعمدة بأمانة لتكتشف نقطة الالتقاء، التي ستكون على الأرجح تخصصك الأمثل.
-    </p>
-`
-},
-
-{
-id: 13,
-title: "كيف تكتب سيرة ذاتية قوية كطالب جامعي؟ دليل إظهار الإمكانات",
+             {
+                id: 12,
+                title: "كيف تكتب سيرة ذاتية قوية كطالب جامعي؟ دليل إظهار الإمكانات",
 category: "التطوير الشخصي والوظيفي",
 date: "3 أكتوبر 2025",
 summary: "عندما تكون الخبرة العملية محدودة، تتحول سيرتك الذاتية من وثيقة سرد تاريخي إلى أداة تسويقية لإمكاناتك. هذا الدليل التفصيلي يقدم خارطة طريق لطلاب الجامعات لإعداد سيرة ذاتية تنافسية، تركز على الإنجازات الأكاديمية والمشاريع والمهارات بدلاً من مجرد تاريخ التوظيف.",
 image: "./img/biography.webp",
-content: `<p>يواجه الطالب الجامعي تحديًا فريدًا عند التقدم للوظائف أو التدريب: كيف أُقنع صاحب العمل بأنني الأفضل ولدّي ما يلزمه، وسجلّي المهني ما زال في بداياته؟السر يكمن في تحويل التركيز من خانة "الخبرة العملية" إلى خانة "<b>الإمكانات والإنجازات</b>".السيرة الذاتية للطالب هي وثيقة حيوية، وليست مجرد قائمة بالمواد التي درسها. إنها تذكرة عبور إلى المستقبل المهني.اتبع هذا الدليل المكون من ستة محاور لتبني سيرة ذاتية قوية تنافس حتى الخريجين.</p>    <!-- المحور الأول: الأساسيات والتصميم المهني -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">1. 📄 الأساسيات والتصميم: الانطباع الأول يدوم</h2>
-    <p>
-        يجب أن تكون سيرتك الذاتية سهلة القراءة، منظمة، ومهنية. تذكر أن مديري التوظيف يقضون ثوانٍ معدودة فقط في الفحص الأولي.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. معلومات الاتصال (Contact Information):</h3>
-    <ul>
-        <li>📞 يجب أن تكون واضحة في أعلى الصفحة: الاسم الكامل، رقم الهاتف، بريد إلكتروني مهني (تجنب العناوين غير الجدية)، وموقع LinkedIn (ضروري).</li>
-        <li>🌐 أضف رابطًا لمحفظة أعمالك (Portfolio) أو صفحة GitHub إذا كان التخصص يتطلب ذلك (مثل التصميم أو البرمجة).</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. الملخص الاحترافي (Professional Summary) أو الهدف الوظيفي:</h3>
-    <p>
-        هذه الفقرة القصيرة (3-4 أسطر) هي فرصتك لجذب انتباه القارئ.
-    </p>
-    <ul>
-        <li>🎯 <b>للطالب:</b> ابدأ بتحديد التخصص والسنة الدراسية. ركز على أقوى 3 مهارات أو إنجازات لديك ذات الصلة بالوظيفة المعلن عنها.</li>
-        <li>💡 <b>مثال:</b> "طالب سنة ثالثة في الهندسة المدنية، حائز على تقدير امتياز، يتمتع بمهارة متقدمة في برامج AutoCAD و Revit، ومتحمس لتطبيق المعرفة النظرية في مشاريع البنية التحتية الصعبة."</li>
-    </ul>
-
-    <!-- المحور الثاني: قسم التعليم (Education Section) - قوتك الرئيسية -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">2. 🎓 التعليم: أكثر من مجرد شهادة</h2>
-    <p>
-        بما أن خبرتك العملية محدودة، فإن قسم التعليم هو نقطة قوتك الأساسية ويجب أن يكون في الجزء العلوي من الصفحة.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. إظهار التفوق الأكاديمي:</h3>
-    <ul>
-        <li>⭐ <b>المعدل التراكمي (GPA):</b> إذا كان معدلك مرتفعًا (فوق 3.5 من 4 أو ما يعادله)، ضعه بوضوح. إذا كان متوسطًا، يمكنك حذفه أو ذكر معدل التخصص فقط.</li>
-        <li>🏆 <b>الجوائز والتكريم:</b> اذكر بوضوح أي جوائز أكاديمية، مثل قائمة العميد (Dean's List) أو منح التفوق.</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. المواد ذات الصلة (Relevant Coursework):</h3>
-    <p>
-        في حال كانت الوظيفة تتطلب معرفة متعمقة بموضوع معين، يمكنك إضافة قسم فرعي للمواد التي درستها والتي تتوافق تمامًا مع متطلبات الوظيفة. هذا يثبت أن لديك الأساس النظري المطلوب.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ج. مشروع التخرج (Capstone Project) أو الأبحاث:</h3>
-    <p>
-        عامله كخبرة عمل مصغرة. اذكره بتفصيل، مع تحديد:
-    </p>
-    <ol>
-        <li>المشكلة أو الهدف الذي عالجه المشروع.</li>
-        <li>دورك ومسؤولياتك المحددة في الفريق.</li>
-        <li>النتيجة أو الأثر النهائي للمشروع.</li>
-    </ol>
-
-    <!-- المحور الثالث: الخبرة غير التقليدية (العمل الطلابي والمشاريع) -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">3. 💼 الخبرة غير التقليدية: املأ الفراغ بذكاء</h2>
-    <p>
-        الخبرة لا تعني دائمًا راتبًا شهريًا. الخبرة تعني تولي مسؤولية وتحقيق نتائج. هذا هو المكان الذي تبرز فيه كطالب.
-    </p>
-
-    <ul>
-        <li>🏢 <b>التدريب العملي (Internships):</b> أهم عنصر للطالب. اذكر اسم الشركة، والمهام الرئيسية، وركز على <b>الإنجازات الكمية</b> (مثلاً: "قللت وقت إعداد تقارير العملاء بنسبة 20% باستخدام أتمتة Excel").</li>
-        <li>🤝 <b>العمل التطوعي والأنشطة الطلابية:</b> إذا كنت رئيسًا لنادٍ، أو منظمًا لحدث، فهذا يثبت مهاراتك القيادية والتنظيمية. اذكر الأثر (مثلاً: "قُدت فريقًا من 15 متطوعًا لجمع تبرعات بقيمة 5,000 دولار").</li>
-        <li>💻 <b>المشاريع الشخصية (Side Projects):</b> إذا كنت مبرمجًا وقمت بإنشاء تطبيق خاص بك، أو مصممًا وأنشأت علامة تجارية وهمية، فهذا يظهر مبادرتك ومهاراتك التطبيقية.</li>
-    </ul>
-
-    <!-- المحور الرابع: المهارات (Skills) - قسم لا يُهمل -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">4. ⚙️ المهارات: لغة العصر المهنية</h2>
-    <p>
-        تخصص المهارات يتم تدقيقه بعناية، خاصةً في عصر الفرز الآلي للسير الذاتية (ATS). قسّم مهاراتك بوضوح.
-    </p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. المهارات التقنية (Hard Skills):</h3>
-    <p>
-        هي المهارات القابلة للقياس والتعلم. كن دقيقًا في مستواك (أساسي، متوسط، متقدم، خبير).
-    </p>
-    <ul>
-        <li>💻 <b>البرامج والأدوات:</b> (مثلاً: Python, SQL, Tableau, Photoshop, SAP).</li>
-        <li>🗣️ <b>اللغات الأجنبية:</b> اذكر المستوى بوضوح (مثلاً: الإنجليزية - طلاقة تامة كتابة ومحادثة).</li>
-    </ul>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. المهارات الشخصية (Soft Skills):</h3>
-    <p>
-        يجب أن تظهر هذه المهارات بشكل طبيعي في أقسام الإنجازات، لكن لا بأس من ذكرها أيضًا.
-    </p>
-    <ul>
-        <li>🤝 <b>القيادة والعمل الجماعي:</b> أين أثبتت هذه المهارة في مشروعك أو نشاطك الطلابي؟</li>
-        <li>🧩 <b>حل المشكلات والقدرة على التعلم السريع:</b> ركز على كيفية حللت تحديًا ما في تدريبك.</li>
-    </ul>
-
-    <!-- المحور الخامس: قاعدة الأفعال القوية وقاعدة 'كيف' -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">5. 📝 صياغة الإنجازات: انتقل من الوصف إلى الفعل</h2>
-    <p>
-        أكبر خطأ يقع فيه الطلاب هو وصف المهام بدلاً من سرد الإنجازات.
-    </p>
-    <p><b>قاعدة الفعل القوي:</b> ابدأ كل نقطة فعل (بصيغة الماضي) يعبر عن إنجازك.</p>
-
-    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">مثال على التحول من الوصف إلى الإنجاز:</h3>
-    <ul class="list-disc ml-6">
-        <li>❌ <b>وصف ضعيف:</b> "كنت مسؤولاً عن مساعدة العملاء في قسم التسويق."</li>
-        <li>✅ <b>إنجاز قوي:</b> "<b>طوّرت</b> استراتيجية محتوى جديدة أدت إلى زيادة تفاعل العملاء على المنصات الرقمية بنسبة 15% خلال شهرين."</li>
-        <li>❌ <b>وصف ضعيف:</b> "شاركت في مشروع التخرج."</li>
-        <li>✅ <b>إنجاز قوي:</b> "<b>قُدت</b> فريقًا من 4 طلاب لإكمال مشروع تخرج معقد باستخدام تقنيات الذكاء الاصطناعي، مما أدى إلى الحصول على تقدير A+."</li>
-    </ul>
-
-    <!-- المحور السادس: التدقيق والمراجعة النهائية -->
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">6. 🔍 التدقيق والمراجعة: اللمسات الأخيرة</h2>
-    <p>
-        سيرة ذاتية قوية قد تفشل بسبب خطأ إملائي واحد أو تنسيق رديء. لا تستعجل في هذه المرحلة.
-    </p>
-    <ul>
-        <li>📏 <b>الطول:</b> كطالب جامعي أو خريج جديد، يجب ألا تتجاوز سيرتك الذاتية صفحة واحدة. حافظ على الإيجاز.</li>
-        <li>📐 <b>التنسيق:</b> استخدم خطوطًا احترافية (مثل Arial أو Calibri) بحجم 10-12. استخدم المسافات البيضاء بكثرة لراحة العين.</li>
-        <li>✍️ <b>التدقيق اللغوي:</b> لا تعتمد على المدقق الإملائي فقط. اطلب من صديق تثق به أو مستشار وظيفي مراجعة السيرة الذاتية قبل إرسالها.</li>
-        <li>🖨️ <b>الصيغة:</b> احفظ السيرة الذاتية بصيغة PDF دائمًا، لضمان ثبات التنسيق على جميع الأجهزة.</li>
-        <li>📄 <b>التخصيص:</b> لا ترسل نفس السيرة الذاتية لكل وظيفة. قم بتغيير الملخص الاحترافي وأولويات المهارات لتناسب الوصف الوظيفي المحدد الذي تتقدم إليه.</li>
-    </ul>
-
-    <div style="background-color:#e0f7fa; padding:25px; border-radius:20px; margin-top:30px; border-left: 5px solid #00bcd4;">
-        <h3 class="text-xl font-bold mb-3 text-primary-color">⭐ خطوة نحو الاحترافية</h3>
-        <p>
-            تذكر أن سيرتك الذاتية هي وثيقة حية تتطور باستمرار. كطالب، استخدمها لتروي قصتك عن النمو والتعلم والمبادرة. كل دور تطوعي، وكل مادة صعبة، وكل مشروع عملت عليه هو دليل على قدرتك.
-        </p>
-    </div>
-
-    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">مهمتك التالية:</h2>
-    <p>
-        ابدأ بتطبيق "قاعدة الأفعال القوية" فوراً. راجع قسم الخبرة لديك واستبدل جميع العبارات الوصفية بأفعال إنجازية قوية. على سبيل المثال، بدلاً من "المسؤوليات شملت تنظيم..."، اكتب "<b>نظّمتُ</b>... و<b>حققتُ</b>...".
-    </p>
-`
-},
-
-{
-    id: 14,
-    title: "بناء ملف LinkedIn احترافي وأنت لا تزال طالبًا: استثمارك الذي يبدأ الآن",
+                slug: "كتابة-السيرة-الذاتية.html"
+            },
+            {
+                id: 13,
+                title: "بناء ملف LinkedIn احترافي وأنت لا تزال طالبًا: استثمارك الذي يبدأ الآن",
     category: "التطوير الشخصي والوظيفي",
     date: "03 أكتوبر 2025",
     summary: "النجاح الوظيفي لا ينتظر التخرج. لينكدإن (LinkedIn) هو جواز سفرك لعالم العمل، والبدء في بناء ملفك الشخصي كطالب هو الخطوة الأذكى والأكثر استراتيجية. نقدّم لك دليلًا شاملًا لبناء حضور احترافي يفتح لك الأبواب قبل أن تطرقها.",
     image: "./img/linkedin.webp",
-    content: `
-        <p>
-            تخيّل أن لديك فرصة للجلوس أمام مئات مديري التوظيف والمهنيين في مجالك، وتقديم نسخة مُحسّنة ومُنمّقة عن نفسك وعن طموحك. هذه ليست جلسة مقابلة صعبة، بل هي ببساطة ما يوفّره لك <b>لينكدإن</b> (LinkedIn)، شبكة التواصل الاحترافية الأهم عالميًا. لكن المفارقة هي أن معظم الطلاب يؤجّلون الاهتمام به حتى اقتراب التخرج، وهنا تكمن الخسارة!
-        </p>
-
-        <p>
-            بناء ملفك الاحترافي كطالب ليس مجرد 'تعبئة بيانات'، إنه استراتيجية بعيدة المدى لتسليط الضوء على إمكاناتك، وتعلّم فنون التواصل المهني مبكراً. في هذا المقال الشامل، سنأخذك خطوة بخطوة في رحلة بناء ملف 'سوبر' على لينكدإن، يجعلك مرشحاً مطلوباً قبل حتى أن تحصل على شهادتك.
-        </p>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">المحور الأول: الأساسيات المتينة (الملف الشخصي البصري والنصي)</h2>
-        <p>
-            الملف الشخصي هو نافذتك. يجب أن تكون جذابة، واضحة، ومُحكمة الصنع.
-        </p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-secondary-color">1. الصورة الاحترافية الغنية بالثقة</h3>
-        <ul>
-            <li>📸 <b>الصورة الشخصية (Profile Picture):</b> يجب أن تكون واضحة، بإضاءة جيدة، والخلفية محايدة. ابتعد عن صور التخرج الرسمية القديمة أو صور العطلات. ارتدِ ملابس مهنية خفيفة (قميص، بلوزة بسيطة). تذكّر، هذه هي انطباعك الأول.</li>
-            <li>🖼️ <b>صورة الخلفية (Background Photo):</b> لا تتركها فارغة. يمكنك وضع صورة تعبّر عن مجالك (مثل رسومات بيانية للمحلل المالي، أو كود للمبرمج، أو شعار جامعتك). هذا يعطي بعداً إضافياً لاهتماماتك.</li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-secondary-color">2. العنوان الوظيفي (Headline): نافذة الـ 5 ثوانٍ</h3>
-        <p>
-            العنوان هو أول سطر يراه الجميع. لا تكتفِ بـ "طالب في جامعة كذا". اجعله معبراً عن طموحك الحالي ونشاطك:
-        </p>
-        <p class="p-3 bg-gray-100 border-l-4 border-primary-color my-4">
-            <b>مثال جيد:</b> 'طالب هندسة برمجيات | مطوّر واجهات أمامية مبتدئ (Front-End) | يبحث عن فرصة تدريب صيفي في مجال الذكاء الاصطناعي'.
-        </p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-secondary-color">3. قسم 'حول' (About): قصتك المختصرة</h3>
-        <p>
-            هذا هو مكانك لتسرد شغفك وقيمك. اكتب من 3 إلى 5 فقرات قصيرة، وتأكّد من الإجابة على الأسئلة التالية:
-        </p>
-        <ul>
-            <li>من أنا؟ وما هو تخصصي وشغفي؟</li>
-            <li>ما هي المهارات الرئيسية التي أمتلكها (برامج، لغات برمجة، مهارات ناعمة)؟</li>
-            <li>ما الذي أبحث عنه (تدريب، مشاريع تطوعية، مرشد مهني)؟</li>
-            <li>اختم بعبارة تحث على التواصل (Call-to-Action) مثل: "يسعدني التواصل لمناقشة فرص التعاون في...".</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">المحور الثاني: عرض الخبرات المحدودة (كيف تحوّل الأنشطة الطلابية إلى إنجازات)</h2>
-        <p>
-            لا تقلق بشأن خلوّ قسم الخبرة من الوظائف بدوام كامل. كمبتدئ أو طالب، خبرتك تكمن في الجهد الذي تبذله في الحرم الجامعي وما حوله.
-        </p>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-secondary-color">4. قسم التعليم (Education): أكثر من مجرد اسم الجامعة</h3>
-        <p>
-            بالإضافة إلى اسم تخصصك وتاريخ التخرج المتوقع، أضف الآتي:
-        </p>
-        <ul>
-            <li>📈 <b>المشاريع الدراسية الرئيسية:</b> أضف وصفًا لمشاريع الفصول الدراسية التي عملت عليها، خاصة تلك التي كان لها نتائج قابلة للقياس (كميزانية، عدد مستخدمين، أو تقليل وقت).</li>
-            <li>🏆 <b>الجوائز والتكريم:</b> اذكر أي جوائز أو منحة حصلت عليها أو ترتيبك في الدفعة (إذا كان جيدًا).</li>
-            <li>📜 <b>الشهادات الأكاديمية:</b> قائمة ببعض المواد الأساسية أو الاختيارية المتقدمة التي درستها وتفخر بها.</li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-secondary-color">5. الخبرة (Experience): إبراز العمل غير المدفوع</h3>
-        <p>
-            حوّل الأنشطة الطلابية إلى خبرات حقيقية:
-        </p>
-        <ul>
-            <li>🤝 <b>العمل التطوعي والجمعيات:</b> إذا كنت رئيس نادي، أو منظم حدث، هذا يُعد خبرة في القيادة، التنظيم، إدارة الوقت، والتسويق. صف دورك والإنجازات التي حققتها بأرقام.</li>
-            <li>💻 <b>التدريب العملي (Internships):</b> سواء كان مدفوعًا أو غير مدفوع، هو أهم ما يميّز ملفك. صف المهام التي أوكلت إليك والنتائج التي وصلت إليها.</li>
-            <li>🚀 <b>المشاريع الحرة (Freelance/Personal Projects):</b> إن كان لديك مشروع برمجي، تطبيق، موقع، أو محفظة فنية، أضفه كـ 'خبرة ذاتية'. هذا يظهر المبادرة.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">المحور الثالث: التسويق الذكي للمهارات وبناء الشبكة (الشبكات الاحترافية)</h2>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-secondary-color">6. المهارات والتوثيق (Skills & Endorsements)</h3>
-        <p>
-            اختر المهارات التي تتناسب مع وظيفة أحلامك. لا تضف مهارات لا تجيدها. ركّز على:
-        </p>
-        <ul>
-            <li>🔑 <b>الكلمات المفتاحية (Keywords):</b> تأكّد من أن المهارات التقنية (مثل Python، SEO، Adobe Photoshop) مذكورة في قسم 'المهارات' وفي وصف الخبرات، لكي يجدك مسؤولو التوظيف بسهولة.</li>
-            <li>✍️ <b>اطلب التوصيات:</b> لا تنتظر. اطلب من أساتذتك، مشرفي التدريب، أو زملاء المشاريع كتابة توصية مختصرة (Recommendation). ثلاث توصيات صادقة أفضل من عشرات لا قيمة لها.</li>
-        </ul>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-secondary-color">7. البقاء على الرادار (المحتوى والتفاعل)</h3>
-        <p>
-            ملفك ليس صفحة جامدة. عليك أن تتفاعل وتترك بصمتك:
-        </p>
-        <ul>
-            <li>📰 <b>المحتوى الذكي:</b> لا يجب أن تنشر مقالات معقدة، يكفي أن تشارك رأيك حول خبر في مجالك، أو تنشر تلخيصاً لكتاب قرأته، أو حتى سؤالاً مثيراً للاهتمام في تخصصك. هذا يظهر أنك مُطّلع.</li>
-            <li>💬 <b>التفاعل الانتقائي:</b> علّق على منشورات الشركات أو المهنيين الذين تطمح للعمل معهم. اجعل تعليقاتك ذات قيمة، وليست مجرد إطراء.</li>
-            <li>🔗 <b>بناء شبكة ذات جودة:</b> أرسل طلبات تواصل لموظفين في شركات تحبها، أو لخريجي جامعتك الناجحين، أو للأساتذة. عند إرسال الطلب، أضف ملاحظة صغيرة (Note) تذكر فيها سبب رغبتك في التواصل.</li>
-        </ul>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">المحور الرابع: التوسيع والتعميق (الخطوات المتقدمة)</h2>
-
-        <h3 class="text-xl font-bold mt-6 mb-3 text-secondary-color">8. الاستفادة من الدورات التدريبية والشهادات</h3>
-        <p>
-            سواء كانت دورات مدفوعة على Coursera، Udacity، أو مجانية على منصات أخرى، فإنها تثري ملفك.
-        </p>
-        <ul>
-            <li>✅ <b>أضف شهاداتك:</b> تأكّد من إضافة شهادات إتمام الدورات مع ذكر المهارات التي اكتسبتها في كل دورة.</li>
-            <li>💡 <b>ربط المشاريع:</b> إذا كانت الدورة تتطلب مشروعًا نهائيًا، فاعرض رابط المشروع في قسم 'المشاريع' (Projects) على لينكدإن.</li>
-        </ul>
-        
-        <h3 class="text-xl font-bold mt-6 mb-3 text-secondary-color">9. تخصيص رابط الملف الشخصي (URL)</h3>
-        <p>
-            تجنب الروابط العشوائية الطويلة التي يمنحها لك لينكدإن تلقائيًا. اذهب إلى الإعدادات وقم بتخصيص رابط مختصر يحتوي على اسمك (مثل: linkedin.com/in/اسمك_الثلاثي). هذا يسهل مشاركته ويبدو احترافياً.
-        </p>
-
-        <div style="background-color:#fff3e0; padding:20px; border-radius:15px; margin-top:30px; border: 1px solid #ffb74d;">
-            <h3 class="text-xl font-bold mb-2 text-primary-color">✨ الخلاصة الذهبية للطالب</h3>
-            <p>
-                لا تُفكّر في لينكدإن كأداة توظيف عند التخرج، بل كـ <b>'سجلّ إنجازاتك اليومية'</b>. كل فصل دراسي، وكل مشروع، وكل دورة، هي إضافة ذات قيمة. تعامل معه كأصل استثماري ينمو قيمته مع مرور الوقت. ابدأ اليوم بتعديل قسم 'العنوان الوظيفي' واطلب توصية من أستاذك المفضل. الأبواب تفتح لأولئك الذين يظهرون مستعدين، وأنت لديك متسع من الوقت لتكون الأكثر استعداداً.
-            </p>
-        </div>
-
-        <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">ماذا بعد؟</h2>
-        <p>
-            بعد إكمال ملفك، اجعل تحديثه جزءًا من روتينك الأسبوعي. ابحث عن <b>'مجموعات لينكدإن'</b> المتخصصة في مجالك وانضم إليها. شارك واطرح الأسئلة. تذكّر، التواجد الاحترافي المستمر أهم بكثير من الانطلاقة القوية ثم الانقطاع. هل أنت مستعد للبحث عن أول مرشد مهني لك اليوم؟
-        </p>
-    `
-},
-
-{
-    id: 15,
-    title: "رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز",
+                slug: "بناء-linkedin-احترافي.html"
+            },
+             {
+                id: 14,
+                title: "رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز",
     category: "الأكاديميات والتخصصات",
     date: "03 أكتوبر 2025",
     summary: "يُعد مشروع التخرج تتويجاً لمسيرتك الجامعية، وهو الفرصة الأهم لتطبيق كل ما تعلمته. هذه المرحلة لا تتعلق بالجهد فقط، بل بالتخطيط الذكي. نقدم لك خريطة طريق مفصلة من مرحلة الفكرة حتى تسليم المشروع النهائي بنجاح وتميز.",
     image: "./img/graduation_project.webp",
-    content: `
-        <div class="intro-box p-6 rounded-xl shadow-lg bg-gray-50 border-t-4 border-primary-color">
-            <p class="text-lg leading-relaxed text-gray-700">
-                مشروع التخرج، تلك الكلمات التي تحمل في طياتها مزيجاً من الحماس، القلق، وشيء من الرهبة. لا تخف، فأنت لست وحدك. إنها المرحلة التي تنتقل فيها من مُتلقٍّ للمعلومة إلى صانع لها. هذا المشروع ليس مجرد شرط أكاديمي، بل هو بوابتك الحقيقية لإظهار قدراتك العملية في المجال الذي اخترته.
-            </p>
-            <p class="mt-4 text-gray-700">
-                السر في النجاح ليس بالجهد المضاعف في اللحظات الأخيرة، بل في <b>التخطيط الاستباقي</b> وتقسيم الرحلة الطويلة إلى محطات سهلة الإدارة. لنرسم معاً خريطة طريق متكاملة، تبدأ قبل شهور من الموعد النهائي.
-            </p>
-        </div>
+                slug: "مشروع-التخرج.html"
+            },
 
-        <h2 class="text-3xl font-extrabold mt-12 mb-6 text-primary-color border-b-2 pb-2">المرحلة الأولى: استكشاف الفكرة (مرحلة الصفر)</h2>
+             {
+                id: 15,
+                title: "10 نصائح لكل طالب جديد في الجامعة",
+    category: "نصائح جامعية",
+    date: "04 أكتوبر 2025",
+    summary:"القفز إلى الحياة الجامعية هو مزيج من الحرية الهائلة والمسؤولية الجديدة. لا يتعلق الأمر بالدراسة فقط، بل بتعلم كيف تدير حياتك الأكاديمية والشخصية بذكاء. هذه المقالة هي دليل شخصي ومكثف يلخص لك عشرة مبادئ أساسية ستضمن لك الانطلاق بقوة، وتجنبك أخطاء السنة الأولى الشائعة، وتجهزك للتفوق لا للمرور فحسب.",
+    image: "./img/university_student.webp",
+                slug: "نصائح-للطلبة-الجدد.html"
+            },
 
-        <div class="step-card bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-secondary-color">
-            <h3 class="text-xl font-bold mb-3 text-secondary-color">1. ابحث عن الشغف وليس السهولة</h3>
-            <p>
-                أكبر خطأ يرتكبه الطلاب هو اختيار أسهل فكرة ممكنة. مشروع التخرج سيستغرق وقتاً طويلاً جداً. لذا، ابحث عن فكرة تثير شغفك وتحديك الفكري، شيء يجعلك متحمساً للعمل عليه حتى في منتصف الليل. الفكرة الشغوفة تمنع الملل وتضمن الجودة.
-            </p>
-        </div>
-
-        <div class="step-card bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-secondary-color">
-            <h3 class="text-xl font-bold mb-3 text-secondary-color">2. تحديد نقاط القوة والفريق المناسب</h3>
-            <p>
-                إن كنت ستعمل ضمن فريق، اختر أعضاء يكمّلون مهاراتك لا يكررونها. إذا كنت ممتازاً في الجانب النظري (البحث)، فابحث عن شخص قوي في الجانب العملي (التطبيق أو البرمجة). اتفقوا على الأهداف والتوقعات والالتزام بالاجتماعات من البداية.
-            </p>
-        </div>
-
-        <div class="step-card bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-secondary-color">
-            <h3 class="text-xl font-bold mb-3 text-secondary-color">3. اختيار المشرف (Supervisors): الشريك لا المدير</h3>
-            <p>
-                لا تختر مشرفك بناءً على شهرته أو سهولته. اختره بناءً على خبرته في مجال فكرتك وقدرته على توجيهك. تواصل معه مبكراً، واعرض عليه ملخصاً واضحاً ومدروساً لفكرتك لإظهار جديتك، واسأله عن توقعاته لطريقة العمل.
-            </p>
-        </div>
-        
-        <h2 class="text-3xl font-extrabold mt-12 mb-6 text-primary-color border-b-2 pb-2">المرحلة الثانية: التخطيط والبحث (بناء الهيكل)</h2>
-
-        <div class="grid md:grid-cols-2 gap-8 mt-6">
-            <div class="plan-item bg-teal-50 p-5 rounded-lg border border-teal-200">
-                <h4 class="text-xl font-semibold mb-3 text-green-700">4. خريطة طريق زمنية (Gantt Chart)</h4>
-                <p class="text-gray-600">
-                    لا تبدأ العمل قبل أن تضع جدولاً زمنياً مفصلاً. قسم المشروع إلى مراحل صغيرة (البحث، جمع البيانات، التصميم، التنفيذ، الاختبار، الكتابة). حدد موعداً نهائياً لكل مرحلة. <b>الالتزام بالمواعيد الداخلية</b> هو سر تجنب ضغط النهاية. خصص وقتاً احتياطياً للطوارئ.
-                </p>
-            </div>
-            <div class="plan-item bg-amber-50 p-5 rounded-lg border border-amber-200">
-                <h4 class="text-xl font-semibold mb-3 text-yellow-700">5. الأدبيات والمصادر (Literature Review)</h4>
-                <p class="text-gray-600">
-                    هنا يكمن الفرق بين مشروع جيد ومشروع ممتاز. اقرأ بعمق كل ما يتعلق بفكرتك. ليس فقط للعلم، بل لتحديد <b>الفجوة المعرفية</b> التي سيسدها مشروعك. استخدم قواعد البيانات الأكاديمية وادخر وقتك بعيداً عن المصادر غير الموثوقة.
-                </p>
-            </div>
-        </div>
-
-        <div class="warning-box my-8 p-5 bg-red-50 border-l-4 border-red-600 rounded-md">
-            <p class="font-bold text-red-700">⚠️ خطأ يجب تجنبه:</p>
-            <p class="text-red-700 mt-2">
-                تجنب 'شلل التحليل' (Analysis Paralysis). لا تستغرق وقتاً طويلاً في التخطيط والبحث لدرجة أن يفوتك وقت البدء بالتطبيق العملي. التوازن هو مفتاح المرحلة الثانية.
-            </p>
-        </div>
-
-
-        <h2 class="text-3xl font-extrabold mt-12 mb-6 text-primary-color border-b-2 pb-2">المرحلة الثالثة: التنفيذ والكتابة (الجودة والتوثيق)</h2>
-        
-        <div class="flex flex-col space-y-6">
-
-            <div class="execution-step p-5 rounded-lg bg-indigo-50 shadow-md">
-                <h3 class="text-2xl font-semibold text-indigo-800 mb-2">6. التوثيق هو نصف العمل (Document Everything)</h3>
-                <p class="text-gray-700">
-                    سواء كنت مهندساً أو باحثاً، سجّل كل خطوة، كل قرار، وكل مشكلة واجهتها وكيف حللتها. هذا التوثيق هو عصب الفصل المنهجي في تقريرك النهائي. استخدم أدوات مثل <b>Git</b> للمبرمجين أو <b>دفتر ملاحظات منظم</b> للباحثين لتسجيل يوميات العمل.
-                </p>
-            </div>
-
-            <div class="execution-step p-5 rounded-lg bg-indigo-50 shadow-md">
-                <h3 class="text-2xl font-semibold text-indigo-800 mb-2">7. الاجتماعات الأسبوعية الفعالة</h3>
-                <p class="text-gray-700">
-                    لا تذهب إلى المشرف إلا ومعك قائمة واضحة بما أنجزته، والمشكلات التي تواجهها، والخطوة التالية. الاجتماعات ليست جلسات دردشة، بل هي لتقييم التقدم وتعديل المسار. الالتزام بالاجتماعات يحمي مشروعك من الانحراف عن الهدف.
-                </p>
-            </div>
-
-            <div class="execution-step p-5 rounded-lg bg-indigo-50 shadow-md">
-                <h3 class="text-2xl font-semibold text-indigo-800 mb-2">8. ابدأ بكتابة التقرير مبكراً</h3>
-                <p class="text-gray-700">
-                    لا تؤجل الكتابة للأسابيع الأخيرة. يمكنك البدء بكتابة فصول كاملة مثل 'مراجعة الأدبيات' و 'منهجية العمل' بمجرد الانتهاء منها. بهذه الطريقة، عندما ينتهي التطبيق العملي، تكون معظم فصول التقرير جاهزة للمراجعة.
-                </p>
-            </div>
-        </div>
-
-        <h2 class="text-3xl font-extrabold mt-12 mb-6 text-primary-color border-b-2 pb-2">المرحلة الرابعة: المراجعة والتسليم (اللمسات النهائية)</h2>
-
-        <div class="final-checklist mt-6 p-6 bg-gray-100 rounded-xl shadow-inner">
-            <h3 class="text-2xl font-bold mb-4 text-primary-color" style="color:#800080;">قائمة المراجعة الأخيرة (لا تغفل عنها):</h3>
-            <ul class="space-y-3">
-                <li class="flex items-center" style="color:#800080;">
-                    <span class="text-green-500 font-bold mr-3 text-xl">✓</span>
-                    <strong>التنسيق الموحد:</strong> هل التقرير بالكامل يتبع إرشادات التنسيق في جامعتك (الهوامش، حجم الخط، ترقيم الصفحات، العناوين)؟
-                </li>
-                <li class="flex items-center" style="color:#800080;">
-                    <span class="text-green-500 font-bold mr-3 text-xl">✓</span>
-                    <strong>قائمة المراجع:</strong> هل جميع المراجع والمصادر التي استخدمتها موثقة بشكل صحيح ودقيق (APA، MLA، إلخ)؟ هذه نقطة ضعف شائعة.
-                </li>
-                <li class="flex items-center" style="color:#800080;">
-                    <span class="text-green-500 font-bold mr-3 text-xl">✓</span>
-                    <strong>التدقيق اللغوي والنحوي:</strong> بعد الانتهاء، اطلب من زميل أو مدقق محترف مراجعة التقرير. الأخطاء اللغوية تشتت القارئ وتقلل من جودة العمل.
-                </li>
-                <li class="flex items-center" style="color:#800080;">
-                    <span class="text-green-500 font-bold mr-3 text-xl">✓</span>
-                    <strong>الاستعداد للعرض:</strong> جهّز عرضاً تقديمياً (Presentation) قوياً يركز على المشكلة والحل والنتائج، وليس فقط على المنهجية التفصيلية المملة.
-                </li>
-            </ul>
-        </div>
-
-        <div class="conclusion-message my-10 p-5 bg-primary-color text-black rounded-xl shadow-2xl text-center">
-            <h3 class="text-2xl font-bold mb-2">💡 النجاح ليس صدفة</h3>
-            <p class="text-lg">
-                تذكر، مشروع التخرج هو فرصة لا مثيل لها لـ <b>بناء محفظتك المهنية (Portfolio)</b>. هذا المشروع، بجودة تنفيذه، هو أول ما سيناقشه معك مديرو التوظيف. تعامل معه بجدية، خطط بذكاء، وتوكل على الله. أنت الآن جاهز للانطلاق!
-            </p>
-        </div>
-    `
-},
-
-    {id: 16,title: "10 نصائح لكل طالب جديد في الجامعة",category: "نصائح جامعية",date: "04 أكتوبر 2025",summary: "القفز إلى الحياة الجامعية هو مزيج من الحرية الهائلة والمسؤولية الجديدة. لا يتعلق الأمر بالدراسة فقط، بل بتعلم كيف تدير حياتك الأكاديمية والشخصية بذكاء. هذه المقالة هي دليل شخصي ومكثف يلخص لك عشرة مبادئ أساسية ستضمن لك الانطلاق بقوة، وتجنبك أخطاء السنة الأولى الشائعة، وتجهزك للتفوق لا للمرور فحسب.",image: "./img/university_student.webp",content: `<style>.primary-color { color: #800080; } /* بنفسجي غامق */.border-primary-color { border-color: #800080; }.bg-primary-light { background-color: #F8F4FF; }.section-heading {border-bottom: 2px solid #800080;padding-bottom: 0.5rem;}.tip-box {transition: transform 0.3s ease, box-shadow 0.3s ease;}.tip-box:hover {transform: translateY(-5px);box-shadow: 0 10px 15px rgba(128, 0, 128, 0.1);}</style>    <div class="intro-box p-6 rounded-xl shadow-lg bg-primary-light border-t-4 border-primary-color">
-        <p class="text-xl leading-relaxed text-gray-800 font-medium">
-            لحظة القبول الجامعي هي بداية مغامرة جديدة. ولكن، بين الاستقلال عن العائلة وضغط المواد الجديدة، قد يشعر الطالب الجديد بالضياع. الخبر السار هو أن النجاح الجامعي ليس سراً؛ إنه مجموعة من العادات الذكية.
-        </p>
-        <p class="mt-4 text-gray-700">
-            هذا الدليل ليس قائمة مهام، بل هو خريطة ذهنية مقسمة إلى ثلاثة محاور أساسية لضمان عامك الأول بنجاح وتفوق. لنبدأ بـ <b>كيف تدرس بذكاء</b>.
-        </p>
-    </div>
-
-    <h2 class="text-3xl font-extrabold mt-12 mb-6 primary-color section-heading">المحور الأول: الانضباط الأكاديمي والتخطيط الذكي</h2>
-
-    <div class="grid md:grid-cols-2 gap-8 mt-6">
-        
-        <!-- النصيحة 1: الخطة الدراسية -->
-        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-l-4 border-indigo-500">
-            <h3 class="text-xl font-bold mb-2 text-indigo-700">1. الخطة الدراسية هي خريطتك الجغرافية</h3>
-            <p class="text-gray-600">
-                لا تنتظر حتى نهاية الفصل لتعرف متطلبات المادة. في الأسبوع الأول، قم بتحميل <b>الخطة الدراسية (Syllabus)</b> لكل مادة. حدد تواريخ الامتحانات والواجبات الرئيسية وقم بإدخالها مباشرة في تقويمك. معرفة متى يجب أن تنجز كل شيء مسبقاً هي الخطوة الأولى لإدارة الوقت الجامعي بفعالية.
-            </p>
-        </div>
-
-        <!-- النصيحة 2: ساعات المكتب -->
-        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-l-4 border-indigo-500">
-            <h3 class="text-xl font-bold mb-2 text-indigo-700">2. ساعات المكتب للمحاضر (Office Hours) ليست للمجاملة</h3>
-            <p class="text-gray-600">
-                أحد أكبر أسرار التفوق هو بناء علاقة مهنية مع أساتذتك. لا تذهب إليهم لتقول "أنا ضائع"، بل اذهب بسؤال محدد كنت قد فكرت فيه. هذه الساعات هي فرصتك للحصول على إرشاد شخصي، وهي تفتح الأبواب لفرص البحث والتوصيات المستقبلية.
-            </p>
-        </div>
-
-        <!-- النصيحة 3: التعلم النشط -->
-        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-l-4 border-indigo-500">
-            <h3 class="text-xl font-bold mb-2 text-indigo-700">3. المراجعة الفورية بدلاً من الحفظ المتراكم</h3>
-            <p class="text-gray-600">
-                التعلم النشط يعني أن تخصص 15-20 دقيقة فوراً بعد كل محاضرة لمراجعة النقاط الأساسية وكتابة ملخصك الخاص. هذا يثبت المعلومة في ذهنك ويمنع تراكم الدروس الذي يؤدي إلى ليالي المذاكرة المرهقة قبل الامتحانات النهائية.
-            </p>
-        </div>
-
-        <!-- النصيحة 4: الانضباط في الحضور -->
-        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-l-4 border-indigo-500">
-            <h3 class="text-xl font-bold mb-2 text-indigo-700">4. الـ 8 صباحاً هي معيار الانضباط: لا تتخلف أبداً</h3>
-            <p class="text-gray-600">
-                إذا كان لديك محاضرة في وقت مبكر، فاجعل حضورها أولوية قصوى. سهولة التخلف عن المحاضرات هي فخ السنة الأولى. الحضور المنتظم ليس فقط للحصول على العلامات، بل هو الأساس لبناء روتين دراسي ناجح والالتزام بجدولك الخاص.
-            </p>
-        </div>
-    </div>
-    
-    <h2 class="text-3xl font-extrabold mt-12 mb-6 primary-color section-heading">المحور الثاني: الإدارة الشخصية وإتقان الاستقلال</h2>
-
-    <div class="my-8 p-5 bg-yellow-50 border-l-4 border-yellow-600 rounded-md">
-        <p class="font-bold text-yellow-800">⚠️ تذكر:</p>
-        <p class="text-yellow-700 mt-2">
-            الجامعة اختبار لإدارة الذات أكثر منها اختبار للمعلومات. إذا لم تستطع تنظيم وقتك ومالك وصحتك، سيتأثر تحصيلك الأكاديمي بشكل مباشر.
-        </p>
-    </div>
-    
-    <ul class="space-y-6 mt-6">
-        <!-- النصيحة 5: الميزانية -->
-        <li class="p-5 rounded-lg bg-green-50 shadow-md tip-box border-r-4 border-green-700">
-            <h3 class="text-2xl font-semibold text-green-800 mb-2">5. تعلّم فن الميزانية الجامعية: المال يطير بسرعة</h3>
-            <p class="text-gray-700">
-                بمجرد الحصول على مصروفك أو منحة دراسية، ضع خطة واضحة. خصص مبالغ ثابتة للإيجار والطعام والكتب، وخصص مبلغاً صغيراً للترفيه. استخدام تطبيق تعقب مالي بسيط سيساعدك على تجنب الاستدانة في منتصف الشهر. <b>الاستقلال المالي</b> هو ركيزة الاستقلال الجامعي.
-            </p>
-        </li>
-
-        <!-- النصيحة 6: الأكل والنوم -->
-        <li class="p-5 rounded-lg bg-green-50 shadow-md tip-box border-r-4 border-green-700">
-            <h3 class="text-2xl font-semibold text-green-800 mb-2">6. النوم ليس رفاهية: ثماني ساعات غير قابلة للتفاوض</h3>
-            <p class="text-gray-700">
-                اعتقاد أنك تستطيع النجاح بـ 4 ساعات نوم هو خرافة جامعية شائعة. قلة النوم تضعف الذاكرة، تقلل التركيز، وتزيد القلق. اجعل النوم الجيد جزءاً من روتينك الأكاديمي، لأن العقل المريح يمتص المعلومات أسرع بكثير من العقل المتعب.
-            </p>
-        </li>
-        
-        <!-- النصيحة 7: توازن الحياة -->
-        <li class="p-5 rounded-lg bg-green-50 shadow-md tip-box border-r-4 border-green-700">
-            <h3 class="text-2xl font-semibold text-green-800 mb-2">7. يوم واحد "بعيد عن الدراسة" لإعادة شحن طاقتك</h3>
-            <p class="text-gray-700">
-                لتجنب الإرهاق (Burnout)، يجب أن يكون لديك يوم واحد على الأقل في الأسبوع تتوقف فيه تماماً عن التفكير بالجامعة. اخرج، مارس الرياضة، أو اقضِ وقتاً مع العائلة والأصدقاء. التوازن هو مفتاح الاستدامة في سباق الماراثون الجامعي.
-            </p>
-        </li>
-    </ul>
-
-    <h2 class="text-3xl font-extrabold mt-12 mb-6 primary-color section-heading">المحور الثالث: الاندماج وبناء المستقبل</h2>
-
-    <div class="grid md:grid-cols-3 gap-8 mt-6">
-        <!-- النصيحة 8: الأندية والمهارات -->
-        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-t-4 border-purple-500">
-            <h3 class="text-xl font-bold mb-2 text-purple-700">8. انضم إلى نادٍ واحد: لا تكن طالب مقاعد دراسية فقط</h3>
-            <p class="text-gray-600">
-                المهارات اللينة (Soft Skills) تكتسب من الأنشطة اللاصفية. انضم إلى نادي واحد فقط - سواء كان رياضياً، تطوعياً، أو مهنياً يتعلق بتخصصك. الأندية هي المكان الذي تتعلم فيه القيادة، العمل الجماعي، وإدارة الفعاليات، وهي مهارات يبحث عنها سوق العمل.
-            </p>
-        </div>
-
-        <!-- النصيحة 9: شبكة العلاقات -->
-        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-t-4 border-purple-500">
-            <h3 class="text-xl font-bold mb-2 text-purple-700">9. شبكة علاقاتك تبدأ من اليوم الأول (الطلاب الأقدم)</h3>
-            <p class="text-gray-600">
-                تواصل مع الطلاب في السنوات الأعلى. هم أفضل مصدر للمعلومات العملية حول أصعب المواد، أفضل الأساتذة، وحتى فرص التدريب. شبكة العلاقات المهنية تبدأ داخل قاعات الجامعة وليس بعد التخرج. كن كريماً في مساعدة الآخرين أيضاً.
-            </p>
-        </div>
-
-        <!-- النصيحة 10: تقبل الفشل -->
-        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-t-4 border-purple-500">
-            <h3 class="text-xl font-bold mb-2 text-purple-700">10. الدرجات ليست نهاية العالم: تقبل التعثر</h3>
-            <p class="text-gray-600">
-                قد تكون علامتك الأولى أقل مما توقعت، وهذا طبيعي جداً. بدلاً من اليأس، تعامل معها كـ 'بيانات' تخبرك أين يجب أن تحسن. الحياة الجامعية رحلة تعلم مستمرة؛ أحياناً يكون الفشل الصغير هو أعظم محفز للنجاح الكبير.
-            </p>
-        </div>
-    </div>
-
-    <div class="conclusion-message my-10 p-6 bg-primary-color text-purple rounded-xl shadow-2xl text-center">
-        <h3 class="text-3xl font-bold mb-3">🎉 انطلق الآن!</h3>
-        <p class="text-lg">
-            أنت الآن مجهز بالخطة اللازمة لتبدأ عامك الجامعي الأول بثقة ووعي. تذكر، الجامعة ليست عن كم المعلومات التي تحفظها، بل عن كيفية تحويل هذه المعلومات إلى مهارات وقدرات عملية. كن مرناً، ابحث عن الدعم، واستمتع بالرحلة.
-        </p>
-    </div>
-`
-},
-
-{id: 17,title: "كيف توازن بين الدراسة والحياة الاجتماعية: دليل الطالب للتفوق دون إرهاق",category: "نصائح جامعية",date: "4 أكتوبر 2025",summary: "يعد التوازن بين المتطلبات الأكاديمية الصارمة والرغبة في الاستمتاع بالحياة الاجتماعية تحديًا عالميًا لكل طالب جامعي. السر ليس في إيجاد وقت لكل شيء، بل في تطبيق استراتيجيات ذكية لإدارة طاقتك وأولوياتك. نقدم لك في هذا الدليل المكون من ثلاثة أركان أساسية، خارطة طريق لتحقيق التفوق الدراسي مع الحفاظ على علاقات صحية وحياة اجتماعية مُرضية.",image: "./img/ismail-hasan-aXiYpNcdHJI-unsplash.webp",content: `<style>.pillar-color-1 { color: #3B82F6; } /* Blue /.pillar-color-2 { color: #10B981; } / Emerald Green /.pillar-color-3 { color: #F59E0B; } / Amber */.bg-custom-light-blue { background-color: #EFF6FF; }.bg-custom-light-green { background-color: #ECFDF5; }.bg-custom-light-yellow { background-color: #FFFBEB; }.pillar-card {transition: all 0.3s ease;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);}.pillar-card:hover {transform: translateY(-4px);box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);}.title-divider {border-bottom: 3px solid #3B82F6;}</style>    <div class="intro-box p-8 rounded-2xl shadow-xl bg-custom-light-blue border-l-8 border-blue-600">
-        <h1 class="text-3xl font-extrabold mb-4 pillar-color-1">حبل المشي الرفيع بين الكتب والأصدقاء</h1>
-        <p class="text-lg leading-relaxed text-gray-800">
-            الحياة الجامعية تشبه محاولة المشي على حبل مشدود: أنت تريد الوصول إلى التفوق (الدراسة)، وفي نفس الوقت لا تريد أن تسقط من الأعلى (العزلة الاجتماعية). إن مفتاح التوازن ليس محاولة "إيجاد" وقت فراغ، بل هو <b>تخصيص</b> الوقت لكل شيء بشكل استباقي وواعي. لنرسم معاً ثلاثة أركان صلبة لبناء نظام حياة جامعي مستدام.
-        </p>
-    </div>
-
-    <h2 class="text-4xl font-extrabold mt-12 mb-8 title-divider pillar-color-1">الركيزة الأولى: التخطيط الأكاديمي الحازم</h2>
-    <p class="text-gray-700 mb-6 text-xl font-medium">هنا نضع الدراسة أولاً، ليس بالجهد، ولكن بالتنظيم الذي يضمن لك وقتاً حراً لاحقاً.</p>
-
-    <div class="grid md:grid-cols-3 gap-6">
-        
-        <div class="pillar-card p-6 rounded-xl bg-white border-t-4 border-blue-500">
-            <h3 class="text-2xl font-bold mb-3 pillar-color-1">1. التقطيع الزمني (Time Blocking)</h3>
-            <p class="text-gray-600">
-                بدلاً من قائمة مهام مفتوحة، حدد فترات زمنية محددة ومغلقة لمهمة واحدة فقط. مثال: "من 9:00 صباحاً إلى 11:00 صباحاً مراجعة مادة الكيمياء". هذا يمنع التشتت ويجعل وقت الدراسة مثمراً، بحيث عندما ينتهي الوقت، ينتهي العمل فعلياً.
-            </p>
-        </div>
-
-        <div class="pillar-card p-6 rounded-xl bg-white border-t-4 border-blue-500">
-            <h3 class="text-2xl font-bold mb-3 pillar-color-1">2. القاعدة 80/20 على جدولك</h3>
-            <p class="text-gray-600">
-                ركّز 80% من جهدك على الـ 20% من المواد أو الأجزاء التي تحقق أعلى علامات (كالواجبات الكبيرة والامتحانات المتوسطة). لا تضيع وقتاً طويلاً على القراءة التي لا تخدم تقييمك النهائي، وبذلك توفر وقتاً كافياً للتواصل الاجتماعي.
-            </p>
-        </div>
-
-        <div class="pillar-card p-6 rounded-xl bg-white border-t-4 border-blue-500">
-            <h3 class="text-2xl font-bold mb-3 pillar-color-1">3. منطقة حظر الدراسة (Non-Study Zone)</h3>
-            <p class="text-gray-600">
-                خصص وقتاً في المساء ليكون "مُقدساً" للراحة أو التجمعات الاجتماعية، دون أن تحمل معك شعوراً بالذنب تجاه الدراسة. هذا الفصل الذهني ضروري لـ <b>لإعادة شحن طاقتك</b> وضمان التزامك بالخطة المحددة.
-            </p>
-        </div>
-    </div>
-
-    <h2 class="text-4xl font-extrabold mt-12 mb-8 title-divider pillar-color-2">الركيزة الثانية: العلاقات الهادفة والذكية</h2>
-    <p class="text-gray-700 mb-6 text-xl font-medium">النجاح الاجتماعي لا يُقاس بعدد التجمعات التي تحضرها، بل بجودة الأشخاص الذين تشاركهم وقتك.</p>
-
-    <div class="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6">
-        
-        <div class="lg:w-1/2 pillar-card p-6 rounded-xl bg-custom-light-green border-r-4 border-green-600">
-            <h3 class="text-2xl font-bold mb-3 pillar-color-2">4. نعم للنوعية، لا للكمية</h3>
-            <p class="text-gray-700">
-                بدل تشتيت طاقتك في دوائر اجتماعية كبيرة وسطحية، استثمر وقتك المحدود في عدد قليل من الأصدقاء المقربين أو مجموعات الاهتمام المشتركة (الأندية). الصداقات العميقة والمُغذية تقدم دعماً نفسياً وعاطفياً لا يوفره التواجد في كل مناسبة.
-            </p>
-            <div class="mt-4 p-3 bg-green-100 rounded-md">
-                <span class="font-semibold pillar-color-2">مثال عملي:</span> تفضل قضاء ليلة واحدة في الأسبوع مع أفضل أصدقائك بدلاً من الخروج ثلاث مرات بشكل عشوائي.
-            </div>
-        </div>
-
-        <div class="lg:w-1/2 pillar-card p-6 rounded-xl bg-custom-light-green border-r-4 border-green-600">
-            <h3 class="text-2xl font-bold mb-3 pillar-color-2">5. تحويل الدراسة إلى نشاط اجتماعي</h3>
-            <p class="text-gray-700">
-                اجمع بين الاثنين! قم بإنشاء مجموعات دراسة منظمة ومحددة الهدف. عندما تنتهي من مهمة دراسية معاً، يمكنكم تخصيص ساعة للمرح أو تناول الطعام. بهذا الشكل، أنت تحقق هدفين في وقت واحد وتصبح الدراسة أقل عزلة وأكثر متعة.
-            </p>
-            <div class="mt-4 p-3 bg-green-100 rounded-md">
-                <span class="font-semibold pillar-color-2">تحذير هام:</span> يجب أن تبدأ الاجتماعات بالعمل وتنتهي بالمرح، وليس العكس!
-            </div>
-        </div>
-    </div>
-
-    <h2 class="text-4xl font-extrabold mt-12 mb-8 title-divider pillar-color-3">الركيزة الثالثة: مرونة الجدول والعناية الذاتية</h2>
-    <p class="text-gray-700 mb-6 text-xl font-medium">يجب أن تكون خطتك مرنة وقابلة للتعديل؛ الحياة الجامعية لا تسير دائماً حسب المخطط.</p>
-
-    <div class="space-y-6">
-        
-        <div class="pillar-card p-6 rounded-xl bg-custom-light-yellow border-l-4 border-amber-500 flex flex-col md:flex-row items-start">
-            <span class="text-4xl md:w-1/12 pillar-color-3 mb-4 md:mb-0">🧘</span>
-            <div class="md:w-11/12 md:mr-4">
-                <h3 class="text-2xl font-bold mb-2 pillar-color-3">6. التخطيط لوقت "عدم التخطيط"</h3>
-                <p class="text-gray-700">
-                    خصّص <b>وقتاً احتياطياً (Buffer Time)</b> في نهاية الأسبوع لتعويض أي وقت ضاع أو لإنجاز عمل لم تتوقعه. هذا يمنع الضغط من التراكم. بالإضافة إلى ذلك، يجب أن يتضمن جدولك "وقت فراغ إلزامي" دون أي أهداف. هذا الوقت هو أساس الصحة النفسية.
-                </p>
-            </div>
-        </div>
-
-        <div class="pillar-card p-6 rounded-xl bg-custom-light-yellow border-l-4 border-amber-500 flex flex-col md:flex-row items-start">
-            <span class="text-4xl md:w-1/12 pillar-color-3 mb-4 md:mb-0">📵</span>
-            <div class="md:w-11/12 md:mr-4">
-                <h3 class="text-2xl font-bold mb-2 pillar-color-3">7. تفعيل "وضع الطائرة" الاجتماعي</h3>
-                <p class="text-gray-700">
-                    التواجد على مدار الساعة على وسائل التواصل الاجتماعي يستهلك وقتاً وتركيزاً هائلاً دون أن يقدم قيمة اجتماعية حقيقية. خلال فترة الدراسة أو الراحة المخصصة، ضع هاتفك على وضع الطائرة أو صامت. هذا يتيح لك التركيز بعمق أثناء الدراسة والاستمتاع بصدق أثناء الأوقات الاجتماعية القصيرة.
-                </p>
-            </div>
-        </div>
-
-        <div class="pillar-card p-6 rounded-xl bg-custom-light-yellow border-l-4 border-amber-500 flex flex-col md:flex-row items-start">
-            <span class="text-4xl md:w-1/12 pillar-color-3 mb-4 md:mb-0">⚖️</span>
-            <div class="md:w-11/12 md:mr-4">
-                <h3 class="text-2xl font-bold mb-2 pillar-color-3">8. التعرف على علامات الإرهاق</h3>
-                <p class="text-gray-700">
-                    إذا بدأت تشعر بالإرهاق، أو فقدان الشغف، أو صعوبة في النوم، فهذه إشارات حمراء من جسدك. في هذه المرحلة، يجب أن تكون مرناً وتتخلى مؤقتاً عن بعض الالتزامات الاجتماعية لصالح استعادة طاقتك. صحتك العقلية هي أولويتك القصوى.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="conclusion-message my-12 p-8 bg-blue-600 text-white rounded-2xl shadow-2xl text-center">
-        <h3 class="text-3xl font-bold mb-3">🗝️ المفتاح هو التزامك بالخطة</h3>
-        <p class="text-xl">
-            التوازن ليس نقطة ثابتة تصل إليها، بل هو حركة مستمرة من التعديل والضبط. ابدأ بتطبيق ركيزة واحدة من هذه الأركان الثلاثة، وستجد أنك لست مضطراً للتضحية بتحصيلك الأكاديمي للاستمتاع بأجمل سنوات حياتك. استثمر في التخطيط، واستثمر في نفسك.
-        </p>
-    </div>
-`
-}
-
-
+             {
+                id: 16,
+                title: "كيف توازن بين الدراسة والحياة الاجتماعية: دليل الطالب للتفوق دون إرهاق",
+    category: "نصائح جامعية",
+    date: "04 أكتوبر 2025",
+    summary:"يعد التوازن بين المتطلبات الأكاديمية الصارمة والرغبة في الاستمتاع بالحياة الاجتماعية تحديًا عالميًا لكل طالب جامعي. السر ليس في إيجاد وقت لكل شيء، بل في تطبيق استراتيجيات ذكية لإدارة طاقتك وأولوياتك. نقدم لك في هذا الدليل المكون من ثلاثة أركان أساسية، خارطة طريق لتحقيق التفوق الدراسي مع الحفاظ على علاقات صحية وحياة اجتماعية مُرضية.",
+    image: "./img/ismail-hasan-aXiYpNcdHJI-unsplash.webp",
+                slug: "نصائح-للطلبة-الجدد.html"
+            }
         ];
 
-        const blogListView = document.getElementById('blog-list-view');
-        const singlePostView = document.getElementById('single-post-view');
         const blogPostsContainer = document.getElementById('blog-posts-container');
         const categoryList = document.getElementById('category-list');
-        const articleContent = document.getElementById('article-content');
-        const backButton = document.getElementById('back-button');
-        const blogHeader = document.getElementById('blog-header');
         const messageBox = document.getElementById('message-box');
-
         const categories = [...new Set(blogPosts.map(post => post.category))];
 
-        function getCurrentPostIdFromUrl() {
-            const params = new URLSearchParams(window.location.search);
-            const id = params.get('id');
-            return id ? parseInt(id) : null;
-        }
+        const searchInputDesktop = document.getElementById('search-input-desktop');
+        const searchInputMobile = document.getElementById('search-input-mobile');
+        const searchDesktopBtn = document.getElementById('search-desktop-btn');
+        const searchSubmitDesktop = document.getElementById('search-submit-desktop');
+        const searchDesktopField = document.getElementById('search-desktop-field');
+        const searchSubmitMobile = document.getElementById('search-submit-mobile');
+        const searchMobileNavBtn = document.getElementById('search-mobile-nav-btn');
 
-        function updateUrl(postId) {
-            const url = postId ? `?id=${postId}` : window.location.pathname;
-            const title = postId
-                ? blogPosts.find(p => p.id === postId)?.title || "تدوينة جامعيون"
-                : "مدونة جامعيّون";
-
-            history.pushState({ postId: postId }, title, url);
-        }
 
         function showMessageBox(message, type = 'info') {
-            let colorClass = 'bg-gray-700';
-            if (type === 'success') colorClass = 'bg-green-600';
-            if (type === 'error') colorClass = 'bg-red-600';
-            if (type === 'info') colorClass = 'bg-blue-600';
-
             messageBox.textContent = message;
-            messageBox.className = `fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-xl text-white shadow-2xl transition-all duration-300 z-[1001] ${colorClass} opacity-100 scale-100`;
+            let bgColor = 'bg-gray-700';
+            if (type === 'success') bgColor = 'bg-green-500';
+            if (type === 'error') bgColor = 'bg-red-500';
+            if (type === 'warning') bgColor = 'bg-yellow-600';
+
+            messageBox.className = `fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-lg text-white shadow-xl transition-opacity duration-300 z-[1001] opacity-100 ${bgColor}`;
 
             setTimeout(() => {
-                messageBox.classList.remove('opacity-100', 'scale-100');
-                messageBox.classList.add('opacity-0', 'scale-90');
+                messageBox.classList.add('opacity-0');
             }, 3000);
         }
 
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
-            }, () => {
-                try {
-                    const textarea = document.createElement('textarea');
-                    textarea.value = text;
-                    textarea.style.position = 'fixed';
-                    document.body.appendChild(textarea);
-                    textarea.focus();
-                    textarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textarea);
-                    showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
-                } catch (e) {
-                    showMessageBox('فشل النسخ. الرجاء النسخ يدوياً.', 'error');
-                }
-            });
-        }
-
-        function sharePostUrl(postId, title) {
-            const postUrl = window.location.href;
-
-            if (navigator.share) {
-                navigator.share({
-                    title: title,
-                    text: `اقرأ مقال: ${title} من مدونة جامعيون!`,
-                    url: postUrl,
-                }).catch((error) => {
-                    if (error.name !== 'AbortError') {
-                        copyToClipboard(postUrl);
-                    }
-                });
-            } else {
-                copyToClipboard(postUrl);
-            }
-        }
-
-
-        function changeView(postId) {
-            if (postId) {
-                const post = blogPosts.find(p => p.id === postId);
-                if (!post) {
-                    changeView(null);
-                    showMessageBox('لم يتم العثور على التدوينة المطلوبة.', 'error');
-                    return;
-                }
-
-                renderSinglePostContent(post);
-
-                blogListView.classList.add('hidden');
-                singlePostView.classList.remove('hidden');
-                blogHeader.classList.add('hidden');
-
-                updateUrl(postId);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                blogListView.classList.remove('hidden');
-                singlePostView.classList.add('hidden');
-                blogHeader.classList.remove('hidden');
-
-                updateUrl(null);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
-
-        function renderSinglePostContent(post) {
-            const shareButtonHtml = `
-                <button id="share-post-button" 
-                    class="flex items-center space-x-2 space-x-reverse text-accent-color hover:text-primary-color transition-colors duration-200 font-semibold text-lg p-2 rounded-lg hover:bg-white/50">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18 16c-.73 0-1.4-.24-1.93-.65l-7.39 3.49a2.986 2.986 0 010-6.68l7.39 3.49c.53-.41 1.2-.65 1.93-.65 1.65 0 3 1.35 3 3s-1.35 3-3 3zm0-10c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zM6 15c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3z"/>
-                    </svg>
-                    <span>مشاركة</span>
-                </button>
-            `;
-
-            articleContent.innerHTML = `
-                <h1 class="text-4xl font-extrabold mb-4 text-primary-color">${post.title}</h1>
-                
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-gray-200 pb-4">
-                    <p class="text-gray-500 text-sm mb-3 sm:mb-0">نُشرت في ${post.date} | الفئة: <span class="text-accent-color font-medium">${post.category}</span></p>
-                    ${shareButtonHtml}
-                </div>
-                
-                <img src="${post.image}" alt="${post.title}" class="w-full h-auto rounded-xl mb-8 object-cover max-h-[400px] shadow-md">
-                
-                <div class="prose max-w-none text-gray-700 leading-loose space-y-6">
-                    ${post.content}
-                </div>
-            `;
-
-            document.getElementById('share-post-button').addEventListener('click', () => {
-                sharePostUrl(post.id, post.title);
-            });
-        }
-
-
-        function renderPosts(filterCategory = null) {
+        function renderPosts(filterCategory = null, searchQuery = null) {
             blogPostsContainer.innerHTML = '';
-            let filteredPosts = filterCategory ? blogPosts.filter(post => post.category === filterCategory) : blogPosts;
+            let filteredPosts = blogPosts;
+
+            if (filterCategory) {
+                filteredPosts = filteredPosts.filter(post => post.category === filterCategory);
+            }
+
+            if (searchQuery) {
+                const query = searchQuery.toLowerCase().trim();
+                if (query !== '') {
+                    filteredPosts = filteredPosts.filter(post =>
+                        post.title.toLowerCase().includes(query) ||
+                        post.summary.toLowerCase().includes(query) ||
+                        post.category.toLowerCase().includes(query)
+                    );
+                }
+            }
+
+            if (filteredPosts.length === 0) {
+                blogPostsContainer.innerHTML = `
+                    <div class="lg:col-span-2 text-center p-10 bg-white rounded-xl shadow-inner">
+                        <h2 class="text-3xl text-primary-color font-bold mb-3">لا توجد مقالات مطابقة</h2>
+                        <p class="text-gray-600">نأسف، لم يتم العثور على نتائج للبحث أو الفئة المحددة.</p>
+                    </div>
+                `;
+                showMessageBox('لم يتم العثور على مقالات مطابقة.', 'warning');
+                return;
+            }
 
             filteredPosts.forEach(post => {
-                const articleElement = document.createElement('article');
-
-                articleElement.className = 'post-card p-6 fade-in-on-scroll transform transition-transform duration-300 hover:scale-[1.01] cursor-pointer';
+                const articleElement = document.createElement('a');
+                articleElement.href = `./articles/${post.slug}`;
+                articleElement.className = 'post-card p-6 fade-in-on-scroll transform transition-transform duration-300 hover:scale-[1.01] cursor-pointer block';
                 articleElement.dataset.postId = post.id;
-
-                articleElement.addEventListener('click', () => {
-                    changeView(post.id);
-                });
 
                 articleElement.innerHTML = `
                     <img src="${post.image}" alt="${post.title}" class="w-full h-auto rounded-lg mb-4 object-cover max-h-48">
@@ -2187,7 +485,6 @@ content: `<p>يواجه الطالب الجامعي تحديًا فريدًا ع
             setupAnimations();
         }
 
-
         function renderCategories() {
             categoryList.innerHTML = '';
 
@@ -2195,6 +492,8 @@ content: `<p>يواجه الطالب الجامعي تحديًا فريدًا ع
             allButton.className = 'category-button bg-primary-color text-white rounded-full px-4 py-1 transition-colors duration-200 cursor-pointer';
             allButton.textContent = 'الكل';
             allButton.addEventListener('click', () => {
+                searchInputDesktop.value = '';
+                searchInputMobile.value = '';
                 renderPosts();
                 updateCategoryButtons(allButton);
             });
@@ -2205,6 +504,8 @@ content: `<p>يواجه الطالب الجامعي تحديًا فريدًا ع
                 categoryItem.className = 'category-button bg-gray-200 hover:bg-gray-300 rounded-full px-4 py-1 transition-colors duration-200 cursor-pointer';
                 categoryItem.textContent = category;
                 categoryItem.addEventListener('click', () => {
+                    searchInputDesktop.value = '';
+                    searchInputMobile.value = '';
                     renderPosts(category);
                     updateCategoryButtons(categoryItem);
                 });
@@ -2217,8 +518,18 @@ content: `<p>يواجه الطالب الجامعي تحديًا فريدًا ع
                 button.classList.remove('bg-primary-color', 'text-white');
                 button.classList.add('bg-gray-200', 'text-gray-700');
             });
-            activeButton.classList.remove('bg-gray-200', 'text-gray-700');
-            activeButton.classList.add('bg-primary-color', 'text-white');
+            if (activeButton) {
+                activeButton.classList.remove('bg-gray-200', 'text-gray-700');
+                activeButton.classList.add('bg-primary-color', 'text-white');
+            }
+        }
+
+        function handleSearch(query) {
+            updateCategoryButtons(null);
+            renderPosts(null, query);
+            if (query.trim() === '') {
+                showMessageBox('تم عرض جميع المقالات.', 'info');
+            }
         }
 
         function setupAnimations() {
@@ -2242,43 +553,43 @@ content: `<p>يواجه الطالب الجامعي تحديًا فريدًا ع
             });
         }
 
-        backButton.addEventListener('click', () => {
-            changeView(null);
-        });
-
-        window.addEventListener('popstate', (event) => {
-            const historyState = event.state;
-            if (historyState && historyState.postId !== undefined) {
-                changeView(historyState.postId);
-            } else {
-                changeView(getCurrentPostIdFromUrl());
-            }
-        });
-
         document.addEventListener('DOMContentLoaded', () => {
             renderCategories();
             renderPosts();
 
-            const initialPostId = getCurrentPostIdFromUrl();
-            if (initialPostId) {
-                changeView(initialPostId);
-            } else {
-                changeView(null);
-            }
+            searchDesktopBtn.addEventListener('click', () => {
+                searchDesktopField.classList.toggle('hidden');
+                searchInputDesktop.focus();
+            });
+
+            searchSubmitDesktop.addEventListener('click', () => {
+                handleSearch(searchInputDesktop.value);
+            });
+
+            searchInputDesktop.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleSearch(searchInputDesktop.value);
+                }
+            });
+
+            searchSubmitMobile.addEventListener('click', () => {
+                handleSearch(searchInputMobile.value);
+            });
+
+            searchInputMobile.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleSearch(searchInputMobile.value);
+                }
+            });
+
+            // 3. منطق زر "بحث" في شريط التنقل السفلي للجوال (لتوجيه الانتباه)
+            searchMobileNavBtn.addEventListener('click', () => {
+                searchInputMobile.scrollIntoView({ behavior: 'smooth' });
+                searchInputMobile.focus();
+            });
+
         });
     </script>
 </body>
 
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
