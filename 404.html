@@ -17,10 +17,9 @@
         :root {
             --primary-blue: #004d9c;
             --secondary-blue: #0077c2;
-            --hover-blue: #002f5e;
-            --bg-light: #f3f4f6;
-            --card-bg: #ffffff;
-            --text-dark: #1f2937;
+            --hover-blue: #003a75;
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
         }
 
         body {
@@ -33,52 +32,61 @@
             justify-content: center;
             color: var(--text-dark);
             padding: 20px;
+            overflow-x: hidden;
+            background-image: radial-gradient(#d3e3f3 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
         .error-code {
-            font-size: 10rem;
+            font-size: clamp(6rem, 20vw, 12rem);
             font-weight: 900;
-            line-height: 1;
-            background-image: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
+            line-height: 0.9;
+            background-image: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
-            text-shadow: 0 5px 15px rgba(0, 77, 156, 0.2);
-            animation: pulse-shadow 2s ease-in-out infinite alternate;
+            text-shadow: 0 8px 20px rgba(0, 77, 156, 0.3);
+            animation: bounce-in 1s ease-out;
+            transform: scale(1);
+            transition: transform 0.3s;
         }
 
         .btn-primary {
             background-color: var(--primary-blue);
             color: #fff;
-            padding: 14px 40px;
+            padding: 16px 48px;
             border-radius: 9999px;
             font-weight: 700;
+            letter-spacing: 0.5px;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 8px 25px rgba(0, 77, 156, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 77, 156, 0.45);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            border: 2px solid transparent;
         }
 
         .btn-primary:hover {
             background-color: var(--hover-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(0, 77, 156, 0.5);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 77, 156, 0.6);
+        }
+        
+        @keyframes bounce-in {
+            0% { opacity: 0; transform: scale(0.8); }
+            60% { opacity: 1; transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
-        @keyframes pulse-shadow {
-            from {
-                text-shadow: 0 5px 15px rgba(0, 77, 156, 0.2);
-            }
-            to {
-                text-shadow: 0 8px 20px rgba(0, 77, 156, 0.35);
-            }
-        }
-
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             .error-code {
-                font-size: 7rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+            .btn-primary {
+                width: 100%;
+                padding: 14px 20px;
             }
         }
     </style>
@@ -86,38 +94,36 @@
 
 <body>
 
-    <main class="w-full max-w-xl mx-auto p-8 md:p-12 bg-[--card-bg] rounded-3xl shadow-2xl border-t-8 border-t-[--primary-blue] transition-all duration-500 transform hover:shadow-3xl">
+    <main class="w-full max-w-4xl mx-auto text-center pt-10 md:pt-20 pb-12 px-4 transition-all duration-300">
         
-        <div class="text-center">
-            <img src="./logo/logo-jamii.png" 
-                 alt="شعار جامعيون" 
-                 class="w-24 h-24 mx-auto mb-6 rounded-full border-4 border-gray-100 shadow-md"
-                 onerror="this.onerror=null; this.src='https://placehold.co/96x96/0077c2/ffffff?text=Logo';"
-            >
+        <img src="./logo/logo-jamii.png" 
+            alt="شعار جامعيون" 
+            class="w-28 h-28 mx-auto mb-8 md:mb-10 rounded-full border-4 border-white shadow-xl transform hover:scale-105 transition-transform duration-300"
+            onerror="this.onerror=null; this.src='https://placehold.co/112x112/004d9c/ffffff?text=جامعيون';"
+        >
 
-            <h1 class="error-code">404</h1>
+        <h1 class="error-code">404</h1>
 
-            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-3 tracking-wide">
-                عذراً، الصفحة غير موجودة (404)
-            </h2>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-[--text-dark] mb-4 tracking-wider animate-pulse">
+            يا للهول! لم نجد هذه الصفحة.
+        </h2>
 
-            <p class="text-base md:text-lg text-gray-600 leading-8 mb-10">
-                الرابط الذي اتبعته قد يكون خاطئاً أو أن الصفحة قد نُقلت أو حُذفت. لا تقلق، يمكنك العودة إلى الصفحة الرئيسية والبدء من جديد.
-            </p>
+        <p class="text-lg md:text-xl text-gray-600 leading-9 mb-12 max-w-2xl mx-auto opacity-90">
+            يبدو أنك وصلت إلى مساحة فارغة. الرابط الذي اتبعته قد يكون قديماً، أو أن الصفحة قد انتقلت. لا تقلق، لست ضائعاً!
+        </p>
 
-            <a href="/" class="btn-primary w-full sm:w-64">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 ml-2">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-                العودة إلى الصفحة الرئيسية
-            </a>
-            
-        </div>
+        <a href="/" class="btn-primary w-full sm:w-auto min-w-[280px]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 ml-2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            العودة إلى الصفحة الرئيسية الآمنة
+        </a>
+        
     </main>
 
-    <footer class="mt-12 w-full text-center text-sm text-gray-500 py-4">
-        <p class="mt-8">
+    <footer class="mt-auto w-full text-center text-sm text-gray-500 py-6 border-t border-gray-200 bg-white shadow-inner">
+        <p>
             © <span id="year"></span> | 
             <span class="text-[--primary-blue] font-bold">جامعيون</span>
             – كل الحقوق محفوظة.
