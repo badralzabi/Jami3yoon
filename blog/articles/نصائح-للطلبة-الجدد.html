@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 نصائح لكل طالب جديد في الجامعة</title> 
+    <meta name="description"
+        content="جامعيون بدأ ك تطبيق جامعي ثمّ توسع ل يصبح مبادرة طلابية جامعية تهتم بطالب الجامعة وهدفها طالب الجامعة، نقدم كل شيئ يحتاجه الطالب في رحلته وحياته الجامعية ........">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        
+        :root {
+            --primary-color: #004d9c;
+            --secondary-color: #0077c2;
+            --accent-color: #ff7f50;
+            --text-dark: #1f2937;
+            --bg-light: #f3f4f6;
+            --card-bg: #f0fbff;
+            --card-border: #d7eefb;
+        }
+
+        .text-primary-color {
+            color: var(--primary-color);
+        }
+
+        .text-accent-color {
+            color: var(--accent-color);
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            padding-bottom: 70px;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .bg-card-bg {
+            background: var(--card-bg);
+        }
+
+        .post-content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+            border-radius: 1rem;
+        }
+
+       
+        .prose h1,
+        .prose h2,
+        .prose h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .prose p {
+            margin-bottom: 1rem;
+        }
+
+        .prose a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body class="font-cairo">
+
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 p-4 hidden md:block">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../index.html"
+                class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold text-2xl">
+                <img src="../../logo-jamii.png" alt="Logo" class="w-12 h-12 rounded-full">
+                <span>جامعيون</span>
+            </a>
+            <ul class="flex space-x-6 space-x-reverse font-semibold">
+                <li><a href="../index.html"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">الرئيسية</a></li>
+                <li><a href="../index.html"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">مقالات</a>
+                </li>
+                <li><a href="../about_blog/"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">عن المدونة</a></li>
+                <li><a href="../../contact"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="blog-container" class="max-w-6xl mx-auto p-5 md:mt-24">
+
+        <div id="single-post-view">
+            <a href="../index.html"
+                class="flex items-center space-x-2 space-x-reverse text-primary-color hover:text-secondary-color font-semibold mb-8 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+                <span>العودة إلى المدونة</span>
+            </a>
+
+            <div id="article-content" class="post-content-card p-6 rounded-2xl shadow-lg">
+
+                <h1 class="text-4xl font-extrabold mb-4 text-primary-color">10 نصائح لكل طالب جديد في الجامعة</h1>
+
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-gray-200 pb-4">
+                    <p class="text-gray-500 text-sm mb-3 sm:mb-0">نُشرت في 4 اكتوبر 2025 | الفئة: <span
+                            class="text-accent-color font-medium">نصائح جامعية</span></p>
+                    
+                    <button id="share-post-button" onclick="sharePostUrl('10 نصائح لكل طالب جديد في الجامعة')"
+                        class="flex items-center space-x-2 space-x-reverse text-accent-color hover:text-primary-color transition-colors duration-200 font-semibold text-lg p-2 rounded-lg hover:bg-white/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18 16c-.73 0-1.4-.24-1.93-.65l-7.39 3.49a2.986 2.986 0 010-6.68l7.39 3.49c.53-.41 1.2-.65 1.93-.65 1.65 0 3 1.35 3 3s-1.35 3-3 3zm0-10c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zM6 15c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3z" />
+                        </svg>
+                        <span>مشاركة</span>
+                    </button>
+                </div>
+
+                <img src="../img/university_student.webp" alt="img"
+                    class="w-full h-auto rounded-xl mb-8 object-cover max-h-[400px] shadow-md">
+
+                         <style>.primary-color { color: #800080; } /* بنفسجي غامق */.border-primary-color { border-color: #800080; }.bg-primary-light { background-color: #F8F4FF; }.section-heading {border-bottom: 2px solid #800080;padding-bottom: 0.5rem;}.tip-box {transition: transform 0.3s ease, box-shadow 0.3s ease;}.tip-box:hover {transform: translateY(-5px);box-shadow: 0 10px 15px rgba(128, 0, 128, 0.1);}</style>    <div class="intro-box p-6 rounded-xl shadow-lg bg-primary-light border-t-4 border-primary-color">
+        <p class="text-xl leading-relaxed text-gray-800 font-medium">
+            لحظة القبول الجامعي هي بداية مغامرة جديدة. ولكن، بين الاستقلال عن العائلة وضغط المواد الجديدة، قد يشعر الطالب الجديد بالضياع. الخبر السار هو أن النجاح الجامعي ليس سراً؛ إنه مجموعة من العادات الذكية.
+        </p>
+        <p class="mt-4 text-gray-700">
+            هذا الدليل ليس قائمة مهام، بل هو خريطة ذهنية مقسمة إلى ثلاثة محاور أساسية لضمان عامك الأول بنجاح وتفوق. لنبدأ بـ <b>كيف تدرس بذكاء</b>.
+        </p>
+    </div>
+
+    <h2 class="text-3xl font-extrabold mt-12 mb-6 primary-color section-heading">المحور الأول: الانضباط الأكاديمي والتخطيط الذكي</h2>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-6">
+        
+        <!-- النصيحة 1: الخطة الدراسية -->
+        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-l-4 border-indigo-500">
+            <h3 class="text-xl font-bold mb-2 text-indigo-700">1. الخطة الدراسية هي خريطتك الجغرافية</h3>
+            <p class="text-gray-600">
+                لا تنتظر حتى نهاية الفصل لتعرف متطلبات المادة. في الأسبوع الأول، قم بتحميل <b>الخطة الدراسية (Syllabus)</b> لكل مادة. حدد تواريخ الامتحانات والواجبات الرئيسية وقم بإدخالها مباشرة في تقويمك. معرفة متى يجب أن تنجز كل شيء مسبقاً هي الخطوة الأولى لإدارة الوقت الجامعي بفعالية.
+            </p>
+        </div>
+
+        <!-- النصيحة 2: ساعات المكتب -->
+        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-l-4 border-indigo-500">
+            <h3 class="text-xl font-bold mb-2 text-indigo-700">2. ساعات المكتب للمحاضر (Office Hours) ليست للمجاملة</h3>
+            <p class="text-gray-600">
+                أحد أكبر أسرار التفوق هو بناء علاقة مهنية مع أساتذتك. لا تذهب إليهم لتقول "أنا ضائع"، بل اذهب بسؤال محدد كنت قد فكرت فيه. هذه الساعات هي فرصتك للحصول على إرشاد شخصي، وهي تفتح الأبواب لفرص البحث والتوصيات المستقبلية.
+            </p>
+        </div>
+
+        <!-- النصيحة 3: التعلم النشط -->
+        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-l-4 border-indigo-500">
+            <h3 class="text-xl font-bold mb-2 text-indigo-700">3. المراجعة الفورية بدلاً من الحفظ المتراكم</h3>
+            <p class="text-gray-600">
+                التعلم النشط يعني أن تخصص 15-20 دقيقة فوراً بعد كل محاضرة لمراجعة النقاط الأساسية وكتابة ملخصك الخاص. هذا يثبت المعلومة في ذهنك ويمنع تراكم الدروس الذي يؤدي إلى ليالي المذاكرة المرهقة قبل الامتحانات النهائية.
+            </p>
+        </div>
+
+        <!-- النصيحة 4: الانضباط في الحضور -->
+        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-l-4 border-indigo-500">
+            <h3 class="text-xl font-bold mb-2 text-indigo-700">4. الـ 8 صباحاً هي معيار الانضباط: لا تتخلف أبداً</h3>
+            <p class="text-gray-600">
+                إذا كان لديك محاضرة في وقت مبكر، فاجعل حضورها أولوية قصوى. سهولة التخلف عن المحاضرات هي فخ السنة الأولى. الحضور المنتظم ليس فقط للحصول على العلامات، بل هو الأساس لبناء روتين دراسي ناجح والالتزام بجدولك الخاص.
+            </p>
+        </div>
+    </div>
+    
+    <h2 class="text-3xl font-extrabold mt-12 mb-6 primary-color section-heading">المحور الثاني: الإدارة الشخصية وإتقان الاستقلال</h2>
+
+    <div class="my-8 p-5 bg-yellow-50 border-l-4 border-yellow-600 rounded-md">
+        <p class="font-bold text-yellow-800">⚠️ تذكر:</p>
+        <p class="text-yellow-700 mt-2">
+            الجامعة اختبار لإدارة الذات أكثر منها اختبار للمعلومات. إذا لم تستطع تنظيم وقتك ومالك وصحتك، سيتأثر تحصيلك الأكاديمي بشكل مباشر.
+        </p>
+    </div>
+    
+    <ul class="space-y-6 mt-6">
+        <!-- النصيحة 5: الميزانية -->
+        <li class="p-5 rounded-lg bg-green-50 shadow-md tip-box border-r-4 border-green-700">
+            <h3 class="text-2xl font-semibold text-green-800 mb-2">5. تعلّم فن الميزانية الجامعية: المال يطير بسرعة</h3>
+            <p class="text-gray-700">
+                بمجرد الحصول على مصروفك أو منحة دراسية، ضع خطة واضحة. خصص مبالغ ثابتة للإيجار والطعام والكتب، وخصص مبلغاً صغيراً للترفيه. استخدام تطبيق تعقب مالي بسيط سيساعدك على تجنب الاستدانة في منتصف الشهر. <b>الاستقلال المالي</b> هو ركيزة الاستقلال الجامعي.
+            </p>
+        </li>
+
+        <!-- النصيحة 6: الأكل والنوم -->
+        <li class="p-5 rounded-lg bg-green-50 shadow-md tip-box border-r-4 border-green-700">
+            <h3 class="text-2xl font-semibold text-green-800 mb-2">6. النوم ليس رفاهية: ثماني ساعات غير قابلة للتفاوض</h3>
+            <p class="text-gray-700">
+                اعتقاد أنك تستطيع النجاح بـ 4 ساعات نوم هو خرافة جامعية شائعة. قلة النوم تضعف الذاكرة، تقلل التركيز، وتزيد القلق. اجعل النوم الجيد جزءاً من روتينك الأكاديمي، لأن العقل المريح يمتص المعلومات أسرع بكثير من العقل المتعب.
+            </p>
+        </li>
+        
+        <!-- النصيحة 7: توازن الحياة -->
+        <li class="p-5 rounded-lg bg-green-50 shadow-md tip-box border-r-4 border-green-700">
+            <h3 class="text-2xl font-semibold text-green-800 mb-2">7. يوم واحد "بعيد عن الدراسة" لإعادة شحن طاقتك</h3>
+            <p class="text-gray-700">
+                لتجنب الإرهاق (Burnout)، يجب أن يكون لديك يوم واحد على الأقل في الأسبوع تتوقف فيه تماماً عن التفكير بالجامعة. اخرج، مارس الرياضة، أو اقضِ وقتاً مع العائلة والأصدقاء. التوازن هو مفتاح الاستدامة في سباق الماراثون الجامعي.
+            </p>
+        </li>
+    </ul>
+
+    <h2 class="text-3xl font-extrabold mt-12 mb-6 primary-color section-heading">المحور الثالث: الاندماج وبناء المستقبل</h2>
+
+    <div class="grid md:grid-cols-3 gap-8 mt-6">
+        <!-- النصيحة 8: الأندية والمهارات -->
+        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-t-4 border-purple-500">
+            <h3 class="text-xl font-bold mb-2 text-purple-700">8. انضم إلى نادٍ واحد: لا تكن طالب مقاعد دراسية فقط</h3>
+            <p class="text-gray-600">
+                المهارات اللينة (Soft Skills) تكتسب من الأنشطة اللاصفية. انضم إلى نادي واحد فقط - سواء كان رياضياً، تطوعياً، أو مهنياً يتعلق بتخصصك. الأندية هي المكان الذي تتعلم فيه القيادة، العمل الجماعي، وإدارة الفعاليات، وهي مهارات يبحث عنها سوق العمل.
+            </p>
+        </div>
+
+       
+        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-t-4 border-purple-500">
+            <h3 class="text-xl font-bold mb-2 text-purple-700">9. شبكة علاقاتك تبدأ من اليوم الأول (الطلاب الأقدم)</h3>
+            <p class="text-gray-600">
+                تواصل مع الطلاب في السنوات الأعلى. هم أفضل مصدر للمعلومات العملية حول أصعب المواد، أفضل الأساتذة، وحتى فرص التدريب. شبكة العلاقات المهنية تبدأ داخل قاعات الجامعة وليس بعد التخرج. كن كريماً في مساعدة الآخرين أيضاً.
+            </p>
+        </div>
+
+       
+        <div class="tip-box bg-white p-5 rounded-lg shadow-md border-t-4 border-purple-500">
+            <h3 class="text-xl font-bold mb-2 text-purple-700">10. الدرجات ليست نهاية العالم: تقبل التعثر</h3>
+            <p class="text-gray-600">
+                قد تكون علامتك الأولى أقل مما توقعت، وهذا طبيعي جداً. بدلاً من اليأس، تعامل معها كـ 'بيانات' تخبرك أين يجب أن تحسن. الحياة الجامعية رحلة تعلم مستمرة؛ أحياناً يكون الفشل الصغير هو أعظم محفز للنجاح الكبير.
+            </p>
+        </div>
+    </div>
+
+    <div class="conclusion-message my-10 p-6 bg-primary-color text-purple rounded-xl shadow-2xl text-center">
+        <h3 class="text-3xl font-bold mb-3">🎉 انطلق الآن!</h3>
+        <p class="text-lg">
+            أنت الآن مجهز بالخطة اللازمة لتبدأ عامك الجامعي الأول بثقة ووعي. تذكر، الجامعة ليست عن كم المعلومات التي تحفظها، بل عن كيفية تحويل هذه المعلومات إلى مهارات وقدرات عملية. كن مرناً، ابحث عن الدعم، واستمتع بالرحلة.
+        </p>
+    </div>
+
+                </div>
+                </div>
+        </div>
+    </div>
+
+    <footer class="mobile-nav md:hidden p-4">
+        <ul class="flex justify-around items-center text-center">
+            <li class="flex-1">
+                <a href="../index.html" class="flex flex-col items-center justify-center p-2 text-primary-color">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                    <span class="text-xs mt-1">الرئيسية</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../about_blog"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
+                    </svg>
+                    <span class="text-xs mt-1">عن المدونة</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../../contact"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M22 17.062c-2.617-3.924-4.846-5.46-8.914-6.324-1.103-.231-1.928-.964-1.928-2.062 0-1.101.825-1.833 1.928-2.064 4.068-.864 6.297-2.399 8.914-6.324L21 2c-3.235 3.235-5.235 5.235-9 5.235S4.235 5.235 1 2l-1 1.062c2.617 3.924 4.846 5.46 8.914 6.324 1.103.231 1.928.964 1.928 2.062 0 1.101-.825 1.833-1.928 2.064-4.068.864-6.297 2.399-8.914 6.324l1 1.062c3.235-3.235 5.235-5.235 9-5.235s5.765 2 9 5.235l1-1.062z" />
+                    </svg>
+                    <span class="text-xs mt-1">اتصل بنا</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        function showMessageBox(message, type = 'info') {
+
+            const messageBox = document.getElementById('message-box');
+            if (!messageBox) return; 
+            let colorClass = 'bg-gray-700';
+            if (type === 'success') colorClass = 'bg-green-600';
+            if (type === 'error') colorClass = 'bg-red-600';
+            if (type === 'info') colorClass = 'bg-blue-600';
+
+            messageBox.textContent = message;
+            messageBox.className = `fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-xl text-white shadow-2xl transition-all duration-300 z-[1001] ${colorClass} opacity-100 scale-100`;
+
+            setTimeout(() => {
+                messageBox.classList.remove('opacity-100', 'scale-100');
+                messageBox.classList.add('opacity-0', 'scale-90');
+            }, 3000);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
+            }, () => {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    textarea.style.position = 'fixed';
+                    document.body.appendChild(textarea);
+                    textarea.focus();
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
+                } catch (e) {
+                    showMessageBox('فشل النسخ. الرجاء النسخ يدوياً.', 'error');
+                }
+            });
+        }
+
+        function sharePostUrl(title) {
+            const postUrl = window.location.href;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: `اقرأ مقال: ${title} من مدونة جامعيون!`,
+                    url: postUrl,
+                }).catch((error) => {
+                    if (error.name !== 'AbortError') {
+                        copyToClipboard(postUrl);
+                    }
+                });
+            } else {
+                copyToClipboard(postUrl);
+            }
+        }
+    </script>
+</body>
+
+</html>

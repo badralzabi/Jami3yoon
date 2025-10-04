@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز</title> 
+    <meta name="description"
+        content="جامعيون بدأ ك تطبيق جامعي ثمّ توسع ل يصبح مبادرة طلابية جامعية تهتم بطالب الجامعة وهدفها طالب الجامعة، نقدم كل شيئ يحتاجه الطالب في رحلته وحياته الجامعية ........">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        
+        :root {
+            --primary-color: #004d9c;
+            --secondary-color: #0077c2;
+            --accent-color: #ff7f50;
+            --text-dark: #1f2937;
+            --bg-light: #f3f4f6;
+            --card-bg: #f0fbff;
+            --card-border: #d7eefb;
+        }
+
+        .text-primary-color {
+            color: var(--primary-color);
+        }
+
+        .text-accent-color {
+            color: var(--accent-color);
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            padding-bottom: 70px;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .bg-card-bg {
+            background: var(--card-bg);
+        }
+
+        .post-content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+            border-radius: 1rem;
+        }
+
+       
+        .prose h1,
+        .prose h2,
+        .prose h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .prose p {
+            margin-bottom: 1rem;
+        }
+
+        .prose a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body class="font-cairo">
+
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 p-4 hidden md:block">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../index.html"
+                class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold text-2xl">
+                <img src="../../logo-jamii.png" alt="Logo" class="w-12 h-12 rounded-full">
+                <span>جامعيون</span>
+            </a>
+            <ul class="flex space-x-6 space-x-reverse font-semibold">
+                <li><a href="../index.html"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">الرئيسية</a></li>
+                <li><a href="../index.html"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">مقالات</a>
+                </li>
+                <li><a href="../about_blog/"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">عن المدونة</a></li>
+                <li><a href="../../contact"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="blog-container" class="max-w-6xl mx-auto p-5 md:mt-24">
+
+        <div id="single-post-view">
+            <a href="../index.html"
+                class="flex items-center space-x-2 space-x-reverse text-primary-color hover:text-secondary-color font-semibold mb-8 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+                <span>العودة إلى المدونة</span>
+            </a>
+
+            <div id="article-content" class="post-content-card p-6 rounded-2xl shadow-lg">
+
+                <h1 class="text-4xl font-extrabold mb-4 text-primary-color">رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز</h1>
+
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-gray-200 pb-4">
+                    <p class="text-gray-500 text-sm mb-3 sm:mb-0">نُشرت في 3 اكتوبر 2025 | الفئة: <span
+                            class="text-accent-color font-medium">الأكاديميات والتخصصات</span></p>
+                    
+                    <button id="share-post-button" onclick="sharePostUrl('رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز')"
+                        class="flex items-center space-x-2 space-x-reverse text-accent-color hover:text-primary-color transition-colors duration-200 font-semibold text-lg p-2 rounded-lg hover:bg-white/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18 16c-.73 0-1.4-.24-1.93-.65l-7.39 3.49a2.986 2.986 0 010-6.68l7.39 3.49c.53-.41 1.2-.65 1.93-.65 1.65 0 3 1.35 3 3s-1.35 3-3 3zm0-10c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zM6 15c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3z" />
+                        </svg>
+                        <span>مشاركة</span>
+                    </button>
+                </div>
+
+                <img src="../img/graduation_project.webp" alt="img"
+                    class="w-full h-auto rounded-xl mb-8 object-cover max-h-[400px] shadow-md">
+
+                          <div class="intro-box p-6 rounded-xl shadow-lg bg-gray-50 border-t-4 border-primary-color">
+            <p class="text-lg leading-relaxed text-gray-700">
+                مشروع التخرج، تلك الكلمات التي تحمل في طياتها مزيجاً من الحماس، القلق، وشيء من الرهبة. لا تخف، فأنت لست وحدك. إنها المرحلة التي تنتقل فيها من مُتلقٍّ للمعلومة إلى صانع لها. هذا المشروع ليس مجرد شرط أكاديمي، بل هو بوابتك الحقيقية لإظهار قدراتك العملية في المجال الذي اخترته.
+            </p>
+            <p class="mt-4 text-gray-700">
+                السر في النجاح ليس بالجهد المضاعف في اللحظات الأخيرة، بل في <b>التخطيط الاستباقي</b> وتقسيم الرحلة الطويلة إلى محطات سهلة الإدارة. لنرسم معاً خريطة طريق متكاملة، تبدأ قبل شهور من الموعد النهائي.
+            </p>
+        </div>
+
+        <h2 class="text-3xl font-extrabold mt-12 mb-6 text-primary-color border-b-2 pb-2">المرحلة الأولى: استكشاف الفكرة (مرحلة الصفر)</h2>
+
+        <div class="step-card bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-secondary-color">
+            <h3 class="text-xl font-bold mb-3 text-secondary-color">1. ابحث عن الشغف وليس السهولة</h3>
+            <p>
+                أكبر خطأ يرتكبه الطلاب هو اختيار أسهل فكرة ممكنة. مشروع التخرج سيستغرق وقتاً طويلاً جداً. لذا، ابحث عن فكرة تثير شغفك وتحديك الفكري، شيء يجعلك متحمساً للعمل عليه حتى في منتصف الليل. الفكرة الشغوفة تمنع الملل وتضمن الجودة.
+            </p>
+        </div>
+
+        <div class="step-card bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-secondary-color">
+            <h3 class="text-xl font-bold mb-3 text-secondary-color">2. تحديد نقاط القوة والفريق المناسب</h3>
+            <p>
+                إن كنت ستعمل ضمن فريق، اختر أعضاء يكمّلون مهاراتك لا يكررونها. إذا كنت ممتازاً في الجانب النظري (البحث)، فابحث عن شخص قوي في الجانب العملي (التطبيق أو البرمجة). اتفقوا على الأهداف والتوقعات والالتزام بالاجتماعات من البداية.
+            </p>
+        </div>
+
+        <div class="step-card bg-white p-6 rounded-lg shadow-md mb-6 border-l-4 border-secondary-color">
+            <h3 class="text-xl font-bold mb-3 text-secondary-color">3. اختيار المشرف (Supervisors): الشريك لا المدير</h3>
+            <p>
+                لا تختر مشرفك بناءً على شهرته أو سهولته. اختره بناءً على خبرته في مجال فكرتك وقدرته على توجيهك. تواصل معه مبكراً، واعرض عليه ملخصاً واضحاً ومدروساً لفكرتك لإظهار جديتك، واسأله عن توقعاته لطريقة العمل.
+            </p>
+        </div>
+        
+        <h2 class="text-3xl font-extrabold mt-12 mb-6 text-primary-color border-b-2 pb-2">المرحلة الثانية: التخطيط والبحث (بناء الهيكل)</h2>
+
+        <div class="grid md:grid-cols-2 gap-8 mt-6">
+            <div class="plan-item bg-teal-50 p-5 rounded-lg border border-teal-200">
+                <h4 class="text-xl font-semibold mb-3 text-green-700">4. خريطة طريق زمنية (Gantt Chart)</h4>
+                <p class="text-gray-600">
+                    لا تبدأ العمل قبل أن تضع جدولاً زمنياً مفصلاً. قسم المشروع إلى مراحل صغيرة (البحث، جمع البيانات، التصميم، التنفيذ، الاختبار، الكتابة). حدد موعداً نهائياً لكل مرحلة. <b>الالتزام بالمواعيد الداخلية</b> هو سر تجنب ضغط النهاية. خصص وقتاً احتياطياً للطوارئ.
+                </p>
+            </div>
+            <div class="plan-item bg-amber-50 p-5 rounded-lg border border-amber-200">
+                <h4 class="text-xl font-semibold mb-3 text-yellow-700">5. الأدبيات والمصادر (Literature Review)</h4>
+                <p class="text-gray-600">
+                    هنا يكمن الفرق بين مشروع جيد ومشروع ممتاز. اقرأ بعمق كل ما يتعلق بفكرتك. ليس فقط للعلم، بل لتحديد <b>الفجوة المعرفية</b> التي سيسدها مشروعك. استخدم قواعد البيانات الأكاديمية وادخر وقتك بعيداً عن المصادر غير الموثوقة.
+                </p>
+            </div>
+        </div>
+
+        <div class="warning-box my-8 p-5 bg-red-50 border-l-4 border-red-600 rounded-md">
+            <p class="font-bold text-red-700">⚠️ خطأ يجب تجنبه:</p>
+            <p class="text-red-700 mt-2">
+                تجنب 'شلل التحليل' (Analysis Paralysis). لا تستغرق وقتاً طويلاً في التخطيط والبحث لدرجة أن يفوتك وقت البدء بالتطبيق العملي. التوازن هو مفتاح المرحلة الثانية.
+            </p>
+        </div>
+
+
+        <h2 class="text-3xl font-extrabold mt-12 mb-6 text-primary-color border-b-2 pb-2">المرحلة الثالثة: التنفيذ والكتابة (الجودة والتوثيق)</h2>
+        
+        <div class="flex flex-col space-y-6">
+
+            <div class="execution-step p-5 rounded-lg bg-indigo-50 shadow-md">
+                <h3 class="text-2xl font-semibold text-indigo-800 mb-2">6. التوثيق هو نصف العمل (Document Everything)</h3>
+                <p class="text-gray-700">
+                    سواء كنت مهندساً أو باحثاً، سجّل كل خطوة، كل قرار، وكل مشكلة واجهتها وكيف حللتها. هذا التوثيق هو عصب الفصل المنهجي في تقريرك النهائي. استخدم أدوات مثل <b>Git</b> للمبرمجين أو <b>دفتر ملاحظات منظم</b> للباحثين لتسجيل يوميات العمل.
+                </p>
+            </div>
+
+            <div class="execution-step p-5 rounded-lg bg-indigo-50 shadow-md">
+                <h3 class="text-2xl font-semibold text-indigo-800 mb-2">7. الاجتماعات الأسبوعية الفعالة</h3>
+                <p class="text-gray-700">
+                    لا تذهب إلى المشرف إلا ومعك قائمة واضحة بما أنجزته، والمشكلات التي تواجهها، والخطوة التالية. الاجتماعات ليست جلسات دردشة، بل هي لتقييم التقدم وتعديل المسار. الالتزام بالاجتماعات يحمي مشروعك من الانحراف عن الهدف.
+                </p>
+            </div>
+
+            <div class="execution-step p-5 rounded-lg bg-indigo-50 shadow-md">
+                <h3 class="text-2xl font-semibold text-indigo-800 mb-2">8. ابدأ بكتابة التقرير مبكراً</h3>
+                <p class="text-gray-700">
+                    لا تؤجل الكتابة للأسابيع الأخيرة. يمكنك البدء بكتابة فصول كاملة مثل 'مراجعة الأدبيات' و 'منهجية العمل' بمجرد الانتهاء منها. بهذه الطريقة، عندما ينتهي التطبيق العملي، تكون معظم فصول التقرير جاهزة للمراجعة.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="text-3xl font-extrabold mt-12 mb-6 text-primary-color border-b-2 pb-2">المرحلة الرابعة: المراجعة والتسليم (اللمسات النهائية)</h2>
+
+        <div class="final-checklist mt-6 p-6 bg-gray-100 rounded-xl shadow-inner">
+            <h3 class="text-2xl font-bold mb-4 text-primary-color" style="color:#800080;">قائمة المراجعة الأخيرة (لا تغفل عنها):</h3>
+            <ul class="space-y-3">
+                <li class="flex items-center" style="color:#800080;">
+                    <span class="text-green-500 font-bold mr-3 text-xl">✓</span>
+                    <strong>التنسيق الموحد:</strong> هل التقرير بالكامل يتبع إرشادات التنسيق في جامعتك (الهوامش، حجم الخط، ترقيم الصفحات، العناوين)؟
+                </li>
+                <li class="flex items-center" style="color:#800080;">
+                    <span class="text-green-500 font-bold mr-3 text-xl">✓</span>
+                    <strong>قائمة المراجع:</strong> هل جميع المراجع والمصادر التي استخدمتها موثقة بشكل صحيح ودقيق (APA، MLA، إلخ)؟ هذه نقطة ضعف شائعة.
+                </li>
+                <li class="flex items-center" style="color:#800080;">
+                    <span class="text-green-500 font-bold mr-3 text-xl">✓</span>
+                    <strong>التدقيق اللغوي والنحوي:</strong> بعد الانتهاء، اطلب من زميل أو مدقق محترف مراجعة التقرير. الأخطاء اللغوية تشتت القارئ وتقلل من جودة العمل.
+                </li>
+                <li class="flex items-center" style="color:#800080;">
+                    <span class="text-green-500 font-bold mr-3 text-xl">✓</span>
+                    <strong>الاستعداد للعرض:</strong> جهّز عرضاً تقديمياً (Presentation) قوياً يركز على المشكلة والحل والنتائج، وليس فقط على المنهجية التفصيلية المملة.
+                </li>
+            </ul>
+        </div>
+
+        <div class="conclusion-message my-10 p-5 bg-primary-color text-black rounded-xl shadow-2xl text-center">
+            <h3 class="text-2xl font-bold mb-2">💡 النجاح ليس صدفة</h3>
+            <p class="text-lg">
+                تذكر، مشروع التخرج هو فرصة لا مثيل لها لـ <b>بناء محفظتك المهنية (Portfolio)</b>. هذا المشروع، بجودة تنفيذه، هو أول ما سيناقشه معك مديرو التوظيف. تعامل معه بجدية، خطط بذكاء، وتوكل على الله. أنت الآن جاهز للانطلاق!
+            </p>
+        </div>
+
+                </div>
+                </div>
+        </div>
+    </div>
+
+    <footer class="mobile-nav md:hidden p-4">
+        <ul class="flex justify-around items-center text-center">
+            <li class="flex-1">
+                <a href="../index.html" class="flex flex-col items-center justify-center p-2 text-primary-color">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                    <span class="text-xs mt-1">الرئيسية</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../about_blog"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
+                    </svg>
+                    <span class="text-xs mt-1">عن المدونة</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../../contact"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M22 17.062c-2.617-3.924-4.846-5.46-8.914-6.324-1.103-.231-1.928-.964-1.928-2.062 0-1.101.825-1.833 1.928-2.064 4.068-.864 6.297-2.399 8.914-6.324L21 2c-3.235 3.235-5.235 5.235-9 5.235S4.235 5.235 1 2l-1 1.062c2.617 3.924 4.846 5.46 8.914 6.324 1.103.231 1.928.964 1.928 2.062 0 1.101-.825 1.833-1.928 2.064-4.068.864-6.297 2.399-8.914 6.324l1 1.062c3.235-3.235 5.235-5.235 9-5.235s5.765 2 9 5.235l1-1.062z" />
+                    </svg>
+                    <span class="text-xs mt-1">اتصل بنا</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        function showMessageBox(message, type = 'info') {
+
+            const messageBox = document.getElementById('message-box');
+            if (!messageBox) return; 
+            let colorClass = 'bg-gray-700';
+            if (type === 'success') colorClass = 'bg-green-600';
+            if (type === 'error') colorClass = 'bg-red-600';
+            if (type === 'info') colorClass = 'bg-blue-600';
+
+            messageBox.textContent = message;
+            messageBox.className = `fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-xl text-white shadow-2xl transition-all duration-300 z-[1001] ${colorClass} opacity-100 scale-100`;
+
+            setTimeout(() => {
+                messageBox.classList.remove('opacity-100', 'scale-100');
+                messageBox.classList.add('opacity-0', 'scale-90');
+            }, 3000);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
+            }, () => {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    textarea.style.position = 'fixed';
+                    document.body.appendChild(textarea);
+                    textarea.focus();
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
+                } catch (e) {
+                    showMessageBox('فشل النسخ. الرجاء النسخ يدوياً.', 'error');
+                }
+            });
+        }
+
+        function sharePostUrl(title) {
+            const postUrl = window.location.href;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: `اقرأ مقال: ${title} من مدونة جامعيون!`,
+                    url: postUrl,
+                }).catch((error) => {
+                    if (error.name !== 'AbortError') {
+                        copyToClipboard(postUrl);
+                    }
+                });
+            } else {
+                copyToClipboard(postUrl);
+            }
+        }
+    </script>
+</body>
+
+</html>

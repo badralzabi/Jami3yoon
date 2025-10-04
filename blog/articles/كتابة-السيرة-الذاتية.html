@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كيف تكتب سيرة ذاتية قوية كطالب جامعي؟ دليل إظهار الإمكانات</title> 
+    <meta name="description"
+        content="جامعيون بدأ ك تطبيق جامعي ثمّ توسع ل يصبح مبادرة طلابية جامعية تهتم بطالب الجامعة وهدفها طالب الجامعة، نقدم كل شيئ يحتاجه الطالب في رحلته وحياته الجامعية ........">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        
+        :root {
+            --primary-color: #004d9c;
+            --secondary-color: #0077c2;
+            --accent-color: #ff7f50;
+            --text-dark: #1f2937;
+            --bg-light: #f3f4f6;
+            --card-bg: #f0fbff;
+            --card-border: #d7eefb;
+        }
+
+        .text-primary-color {
+            color: var(--primary-color);
+        }
+
+        .text-accent-color {
+            color: var(--accent-color);
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            padding-bottom: 70px;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .bg-card-bg {
+            background: var(--card-bg);
+        }
+
+        .post-content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+            border-radius: 1rem;
+        }
+
+       
+        .prose h1,
+        .prose h2,
+        .prose h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .prose p {
+            margin-bottom: 1rem;
+        }
+
+        .prose a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body class="font-cairo">
+
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 p-4 hidden md:block">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../index.html"
+                class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold text-2xl">
+                <img src="../../logo-jamii.png" alt="Logo" class="w-12 h-12 rounded-full">
+                <span>جامعيون</span>
+            </a>
+            <ul class="flex space-x-6 space-x-reverse font-semibold">
+                <li><a href="../index.html"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">الرئيسية</a></li>
+                <li><a href="../index.html"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">مقالات</a>
+                </li>
+                <li><a href="../about_blog/"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">عن المدونة</a></li>
+                <li><a href="../../contact"
+                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="blog-container" class="max-w-6xl mx-auto p-5 md:mt-24">
+
+        <div id="single-post-view">
+            <a href="../index.html"
+                class="flex items-center space-x-2 space-x-reverse text-primary-color hover:text-secondary-color font-semibold mb-8 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+                <span>العودة إلى المدونة</span>
+            </a>
+
+            <div id="article-content" class="post-content-card p-6 rounded-2xl shadow-lg">
+
+                <h1 class="text-4xl font-extrabold mb-4 text-primary-color">كيف تكتب سيرة ذاتية قوية كطالب جامعي؟ دليل إظهار الإمكانات</h1>
+
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-gray-200 pb-4">
+                    <p class="text-gray-500 text-sm mb-3 sm:mb-0">نُشرت في 3 اكتوبر 2025 | الفئة: <span
+                            class="text-accent-color font-medium">التطوير الشخصي والوظيفي</span></p>
+                    
+                    <button id="share-post-button" onclick="sharePostUrl('كيف تكتب سيرة ذاتية قوية كطالب جامعي؟ دليل إظهار الإمكانات')"
+                        class="flex items-center space-x-2 space-x-reverse text-accent-color hover:text-primary-color transition-colors duration-200 font-semibold text-lg p-2 rounded-lg hover:bg-white/50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18 16c-.73 0-1.4-.24-1.93-.65l-7.39 3.49a2.986 2.986 0 010-6.68l7.39 3.49c.53-.41 1.2-.65 1.93-.65 1.65 0 3 1.35 3 3s-1.35 3-3 3zm0-10c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zM6 15c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3z" />
+                        </svg>
+                        <span>مشاركة</span>
+                    </button>
+                </div>
+
+                <img src="../img/biography.webp" alt="img"
+                    class="w-full h-auto rounded-xl mb-8 object-cover max-h-[400px] shadow-md">
+
+                  <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">1. 📄 الأساسيات والتصميم: الانطباع الأول يدوم</h2>
+    <p>
+        يجب أن تكون سيرتك الذاتية سهلة القراءة، منظمة، ومهنية. تذكر أن مديري التوظيف يقضون ثوانٍ معدودة فقط في الفحص الأولي.
+    </p>
+
+    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. معلومات الاتصال (Contact Information):</h3>
+    <ul>
+        <li>📞 يجب أن تكون واضحة في أعلى الصفحة: الاسم الكامل، رقم الهاتف، بريد إلكتروني مهني (تجنب العناوين غير الجدية)، وموقع LinkedIn (ضروري).</li>
+        <li>🌐 أضف رابطًا لمحفظة أعمالك (Portfolio) أو صفحة GitHub إذا كان التخصص يتطلب ذلك (مثل التصميم أو البرمجة).</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. الملخص الاحترافي (Professional Summary) أو الهدف الوظيفي:</h3>
+    <p>
+        هذه الفقرة القصيرة (3-4 أسطر) هي فرصتك لجذب انتباه القارئ.
+    </p>
+    <ul>
+        <li>🎯 <b>للطالب:</b> ابدأ بتحديد التخصص والسنة الدراسية. ركز على أقوى 3 مهارات أو إنجازات لديك ذات الصلة بالوظيفة المعلن عنها.</li>
+        <li>💡 <b>مثال:</b> "طالب سنة ثالثة في الهندسة المدنية، حائز على تقدير امتياز، يتمتع بمهارة متقدمة في برامج AutoCAD و Revit، ومتحمس لتطبيق المعرفة النظرية في مشاريع البنية التحتية الصعبة."</li>
+    </ul>
+
+    <!-- المحور الثاني: قسم التعليم (Education Section) - قوتك الرئيسية -->
+    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">2. 🎓 التعليم: أكثر من مجرد شهادة</h2>
+    <p>
+        بما أن خبرتك العملية محدودة، فإن قسم التعليم هو نقطة قوتك الأساسية ويجب أن يكون في الجزء العلوي من الصفحة.
+    </p>
+
+    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. إظهار التفوق الأكاديمي:</h3>
+    <ul>
+        <li>⭐ <b>المعدل التراكمي (GPA):</b> إذا كان معدلك مرتفعًا (فوق 3.5 من 4 أو ما يعادله)، ضعه بوضوح. إذا كان متوسطًا، يمكنك حذفه أو ذكر معدل التخصص فقط.</li>
+        <li>🏆 <b>الجوائز والتكريم:</b> اذكر بوضوح أي جوائز أكاديمية، مثل قائمة العميد (Dean's List) أو منح التفوق.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. المواد ذات الصلة (Relevant Coursework):</h3>
+    <p>
+        في حال كانت الوظيفة تتطلب معرفة متعمقة بموضوع معين، يمكنك إضافة قسم فرعي للمواد التي درستها والتي تتوافق تمامًا مع متطلبات الوظيفة. هذا يثبت أن لديك الأساس النظري المطلوب.
+    </p>
+
+    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ج. مشروع التخرج (Capstone Project) أو الأبحاث:</h3>
+    <p>
+        عامله كخبرة عمل مصغرة. اذكره بتفصيل، مع تحديد:
+    </p>
+    <ol>
+        <li>المشكلة أو الهدف الذي عالجه المشروع.</li>
+        <li>دورك ومسؤولياتك المحددة في الفريق.</li>
+        <li>النتيجة أو الأثر النهائي للمشروع.</li>
+    </ol>
+
+    <!-- المحور الثالث: الخبرة غير التقليدية (العمل الطلابي والمشاريع) -->
+    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">3. 💼 الخبرة غير التقليدية: املأ الفراغ بذكاء</h2>
+    <p>
+        الخبرة لا تعني دائمًا راتبًا شهريًا. الخبرة تعني تولي مسؤولية وتحقيق نتائج. هذا هو المكان الذي تبرز فيه كطالب.
+    </p>
+
+    <ul>
+        <li>🏢 <b>التدريب العملي (Internships):</b> أهم عنصر للطالب. اذكر اسم الشركة، والمهام الرئيسية، وركز على <b>الإنجازات الكمية</b> (مثلاً: "قللت وقت إعداد تقارير العملاء بنسبة 20% باستخدام أتمتة Excel").</li>
+        <li>🤝 <b>العمل التطوعي والأنشطة الطلابية:</b> إذا كنت رئيسًا لنادٍ، أو منظمًا لحدث، فهذا يثبت مهاراتك القيادية والتنظيمية. اذكر الأثر (مثلاً: "قُدت فريقًا من 15 متطوعًا لجمع تبرعات بقيمة 5,000 دولار").</li>
+        <li>💻 <b>المشاريع الشخصية (Side Projects):</b> إذا كنت مبرمجًا وقمت بإنشاء تطبيق خاص بك، أو مصممًا وأنشأت علامة تجارية وهمية، فهذا يظهر مبادرتك ومهاراتك التطبيقية.</li>
+    </ul>
+
+    <!-- المحور الرابع: المهارات (Skills) - قسم لا يُهمل -->
+    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">4. ⚙️ المهارات: لغة العصر المهنية</h2>
+    <p>
+        تخصص المهارات يتم تدقيقه بعناية، خاصةً في عصر الفرز الآلي للسير الذاتية (ATS). قسّم مهاراتك بوضوح.
+    </p>
+
+    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">أ. المهارات التقنية (Hard Skills):</h3>
+    <p>
+        هي المهارات القابلة للقياس والتعلم. كن دقيقًا في مستواك (أساسي، متوسط، متقدم، خبير).
+    </p>
+    <ul>
+        <li>💻 <b>البرامج والأدوات:</b> (مثلاً: Python, SQL, Tableau, Photoshop, SAP).</li>
+        <li>🗣️ <b>اللغات الأجنبية:</b> اذكر المستوى بوضوح (مثلاً: الإنجليزية - طلاقة تامة كتابة ومحادثة).</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">ب. المهارات الشخصية (Soft Skills):</h3>
+    <p>
+        يجب أن تظهر هذه المهارات بشكل طبيعي في أقسام الإنجازات، لكن لا بأس من ذكرها أيضًا.
+    </p>
+    <ul>
+        <li>🤝 <b>القيادة والعمل الجماعي:</b> أين أثبتت هذه المهارة في مشروعك أو نشاطك الطلابي؟</li>
+        <li>🧩 <b>حل المشكلات والقدرة على التعلم السريع:</b> ركز على كيفية حللت تحديًا ما في تدريبك.</li>
+    </ul>
+
+    <!-- المحور الخامس: قاعدة الأفعال القوية وقاعدة 'كيف' -->
+    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">5. 📝 صياغة الإنجازات: انتقل من الوصف إلى الفعل</h2>
+    <p>
+        أكبر خطأ يقع فيه الطلاب هو وصف المهام بدلاً من سرد الإنجازات.
+    </p>
+    <p><b>قاعدة الفعل القوي:</b> ابدأ كل نقطة فعل (بصيغة الماضي) يعبر عن إنجازك.</p>
+
+    <h3 class="text-xl font-semibold mt-6 mb-3 text-secondary-color">مثال على التحول من الوصف إلى الإنجاز:</h3>
+    <ul class="list-disc ml-6">
+        <li>❌ <b>وصف ضعيف:</b> "كنت مسؤولاً عن مساعدة العملاء في قسم التسويق."</li>
+        <li>✅ <b>إنجاز قوي:</b> "<b>طوّرت</b> استراتيجية محتوى جديدة أدت إلى زيادة تفاعل العملاء على المنصات الرقمية بنسبة 15% خلال شهرين."</li>
+        <li>❌ <b>وصف ضعيف:</b> "شاركت في مشروع التخرج."</li>
+        <li>✅ <b>إنجاز قوي:</b> "<b>قُدت</b> فريقًا من 4 طلاب لإكمال مشروع تخرج معقد باستخدام تقنيات الذكاء الاصطناعي، مما أدى إلى الحصول على تقدير A+."</li>
+    </ul>
+
+
+    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">6. 🔍 التدقيق والمراجعة: اللمسات الأخيرة</h2>
+    <p>
+        سيرة ذاتية قوية قد تفشل بسبب خطأ إملائي واحد أو تنسيق رديء. لا تستعجل في هذه المرحلة.
+    </p>
+    <ul>
+        <li>📏 <b>الطول:</b> كطالب جامعي أو خريج جديد، يجب ألا تتجاوز سيرتك الذاتية صفحة واحدة. حافظ على الإيجاز.</li>
+        <li>📐 <b>التنسيق:</b> استخدم خطوطًا احترافية (مثل Arial أو Calibri) بحجم 10-12. استخدم المسافات البيضاء بكثرة لراحة العين.</li>
+        <li>✍️ <b>التدقيق اللغوي:</b> لا تعتمد على المدقق الإملائي فقط. اطلب من صديق تثق به أو مستشار وظيفي مراجعة السيرة الذاتية قبل إرسالها.</li>
+        <li>🖨️ <b>الصيغة:</b> احفظ السيرة الذاتية بصيغة PDF دائمًا، لضمان ثبات التنسيق على جميع الأجهزة.</li>
+        <li>📄 <b>التخصيص:</b> لا ترسل نفس السيرة الذاتية لكل وظيفة. قم بتغيير الملخص الاحترافي وأولويات المهارات لتناسب الوصف الوظيفي المحدد الذي تتقدم إليه.</li>
+    </ul>
+
+    <div style="background-color:#e0f7fa; padding:25px; border-radius:20px; margin-top:30px; border-left: 5px solid #00bcd4;">
+        <h3 class="text-xl font-bold mb-3 text-primary-color">⭐ خطوة نحو الاحترافية</h3>
+        <p>
+            تذكر أن سيرتك الذاتية هي وثيقة حية تتطور باستمرار. كطالب، استخدمها لتروي قصتك عن النمو والتعلم والمبادرة. كل دور تطوعي، وكل مادة صعبة، وكل مشروع عملت عليه هو دليل على قدرتك.
+        </p>
+    </div>
+
+    <h2 class="text-2xl font-bold mt-10 mb-4 text-primary-color">مهمتك التالية:</h2>
+    <p>
+        ابدأ بتطبيق "قاعدة الأفعال القوية" فوراً. راجع قسم الخبرة لديك واستبدل جميع العبارات الوصفية بأفعال إنجازية قوية. على سبيل المثال، بدلاً من "المسؤوليات شملت تنظيم..."، اكتب "<b>نظّمتُ</b>... و<b>حققتُ</b>...".
+    </p>
+                </div>
+                </div>
+        </div>
+    </div>
+
+    <footer class="mobile-nav md:hidden p-4">
+        <ul class="flex justify-around items-center text-center">
+            <li class="flex-1">
+                <a href="../index.html" class="flex flex-col items-center justify-center p-2 text-primary-color">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                    <span class="text-xs mt-1">الرئيسية</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../about_blog"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
+                    </svg>
+                    <span class="text-xs mt-1">عن المدونة</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../../contact"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M22 17.062c-2.617-3.924-4.846-5.46-8.914-6.324-1.103-.231-1.928-.964-1.928-2.062 0-1.101.825-1.833 1.928-2.064 4.068-.864 6.297-2.399 8.914-6.324L21 2c-3.235 3.235-5.235 5.235-9 5.235S4.235 5.235 1 2l-1 1.062c2.617 3.924 4.846 5.46 8.914 6.324 1.103.231 1.928.964 1.928 2.062 0 1.101-.825 1.833-1.928 2.064-4.068.864-6.297 2.399-8.914 6.324l1 1.062c3.235-3.235 5.235-5.235 9-5.235s5.765 2 9 5.235l1-1.062z" />
+                    </svg>
+                    <span class="text-xs mt-1">اتصل بنا</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        function showMessageBox(message, type = 'info') {
+
+            const messageBox = document.getElementById('message-box');
+            if (!messageBox) return; 
+            let colorClass = 'bg-gray-700';
+            if (type === 'success') colorClass = 'bg-green-600';
+            if (type === 'error') colorClass = 'bg-red-600';
+            if (type === 'info') colorClass = 'bg-blue-600';
+
+            messageBox.textContent = message;
+            messageBox.className = `fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-xl text-white shadow-2xl transition-all duration-300 z-[1001] ${colorClass} opacity-100 scale-100`;
+
+            setTimeout(() => {
+                messageBox.classList.remove('opacity-100', 'scale-100');
+                messageBox.classList.add('opacity-0', 'scale-90');
+            }, 3000);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
+            }, () => {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    textarea.style.position = 'fixed';
+                    document.body.appendChild(textarea);
+                    textarea.focus();
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
+                } catch (e) {
+                    showMessageBox('فشل النسخ. الرجاء النسخ يدوياً.', 'error');
+                }
+            });
+        }
+
+        function sharePostUrl(title) {
+            const postUrl = window.location.href;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: `اقرأ مقال: ${title} من مدونة جامعيون!`,
+                    url: postUrl,
+                }).catch((error) => {
+                    if (error.name !== 'AbortError') {
+                        copyToClipboard(postUrl);
+                    }
+                });
+            } else {
+                copyToClipboard(postUrl);
+            }
+        }
+    </script>
+</body>
+
+</html>
