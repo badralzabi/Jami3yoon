@@ -123,7 +123,11 @@
   <priority>0.64</priority>
 </url>
 
-   
+   <url>
+  <loc>https://jamaiyoon.com/blog/articles/gpa-boost/</loc>
+  <lastmod>2025-10-07T21:23:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
       
 <url>
   <loc>https://jamaiyoon.com/blog</loc>
@@ -138,6 +142,7 @@
   <priority>0.1</priority>
 </url>
 </urlset>
+
 
 
 
