@@ -46,6 +46,12 @@
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
         }
 
+        .glassy-nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
         .fade-in-on-scroll {
             opacity: 0;
             transform: translateY(20px);
@@ -54,7 +60,7 @@
 
         .fade-in-on-scroll.is-visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0)
         }
 
         .bg-card-bg {
@@ -76,6 +82,25 @@
             color: #0f1724;
         }
 
+
+        #message-box {
+
+            opacity: 0;
+
+            transition: opacity 0.4s ease-in-out; 
+
+            pointer-events: none;
+        }
+        
+
+        #message-box.show-message {
+            opacity: 1;
+
+            pointer-events: auto;
+        }
+
+
+
         .mobile-nav {
             position: fixed;
             bottom: 0;
@@ -86,6 +111,28 @@
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
 
+            transition: transform 0.3s ease-in-out;
+        }
+
+
+        .mobile-nav-hidden {
+            transform: translateY(100%);
+        }
+
+
+        .mobile-links-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .mobile-links-menu.is-open {
+            max-height: 300px;
+
+            opacity: 1;
+            padding-top: 0.5rem;
+
         }
     </style>
 </head>
@@ -93,17 +140,69 @@
 <body class="font-cairo">
 
     <div id="message-box"
-        class="fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-lg text-white shadow-xl transition-opacity duration-300 z-[1001] opacity-0"
+        class="fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-lg text-white shadow-xl transition-opacity duration-300 z-[1001]"
         aria-live="assertive">
         الرسالة هنا
     </div>
 
-    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 p-4 hidden md:block">
+    <nav class="fixed top-0 left-0 right-0 glassy-nav shadow-md z-50 md:hidden border-b border-gray-100">
+        <div class="max-w-6xl mx-auto flex justify-between items-center p-3">
+
+            <a href="/" class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold text-xl">
+                <img src="../logo-jamii.png"
+                    onerror="this.onerror=null; this.src='../logo-jamii.png';" alt="Logo"
+                    class="w-10 h-10 rounded-full">
+                <span>جامعيون</span>
+            </a>
+
+            <div class="flex items-center space-x-2 space-x-reverse">
+                <button id="search-mobile-top-btn"
+                    class="p-2 text-gray-700 hover:text-primary-color transition-colors duration-200"
+                    aria-label="زر البحث">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z" />
+                    </svg>
+                </button>
+
+                <button id="mobile-menu-btn"
+                    class="p-2 text-gray-700 hover:text-primary-color transition-colors duration-200"
+                    aria-label="زر القائمة">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path id="menu-icon" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+                        <path id="close-icon" class="hidden"
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-links-menu" class="mobile-links-menu bg-white/95 border-t border-gray-100">
+            <ul class="flex flex-col text-center font-semibold text-base py-2">
+                <li><a href="./"
+                        class="block py-2 text-gray-700 hover:text-accent-color transition-colors duration-200 border-b border-gray-100">الرئيسية</a>
+                </li>
+                <li><a href="./"
+                        class="block py-2 text-gray-700 hover:text-accent-color transition-colors duration-200 border-b border-gray-100">مقالات</a>
+                </li>
+                <li><a href="./about_blog/"
+                        class="block py-2 text-gray-700 hover:text-accent-color transition-colors duration-200 border-b border-gray-100">عن
+                        المدونة</a></li>
+                <li><a href="../contact"
+                        class="block py-2 text-gray-700 hover:text-accent-color transition-colors duration-200">اتصل
+                        بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="fixed top-0 left-0 right-0 glassy-nav shadow-md z-50 p-4 hidden md:block">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
 
-            <a href="../"
+            <a href="/"
                 class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold text-2xl">
-                <img src="../logo-jamii.png" alt="Logo" class="w-12 h-12 rounded-full">
+                <img src="../logo-jamii.png"
+                    onerror="this.onerror=null; this.src='../logo-jamii.png';" alt="Logo"
+                    class="w-12 h-12 rounded-full">
                 <span>جامعيون</span>
             </a>
 
@@ -131,7 +230,7 @@
             </ul>
         </div>
     </nav>
-    <div id="blog-container" class="max-w-6xl mx-auto p-5 md:mt-24">
+    <div id="blog-container" class="max-w-6xl mx-auto p-5 md:mt-24 mt-[70px]">
 
         <header id="blog-header"
             class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mb-12 transform -rotate-1 perspective-1000">
@@ -163,7 +262,7 @@
 
 
             <aside class="space-y-8 lg:mt-0 mt-8">
-                <div class="bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll md:hidden">
+                <div class="bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll hidden md:block">
                     <h3 class="text-2xl font-bold text-primary-color mb-4 border-b border-gray-200 pb-2">البحث</h3>
                     <div class="relative">
                         <input type="text" id="search-input-mobile" placeholder="ابحث في المقالات..."
@@ -183,17 +282,16 @@
                 <div class="bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll">
                     <h3 class="text-2xl font-bold text-primary-color mb-4 border-b border-gray-200 pb-2">أحدث المقالات
                     </h3>
-                    <ul class="space-y-4 text-gray-700">
-                        <li><a href="./articles/article-14.html"
-                                class="hover:text-accent-color transition-colors duration-200">
-                                بناء ملف LinkedIn احترافي وأنت لا تزال طالبًا: استثمارك الذي يبدأ الآن</a></li>
-                        <li><a href="./articles/article-15.html"
-                                class="hover:text-accent-color transition-colors duration-200">
-                                رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز</a></li>
-                    </ul>
+                    <div id="latest-posts-sidebar" class="space-y-4">
+                        </div>
                 </div>
 
-
+                <div class="bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll">
+                    <h3 class="text-2xl font-bold text-accent-color mb-4 border-b border-gray-200 pb-2">⭐ مقالات مميزة
+                    </h3>
+                    <div id="featured-posts-sidebar" class="space-y-4">
+                        </div>
+                </div>
                 <div class="bg-card-bg p-6 rounded-2xl shadow-lg fade-in-on-scroll">
                     <h3 class="text-2xl font-bold text-primary-color mb-4 border-b border-gray-200 pb-2">فئات المدونة
                     </h3>
@@ -205,8 +303,7 @@
 
     </div>
 
-
-    <footer class="mobile-nav md:hidden p-4">
+    <footer id="mobile-footer" class="mobile-nav md:hidden p-4">
         <ul class="flex justify-around items-center text-center">
             <li class="flex-1">
                 <a href="../" class="flex flex-col items-center justify-center p-2 text-primary-color">
@@ -217,14 +314,14 @@
                 </a>
             </li>
             <li class="flex-1">
-                <button id="search-mobile-nav-btn"
+                <a href="./"
                     class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                         <path
-                            d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zM4 10c0-3.309 2.691-6 6-6s6 2.691 6 6-2.691 6-6 6-6-2.691-6-6z" />
+                            d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm0 16H5V5h14v14zM8 7h8v2H8zm0 4h8v2H8zm0 4h5v2H8z" />
                     </svg>
-                    <span class="text-xs mt-1">بحث</span>
-                </button>
+                    <span class="text-xs mt-1">مقالات</span>
+                </a>
             </li>
             <li class="flex-1">
                 <a href="./about_blog"
@@ -427,12 +524,16 @@ image: "./img/biography.webp",
 
             }
 
-            
         ];
 
         const blogPostsContainer = document.getElementById('blog-posts-container');
         const categoryList = document.getElementById('category-list');
         const messageBox = document.getElementById('message-box');
+
+        const latestPostsSidebar = document.getElementById('latest-posts-sidebar');
+        const featuredPostsSidebar = document.getElementById('featured-posts-sidebar');
+
+
         const categories = [...new Set(blogPosts.map(post => post.category))];
 
         const searchInputDesktop = document.getElementById('search-input-desktop');
@@ -441,21 +542,39 @@ image: "./img/biography.webp",
         const searchSubmitDesktop = document.getElementById('search-submit-desktop');
         const searchDesktopField = document.getElementById('search-desktop-field');
         const searchSubmitMobile = document.getElementById('search-submit-mobile');
-        const searchMobileNavBtn = document.getElementById('search-mobile-nav-btn');
 
 
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileLinksMenu = document.getElementById('mobile-links-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const searchMobileTopBtn = document.getElementById('search-mobile-top-btn');
+
+
+        const mobileFooter = document.getElementById('mobile-footer');
+
+
+        
         function showMessageBox(message, type = 'info') {
+
+            clearTimeout(window.messageTimeout);
+
             messageBox.textContent = message;
+            
+
             let bgColor = 'bg-gray-700';
             if (type === 'success') bgColor = 'bg-green-500';
             if (type === 'error') bgColor = 'bg-red-500';
             if (type === 'warning') bgColor = 'bg-yellow-600';
 
-            messageBox.className = `fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-lg text-white shadow-xl transition-opacity duration-300 z-[1001] opacity-100 ${bgColor}`;
 
-            setTimeout(() => {
-                messageBox.classList.add('opacity-0');
-            }, 3000);
+            messageBox.className = `fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-lg text-white shadow-xl transition-opacity duration-300 z-[1001] ${bgColor} show-message`;
+
+
+            window.messageTimeout = setTimeout(() => {
+
+                messageBox.classList.remove('show-message');
+            }, 3000); 
         }
 
         function renderPosts(filterCategory = null, searchQuery = null) {
@@ -494,8 +613,11 @@ image: "./img/biography.webp",
                 articleElement.className = 'post-card p-6 fade-in-on-scroll transform transition-transform duration-300 hover:scale-[1.01] cursor-pointer block';
                 articleElement.dataset.postId = post.id;
 
+
+                const imageUrl = post.image || `https://placehold.co/600x400/004d9c/ffffff?text=${encodeURIComponent(post.category)}`;
+
                 articleElement.innerHTML = `
-                    <img src="${post.image}" alt="${post.title}" class="w-full h-auto rounded-lg mb-4 object-cover max-h-48">
+                    <img src="${imageUrl}" alt="${post.title}" onerror="this.onerror=null; this.src='https://placehold.co/600x400/004d9c/ffffff?text=Image+Missing';" class="w-full h-auto rounded-lg mb-4 object-cover max-h-48">
                     <span class="bg-primary-color/10 text-primary-color text-xs font-semibold px-3 py-1 rounded-full">${post.category}</span>
                     <h2 class="text-3xl font-bold mt-3 mb-2 text-primary-color">${post.title}</h2>
                     <p class="text-gray-500 text-sm mb-4">نُشرت في ${post.date}</p>
@@ -508,6 +630,38 @@ image: "./img/biography.webp",
 
             setupAnimations();
         }
+
+
+        function createSidebarPostCard(post) {
+
+            const imageUrl = post.sidebarImage || `https://placehold.co/100x70/004d9c/ffffff?text=Post`;
+            return `
+                <a href="./articles/${post.slug}" class="flex items-start gap-4 p-3 bg-white hover:bg-gray-50 transition-colors duration-200 rounded-xl border border-gray-100 shadow-sm">
+                    <img src="${imageUrl}" alt="${post.title}" onerror="this.onerror=null; this.src='https://placehold.co/100x70/004d9c/ffffff?text=Post';" class="w-20 h-14 object-cover rounded-lg flex-shrink-0">
+                    <div>
+                        <h4 class="text-sm font-bold text-gray-800 line-clamp-2 leading-snug">${post.title}</h4>
+                        <p class="text-xs text-gray-500 mt-1">${post.date}</p>
+                    </div>
+                </a>
+            `;
+        }
+
+
+
+        function renderSidebarPosts() {
+
+
+            const latestPosts = blogPosts.slice(0, 3);
+            latestPostsSidebar.innerHTML = latestPosts.map(createSidebarPostCard).join('');
+
+
+            const featuredPosts = blogPosts.filter(post => post.isFeatured);
+            featuredPostsSidebar.innerHTML = featuredPosts.map(createSidebarPostCard).join('');
+
+
+            setupAnimations();
+        }
+
 
         function renderCategories() {
             categoryList.innerHTML = '';
@@ -551,8 +705,12 @@ image: "./img/biography.webp",
         function handleSearch(query) {
             updateCategoryButtons(null);
             renderPosts(null, query);
+            
+
             if (query.trim() === '') {
                 showMessageBox('تم عرض جميع المقالات.', 'info');
+            } else {
+                showMessageBox(`تم عرض نتائج البحث عن: "${query}"`, 'info');
             }
         }
 
@@ -573,13 +731,58 @@ image: "./img/biography.webp",
             }
             const observer = new IntersectionObserver(checkVisibility, observerOptions);
             fadeInElements.forEach(element => {
-                observer.observe(element);
+
+                if (!element.classList.contains('is-visible')) {
+                    observer.observe(element);
+                }
             });
+        }
+
+        
+        let lastScrollY = window.scrollY;
+        const scrollThreshold = 5; 
+
+        function handleMobileNavScroll() {
+
+            if (window.innerWidth >= 768) {
+                mobileFooter.classList.remove('mobile-nav-hidden');
+                lastScrollY = window.scrollY;
+                return;
+            }
+
+            const currentScrollY = window.scrollY;
+
+
+            if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+
+                mobileFooter.classList.add('mobile-nav-hidden');
+            }
+
+            else if (currentScrollY < lastScrollY) {
+
+                mobileFooter.classList.remove('mobile-nav-hidden');
+            }
+
+
+            lastScrollY = currentScrollY;
+        }
+
+        
+        
+        function toggleMobileMenu() {
+            mobileLinksMenu.classList.toggle('is-open');
+
+
+            const isOpen = mobileLinksMenu.classList.contains('is-open');
+            menuIcon.classList.toggle('hidden', isOpen);
+            closeIcon.classList.toggle('hidden', !isOpen);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             renderCategories();
             renderPosts();
+
+            renderSidebarPosts();
 
             searchDesktopBtn.addEventListener('click', () => {
                 searchDesktopField.classList.toggle('hidden');
@@ -596,6 +799,11 @@ image: "./img/biography.webp",
                 }
             });
 
+            searchMobileTopBtn.addEventListener('click', () => {
+                
+                handleSearch(''); 
+            });
+
             searchSubmitMobile.addEventListener('click', () => {
                 handleSearch(searchInputMobile.value);
             });
@@ -605,22 +813,11 @@ image: "./img/biography.webp",
                     handleSearch(searchInputMobile.value);
                 }
             });
-
-            // 3. منطق زر "بحث" في شريط التنقل السفلي للجوال (لتوجيه الانتباه)
-            searchMobileNavBtn.addEventListener('click', () => {
-                searchInputMobile.scrollIntoView({ behavior: 'smooth' });
-                searchInputMobile.focus();
-            });
-
+           
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            window.addEventListener('scroll', handleMobileNavScroll);
         });
     </script>
 </body>
 
 </html>
-
-
-
-
-
-
-
