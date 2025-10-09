@@ -4,26 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ما هو جامعيون</title> 
+    <title>ما هو جامعيون</title>
     <meta name="description"
         content="جامعيون بدأ ك تطبيق جامعي ثمّ توسع ل يصبح مبادرة طلابية جامعية تهتم بطالب الجامعة وهدفها طالب الجامعة، نقدم كل شيئ يحتاجه الطالب في رحلته وحياته الجامعية ........">
     <meta name="robots" content="index, follow">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-
-                :root {
+        :root {
             --primary-color: #004d9c;
+
             --secondary-color: #0077c2;
+
             --accent-color: #ff7f50;
+
             --text-dark: #1f2937;
+
             --bg-light: #f3f4f6;
-            --card-bg: #f0fbff;
-            --card-border: #d7eefb;
+
+            --card-bg: #ffffff;
+
+            --card-border: #e5e7eb;
+
         }
 
         .text-primary-color {
@@ -40,42 +46,64 @@
             font-family: 'Cairo', sans-serif;
             line-height: 1.8;
             padding-bottom: 70px;
+            padding-top: 80px; 
         }
 
-        .header-bg {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        .main-header {
+            box-shadow: none; 
+            background-color: transparent; 
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .bg-card-bg {
-            background: var(--card-bg);
+        .main-header.scrolled {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; 
         }
 
         .post-content-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
-            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 1.5rem;
         }
 
-        /* تنسيقات الـ prose للمحتوى الداخلي */
-        .prose h1,
         .prose h2,
         .prose h3 {
             color: var(--primary-color);
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             margin-bottom: 1rem;
-            font-weight: 700;
+            font-weight: 800;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--card-border);
         }
 
         .prose p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .prose ul,
+        .prose ol {
+            padding-right: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style-position: outside;
         }
 
         .prose a {
             color: var(--accent-color);
-            text-decoration: none;
+            text-decoration: underline;
+            transition: color 0.2s;
         }
 
+        .prose .custom-list-box {
+            background-color: #f0fbff;
+            border: 1px solid #d7eefb;
+            padding: 20px;
+            border-radius: 25px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
         .mobile-nav {
             position: fixed;
             bottom: 0;
@@ -85,139 +113,322 @@
             border-top: 1px solid #e5e7eb;
             box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+        
+        .mobile-nav.hidden-on-scroll {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        .nav-item-active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0; 
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background-color: var(--card-bg);
+            z-index: 1100;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-sidebar.open {
+            transform: translateX(0);
+        }
+
+        .mobile-sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+        }
+        
+        .mobile-sidebar-overlay.open {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
 
 <body class="font-cairo">
 
-    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 p-4 hidden md:block">
+    <div id="message-box"
+        class="fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-xl text-white shadow-2xl transition-all duration-300 z-[1001] opacity-0 scale-90"
+        role="alert">
+    </div>
+
+
+    <nav id="desktop-header" class="main-header fixed top-0 left-0 right-0 z-50 p-4 hidden md:block">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <a href="../../"
-                class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold text-2xl">
-                <img src="../../logo-jamii.png" alt="Logo" class="w-12 h-12 rounded-full">
+                class="flex items-center space-x-2 space-x-reverse text-primary-color font-extrabold text-2xl tracking-tight">
+                <img src="https://placehold.co/48x48/004d9c/ffffff?text=J" alt="Logo"
+                    class="w-12 h-12 rounded-full ring-2 ring-primary-color/20">
                 <span>جامعيون</span>
             </a>
-            <ul class="flex space-x-6 space-x-reverse font-semibold">
-                <li><a href="../"
-                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">الرئيسية</a></li>
-                <li><a href="../"
-                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">مقالات</a>
-                </li>
-                <li><a href="../about_blog/"
-                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">عن المدونة</a></li>
-                <li><a href="../../contact"
-                        class="text-gray-700 hover:text-accent-color transition-colors duration-200">اتصل بنا</a></li>
-            </ul>
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <ul class="flex space-x-6 space-x-reverse font-semibold">
+                    <li><a href="../"
+                            class="text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">الرئيسية</a>
+                    </li>
+                    <li><a href="../"
+                            class="text-primary-color transition-colors duration-200 p-2 rounded-lg font-bold border-b-2 border-primary-color">مقالات</a>
+                    </li>
+                    <li><a href="../about_blog/"
+                            class="text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">عن
+                            المدونة</a></li>
+                    <li><a href="../../contact"
+                            class="text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">اتصل
+                            بنا</a></li>
+                </ul>
+                <button id="search-desktop-btn"
+                    class="p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M10 18a7.952 7.952 0 004.89-1.63L18.423 20 20 18.423l-4.764-4.764A7.952 7.952 0 0018 10c0-4.41-3.59-8-8-8S2 5.59 2 10s3.59 8 8 8zm0-14c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </nav>
 
 
-    <div id="blog-container" class="max-w-6xl mx-auto p-5 md:mt-24">
+    <header class="md:hidden fixed top-0 left-0 right-0 bg-white p-4 shadow-md z-50">
+        <div class="flex justify-between items-center">
+            <a href="../../"
+                class="flex items-center space-x-2 space-x-reverse text-primary-color font-extrabold text-2xl tracking-tight">
+                <img src="../../logo-jamii.png" alt="Logo" class="w-9 h-9 rounded-full">
+                <span>جامعيون</span>
+            </a>
+            <div class="flex space-x-2 space-x-reverse">
+                <button id="search-mobile-top-btn"
+                    class="p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M10 18a7.952 7.952 0 004.89-1.63L18.423 20 20 18.423l-4.764-4.764A7.952 7.952 0 0018 10c0-4.41-3.59-8-8-8S2 5.59 2 10s3.59 8 8 8zm0-14c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z" />
+                    </svg>
+                </button>
 
-        <div id="single-post-view">
+                <button id="mobile-menu-btn"
+                    class="p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-accent-color transition-colors duration-200">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <div id="mobile-sidebar-overlay" class="mobile-sidebar-overlay" onclick="toggleMobileMenu()"></div>
+    <div id="mobile-sidebar" class="mobile-sidebar p-6 flex flex-col justify-between">
+
+        <div>
+            <div class="flex justify-between items-center mb-10">
+                <a href="../../"
+                    class="flex items-center space-x-2 space-x-reverse text-primary-color font-extrabold text-2xl tracking-tight">
+                    <img src="../../logo-jamii.png" alt="Logo" class="w-10 h-10 rounded-full">
+                    <span>جامعيون</span>
+                </a>
+
+                <button onclick="toggleMobileMenu()"
+                    class="p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            
+            <ul class="space-y-4 text-lg font-semibold">
+                <li>
+                    <a href="../" class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                        </svg>
+                        <span>الرئيسية</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../" class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold transition-colors duration-200 p-2 rounded-lg bg-primary-color/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-1 2v14H6V5h12zM7 8h10v2H7zM7 12h7v2H7z" />
+                        </svg>
+                        <span>مقالات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../about_blog" class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
+                        </svg>
+                        <span>عن المدونة</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../contact" class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.536-8-6.536V6h16zM4 18V9.757l7.359 6.007c.28.229.638.344.995.344.357 0 .715-.115.996-.344L20 9.757V18H4z" />
+                        </svg>
+                        <span>اتصل بنا</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+
+        <div class="border-t border-gray-100 pt-4 mt-6">
+            <p class="text-xs text-gray-500 text-center">جميع الحقوق محفوظة &copy; جامعيون 2025</p>
+        </div>
+    </div>
+
+
+
+    <div id="blog-container" class="max-w-6xl mx-auto p-4 md:p-8">
+
+        <div id="single-post-view" class="max-w-4xl mx-auto">
             <a href="../"
-                class="flex items-center space-x-2 space-x-reverse text-primary-color hover:text-secondary-color font-semibold mb-8 transition-colors duration-200">
+                class="inline-flex items-center space-x-2 space-x-reverse text-primary-color hover:text-secondary-color font-bold mb-6 transition-colors duration-200 bg-white rounded-full px-4 py-2 shadow-sm hover:shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                 </svg>
                 <span>العودة إلى المدونة</span>
             </a>
 
-            <div id="article-content" class="post-content-card p-6 rounded-2xl shadow-lg">
+            <div id="article-content" class="post-content-card p-6 md:p-10 rounded-2xl">
 
-                <h1 class="text-4xl font-extrabold mb-4 text-primary-color">ما هو جامعيون</h1>
+                <h1 class="text-3xl md:text-4xl font-extrabold mb-4 text-primary-color">ما هو جامعيون</h1>
 
                 <div
-                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 border-b border-gray-200 pb-4">
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 border-b border-gray-100 pb-4">
                     <p class="text-gray-500 text-sm mb-3 sm:mb-0">نُشرت في 28 سبتمبر 2025 | الفئة: <span
-                            class="text-accent-color font-medium">نصائح أكاديمية</span></p>
-                    
+                            class="text-accent-color font-extrabold bg-accent-color/10 px-2 py-0.5 rounded-lg">نصائح
+                            أكاديمية</span></p>
+
                     <button id="share-post-button" onclick="sharePostUrl('ما هو جامعيون')"
-                        class="flex items-center space-x-2 space-x-reverse text-accent-color hover:text-primary-color transition-colors duration-200 font-semibold text-lg p-2 rounded-lg hover:bg-white/50">
+                        class="flex items-center space-x-2 space-x-reverse text-accent-color hover:text-primary-color transition-colors duration-200 font-semibold text-base p-2 rounded-xl border border-transparent hover:border-gray-200 hover:bg-gray-50">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                             <path
                                 d="M18 16c-.73 0-1.4-.24-1.93-.65l-7.39 3.49a2.986 2.986 0 010-6.68l7.39 3.49c.53-.41 1.2-.65 1.93-.65 1.65 0 3 1.35 3 3s-1.35 3-3 3zm0-10c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zM6 15c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3z" />
                         </svg>
-                        <span>مشاركة</span>
+                        <span>مشاركة المقال</span>
                     </button>
                 </div>
 
                 <img src="../img/jamiion.jpg" alt="ما هو جامعيون"
-                    class="w-full h-auto rounded-xl mb-8 object-cover max-h-[400px] shadow-md">
+                    onerror="this.onerror=null;this.src='../img/jamiion.jpg';"
+                    class="w-full h-auto rounded-xl mb-10 object-cover max-h-[450px] shadow-xl border border-gray-100">
 
-                <div class="prose max-w-none text-gray-700 leading-loose space-y-6">
+                <div class="prose max-w-none text-gray-700 space-y-6">
                     <p>
-                        توسع جامعيون ليصبح مبادرة طلابية مسجلة على منصة نحن الوطنية للتطوع، توسعنا لاننا مؤمنون بأن التوسع سوف يعطي اثر اكبر للطالب على كل المستويات ولنقدم مساعدة أكثر للطالب.
+                        توسع جامعيون ليصبح مبادرة طلابية مسجلة على منصة نحن الوطنية للتطوع، توسعنا لاننا مؤمنون بأن
+                        التوسع سوف يعطي اثر اكبر للطالب على كل المستويات ولنقدم مساعدة أكثر للطالب.
                     </p>
                     <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">1. كيف يساعد جامعيون الطالب الجامعي</h2>
-                    
+
                     <p>
-                        نحن نعلم بمعاناة الطالب لأننا طلاب جامعيون، ولذلك طورنا تطبيق جامعيون الذي يحوي أقسام لا محدودة منها كل شيئ يخص المواد ندعوك لتحميل التطبيق وتستكشفها ب نفسك <a href="https://jamiyoon.vercel.app/down.html" target="_blank" style="color:blue;">من هنا</a> .
+                        نحن نعلم بمعاناة الطالب لأننا طلاب جامعيون، ولذلك طورنا تطبيق جامعيون الذي يحوي أقسام لا محدودة
+                        منها كل شيئ يخص المواد ندعوك لتحميل التطبيق وتستكشفها ب نفسك <a
+                            href="https://jamiyoon.vercel.app/down.html" target="_blank" style="color:blue;"
+                            class="text-blue-600 font-bold hover:text-blue-800">من هنا</a> .
                         <br>
                         <br>
-                        <b>جامعيون</b> كــ مبادرة طلابية مسجلة على منصة <a href="https://www.nahno.org/ngo/%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%D9%91%D9%88%D9%86-75712" target="_blank" style="color:#2dccd3;">نحن</a> الوطنية للتطوع من قلب طلاب جامعيون لقلب طلاب جامعيون، 
+                        <b>جامعيون</b> كــ مبادرة طلابية مسجلة على منصة <a
+                            href="https://www.nahno.org/ngo/%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%D9%91%D9%88%D9%86-75712"
+                            target="_blank" style="color:#2dccd3;"
+                            class="text-[#2dccd3] font-bold hover:text-cyan-600">نحن</a> الوطنية للتطوع من قلب طلاب
+                        جامعيون لقلب طلاب جامعيون،
+                        <br>
                         <br>
                         <b>ماذا نوفر للطالب الجامعي في مبادرة جامعيون؟
                         </b>
-                        <div style="background-color: #d7eefb; padding:20px; border-radius:25px; ">
-                        <ol>
-                            <li>1- ورشات ودورات مجانية بشاهدة معتمدة</li>
-                            <p style="font-size:12px; font-weight: bold;">**الورشات ميدانية (وجاهية) واون لاين</p>
-                            <br>
-                            <li>2- فرص مشاركة بتخصص الطالب، أي نقدم فرصة للطالب أن يشارك مشروعه او خبرته في تخصصه ليحضى بالدعم.</li>
-                            <br>
-                            <li>3- زيارات ميدانية لعدة منشئات وشركات وتقديم فرص للطالب.</li>
-                            <br>
-                            <li>4- فرص تطوع مع جامعيون ليكتسب الطالب خبرة في مجال التطوع الذي اختاره والحصول على ساعات تطوع.</li>
-                            <br>
-                            <li>5- مبادرات حقيقية ليشارك فيها الطالب وينشر المعرفة ويكتسب الخبرة.</li>
-                            <br>
-                            <li>6- دعم ومساندة حقيقيين للطالب على ارض الواقع . </li>
-                            <br>
-                            <li>7- هذه ما هي الا نبذة تعريفية بسيطة جداً عن جامعيون .</li>
-                            
+                    <div class="custom-list-box">
+                        <ol class="list-decimal marker:text-primary-color marker:font-bold">
+                            <li>ورشات ودورات مجانية بشاهدة معتمدة</li>
+                            <p class="text-xs font-bold text-gray-600 mt-1">**الورشات ميدانية (وجاهية) واون لاين</p>
+                            <li>فرص مشاركة بتخصص الطالب، أي نقدم فرصة للطالب أن يشارك مشروعه او خبرته في تخصصه ليحضى
+                                بالدعم.</li>
+                            <li>زيارات ميدانية لعدة منشئات وشركات وتقديم فرص للطالب.</li>
+                            <li>فرص تطوع مع جامعيون ليكتسب الطالب خبرة في مجال التطوع الذي اختاره والحصول على ساعات
+                                تطوع.</li>
+                            <li>مبادرات حقيقية ليشارك فيها الطالب وينشر المعرفة ويكتسب الخبرة.</li>
+                            <li>دعم ومساندة حقيقيين للطالب على ارض الواقع . </li>
+                            <li>هذه ما هي الا نبذة تعريفية بسيطة جداً عن جامعيون .</li>
                         </ol>
-                        </div>
+                    </div>
                     </p>
 
-                    <br>
-                    <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">2. ما هي الفرص التي يقدمها جامعيون للطالب</h2>
+                    <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">2. ما هي الفرص التي يقدمها جامعيون للطالب
+                    </h2>
 
                     <p>
                         من منطلقنا لتقديم الدعم للطالب الجامعي على كل المستويات منها <b>تقديم فرص للطالب</b> تشمل:
                     </p>
-                    
-                    <ul>
+
+                    <ul class="list-disc marker:text-accent-color marker:text-lg pr-6">
                         <li>1- ورشات ودورات مجانية <b>بشهادة معتمدة</b>.</li>
                         <li>2- مشاركة الطالب مشاريعه.</li>
-                        <li>3- نشر نشاطات بشكل مستمر بشتى المجالات ليشارك فيهاالطالب. <b style="font-size:14px;">مثل نشاط تقني يشارك فيه الطالب بموقع الكتروني طوره او تطبيق الخ...</b> </li> 
-                        <span style="font-size:13px" >*الهدف من ذلك هو <b>ان يضهر الطالب خبراته لإيجاد فرص عمل، ولاكتساب الخبرة وتكوين علاقات تفيده في مجاله.</b></span>
+                        <li>3- نشر نشاطات بشكل مستمر بشتى المجالات ليشارك فيهاالطالب. <b class="text-sm">مثل نشاط تقني يشارك
+                                فيه الطالب بموقع الكتروني طوره او تطبيق الخ...</b> </li>
+                        <span class="text-sm text-gray-500 block mt-1 mb-4">*الهدف من ذلك هو <b>ان يضهر الطالب خبراته
+                                لإيجاد فرص عمل، ولاكتساب الخبرة وتكوين علاقات تفيده في مجاله.</b></span>
                         <li>4- ملخصات، ودوسيات، ومصادر لدراسة المواد، واسئلة سنوات..</li>
-                        <span style="font-size:13px" >* لاننا نعلم أن <b>هذا اكثر شيئ يعاني منه طالب الجامعة. </b></span>
+                        <span class="text-sm text-gray-500 block mt-1">* لاننا نعلم أن <b>هذا اكثر شيئ يعاني منه طالب
+                                الجامعة. </b></span>
 
                     </ul>
-                    <br>
-                    <br>
+
                     <h2 class="text-2xl font-bold mt-8 mb-4 text-primary-color">كيف تتعرف علينا بشكل أكبر:</h2>
 
 
                     <p>
-                    <b>تابعنا </b> على حسابنا الرسمي على انستقرام <a href="https://www.instagram.com/jamaiyoon/" target="_blank" style="color:rgb(251 1 113);">من هنا</a>
+                        <b>تابعنا </b> على حسابنا الرسمي على انستقرام <a href="https://www.instagram.com/jamaiyoon/"
+                            target="_blank" style="color:rgb(251 1 113);"
+                            class="text-pink-600 font-bold hover:text-pink-800">من هنا</a>
                     </p>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
 
-    <footer class="mobile-nav md:hidden p-4">
+
+    <footer id="mobile-footer-nav" class="mobile-nav md:hidden p-2">
         <ul class="flex justify-around items-center text-center">
             <li class="flex-1">
-                <a href="../" class="flex flex-col items-center justify-center p-2 text-primary-color">
+                <a href="../" class="flex flex-col items-center justify-center p-2 text-primary-color nav-item-active">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
                     </svg>
-                    <span class="text-xs mt-1">الرئيسية</span>
+                    <span class="text-xs mt-1 font-medium">الرئيسية</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-1 2v14H6V5h12zM7 8h10v2H7zM7 12h7v2H7z" />
+                    </svg>
+                    <span class="text-xs mt-1 font-medium">المقالات</span>
                 </a>
             </li>
             <li class="flex-1">
@@ -227,7 +438,7 @@
                         <path
                             d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
                     </svg>
-                    <span class="text-xs mt-1">عن المدونة</span>
+                    <span class="text-xs mt-1 font-medium">عن المدونة</span>
                 </a>
             </li>
             <li class="flex-1">
@@ -235,9 +446,9 @@
                     class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                         <path
-                            d="M22 17.062c-2.617-3.924-4.846-5.46-8.914-6.324-1.103-.231-1.928-.964-1.928-2.062 0-1.101.825-1.833 1.928-2.064 4.068-.864 6.297-2.399 8.914-6.324L21 2c-3.235 3.235-5.235 5.235-9 5.235S4.235 5.235 1 2l-1 1.062c2.617 3.924 4.846 5.46 8.914 6.324 1.103.231 1.928.964 1.928 2.062 0 1.101-.825 1.833-1.928 2.064-4.068.864-6.297 2.399-8.914 6.324l1 1.062c3.235-3.235 5.235-5.235 9-5.235s5.765 2 9 5.235l1-1.062z" />
+                            d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.536-8-6.536V6h16zM4 18V9.757l7.359 6.007c.28.229.638.344.995.344.357 0 .715-.115.996-.344L20 9.757V18H4z" />
                     </svg>
-                    <span class="text-xs mt-1">اتصل بنا</span>
+                    <span class="text-xs mt-1 font-medium">تواصل</span>
                 </a>
             </li>
         </ul>
@@ -245,17 +456,14 @@
 
     <script>
         function showMessageBox(message, type = 'info') {
-
             const messageBox = document.getElementById('message-box');
-            if (!messageBox) return; 
+            if (!messageBox) return;
             let colorClass = 'bg-gray-700';
             if (type === 'success') colorClass = 'bg-green-600';
             if (type === 'error') colorClass = 'bg-red-600';
             if (type === 'info') colorClass = 'bg-blue-600';
-
             messageBox.textContent = message;
             messageBox.className = `fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-xl text-white shadow-2xl transition-all duration-300 z-[1001] ${colorClass} opacity-100 scale-100`;
-
             setTimeout(() => {
                 messageBox.classList.remove('opacity-100', 'scale-100');
                 messageBox.classList.add('opacity-0', 'scale-90');
@@ -270,6 +478,7 @@
                     const textarea = document.createElement('textarea');
                     textarea.value = text;
                     textarea.style.position = 'fixed';
+                    textarea.style.left = '-9999px';
                     document.body.appendChild(textarea);
                     textarea.focus();
                     textarea.select();
@@ -299,9 +508,49 @@
                 copyToClipboard(postUrl);
             }
         }
+        
+        let lastScrollY = window.scrollY;
+
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('mobile-sidebar');
+            const overlay = document.getElementById('mobile-sidebar-overlay');
+            const isOpen = sidebar.classList.toggle('open');
+            overlay.classList.toggle('open', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : ''; 
+        }
+
+        function handleScroll() {
+            const currentScrollY = window.scrollY;
+            const desktopHeader = document.getElementById('desktop-header');
+            const mobileFooterNav = document.getElementById('mobile-footer-nav');
+
+            if (desktopHeader) {
+                if (currentScrollY > 50) { 
+                    desktopHeader.classList.add('scrolled');
+                } else {
+                    desktopHeader.classList.remove('scrolled');
+                }
+            }
+
+            if (mobileFooterNav) {
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    mobileFooterNav.classList.add('hidden-on-scroll');
+                } else if (currentScrollY < lastScrollY) {
+                    mobileFooterNav.classList.remove('hidden-on-scroll');
+                }
+            }
+
+            lastScrollY = currentScrollY;
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+        });
+
     </script>
 </body>
 
-
 </html>
-
