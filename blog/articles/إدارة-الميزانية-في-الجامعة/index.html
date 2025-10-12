@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الميزانية في الجامعة</title>
+    <meta name="description"
+        content="جامعيون بدأ ك تطبيق جامعي ثمّ توسع ل يصبح مبادرة طلابية جامعية تهتم بطالب الجامعة وهدفها طالب الجامعة، نقدم كل شيئ يحتاجه الطالب في رحلته وحياته الجامعية ........">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #004d9c;
+            --secondary-color: #0077c2;
+            --accent-color: #ff7f50;
+            --text-dark: #1f2937;
+            --bg-light: #f3f4f6;
+            --card-bg: #ffffff;
+            --card-border: #e5e7eb;
+        }
+
+        .text-primary-color {
+            color: var(--primary-color);
+        }
+
+        .text-accent-color {
+            color: var(--accent-color);
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            padding-bottom: 70px;
+            padding-top: 84px;
+        }
+
+        .main-header {
+            box-shadow: none;
+            background-color: transparent;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            padding: 0.8rem 1rem;
+        }
+
+        .main-header.scrolled {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        
+        
+        .progress-container {
+            position: fixed;
+            top: 76px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e0e0e0;
+            z-index: 55;
+            opacity: 0;
+            transition: top 0.3s ease, opacity 0.3s ease;
+        }
+
+        .progress-container.is-active {
+            opacity: 1;
+        }
+
+        .progress-container.scrolled-down {
+            top: 60px;
+        }
+
+        @media (min-width: 768px) {
+            .progress-container {
+                top: 76px;
+            }
+
+            .progress-container.scrolled-down {
+                top: 68px;
+            }
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--accent-color);
+            transition: width 0.1s linear, background-color 0.3s ease;
+        }
+
+        header.md\:hidden {
+            height: 60px;
+        }
+
+
+        
+        .post-content-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 1.5rem;
+        }
+        
+
+        .related-article-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .related-article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .prose h2,
+        .prose h3 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--card-border);
+        }
+
+        .prose p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .prose ul,
+        .prose ol {
+            padding-right: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style-position: outside;
+        }
+
+        .prose a {
+            color: var(--accent-color);
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .prose .custom-list-box {
+            background-color: #f0fbff;
+            border: 1px solid #d7eefb;
+            padding: 20px;
+            border-radius: 25px;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .mobile-nav.hidden-on-scroll {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        .nav-item-active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background-color: var(--card-bg);
+            z-index: 1100;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-sidebar.open {
+            transform: translateX(0);
+        }
+
+        .mobile-sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+        }
+
+        .mobile-sidebar-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body class="font-cairo">
+
+    <div id="message-box"
+        class="fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-xl text-white shadow-2xl transition-all duration-300 z-[1001] opacity-0 scale-90"
+        role="alert">
+    </div>
+
+
+    <nav id="desktop-header" class="main-header fixed top-0 left-0 right-0 z-50 p-4 hidden md:block">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="../../../"
+                class="flex items-center space-x-2 space-x-reverse text-primary-color font-extrabold text-2xl tracking-tight">
+                <img src="../../../logo-jamii.png" alt="Logo"
+                    class="w-12 h-12 rounded-full ring-2 ring-primary-color/20">
+                <span>جامعيون</span>
+            </a>
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <ul class="flex space-x-6 space-x-reverse font-semibold">
+                    <li><a href="../../"
+                            class="text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">الرئيسية</a>
+                    </li>
+                    <li><a href="../../"
+                            class="text-primary-color transition-colors duration-200 p-2 rounded-lg font-bold border-b-2 border-primary-color">مقالات</a>
+                    </li>
+                    <li><a href="../../about_blog/"
+                            class="text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">عن
+                            المدونة</a></li>
+                    <li><a href="../../../contact"
+                            class="text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">اتصل
+                            بنا</a></li>
+                </ul>
+                <button id="search-desktop-btn"
+                    class="p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M10 18a7.952 7.952 0 004.89-1.63L18.423 20 20 18.423l-4.764-4.764A7.952 7.952 0 0018 10c0-4.41-3.59-8-8-8S2 5.59 2 10s3.59 8 8 8zm0-14c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="md:hidden fixed top-0 left-0 right-0 bg-white p-4 shadow-md z-50">
+        <div class="flex justify-between items-center">
+            <a href="../../"
+                class="flex items-center space-x-2 space-x-reverse text-primary-color font-extrabold text-2xl tracking-tight">
+                <img src="../../../logo-jamii.png" alt="Logo" class="w-9 h-9 rounded-full">
+                <span>جامعيون</span>
+            </a>
+            <div class="flex space-x-2 space-x-reverse">
+                <button id="search-mobile-top-btn"
+                    class="p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M10 18a7.952 7.952 0 004.89-1.63L18.423 20 20 18.423l-4.764-4.764A7.952 7.952 0 0018 10c0-4.41-3.59-8-8-8S2 5.59 2 10s3.59 8 8 8zm0-14c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6z" />
+                    </svg>
+                </button>
+
+                <button id="mobile-menu-btn"
+                    class="p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-accent-color transition-colors duration-200">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="progress-container" class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+    </div>
+    <div id="mobile-sidebar-overlay" class="mobile-sidebar-overlay" onclick="toggleMobileMenu()"></div>
+    <div id="mobile-sidebar" class="mobile-sidebar p-6 flex flex-col justify-between">
+
+        <div>
+            <div class="flex justify-between items-center mb-10">
+                <a href="../../../"
+                    class="flex items-center space-x-2 space-x-reverse text-primary-color font-extrabold text-2xl tracking-tight">
+                    <img src="../../../logo-jamii.png" alt="Logo" class="w-10 h-10 rounded-full">
+                    <span>جامعيون</span>
+                </a>
+
+                <button onclick="toggleMobileMenu()"
+                    class="p-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <ul class="space-y-4 text-lg font-semibold">
+                <li>
+                    <a href="../../"
+                        class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                        </svg>
+                        <span>الرئيسية</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../"
+                        class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold transition-colors duration-200 p-2 rounded-lg bg-primary-color/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-1 2v14H6V5h12zM7 8h10v2H7zM7 12h7v2H7z" />
+                        </svg>
+                        <span>مقالات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../about_blog"
+                        class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
+                        </svg>
+                        <span>عن المدونة</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../../../contact"
+                        class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.536-8-6.536V6h16zM4 18V9.757l7.359 6.007c.28.229.638.344.995.344.357 0 .715-.115.996-.344L20 9.757V18H4z" />
+                        </svg>
+                        <span>اتصل بنا</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="border-t border-gray-100 pt-4 mt-6">
+            <p class="text-xs text-gray-500 text-center">جميع الحقوق محفوظة &copy; جامعيون 2025</p>
+        </div>
+    </div>
+
+
+
+    <div id="blog-container" class="max-w-6xl mx-auto p-4 md:p-8">
+
+        <div id="single-post-view" class="max-w-4xl mx-auto">
+            <a href="../../"
+                class="inline-flex items-center space-x-2 space-x-reverse text-primary-color hover:text-secondary-color font-bold mb-6 transition-colors duration-200 bg-white rounded-full px-4 py-2 shadow-sm hover:shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+                <span>العودة إلى المدونة</span>
+            </a>
+
+            <div id="article-content" class="post-content-card p-6 md:p-10 rounded-2xl">
+
+                <h1 class="text-3xl md:text-4xl font-extrabold mb-4 text-primary-color">إدارة الميزانية في الجامعة</h1>
+
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 border-b border-gray-100 pb-4">
+                    <p class="text-gray-500 text-sm mb-3 sm:mb-0">نُشرت في 12 أكتوبر 2025 | الفئة: <span
+                            class="text-accent-color font-extrabold bg-accent-color/10 px-2 py-0.5 rounded-lg">نصائح جامعية</span></p>
+
+                    <button id="share-post-button" onclick="sharePostUrl('إدارة الميزانية في الجامعة')"
+                        class="flex items-center space-x-2 space-x-reverse text-accent-color hover:text-primary-color transition-colors duration-200 font-semibold text-base p-2 rounded-xl border border-transparent hover:border-gray-200 hover:bg-gray-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18 16c-.73 0-1.4-.24-1.93-.65l-7.39 3.49a2.986 2.986 0 010-6.68l7.39 3.49c.53-.41 1.2-.65 1.93-.65 1.65 0 3 1.35 3 3s-1.35 3-3 3zm0-10c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zM6 15c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3z" />
+                        </svg>
+                        <span>مشاركة المقال</span>
+                    </button>
+                </div>
+
+                <img src="../../img/money-finance-budgeting-jars-picjumbo-com.webp" alt="صورة توضيحية"
+                    onerror="this.onerror=null;this.src='../img/jamiion.jpg';"
+                    class="w-full h-auto rounded-xl mb-10 object-cover max-h-[450px] shadow-xl border border-gray-100">
+
+<div class="prose max-w-none text-gray-700 space-y-6">
+  <h1 class="text-3xl font-extrabold text-primary-color">إدارة الميزانية في الجامعة: دليل عملي للطلبة</h1>
+
+  <p>
+    الدخول للجامعة يعني مسؤوليات جديدة — من مصاريف السكن والتنقل إلى الكتب والأنشطة الاجتماعية.
+    إدارة ميزانيتك بشكل ذكي ليست ترفًا بل مهارة تؤمّن لك راحة نفسية وتركيزًا أفضل على الدراسة.
+    هذا الدليل يقدم خطوات عملية، أمثلة، ونماذج بسيطة تساعدك تسيطر على مصروفك الجامعي.
+  </p>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">1. لماذا تحتاج ميزانية؟</h2>
+  <p>
+    الميزانية تمنحك رؤية واضحة عن أين تذهب أموالك وتمنعك من الوقوع في دوامة الإنفاق العشوائي.
+    بتخصيص كل دينار لوظيفة محددة، تقلّ احتمالية نفاد المال قبل نهاية الشهر أو الوقوع في ديون.
+  </p>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">2. مبدأ 50/30/20 بصيغة بسيطة للطالب</h2>
+  <p>
+    هذا تقسيم عام يمكنك تبسيطه للطالب:
+  </p>
+  <ul class="list-disc pl-5 space-y-2">
+    <li><b>50%</b> احتياجات أساسية: سكن، طعام، مواصلات.</li>
+    <li><b>30%</b> متغيرات ومسلّيات: قهوة، خرج مع الأصدقاء، ترفيه.</li>
+    <li><b>20%</b> مدخرات/طوارئ/استثمار في الذات: كتب، كورسات، أو ادّخار للمستقبل.</li>
+  </ul>
+  <p class="text-sm text-gray-600">ملاحظة: كن مرنًا — النسب قابلة للتعديل بحسب وضعك.</p>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">3 — كيف تعد ميزانية بسيطة (خطوة بخطوة)</h2>
+  <ol class="list-decimal marker:text-primary-color marker:font-bold space-y-3">
+    <li>
+      <b>سجّل كل دخلك</b> (مصروف أهل، عمل جزئي، منحة).
+      <p class="text-xs text-gray-500 mt-1">مثال: مصروف شهري 200 دينار.</p>
+    </li>
+    <li>
+      <b>حدد مصاريف ثابتة</b> (إيجار، فواتير، اشتراكات).
+      <p class="text-xs text-gray-500 mt-1">مثال: إيجار 60، مواصلات 20.</p>
+    </li>
+    <li>
+      <b>تقدير المصاريف المتغيرة</b> (طعام، كتب، نشاطات).
+    </li>
+    <li>
+      <b>خصص مدخرات للطوارئ</b> — حتى مبلغ بسيط شهريًا مهم.
+    </li>
+    <li>
+      <b>راجع وقيّم</b> بنهاية كل شهر: أين صرفت أكثر؟ ماذا يمكنك تقليله؟
+    </li>
+  </ol>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">4 — نموذج ميزانية بسيط (شهرية)</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full text-sm">
+      <thead>
+        <tr class="text-left">
+          <th class="pr-6">البند</th>
+          <th class="pr-6">المبلغ (د.أ)</th>
+          <th class="pr-6">ملاحظة</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="pr-6">دخلي الشهري</td>
+          <td class="pr-6">200</td>
+          <td class="pr-6">مصروف أهل + عمل جزئي</td>
+        </tr>
+        <tr>
+          <td class="pr-6">إيجار</td>
+          <td class="pr-6">60</td>
+          <td class="pr-6">سكن طلابي / شقة</td>
+        </tr>
+        <tr>
+          <td class="pr-6">مواصلات</td>
+          <td class="pr-6">20</td>
+          <td class="pr-6">بنزين/باصات</td>
+        </tr>
+        <tr>
+          <td class="pr-6">طعام</td>
+          <td class="pr-6">50</td>
+          <td class="pr-6">وجبات يومية</td>
+        </tr>
+        <tr>
+          <td class="pr-6">كتب ومواد</td>
+          <td class="pr-6">15</td>
+          <td class="pr-6">دوسيات وملخصات</td>
+        </tr>
+        <tr>
+          <td class="pr-6">تسالي ومناسبات</td>
+          <td class="pr-6">30</td>
+          <td class="pr-6">خرجات وقهوة</td>
+        </tr>
+        <tr>
+          <td class="pr-6 font-bold">مدخرات/طوارئ</td>
+          <td class="pr-6 font-bold">25</td>
+          <td class="pr-6">ادخار طارئ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-sm text-gray-600 mt-2">قِس مجموع المصروفات مقابل الدخل وعدّل حسب الأولويات.</p>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">5 — حيل عملية لتقليل المصاريف</h2>
+  <ul class="list-disc pl-5 space-y-2">
+    <li>اطبخ في البيت بدل الأكل الخارجي 3 مرات بالأسبوع.</li>
+    <li>اشتري كتب مستعملة أو استعمل مذكرات مجانية من جامعيون.</li>
+    <li>شارك السكن لتقاسم الإيجار والمرافق.</li>
+    <li>استغل خصومات الطلاب والبطاقات الجامعية.</li>
+    <li>ضع حدًا "للمستوى الترفيهي" الشهري ولا تتجاوزه.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">6 — زيادة الدخل بطرق مناسبة للطالب</h2>
+  <ul class="list-disc pl-5 space-y-2">
+    <li>العمل الجزئي داخل الجامعة (مكتبة، مساعد تدريس).</li>
+    <li>عمل حر (تصميم، كتابة، برمجة، تدريس خصوصي).</li>
+    <li>التطوع المنظم الذي يتحول لفرص تدريب مدفوع لاحقًا.</li>
+  </ul>
+  <p class="text-sm text-gray-600 mt-1">ملاحظة: لا تضحّي بأداءك الأكاديمي مقابل عمل يزيد الضغط بشكل مبالغ.</p>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">7 — صندوق الطوارئ: لماذا وكيف تبنيه</h2>
+  <p>
+    وجود صندوق طوارئ يعطِك راحة نفسية عند حدوث مصاريف غير متوقعة (زي رحلة لمكتب حكومي، عطل في اللاب توب).
+    ابدأ بمبلغ بسيط كل شهر (حتى 5–10 د.أ) واجعل هدفك الأولي 100 د.أ ثم ارفع الهدف لاحقًا.
+  </p>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">8 — أدوات بسيطة تساعدك</h2>
+  <ul class="list-disc pl-5 space-y-2">
+    <li>ورقة Excel أو Google Sheets لتسجيل المصروفات اليومية.</li>
+    <li>تطبيق محفظة رقمي أو ملاحظات الهاتف لتسجيل النفقات فورًا.</li>
+    <li>مجموعة قواعد شخصية: لا شراء إلا بعد 48 ساعة للقرارات غير الضرورية.</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">قائمة مراجعة قبل نهاية الشهر</h2>
+  <ul class="list-disc pl-5 space-y-2">
+    <li>هل أنفقت أكثر من المتوقع في بند واحد؟</li>
+    <li>هل ادّخرت على الأقل 5–10% من دخلك؟</li>
+    <li>هل يمكنك تقليل بند الترفيه مرة واحدة بالشهر دون تأثير نفسي كبير؟</li>
+  </ul>
+
+  <h2 class="text-2xl font-bold mt-6 mb-3 text-primary-color">موارد إضافية ودعم</h2>
+  <p>
+    للحصول على دوسيات وملخصات أرخص، وورش لتعلّم مهارات لزيادة الدخل — تابعنا على مبادرة
+    <b>جامعيون</b> وحمّل التطبيق:
+    <a href="https://jamiyoon.vercel.app/down.html" target="_blank" class="text-blue-600 font-bold hover:text-blue-800">تحميل التطبيق</a>
+    — وتابعنا على إنستقرام
+    <a href="https://www.instagram.com/jamaiyoon/" target="_blank" class="text-pink-600 font-bold hover:text-pink-800">من هنا</a>.
+  </p>
+
+  <div class="mt-4 p-3 rounded-md bg-[#fff8f3] border-l-4 border-[#ffb86b]">
+    <p class="text-sm text-gray-700">
+      <b>خلاصة:</b> إدارة الميزانية مهارة تُكتسب بالممارسة. ابدأ بخطوة صغيرة (تسجيل المصروفات أسبوعيًا) وستلاحظ تحسّنًا في السيطرة على مالك وهدوءًا أكثر خلال الدراسة.
+    </p>
+  </div>
+</div>
+
+
+            <section class="mt-12 pt-6 border-t border-gray-200">
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-8 text-primary-color text-center">مقالات مميزة</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <a href="./بناء-linkedin-احترافي.html" class="related-article-card block p-4">
+                        <img src="../../img/linkedin.webp" alt="صورة توضيحية"
+                            onerror="this.onerror=null;this.src='../img/linkedin.webp';"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <div class="text-xs font-semibold text-accent-color mb-1">التطوير الشخصي والوظيفي</div>
+                        <h3 class="text-lg font-bold text-gray-800 hover:text-primary-color transition-colors duration-200 mb-2 line-clamp-2">
+                           بناء ملف LinkedIn احترافي وأنت لا تزال طالبًا: استثمارك الذي يبدأ الآن
+                        </h3>
+                        <p class="text-sm text-gray-500">نُشرت في 3 أكتوبر 2025</p>
+                    </a>
+
+                    <a href="./مشروع-التخرج.html" class="related-article-card block p-4">
+                        <img src="../../img/graduation_project.webp" alt="صورة توضيحية"
+                            onerror="this.onerror=null;this.src='../img/graduation_project.webp';"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <div class="text-xs font-semibold text-accent-color mb-1">الأكاديميات والتخصصات</div>
+                        <h3 class="text-lg font-bold text-gray-800 hover:text-primary-color transition-colors duration-200 mb-2 line-clamp-2">
+                           رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز
+                        </h3>
+                        <p class="text-sm text-gray-500">نُشرت في 3 أكتوبر 2025</p>
+                    </a>
+
+                    <a href="./نصائح-للطلبة-الجدد.html" class="related-article-card block p-4">
+                        <img src="../../img/university_student.webp" alt="صورة توضيحية"
+                            onerror="this.onerror=null;this.src='../img/university_student.webp';"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <div class="text-xs font-semibold text-accent-color mb-1">نصائح جامعية</div>
+                        <h3 class="text-lg font-bold text-gray-800 hover:text-primary-color transition-colors duration-200 mb-2 line-clamp-2">
+                            10 نصائح لكل طالب جديد في الجامعة
+                        </h3>
+                        <p class="text-sm text-gray-500">نُشرت في 4 أكتوبر 2025</p>
+                    </a>
+                </div>
+
+                <div class="text-center mt-8">
+                     <a href="../" class="inline-flex items-center space-x-2 space-x-reverse text-white bg-[#1E40AF] hover:bg-[#2563EB] font-bold py-3 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                        <span>مشاهدة كل المقالات</span>
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 17l5-5-5-5v10z"/>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+            </div>
+    </div>
+
+
+    <footer id="mobile-footer-nav" class="mobile-nav md:hidden p-2">
+        <ul class="flex justify-around items-center text-center">
+            <li class="flex-1">
+                <a href="../../" class="flex flex-col items-center justify-center p-2 text-primary-color nav-item-active">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                    <span class="text-xs mt-1 font-medium">الرئيسية</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../../"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-1 2v14H6V5h12zM7 8h10v2H7zM7 12h7v2H7z" />
+                    </svg>
+                    <span class="text-xs mt-1 font-medium">المقالات</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../../about_blog"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
+                    </svg>
+                    <span class="text-xs mt-1 font-medium">عن المدونة</span>
+                </a>
+            </li>
+            <li class="flex-1">
+                <a href="../../../contact"
+                    class="flex flex-col items-center justify-center p-2 text-gray-500 hover:text-accent-color transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.536-8-6.536V6h16zM4 18V9.757l7.359 6.007c.28.229.638.344.995.344.357 0 .715-.115.996-.344L20 9.757V18H4z" />
+                    </svg>
+                    <span class="text-xs mt-1 font-medium">تواصل</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        function showMessageBox(message, type = 'info') {
+            const messageBox = document.getElementById('message-box');
+            if (!messageBox) return;
+            let colorClass = 'bg-gray-700';
+            if (type === 'success') colorClass = 'bg-green-600';
+            if (type === 'error') colorClass = 'bg-red-600';
+            if (type === 'info') colorClass = 'bg-blue-600';
+            messageBox.textContent = message;
+            messageBox.className = `fixed bottom-20 left-1/2 transform -translate-x-1/2 p-3 rounded-xl text-white shadow-2xl transition-all duration-300 z-[1001] ${colorClass} opacity-100 scale-100`;
+            setTimeout(() => {
+                messageBox.classList.remove('opacity-100', 'scale-100');
+                messageBox.classList.add('opacity-0', 'scale-90');
+            }, 3000);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
+            }, () => {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    textarea.style.position = 'fixed';
+                    textarea.style.left = '-9999px';
+                    document.body.appendChild(textarea);
+                    textarea.focus();
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    showMessageBox('تم نسخ رابط التدوينة إلى الحافظة!', 'success');
+                } catch (e) {
+                    showMessageBox('فشل النسخ. الرجاء النسخ يدوياً.', 'error');
+                }
+            });
+        }
+
+        function sharePostUrl(title) {
+            const postUrl = window.location.href;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: `اقرأ مقال: ${title} من مدونة جامعيون!`,
+                    url: postUrl,
+                }).catch((error) => {
+                    if (error.name !== 'AbortError') {
+                        copyToClipboard(postUrl);
+                    }
+                });
+            } else {
+                copyToClipboard(postUrl);
+            }
+        }
+
+        let lastScrollY = window.scrollY;
+
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('mobile-sidebar');
+            const overlay = document.getElementById('mobile-sidebar-overlay');
+            const isOpen = sidebar.classList.toggle('open');
+            overlay.classList.toggle('open', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        
+        
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressContainer = document.getElementById('progress-container');
+
+
+            const scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = window.scrollY;
+
+
+            if (scrolled > 5) { 
+                progressContainer.classList.add('is-active');
+            } else {
+                progressContainer.classList.remove('is-active');
+            }
+
+
+            if (scrollableHeight > 0) {
+                const progress = (scrolled / scrollableHeight) * 100;
+                progressBar.style.width = progress + '%';
+            } else {
+                progressBar.style.width = '0%';
+            }
+        }
+
+        function handleScroll() {
+            const currentScrollY = window.scrollY;
+            const desktopHeader = document.getElementById('desktop-header');
+            const mobileFooterNav = document.getElementById('mobile-footer-nav');
+            const progressContainer = document.getElementById('progress-container');
+
+
+            updateProgressBar();
+
+            if (desktopHeader) {
+                if (currentScrollY > 50) {
+                    desktopHeader.classList.add('scrolled');
+                    progressContainer.classList.add('scrolled-down');
+                } else {
+                    desktopHeader.classList.remove('scrolled');
+                    progressContainer.classList.remove('scrolled-down');
+                }
+            } else {
+
+                if (currentScrollY > 10) {
+                    progressContainer.classList.add('scrolled-down');
+                } else {
+                    progressContainer.classList.remove('scrolled-down');
+                }
+            }
+
+
+            if (mobileFooterNav) {
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    mobileFooterNav.classList.add('hidden-on-scroll');
+                } else if (currentScrollY < lastScrollY) {
+                    mobileFooterNav.classList.remove('hidden-on-scroll');
+                }
+            }
+
+            lastScrollY = currentScrollY;
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('resize', updateProgressBar);
+            handleScroll(); 
+        });
+
+
+
+    </script>
+</body>
+
+</html>
+
+
+
