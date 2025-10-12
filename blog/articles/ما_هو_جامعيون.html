@@ -17,19 +17,12 @@
     <style>
         :root {
             --primary-color: #004d9c;
-
             --secondary-color: #0077c2;
-
             --accent-color: #ff7f50;
-
             --text-dark: #1f2937;
-
             --bg-light: #f3f4f6;
-
             --card-bg: #ffffff;
-
             --card-border: #e5e7eb;
-
         }
 
         .text-primary-color {
@@ -46,25 +39,86 @@
             font-family: 'Cairo', sans-serif;
             line-height: 1.8;
             padding-bottom: 70px;
-            padding-top: 80px; 
+            padding-top: 84px;
         }
 
         .main-header {
-            box-shadow: none; 
-            background-color: transparent; 
+            box-shadow: none;
+            background-color: transparent;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            padding: 0.8rem 1rem;
         }
 
         .main-header.scrolled {
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff; 
+            background-color: #ffffff;
         }
+
+        /* -------------------------------------- */
+        /* شريط التحرك (Scroll Progress Bar) */
+        /* -------------------------------------- */
+        .progress-container {
+            position: fixed;
+            top: 76px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e0e0e0;
+            z-index: 55;
+            opacity: 0;
+            transition: top 0.3s ease, opacity 0.3s ease;
+        }
+
+        .progress-container.is-active {
+            opacity: 1;
+        }
+
+        .progress-container.scrolled-down {
+            top: 60px;
+        }
+
+        @media (min-width: 768px) {
+            .progress-container {
+                top: 76px;
+            }
+
+            .progress-container.scrolled-down {
+                top: 68px;
+            }
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--accent-color);
+            transition: width 0.1s linear, background-color 0.3s ease;
+        }
+
+        header.md\:hidden {
+            height: 60px;
+        }
+
+        /* -------------------------------------- */
 
         .post-content-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border-radius: 1.5rem;
+        }
+        
+        /* البطاقة الجديدة للمقالات ذات الصلة */
+        .related-article-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .related-article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .prose h2,
@@ -103,7 +157,7 @@
             margin-top: 1.5rem;
             margin-bottom: 1.5rem;
         }
-        
+
         .mobile-nav {
             position: fixed;
             bottom: 0;
@@ -115,7 +169,7 @@
             z-index: 1000;
             transition: transform 0.3s ease-out, opacity 0.3s ease-out;
         }
-        
+
         .mobile-nav.hidden-on-scroll {
             transform: translateY(100%);
             opacity: 0;
@@ -125,12 +179,12 @@
             color: var(--primary-color);
             font-weight: 700;
         }
-        
+
 
         .mobile-sidebar {
             position: fixed;
             top: 0;
-            right: 0; 
+            right: 0;
             width: 80%;
             max-width: 300px;
             height: 100%;
@@ -157,7 +211,7 @@
             visibility: hidden;
             transition: opacity 0.3s ease-in-out, visibility 0.3s;
         }
-        
+
         .mobile-sidebar-overlay.open {
             opacity: 1;
             visibility: visible;
@@ -235,7 +289,9 @@
         </div>
     </header>
 
-
+    <div id="progress-container" class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+    </div>
     <div id="mobile-sidebar-overlay" class="mobile-sidebar-overlay" onclick="toggleMobileMenu()"></div>
     <div id="mobile-sidebar" class="mobile-sidebar p-6 flex flex-col justify-between">
 
@@ -255,10 +311,11 @@
                     </svg>
                 </button>
             </div>
-            
+
             <ul class="space-y-4 text-lg font-semibold">
                 <li>
-                    <a href="../" class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
+                    <a href="../"
+                        class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
                         </svg>
@@ -266,7 +323,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../" class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold transition-colors duration-200 p-2 rounded-lg bg-primary-color/10">
+                    <a href="../"
+                        class="flex items-center space-x-2 space-x-reverse text-primary-color font-bold transition-colors duration-200 p-2 rounded-lg bg-primary-color/10">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                             <path
                                 d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm-1 2v14H6V5h12zM7 8h10v2H7zM7 12h7v2H7z" />
@@ -275,7 +333,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../about_blog" class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
+                    <a href="../about_blog"
+                        class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                             <path
                                 d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z" />
@@ -284,7 +343,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../../contact" class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
+                    <a href="../../contact"
+                        class="flex items-center space-x-2 space-x-reverse text-gray-700 hover:text-accent-color transition-colors duration-200 p-2 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
                             <path
                                 d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.536-8-6.536V6h16zM4 18V9.757l7.359 6.007c.28.229.638.344.995.344.357 0 .715-.115.996-.344L20 9.757V18H4z" />
@@ -294,7 +354,7 @@
                 </li>
             </ul>
         </div>
-        
+
 
         <div class="border-t border-gray-100 pt-4 mt-6">
             <p class="text-xs text-gray-500 text-center">جميع الحقوق محفوظة &copy; جامعيون 2025</p>
@@ -407,7 +467,56 @@
                     </p>
                 </div>
             </div>
-        </div>
+
+            <section class="mt-12 pt-6 border-t border-gray-200">
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-8 text-primary-color text-center">أحدث المقالات</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <a href="./بناء-linkedin-احترافي.html" class="related-article-card block p-4">
+                        <img src="../img/linkedin.webp" alt="صورة توضيحية"
+                            onerror="this.onerror=null;this.src='../img/linkedin.webp';"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <div class="text-xs font-semibold text-accent-color mb-1">التطوير الشخصي والوظيفي</div>
+                        <h3 class="text-lg font-bold text-gray-800 hover:text-primary-color transition-colors duration-200 mb-2 line-clamp-2">
+                           بناء ملف LinkedIn احترافي وأنت لا تزال طالبًا: استثمارك الذي يبدأ الآن
+                        </h3>
+                        <p class="text-sm text-gray-500">نُشرت في 3 أكتوبر 2025</p>
+                    </a>
+
+                    <a href="./مشروع-التخرج.html" class="related-article-card block p-4">
+                        <img src="../img/graduation_project.webp" alt="صورة توضيحية"
+                            onerror="this.onerror=null;this.src='../img/graduation_project.webp';"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <div class="text-xs font-semibold text-accent-color mb-1">الأكاديميات والتخصصات</div>
+                        <h3 class="text-lg font-bold text-gray-800 hover:text-primary-color transition-colors duration-200 mb-2 line-clamp-2">
+                           رحلة مشروع التخرج: دليل الطالب الكامل للتحضير والإنجاز
+                        </h3>
+                        <p class="text-sm text-gray-500">نُشرت في 3 أكتوبر 2025</p>
+                    </a>
+
+                    <a href="./نصائح-للطلبة-الجدد.html" class="related-article-card block p-4">
+                        <img src="../img/university_student.webp" alt="صورة توضيحية"
+                            onerror="this.onerror=null;this.src='../img/university_student.webp';"
+                            class="w-full h-32 object-cover rounded-lg mb-4">
+                        <div class="text-xs font-semibold text-accent-color mb-1">نصائح جامعية</div>
+                        <h3 class="text-lg font-bold text-gray-800 hover:text-primary-color transition-colors duration-200 mb-2 line-clamp-2">
+                            10 نصائح لكل طالب جديد في الجامعة
+                        </h3>
+                        <p class="text-sm text-gray-500">نُشرت في 4 أكتوبر 2025</p>
+                    </a>
+                </div>
+
+                <div class="text-center mt-8">
+                     <a href="../" class="inline-flex items-center space-x-2 space-x-reverse text-white bg-primary-color hover:bg-secondary-color font-bold py-3 px-6 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl">
+                        <span>مشاهدة كل المقالات</span>
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 17l5-5-5-5v10z"/>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+            </div>
     </div>
 
 
@@ -508,7 +617,7 @@
                 copyToClipboard(postUrl);
             }
         }
-        
+
         let lastScrollY = window.scrollY;
 
         function toggleMobileMenu() {
@@ -516,21 +625,61 @@
             const overlay = document.getElementById('mobile-sidebar-overlay');
             const isOpen = sidebar.classList.toggle('open');
             overlay.classList.toggle('open', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : ''; 
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        
+        
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressContainer = document.getElementById('progress-container');
+
+
+            const scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = window.scrollY;
+
+
+            if (scrolled > 5) { 
+                progressContainer.classList.add('is-active');
+            } else {
+                progressContainer.classList.remove('is-active');
+            }
+
+
+            if (scrollableHeight > 0) {
+                const progress = (scrolled / scrollableHeight) * 100;
+                progressBar.style.width = progress + '%';
+            } else {
+                progressBar.style.width = '0%';
+            }
         }
 
         function handleScroll() {
             const currentScrollY = window.scrollY;
             const desktopHeader = document.getElementById('desktop-header');
             const mobileFooterNav = document.getElementById('mobile-footer-nav');
+            const progressContainer = document.getElementById('progress-container');
+
+
+            updateProgressBar();
 
             if (desktopHeader) {
-                if (currentScrollY > 50) { 
+                if (currentScrollY > 50) {
                     desktopHeader.classList.add('scrolled');
+                    progressContainer.classList.add('scrolled-down');
                 } else {
                     desktopHeader.classList.remove('scrolled');
+                    progressContainer.classList.remove('scrolled-down');
+                }
+            } else {
+
+                if (currentScrollY > 10) {
+                    progressContainer.classList.add('scrolled-down');
+                } else {
+                    progressContainer.classList.remove('scrolled-down');
                 }
             }
+
 
             if (mobileFooterNav) {
                 if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -547,11 +696,13 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             window.addEventListener('scroll', handleScroll);
-            handleScroll();
+            window.addEventListener('resize', updateProgressBar);
+            handleScroll(); 
         });
+
+
 
     </script>
 </body>
 
 </html>
-
