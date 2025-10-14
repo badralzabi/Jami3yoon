@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أرسل مشروعك - إلهام جامعي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #004d9c;
+            --secondary-color: #0077c2;
+            --accent-color: #ff7f50;
+            --text-dark: #003464;
+            --bg-light: #f3f4f6;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .form-input {
+            border: 1.8px solid #e3e8ef;
+            border-radius: 14px;
+            padding: 14px 18px;
+            width: 100%;
+            transition: all 0.3s ease;
+            background-color: #fff;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 4px rgba(0, 119, 194, 0.15);
+            outline: none;
+        }
+
+        .btn-main {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            padding: 14px 36px;
+            border-radius: 9999px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 14px rgba(0, 77, 156, 0.25);
+        }
+
+        .btn-main:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 18px rgba(0, 77, 156, 0.35);
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        select.form-input {
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        #other-idea-input {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="pt-8 pb-4 bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto flex justify-center items-center">
+            <a href="../" class="flex items-center space-x-2 space-x-reverse text-[--primary-color] font-bold text-3xl">
+                <img src="./logo-jami.png" alt="Logo" class="w-14 h-14 rounded-full shadow-md">
+                <span>إلهام جامعي</span>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="max-w-3xl mx-auto mt-12 bg-white rounded-2xl shadow-xl p-8">
+
+        <h1 class="text-4xl font-extrabold text-center mb-6 text-[--primary-color]">أرسل مشروعك الجامعي 💡</h1>
+        <p class="text-center text-gray-600 mb-10 text-lg">
+            شاركنا فكرتك أو مشروعك، وسنقوم بدعمك ونشر مشروعك ضمن مبادرة <span class="text-[--secondary-color] font-semibold">إلهام جامعي</span>.
+        </p>
+
+        <form action="https://formspree.io/f/mkgredqg" method="POST" class="space-y-6">
+
+            <div>
+                <label class="block mb-2">الاسم الكامل</label>
+                <input type="text" name="name" class="form-input" placeholder="اكتب اسمك الكامل" required>
+            </div>
+
+            <div>
+                <label class="block mb-2">البريد الجامعي</label>
+                <input type="email" name="email" class="form-input" placeholder="example@university.edu.jo" required>
+            </div>
+
+            <div>
+                <label class="block mb-2">اسم الجامعة</label>
+                <input type="text" name="university" class="form-input" placeholder="اسم الجامعة" required>
+            </div>
+            
+
+             <div>
+                <label class="block mb-2">رقم واتساب (فعال)</label>
+                <input type="number" name="number_wa" class="form-input" placeholder="رقم واتساب" required>
+            </div>
+            <div>
+                <label class="block mb-2">اسم المشروع</label>
+                <input type="text" name="project_name" class="form-input" placeholder="اكتب اسم مشروعك" required>
+            </div>
+
+            <div>
+                <label class="block mb-2">وصف الفكرة أو المشروع</label>
+                <textarea name="description" rows="5" class="form-input" placeholder="اشرح فكرتك أو مشروعك بإيجاز" required></textarea>
+            </div>
+
+            <div>
+                <label class="block mb-2">صفحة المشروع على السوشل ميديا (إذا وجد)</label>
+                <input type="url" name="رابط_سوشل" class="form-input" placeholder="ضع رابط الصفحة">
+            </div>
+
+            <div>
+                <label class="block mb-2">اختر نوع المشروع</label>
+                <select name="category" id="project-type" class="form-input" required>
+                    <option value="">اختر نوع المشروع</option>
+                    <option value="تقني">مشروع تقني 💻</option>
+                    <option value="ريادي">مشروع ريادي 🚀</option>
+                    <option value="مجتمعي">مبادرة مجتمعية 🤝</option>
+                    <option value="بحثي">بحث علمي 📚</option>
+                    <option value="أخرى">فكرة أخرى 💡</option>
+                </select>
+            </div>
+
+
+            <div id="other-idea-input">
+                <label class="block mb-2">أدخل نوع المشروع الآخر</label>
+                <input type="text" name="other_idea" class="form-input" placeholder="اكتب نوع مشروعك هنا">
+            </div>
+
+            <div class="text-center pt-6">
+                <button type="submit" class="btn-main">إرسال المشروع</button>
+            </div>
+
+        </form>
+    </div>
+
+    <footer class="mt-12 text-center text-gray-500 text-sm mb-8">
+        © 2025 جامعيون. جميع الحقوق محفوظة.
+    </footer>
+
+    <script>
+
+        const select = document.getElementById('project-type');
+        const otherInput = document.getElementById('other-idea-input');
+
+        select.addEventListener('change', function () {
+            if (this.value === 'أخرى') {
+                otherInput.style.display = 'block';
+                otherInput.querySelector('input').setAttribute('required', true);
+            } else {
+                otherInput.style.display = 'none';
+                otherInput.querySelector('input').removeAttribute('required');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
