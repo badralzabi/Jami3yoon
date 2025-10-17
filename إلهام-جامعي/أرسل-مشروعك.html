@@ -13,7 +13,7 @@
             --secondary-color: #0077c2;
             --accent-color: #ff7f50;
             --text-dark: #003464;
-            --bg-light: #f3f4f6;
+            --bg-light: #f3ff6;
             --card-bg: #ffffff;
         }
 
@@ -72,6 +72,53 @@
         #other-idea-input {
             display: none;
         }
+
+        .animated-checkbox {
+            appearance: none; 
+            -webkit-appearance: none;
+            cursor: pointer;
+            border-radius: 6px;
+            height: 1.25rem;
+            width: 1.25rem;
+            border: 2px solid var(--primary-color);
+            position: relative;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .animated-checkbox::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0.3rem;
+            height: 0.6rem;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: translate(-50%, -50%) rotate(45deg) scale(0);
+            opacity: 0;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .animated-checkbox:checked {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 77, 156, 0.2); 
+        }
+
+        .animated-checkbox:checked::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) rotate(45deg) scale(1.1); 
+        }
+        
+        .animated-checkbox:checked:focus::after,
+        .animated-checkbox:checked:hover::after {
+            transform: translate(-50%, -50%) rotate(45deg) scale(1); 
+            transition-delay: 0.05s;
+        }
+
+        .custom-checkbox-label {
+            align-items: center; 
+        }
     </style>
 </head>
 
@@ -105,6 +152,9 @@
             <div>
                 <label class="block mb-2">البريد الجامعي</label>
                 <input type="email" name="email" class="form-input" placeholder="example@university.edu.jo" required>
+                <p class="mt-2 text-sm italic text-gray-500">
+                    *نحتاج بريدك الجامعي للتأكد من هويتك ودعم مشروعك بشكل أفضل.
+                </p>
             </div>
 
             <div>
@@ -149,6 +199,16 @@
                 <label class="block mb-2">أدخل نوع المشروع الآخر</label>
                 <input type="text" name="other_idea" class="form-input" placeholder="اكتب نوع مشروعك هنا">
             </div>
+
+            <div class="pt-4">
+                <label class="flex items-center space-x-3 space-x-reverse cursor-pointer custom-checkbox-label">
+                    <input type="checkbox" name="confirmation" class="animated-checkbox" required>
+                    <span class="text-base font-medium text-gray-700">
+                        أؤكد أن جميع المعلومات المدخلة صحيحة وتخصني شخصياً
+                    </span>
+                </label>
+            </div>
+
 
             <div class="text-center pt-6">
                 <button type="submit" class="btn-main">إرسال المشروع</button>
