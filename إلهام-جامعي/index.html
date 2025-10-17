@@ -48,104 +48,151 @@
         .prose h2 {
             color: var(--text-dark);
         }
+
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .blurred {
+            filter: blur(5px);
+            pointer-events: none;
+            user-select: none;
+        }
     </style>
 </head>
 
 <body class="font-cairo">
 
-
-    <div class="pt-8 pb-4 bg-white shadow-sm">
-        <div class="max-w-6xl mx-auto flex justify-center items-center">
-            <a href="../" class="flex items-center space-x-2 space-x-reverse text-[--primary-color] font-bold text-3xl">
-                <img src="./logo-jami.png" alt="Logo" class="w-14 h-14 rounded-full shadow-md">
-                <span>إلهام جامعي</span>
-            </a>
+    <div id="intro-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="text-3xl font-bold text-[--primary-color] mb-4">ملاحظة هامة!</h2>
+            <p class="text-lg mb-6 text-[--text-dark]">
+                رابط التقديم أسفل الصفحة، لكن يرجى قراءة الهدف والمزايا بعناية.
+            </p>
+            <button id="skip-button" class="bg-[--accent-color] hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full transition-colors duration-200">
+                تخطي ومتابعة
+            </button>
+            <p id="countdown" class="mt-4 text-gray-500 text-sm">سيتم الإغلاق تلقائيًا خلال 30 ثانية...</p>
         </div>
     </div>
-
-    <div class="max-w-4xl mx-auto p-5">
-
-
-        <header class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mt-8 mb-12 fade-in-on-scroll">
-            <h1 class="text-5xl font-extrabold mb-3 leading-tight">إلهام جامعي</h1>
-            <p class="text-xl opacity-90">مبادرة لدعم مشاريع وأفكار طلاب الجامعات ونشرها للعالم.</p>
-        </header>
-
-        <div class="space-y-12">
-
-
-            <section class="bg-card-bg p-8 rounded-2xl shadow-lg fade-in-on-scroll">
-                <h2 class="text-3xl font-bold text-[--primary-color] mb-6 border-b border-gray-200 pb-2 flex items-center space-x-4 space-x-reverse">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[--accent-color]" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-1-11h2v6h-2zm0 7h2v2h-2z"/>
-                    </svg>
-                    <span>هدفنا</span>
-                </h2>
-
-                <div class="space-y-6 text-[--text-dark]">
-                    <div class="flex flex-col md:flex-row items-start space-x-4 space-x-reverse">
-                        <span class="text-3xl font-extrabold text-[--accent-color] w-12 flex-shrink-0">💡</span>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-[--secondary-color] mb-2">الرؤية</h3>
-                            <p>تمكين الطلاب من مشاركة أفكارهم ومشاريعهم، وبناء مجتمع داعم يسلط الضوء على إبداعاتهم ويحفز الآخرين على الإبداع.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col md:flex-row items-start space-x-4 space-x-reverse pt-4 border-t border-gray-100">
-                        <span class="text-3xl font-extrabold text-[--accent-color] w-12 flex-shrink-0">🎯</span>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-[--secondary-color] mb-2">الرسالة</h3>
-                            <p>توفير منصة سهلة الاستخدام لعرض مشاريع الطلاب، تقديم الدعم والتوجيه، ونشر الأفكار الملهمة بين جميع الجامعات.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <section class="bg-card-bg p-8 rounded-2xl shadow-lg fade-in-on-scroll">
-                <h2 class="text-3xl font-bold text-[--primary-color] mb-6 border-b border-gray-200 pb-2 flex items-center space-x-4 space-x-reverse">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[--accent-color]" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2a10 10 0 0 0-10 10c0 5.514 4.486 10 10 10s10-4.486 10-10A10 10 0 0 0 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zM12 7c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm0 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3z"/>
-                    </svg>
-                    <span>مميزات إلهام جامعي</span>
-                </h2>
-                <ul class="list-none pr-5 text-[--text-dark] space-y-4">
-                    <li class="flex items-start before:content-['🚀'] before:text-2xl before:ml-2">
-                        <span class="flex-1">عرض مشاريعك وأفكارك بشكل احترافي.</span>
-                    </li>
-                    <li class="flex items-start before:content-['🤝'] before:text-2xl before:ml-2">
-                        <span class="flex-1">الحصول على الدعم والتوجيه من خبراء وطلاب آخرين.</span>
-                    </li>
-                    <li class="flex items-start before:content-['💡'] before:text-2xl before:ml-2">
-                        <span class="flex-1">إلهام وتشجيع الطلاب الآخرين على الإبداع والابتكار.</span>
-                    </li>
-                    <li class="flex items-start before:content-['🌟'] before:text-2xl before:ml-2">
-                        <span class="flex-1">فرصة لنشر أفكارك على مستوى جامعات مختلفة.</span>
-                    </li>
-                </ul>
-
-
-                <div class="text-center mt-8">
-                    <a href="./أرسل-مشروعك.html" class="inline-block bg-[--primary-color] hover:bg-[--secondary-color] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-200">
-                        أرسل مشروعك
-                    </a>
-                </div>
-            </section>
+    <div id="content-wrapper">
+        <div class="pt-8 pb-4 bg-white shadow-sm">
+            <div class="max-w-6xl mx-auto flex justify-center items-center">
+                <a href="../" class="flex items-center space-x-2 space-x-reverse text-[--primary-color] font-bold text-3xl">
+                    <img src="./logo-jami.png" alt="Logo" class="w-14 h-14 rounded-full shadow-md">
+                    <span>إلهام جامعي</span>
+                </a>
+            </div>
         </div>
-    </div>
 
-    <footer class="mt-12 text-center text-gray-500 text-sm">
-        © 2025 جامعيون. جميع الحقوق محفوظة.
-    </footer>
+        <div class="max-w-4xl mx-auto p-5">
+
+
+            <header class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mt-8 mb-12 fade-in-on-scroll">
+                <h1 class="text-5xl font-extrabold mb-3 leading-tight">إلهام جامعي</h1>
+                <p class="text-xl opacity-90">مبادرة لدعم مشاريع وأفكار طلاب الجامعات ونشرها للعالم.</p>
+            </header>
+
+            <div class="space-y-12">
+
+
+                <section class="bg-card-bg p-8 rounded-2xl shadow-lg fade-in-on-scroll">
+                    <h2 class="text-3xl font-bold text-[--primary-color] mb-6 border-b border-gray-200 pb-2 flex items-center space-x-4 space-x-reverse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[--accent-color]" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-1-11h2v6h-2zm0 7h2v2h-2z" />
+                        </svg>
+                        <span>هدفنا</span>
+                    </h2>
+
+                    <div class="space-y-6 text-[--text-dark]">
+                        <div class="flex flex-col md:flex-row items-start space-x-4 space-x-reverse">
+                            <span class="text-3xl font-extrabold text-[--accent-color] w-12 flex-shrink-0">💡</span>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-[--secondary-color] mb-2">الرؤية</h3>
+                                <p>تمكين الطلاب من مشاركة أفكارهم ومشاريعهم، وبناء مجتمع داعم يسلط الضوء على إبداعاتهم ويحفز الآخرين على الإبداع.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-start space-x-4 space-x-reverse pt-4 border-t border-gray-100">
+                            <span class="text-3xl font-extrabold text-[--accent-color] w-12 flex-shrink-0">🎯</span>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-[--secondary-color] mb-2">الرسالة</h3>
+                                <p>توفير منصة سهلة الاستخدام لعرض مشاريع الطلاب، تقديم الدعم والتوجيه، ونشر الأفكار الملهمة بين جميع الجامعات.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="bg-card-bg p-8 rounded-2xl shadow-lg fade-in-on-scroll">
+                    <h2 class="text-3xl font-bold text-[--primary-color] mb-6 border-b border-gray-200 pb-2 flex items-center space-x-4 space-x-reverse">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[--accent-color]" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2a10 10 0 0 0-10 10c0 5.514 4.486 10 10 10s10-4.486 10-10A10 10 0 0 0 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zM12 7c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm0 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3z" />
+                        </svg>
+                        <span>مميزات إلهام جامعي</span>
+                    </h2>
+                    <ul class="list-none pr-5 text-[--text-dark] space-y-4">
+                        <li class="flex items-start before:content-['🚀'] before:text-2xl before:ml-2">
+                            <span class="flex-1">عرض مشاريعك وأفكارك بشكل احترافي.</span>
+                        </li>
+                        <li class="flex items-start before:content-['🤝'] before:text-2xl before:ml-2">
+                            <span class="flex-1">الحصول على الدعم والتوجيه من خبراء وطلاب آخرين.</span>
+                        </li>
+                        <li class="flex items-start before:content-['💡'] before:text-2xl before:ml-2">
+                            <span class="flex-1">إلهام وتشجيع الطلاب الآخرين على الإبداع والابتكار.</span>
+                        </li>
+                        <li class="flex items-start before:content-['🌟'] before:text-2xl before:ml-2">
+                            <span class="flex-1">فرصة لنشر أفكارك على مستوى جامعات مختلفة.</span>
+                        </li>
+                    </ul>
+
+
+                    <div class="text-center mt-8">
+                        <a href="./أرسل-مشروعك.html" class="inline-block bg-[--primary-color] hover:bg-[--secondary-color] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-200">
+                            أرسل مشروعك
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            © 2025 جامعيون. جميع الحقوق محفوظة.
+        </footer>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
             const fadeInElements = document.querySelectorAll('.fade-in-on-scroll');
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
                 threshold: 0.1
             };
+
             function checkVisibility(entries, observer) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -158,6 +205,40 @@
             fadeInElements.forEach(element => {
                 observer.observe(element);
             });
+
+
+            
+            const modal = document.getElementById('intro-modal');
+            const skipButton = document.getElementById('skip-button');
+            const contentWrapper = document.getElementById('content-wrapper');
+            const countdownDisplay = document.getElementById('countdown');
+            const duration = 10;
+
+
+            function closeModal() {
+                modal.style.display = 'none';
+                contentWrapper.classList.remove('blurred');
+                clearInterval(timer);
+            }
+
+
+            modal.style.display = 'flex';
+            contentWrapper.classList.add('blurred');
+
+
+            skipButton.addEventListener('click', closeModal);
+
+
+            let timeLeft = duration;
+            const timer = setInterval(() => {
+                timeLeft--;
+                countdownDisplay.textContent = `سيتم الإغلاق تلقائيًا خلال ${timeLeft} ثانية...`;
+
+                if (timeLeft <= 0) {
+                    closeModal();
+                }
+            }, 1000);
+
         });
     </script>
 </body>
