@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-   <meta name="description" content="من هنا يمكنك تحميل تطبيق جامعيون لكل المنصات">
+    <meta name="description" content="من هنا يمكنك تحميل تطبيق جامعيون لكل المنصات">
     <title>تحميل تطبيق جامعيون</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,17 +15,17 @@
     <style>
         
         :root {
-            --primary-color: #003463;
-            --secondary-color: #0090de;
-            --accent-color: #fc8803;
-            --text-light: #f8fafc;
-            --bg-dark: #1e293b;
-            --card-bg: #334155;
+            --primary-color: #004d9c; 
+            --secondary-color: #0077c2; 
+            --accent-color: #ff7f50; 
+            --text-light: #003464;
+            --bg-dark: #f3f4f6; 
+            --card-bg: #ffffff; 
         }
 
         body {
             background-color: var(--bg-dark);
-            color: var(--text-light);
+            color: var(--text-light); 
             font-family: 'Cairo', sans-serif;
             line-height: 1.8;
             padding-bottom: 70px;
@@ -41,8 +40,7 @@
             margin-left: 8px;
             color: var(--accent-color);
         }
-
-       
+        
         .fade-in-on-scroll {
             opacity: 0;
             transform: translateY(20px);
@@ -53,30 +51,67 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+
+        
+        
+        
+        .fade-in-on-scroll:nth-child(3),
+        .fade-in-on-scroll:nth-child(5) {
+            background-color: var(--card-bg) !important; 
+        }
+        
+
+        .fade-in-on-scroll:nth-child(3) h2,
+        .fade-in-on-scroll:nth-child(5) h2,
+        .fade-in-on-scroll:nth-child(3) ul li,
+        .fade-in-on-scroll:nth-child(5) p {
+            color: var(--text-light) !important;
+        }
+        
+
+        .fade-in-on-scroll:nth-child(7) {
+            background-color: var(--card-bg) !important; 
+        }
+        
+
+        .fade-in-on-scroll:nth-child(7) h2 {
+            color: var(--text-light) !important; 
+        }
+        
+
+        .fade-in-on-scroll:nth-child(4) h2 {
+            color: var(--text-light) !important; 
+        }
+        
+
+        .fade-in-on-scroll:nth-child(6) h2 {
+            color: var(--text-light) !important; 
+        }
+
     </style>
 </head>
 
 <body class="font-cairo">
-   
+    
     <a href="https://www.instagram.com/bh.adr/" target="_blank"
-        class="fixed top-5 left-5 bg-transparent border-2 border-white text-white p-3 rounded-xl font-bold shadow-lg z-50 transition-all duration-300 hover:scale-105 hover:bg-white hover:text-gray-800">
+        class="fixed top-5 left-5 bg-black border-2 border-white text-white p-3 rounded-xl font-bold shadow-lg z-50 transition-all duration-300 hover:scale-105 hover:bg-white hover:text-gray-800">
         مطور التطبيق: بدر فرحان
     </a>
 
     <div class="max-w-4xl mx-auto p-5 my-10">
 
-       
+        
         <header id="hero" class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mb-12 transform -rotate-1 perspective-1000">
             <img src="./logo/logo-jamii.png" alt="شعار جامعيّون"
                 class="logo w-24 h-24 mb-4 mx-auto rounded-full border-4 border-white transform transition-transform duration-500 hover:rotate-12">
-            <h1 class="text-5xl font-extrabold mb-2 leading-tight">جامعيّون</h1>
+            <h1 class="text-5xl font-extrabold mb-2 leading-tight">جامعيون</h1>
             <p class="text-xl opacity-90">كل ما يحتاجه الطالب في مكان واحد</p>
         </header>
 
-        <!-- About Section -->
         <section class="bg-white p-8 rounded-2xl shadow-lg mb-12 fade-in-on-scroll">
             <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-200 pb-2">عن المنصة</h2>
-            <p class="text-gray-700 leading-relaxed">جامعيّون هي منصّة جامعيّة شاملة توفّر كل ما يحتاجه طالب الجامعة من
+            <p class="text-gray-700 leading-relaxed">جامعيون هو تطبيق ومنصة جامعيّة شاملة توفّر كل ما يحتاجه طالب الجامعة من
                 ملخصات ومواد دراسية، ومصادر شرح على يوتيوب، وأدوات لإدارة المهام والميزانية، بالإضافة إلى نصائح قيمة
                 وأقسام أخرى مفيدة جداً.</p>
         </section>
@@ -112,10 +147,10 @@
             </ul>
         </section>
 
-        <!-- Download Section -->
         <section class="text-center mb-12 fade-in-on-scroll">
             <h2 class="text-3xl font-bold text-white mb-8">تحميل التطبيق</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
                 
                 <a download="جامعيون.apk" href="../downloads/جامعيون.apk" target="_blank"
                     class="download-button bg-gradient-to-r from-[#0090de] to-[#003463] text-white py-5 px-6 rounded-2xl text-xl font-semibold shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-4 space-x-reverse">
@@ -176,11 +211,10 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section class="bg-card-bg p-8 rounded-2xl shadow-lg mb-12 text-center fade-in-on-scroll">
             <h2 class="text-3xl font-bold text-white mb-6">تواصل معنا عبر انستقرام</h2>
             <a href="https://www.instagram.com/jami3iyoun/" target="_blank"
-                class="instagram-button-bg text-white py-4 px-10 rounded-full text-xl font-bold shadow-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-accent-color">
+                class="instagram-button-bg text-black py-4 px-10 rounded-full text-xl font-bold shadow-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-accent-color">
                 تواصل معنا
             </a>
         </section>
@@ -189,8 +223,9 @@
         <footer class="mt-12 text-center text-gray-500 text-sm">
             © 2025 جامعيون. جميع الحقوق محفوظة.
             <div class="mt-2 space-x-4 space-x-reverse">
-               
-                <a href="https://www.instagram.com/jamaiuwn/" class="text-gray-400 hover:text-white transition-colors duration-200">إنستغرام</a>
+                
+                
+               <a href="https://www.instagram.com/jamaiuwn/" class="text-gray-400 hover:text-white transition-colors duration-200">إنستغرام</a>
             </div>
         </footer>
     </div>
@@ -236,8 +271,4 @@
         }
     </script>
 </body>
-
 </html>
-
-
-
