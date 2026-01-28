@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب المعدل التراكمي - جامعيون</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .table-responsive {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        .system-radio:checked + div {
+            background-color: #eff6ff;
+            border-color: #3b82f6;
+            color: #1e3a8a;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+        }
+        .system-radio:checked + div .check-icon {
+            display: block;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="gradient-header text-white p-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold">جامعيون</h1>
+                <p class="text-sm opacity-90 mt-1">حساب المعدل الفصلي والتراكمي المتوقع</p>
+            </div>
+            <div class="hidden md:block text-4xl opacity-20">
+                <i class="fas fa-calculator"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <div class="bg-white rounded-xl shadow-sm p-4 mb-6 flex flex-col md:flex-row gap-4 items-center justify-center border border-gray-200">
+            <span class="font-bold text-gray-600 ml-2">اختر نظام جامعتك:</span>
+            
+            <label class="cursor-pointer relative">
+                <input type="radio" name="system" value="4" class="system-radio hidden" checked onchange="switchSystem('4')">
+                <div class="border-2 border-gray-200 p-3 px-6 rounded-lg transition-all hover:border-blue-300 flex items-center gap-2">
+                    <span class="font-bold">نظام النقاط (4.0)</span>
+                    <span class="check-icon hidden text-blue-600">✓</span>
+                </div>
+            </label>
+
+            <label class="cursor-pointer relative">
+                <input type="radio" name="system" value="100" class="system-radio hidden" onchange="switchSystem('100')">
+                <div class="border-2 border-gray-200 p-3 px-6 rounded-lg transition-all hover:border-blue-300 flex items-center gap-2">
+                    <span class="font-bold">نظام مئوي (100%)</span>
+                    <span class="check-icon hidden text-blue-600">✓</span>
+                </div>
+            </label>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-6 mb-6 border-t-4 border-blue-600">
+            <h2 class="text-xl font-bold mb-4 text-gray-700 border-b pb-2">1. البيانات الحالية (قبل هذا الفصل)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">الساعات المقطوعة (المجتازة سابقاً)</label>
+                    <input type="number" id="prevHours" placeholder="مثال: 45" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
+                </div>
+                <div>
+                    <label id="prevGPALabel" class="block text-sm font-medium text-gray-700 mb-2">المعدل التراكمي الحالي (من 4.00)</label>
+                    <input type="number" step="0.01" id="prevGPA" placeholder="مثال: 2.50" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-6 mb-6 border-t-4 border-green-600">
+            <div class="flex justify-between items-center mb-4 border-b pb-2">
+                <h2 class="text-xl font-bold text-gray-700">2. مواد الفصل الحالي</h2>
+                <button onclick="addRow()" class="bg-green-100 text-green-700 px-4 py-2 rounded-lg hover:bg-green-200 transition font-bold text-sm">
+                    + إضافة مادة
+                </button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="w-full min-w-[600px] text-right" id="coursesTable">
+                    <thead>
+                        <tr class="text-gray-500 text-sm border-b">
+                            <th class="pb-3 w-10">#</th>
+                            <th class="pb-3 w-24">الساعات</th>
+                            <th class="pb-3" id="gradeHeader">العلامة المتوقعة</th>
+                            <th class="pb-3 w-24 text-center">معادة؟</th>
+                            <th class="pb-3" id="prevGradeHeader">العلامة السابقة (للمعادة)</th>
+                            <th class="pb-3 w-10">حذف</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="flex justify-center mb-8">
+            <button onclick="calculateGPA()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-full shadow-lg transform hover:scale-105 transition text-lg flex items-center gap-2">
+                <span>احسب المعدل المتوقع</span>
+                <span class="text-xl">📊</span>
+            </button>
+        </div>
+
+        <div id="resultSection" class="hidden bg-gray-900 text-white rounded-2xl shadow-xl p-8 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500"></div>
+            
+            <h3 class="text-2xl font-bold mb-6">النتيجة المتوقعة</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <p class="text-gray-400 text-sm mb-2">المعدل الفصلي</p>
+                    <p class="text-4xl font-bold text-yellow-400" id="semesterGPA">0.00</p>
+                    <p class="text-xs text-gray-500 mt-1" id="semesterMaxLabel">من 4.00</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-blue-500/30">
+                    <p class="text-gray-400 text-sm mb-2">المعدل التراكمي الجديد</p>
+                    <p class="text-5xl font-bold text-green-400" id="cumulativeGPA">0.00</p>
+                    <p class="text-xs text-gray-500 mt-2" id="cumulativeMaxLabel">من 4.00</p>
+                    <p class="text-xs text-gray-500 mt-1">إجمالي الساعات: <span id="totalHoursDisplay">0</span></p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-center text-gray-500 text-sm py-6">
+        &copy; 2024 جامعيون - تم التطوير للمساعدة الأكاديمية
+    </footer>
+
+    <script>
+        let currentSystem = '4'; 
+
+        const gradesSymbol = [
+            { label: "أ (A)", value: 4.0 },
+            { label: "أ- (A-)", value: 3.75 },
+            { label: "ب+ (B+)", value: 3.5 },
+            { label: "ب (B)", value: 3.0 },
+            { label: "ب- (B-)", value: 2.75 },
+            { label: "ج+ (C+)", value: 2.5 },
+            { label: "ج (C)", value: 2.0 },
+            { label: "ج- (C-)", value: 1.75 },
+            { label: "د+ (D+)", value: 1.5 },
+            { label: "د (D)", value: 1.0 },
+            { label: "هـ (F)", value: 0.0 }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            resetTable();
+        });
+
+        function switchSystem(system) {
+            currentSystem = system;
+            const prevGPALabel = document.getElementById('prevGPALabel');
+            const prevGPAInput = document.getElementById('prevGPA');
+            
+            if (system === '4') {
+                prevGPALabel.innerText = "المعدل التراكمي الحالي (من 4.00)";
+                prevGPAInput.placeholder = "مثال: 2.50";
+                prevGPAInput.max = 4.0;
+            } else {
+                prevGPALabel.innerText = "المعدل التراكمي الحالي (من 100%)";
+                prevGPAInput.placeholder = "مثال: 78.5";
+                prevGPAInput.max = 100;
+            }
+            
+            resetTable();
+            
+            document.getElementById('resultSection').classList.add('hidden');
+        }
+
+        function resetTable() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            rowCount = 0;
+            for(let i=0; i<4; i++) addRow();
+        }
+
+        function getGradesInputHTML(className) {
+            if (currentSystem === '4') {
+                let options = '';
+                gradesSymbol.forEach(g => {
+                    options += `<option value="${g.value}">${g.label} - ${g.value}</option>`;
+                });
+                return `<select class="${className} w-full p-2 border rounded bg-white text-sm focus:border-blue-500 outline-none">
+                            ${options}
+                        </select>`;
+            } else {
+                return `<input type="number" min="35" max="100" placeholder="مثال: 85" class="${className} w-full p-2 border rounded bg-white text-sm focus:border-blue-500 outline-none">`;
+            }
+        }
+
+        function getDisabledInputHTML(className) {
+             if (currentSystem === '4') {
+                let options = `<option value="" selected>-- غير معادة --</option>`;
+                gradesSymbol.forEach(g => {
+                    options += `<option value="${g.value}">${g.label} - ${g.value}</option>`;
+                });
+                return `<select disabled class="${className} w-full p-2 border rounded bg-gray-100 text-gray-400 text-sm focus:border-blue-500 outline-none transition">
+                            ${options}
+                        </select>`;
+            } else {
+                 return `<input disabled type="number" placeholder="-- غير معادة --" class="${className} w-full p-2 border rounded bg-gray-100 text-gray-400 text-sm focus:border-blue-500 outline-none transition">`;
+            }
+        }
+
+        let rowCount = 0;
+
+        function addRow() {
+            rowCount++;
+            const tbody = document.getElementById('tableBody');
+            const tr = document.createElement('tr');
+            tr.className = "border-b last:border-0 hover:bg-gray-50 transition fade-in";
+            
+            const gradeInput = getGradesInputHTML('course-grade');
+            const prevGradeInput = getDisabledInputHTML('prev-grade');
+
+            tr.innerHTML = `
+                <td class="py-3 font-bold text-gray-400 text-sm">${rowCount}</td>
+                <td class="py-3">
+                    <select class="course-hours w-full p-2 border rounded bg-white text-sm focus:border-blue-500 outline-none">
+                        <option value="3" selected>3</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="0">0</option>
+                    </select>
+                </td>
+                <td class="py-3">
+                    ${gradeInput}
+                </td>
+                <td class="py-3 text-center">
+                    <input type="checkbox" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 cursor-pointer" onchange="toggleRetake(this)">
+                </td>
+                <td class="py-3">
+                    ${prevGradeInput}
+                </td>
+                <td class="py-3 text-center">
+                    <button onclick="removeRow(this)" class="text-red-400 hover:text-red-600 font-bold text-lg">×</button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        }
+
+        function removeRow(btn) {
+            const row = btn.closest('tr');
+            if (document.querySelectorAll('#tableBody tr').length > 1) {
+                row.remove();
+            }
+        }
+
+        function toggleRetake(checkbox) {
+            const row = checkbox.closest('tr');
+            const prevGradeInput = row.querySelector('.prev-grade');
+            
+            if (checkbox.checked) {
+                prevGradeInput.disabled = false;
+                prevGradeInput.classList.remove('bg-gray-100', 'text-gray-400');
+                prevGradeInput.classList.add('bg-white', 'text-gray-800');
+                if(currentSystem === '100') {
+                    prevGradeInput.placeholder = "العلامة القديمة";
+                    prevGradeInput.value = "";
+                } else {
+                    prevGradeInput.value = "0"; 
+                }
+            } else {
+                prevGradeInput.disabled = true;
+                prevGradeInput.classList.add('bg-gray-100', 'text-gray-400');
+                prevGradeInput.classList.remove('bg-white', 'text-gray-800');
+                prevGradeInput.value = "";
+                if(currentSystem === '100') prevGradeInput.placeholder = "-- غير معادة --";
+            }
+        }
+
+        function calculateGPA() {
+            const prevHours = parseFloat(document.getElementById('prevHours').value) || 0;
+            const prevGPA = parseFloat(document.getElementById('prevGPA').value) || 0;
+            
+            if (currentSystem === '4' && prevGPA > 4.0) {
+                alert("تنبيه: المعدل التراكمي لا يمكن أن يزيد عن 4.00 في هذا النظام");
+                return;
+            }
+            if (currentSystem === '100' && prevGPA > 100) {
+                alert("تنبيه: المعدل التراكمي لا يمكن أن يزيد عن 100");
+                return;
+            }
+
+            let totalPoints = prevHours * prevGPA;
+            let totalHours = prevHours;
+
+            let semesterPoints = 0;
+            let semesterHours = 0;
+
+            const rows = document.querySelectorAll('#tableBody tr');
+            
+            rows.forEach(row => {
+                const hours = parseFloat(row.querySelector('.course-hours').value);
+                const gradeInput = row.querySelector('.course-grade');
+                const prevGradeInput = row.querySelector('.prev-grade');
+                
+                let grade = parseFloat(gradeInput.value);
+                if (isNaN(grade)) grade = 0;
+
+                const isRetake = row.querySelector('input[type="checkbox"]').checked;
+                
+                let prevGrade = 0;
+                if (isRetake) {
+                    prevGrade = parseFloat(prevGradeInput.value);
+                    if (isNaN(prevGrade)) prevGrade = 0;
+                }
+
+                semesterPoints += (hours * grade);
+                semesterHours += hours;
+
+                if (isRetake) {
+                    totalPoints = totalPoints - (hours * prevGrade);
+                    totalPoints = totalPoints + (hours * grade);
+                } else {
+                    totalPoints += (hours * grade);
+                    totalHours += hours;
+                }
+            });
+
+            const finalSemesterGPA = semesterHours > 0 ? (semesterPoints / semesterHours) : 0;
+            const finalCumulativeGPA = totalHours > 0 ? (totalPoints / totalHours) : 0;
+
+            const maxLabel = currentSystem === '4' ? "من 4.00" : "من 100%";
+            document.getElementById('semesterMaxLabel').innerText = maxLabel;
+            document.getElementById('cumulativeMaxLabel').innerText = maxLabel;
+
+            document.getElementById('semesterGPA').innerText = finalSemesterGPA.toFixed(2);
+            document.getElementById('cumulativeGPA').innerText = finalCumulativeGPA.toFixed(2);
+            document.getElementById('totalHoursDisplay').innerText = totalHours;
+
+            const resultSection = document.getElementById('resultSection');
+            resultSection.classList.remove('hidden');
+            resultSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
