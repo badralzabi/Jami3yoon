@@ -2,280 +2,119 @@
 <html lang="ar" dir="rtl">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V58SZ9QXHH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-V58SZ9QXHH');
-</script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4945397064302254"
-     crossorigin="anonymous"></script>
-    
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-V58SZ9QXHH');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4945397064302254" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="description" content="جامعيون: مبادرة طلابية شاملة لدعم الطالب الجامعي، تقدم ملخصات، دوسيات، كويزات، نصائح أكاديمية وفرص تعليمية لتطوير مسيرتك الجامعية والمهنية.">
-
     <title>جامعيون - الموقع الرسمي</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary-color: #003463;
-            --secondary-color: #0090de;
-            --accent-color: #fdac13;
-            --text-color: #334155;
-            --bg-color: #f8fafc;
+            --primary: #003463;
+            --secondary: #0090de;
+            --accent: #fdac13;
+            --dark: #0a0f1e;
+            --dark2: #111827;
+            --dark3: #1e2d45;
+            --surface: #162032;
+            --surface2: #1e2d45;
+            --text: #e8f0fe;
+            --text-muted: #8fa8c8;
+            --border: rgba(0, 144, 222, 0.15);
+            --glow: rgba(0, 144, 222, 0.3);
         }
 
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-          
-            background-color: #1e293b; 
-            color: #e2e8f0;
-            font-family: 'Cairo', sans-serif;
-           
-            padding-bottom: 70px; 
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            padding-bottom: 70px;
         }
 
-        body.dark {
-            --text-color: #e2e8f0;
-            --bg-color: #1e293b;
+        body.light {
+            --dark: #f0f4f8;
+            --dark2: #e2eaf4;
+            --dark3: #d0dcec;
+            --surface: #ffffff;
+            --surface2: #eef3fb;
+            --text: #0d1b2a;
+            --text-muted: #4a6080;
+            --border: rgba(0, 52, 99, 0.15);
+            --glow: rgba(0, 144, 222, 0.15);
         }
 
-        body:not(.dark) {
-           
-            --text-color: #334155;
-            --bg-color: #f8fafc;
-            padding-bottom: 70px; 
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--secondary); border-radius: 3px; }
 
-        
-        body.dark .bg-white, 
-        body.dark header,
-      
-        body.dark .secondary-nav {
-            background-color: #334155;
-            color: #e2e8f0;
-        }
-
-        body:not(.dark) .bg-white,
-        body:not(.dark) header,
-        body:not(.dark) .secondary-nav {
-            background-color: #ffffff;
-            color: #334155;
-        }
-        
-        body.dark .feature-card {
-            background-color: #475569;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        body.dark .contact-form,
-        body.dark .bg-gray-50 {
-            background-color: #1f2937;
-        }
-
-        body:not(.dark) .bg-gray-50 {
-            background-color: var(--bg-color);
-        }
-        
-        body.dark .contact-form input,
-        body.dark .contact-form textarea {
-            background-color: #64748b;
-            color: #e2e8f0;
-            border-color: #64748b;
-        }
-
-        body:not(.dark) .contact-form input,
-        body:not(.dark) .contact-form textarea {
-            background-color: #ffffff;
-            color: var(--text-color);
-            border-color: #e2e8f0;
-        }
-
-        body.dark .contact-form input::placeholder,
-        body.dark .contact-form textarea::placeholder {
-            color: #a0aec0;
-        }
-
-        body:not(.dark) .contact-form input::placeholder,
-        body:not(.dark) .contact-form textarea::placeholder {
-            color: #94a3b8;
-        }
-
-
-        body.dark .nav-link, 
-        body.dark .secondary-nav .nav-link { 
-            color: #cbd5e1;
-        }
-
-        body:not(.dark) .nav-link,
-        body:not(.dark) .secondary-nav .nav-link {
-            color: var(--text-color);
-        }
-        
-        body.dark .nav-link:hover,
-        body.dark .secondary-nav .nav-link:hover { 
-            color: var(--secondary-color);
-        }
-
-        body:not(.dark) .nav-link:hover,
-        body:not(.dark) .secondary-nav .nav-link:hover {
-            color: var(--secondary-color);
-        }
-        
-        body.dark .bg-gray-900 {
-            background-color: #0f172a;
-        }
-
-        body.dark .text-gray-600 {
-            color: #94a3b8;
-        }
-        
-       
-        body {
-            font-family: 'Cairo', sans-serif;
-        }
-        
-       
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-
-        body:not(.dark) ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #475569;
-            border-radius: 4px;
-        }
-
-        body:not(.dark) ::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #64748b;
-        }
-        
-        .hero-section {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 8rem 0;
-            position: relative;
-            overflow: hidden;
-            
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
+        /* ─── HEADER ─── */
+        header {
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            
-            background-image: url("https://placehold.co/1200x800/6366f1/ffffff?text=جامعة");
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            z-index: 1;
+            z-index: 100;
+            background: rgba(10, 15, 30, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 0;
+            transition: background 0.3s;
         }
 
-        .section-heading {
-            position: relative;
-            display: inline-block;
-            color: var(--secondary-color); 
+        body.light header {
+            background: rgba(255,255,255,0.95);
         }
 
-        body:not(.dark) .section-heading {
-            color: var(--primary-color);
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            right: 0;
-            width: 70%;
-            height: 4px;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
-            
+        .logo {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            text-decoration: none;
         }
 
-        body:not(.dark) .section-heading::after {
-            background-color: var(--primary-color);
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color); 
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 14px rgba(253, 172, 19, 0.4);
-        }
-
-        body:not(.dark) .btn-primary {
-             background-color: var(--accent-color);
-             box-shadow: 0 4px 14px rgba(253, 172, 19, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(253, 172, 19, 0.6);
-        }
-
-        body:not(.dark) .btn-primary:hover {
-            box-shadow: 0 6px 20px rgba(253, 172, 19, 0.6);
-        }
-
-
-        .btn-secondary {
-            background-color: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 9999px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background-color: white;
-            color: var(--primary-color);
-            transform: translateY(-3px);
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
         }
 
         .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.2s;
             position: relative;
-            transition: all 0.3s ease;
-            color: #cbd5e1;
         }
-        
-        body:not(.dark) .nav-link {
-            color: var(--text-color);
-        }
-
-
-        .nav-link:hover {
-            color: var(--secondary-color);
-        }
-
-        body:not(.dark) .nav-link:hover {
-            color: var(--secondary-color);
-        }
-
 
         .nav-link::after {
             content: '';
@@ -284,706 +123,1293 @@
             right: 0;
             width: 0;
             height: 2px;
-            background-color: var(--secondary-color); 
+            background: var(--secondary);
+            border-radius: 1px;
             transition: width 0.3s ease;
         }
-        
-        body:not(.dark) .nav-link::after {
-            background-color: var(--secondary-color);
+
+        .nav-link:hover { color: var(--text); }
+        .nav-link:hover::after { width: 100%; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), #005fa8);
+            color: #fff;
+            padding: 0.55rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,144,222,0.35);
         }
 
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,144,222,0.5);
+        }
 
-        .nav-link:hover::after {
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent), #e8960f);
+            color: #fff;
+            padding: 0.75rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(253,172,19,0.4);
+            display: inline-block;
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(253,172,19,0.55);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            padding: 0.75rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,0.5);
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .theme-btn {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .theme-btn:hover { background: var(--surface); }
+        .theme-btn svg { width: 18px; height: 18px; }
+
+        .hamburger {
+            display: none;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger svg { width: 22px; height: 22px; }
+
+        .mobile-menu {
+            display: none;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+            flex-direction: column;
+            gap: 0.5rem;
+            background: rgba(10,15,30,0.98);
+        }
+
+        body.light .mobile-menu { background: rgba(255,255,255,0.98); }
+
+        .mobile-menu.open { display: flex; }
+
+        .mobile-menu .nav-link {
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .mobile-menu .nav-link:hover { background: var(--surface2); }
+
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        .hero {
+            position: relative;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(145deg, #001a33 0%, #003463 50%, #001a33 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(0,144,222,0.18) 0%, transparent 70%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(circle, rgba(253,172,19,0.08) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,144,222,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,144,222,0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            text-align: center;
             width: 100%;
         }
 
-       
-        .secondary-nav-item {
-            display: flex;
-            flex-direction: column;
+        .hero-badge {
+            display: inline-flex;
             align-items: center;
-            padding: 0.5rem 0.25rem;
-            text-align: center;
-            transition: color 0.3s ease;
+            gap: 0.5rem;
+            background: rgba(0,144,222,0.12);
+            border: 1px solid rgba(0,144,222,0.3);
+            color: var(--secondary);
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.6s ease both;
         }
 
-        .secondary-nav-item .icon {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 2px;
+        .hero-badge span { width: 7px; height: 7px; background: var(--secondary); border-radius: 50%; display: inline-block; animation: blink 1.5s ease infinite; }
+
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+        .hero h1 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.15;
+            color: #fff;
+            margin-bottom: 1.2rem;
+            animation: fadeUp 0.7s 0.1s ease both;
         }
-       
 
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-        .feature-card {
-            background-color: #475569; 
-            border-radius: 1.5rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: rgba(255,255,255,0.75);
+            max-width: 640px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+            animation: fadeUp 0.7s 0.2s ease both;
+        }
+
+        .hero-btns {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp 0.7s 0.3s ease both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 4rem;
+            animation: fadeUp 0.7s 0.4s ease both;
+            flex-wrap: wrap;
+        }
+
+        .stat {
             text-align: center;
         }
 
-        body:not(.dark) .feature-card {
-            background-color: white;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            color: var(--text-color);
+        .stat-num {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            margin-top: 0.2rem;
         }
 
-        body:not(.dark) .feature-card:hover {
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .fade-in-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        section { padding: 5rem 0; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
-        .fade-in-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        .section-tag {
+            display: inline-block;
+            background: rgba(0,144,222,0.1);
+            border: 1px solid rgba(0,144,222,0.25);
+            color: var(--secondary);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
         }
 
-        
-        .typing-effect {
-            overflow: hidden; 
-            border-right: .15em solid white; 
-            white-space: nowrap; 
-            margin: 0 auto; 
-            letter-spacing: .05em; 
-            animation: 
-                typing 3.5s steps(40, end),
-                blink-caret .75s step-end infinite;
+        .section-title {
+            font-family: 'Tajawal', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
         }
 
-       
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 560px;
+            line-height: 1.8;
         }
 
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: white; }
+        .text-center { text-align: center; }
+        .text-center .section-desc { margin: 0 auto; }
+
+        .download-section {
+            background: var(--dark2);
         }
 
-        #contact-message {
-            display: none;
+        .download-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        
-        .video-player {
-            width: 100%; 
-           
-            aspect-ratio: 9 / 16; 
-            
-            max-width: 400px;
+        @media (max-width: 768px) {
+            .download-grid { grid-template-columns: 1fr; }
+        }
+
+        .device-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .device-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .device-card.android { border-color: rgba(0,144,222,0.3); }
+        .device-card.android:hover { border-color: var(--secondary); box-shadow: 0 20px 50px rgba(0,144,222,0.15); }
+        .device-card.ios { border-color: rgba(148,163,184,0.3); }
+        .device-card.ios:hover { border-color: #94a3b8; }
+
+        .device-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .device-icon.android { background: linear-gradient(135deg, rgba(0,144,222,0.2), rgba(0,144,222,0.05)); color: var(--secondary); }
+        .device-icon.ios { background: linear-gradient(135deg, rgba(148,163,184,0.2), rgba(148,163,184,0.05)); color: #94a3b8; }
+        .device-icon svg { width: 32px; height: 32px; }
+
+        .device-card h3 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .device-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-wrap {
+            width: 100%;
+            max-width: 260px;
+            aspect-ratio: 9/16;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 1.75rem;
+            position: relative;
+        }
+
+        .video-wrap.android { border: 4px solid rgba(0,144,222,0.5); box-shadow: 0 0 30px rgba(0,144,222,0.15); }
+        .video-wrap.ios { border: 4px solid rgba(148,163,184,0.4); }
+
+        .video-wrap video { width: 100%; height: 100%; object-fit: cover; }
+
+        .btn-android {
+            background: linear-gradient(135deg, var(--secondary), #005fa8);
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,144,222,0.35);
+        }
+
+        .btn-android:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,144,222,0.5); }
+
+        .btn-ios {
+            background: linear-gradient(135deg, #64748b, #475569);
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(100,116,139,0.35);
+        }
+
+        .btn-ios:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(100,116,139,0.5); }
+
+        .about-section { background: var(--dark); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
+        .about-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            .about-points { grid-template-columns: 1fr; }
+        }
+
+        .point-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .point-card:hover { border-color: var(--secondary); transform: translateY(-3px); }
+
+        .point-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, rgba(0,52,99,0.8), rgba(0,144,222,0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .point-icon svg { width: 22px; height: 22px; }
+
+        .point-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .point-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-img-wrap {
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+        .features-section { background: var(--dark2); }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 900px) { .features-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 560px) { .features-grid { grid-template-columns: 1fr; } }
+
+        .feat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem 1.75rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .feat-card:hover::before { transform: scaleX(1); }
+
+        .feat-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0,144,222,0.4);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .feat-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(0,52,99,0.6), rgba(0,144,222,0.15));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            margin: 0 auto 1.25rem;
+        }
+
+        .feat-icon svg { width: 30px; height: 30px; }
+
+        .feat-card h3 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+        }
+
+        .feat-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .initiative-section { background: var(--dark); }
+
+        .blog-section { background: var(--dark2); }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 560px) { .blog-grid { grid-template-columns: 1fr; } }
+
+        .blog-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0,144,222,0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .blog-icon { color: var(--secondary); margin-bottom: 1rem; }
+        .blog-icon svg { width: 36px; height: 36px; }
+
+        .blog-card h3 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .blog-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .blog-arrow {
+            margin-top: 1.25rem;
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, #005080 100%);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(253,172,19,0.08) 0%, transparent 60%);
+        }
+
+        .cta-banner h2 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s;
         }
 
-        .video-player video {
+        /* ─── CONTACT ─── */
+        .contact-section { background: var(--dark); }
+
+        .contact-wrap {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+        }
+
+        .form-group { margin-bottom: 1.25rem; }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        
-        .android-frame {
-            border: 8px solid rgba(0, 144, 222, 0.7);
-        }
-        
-        .ios-frame {
-            border: 8px solid rgba(156, 163, 175, 0.7); 
-        }
-
-        body.dark .android-frame {
-            border: 8px solid rgba(0, 144, 222, 0.7); 
-        }
-        
-        body.dark .ios-frame {
-            border: 8px solid rgba(107, 114, 128, 0.7); 
+            background: var(--dark2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.85rem 1.1rem;
+            border-radius: 12px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            direction: rtl;
         }
 
-        body:not(.dark) .android-frame {
-            border: 8px solid rgba(0, 144, 222, 0.7);
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(0,144,222,0.12);
         }
 
-        body:not(.dark) .ios-frame {
-            border: 8px solid rgba(203, 213, 225, 0.7);
+        .form-group textarea { resize: vertical; min-height: 130px; }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent), #e8960f);
+            color: #fff;
+            border: none;
+            padding: 0.9rem;
+            border-radius: 12px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(253,172,19,0.35);
         }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(253,172,19,0.5);
+        }
+
+        .success-msg {
+            display: none;
+            text-align: center;
+            color: #4ade80;
+            font-weight: 700;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: rgba(74,222,128,0.08);
+            border-radius: 10px;
+            border: 1px solid rgba(74,222,128,0.2);
+        }
+
+        footer {
+            background: var(--dark2);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--secondary); }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-legal a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-legal a:hover { color: var(--text); }
+
+        .footer-legal span { color: var(--border); }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10,15,30,0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border);
+            z-index: 90;
+            padding: 0.4rem 0;
+        }
+
+        body.light .bottom-nav { background: rgba(255,255,255,0.97); }
+
+        .bottom-nav-inner {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 0.4rem 0.5rem;
+            border-radius: 10px;
+            transition: color 0.2s;
+        }
+
+        .bottom-nav a:hover { color: var(--secondary); }
+        .bottom-nav a svg { width: 22px; height: 22px; }
+
+        @media (min-width: 769px) { .bottom-nav { display: none; } }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ─── LIGHT MODE OVERRIDES ─── */
+        body.light .feat-card,
+        body.light .device-card,
+        body.light .blog-card,
+        body.light .point-card,
+        body.light .contact-wrap {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        }
+
+        body.light .form-group input,
+        body.light .form-group textarea {
+            background: #f8fafc;
+        }
+
+        body.light .download-section,
+        body.light .features-section,
+        body.light .blog-section {
+            background: #f0f4f8;
+        }
+
+        body.light .about-section,
+        body.light .initiative-section,
+        body.light .contact-section { background: #f8fafc; }
+
+        body.light footer { background: #e8eef7; }
+
+        body.light .hero-grid {
+            background-image:
+                linear-gradient(rgba(0,52,99,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,52,99,0.04) 1px, transparent 1px);
+        }
+
+        a { color: inherit; }
     </style>
 </head>
-<body class="text-right "> 
+<body>
 
-    <header class="bg-white shadow-sm py-4 sticky top-0 z-50">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-indigo-400 rounded-lg p-2" style="color:#ffffff;">جامعيون</a>
-            <nav class="hidden md:flex space-x-6 space-x-reverse items-center">
-                <a href="#" class="nav-link text-lg font-medium">الرئيسية</a>
-                <a href="./blog/" target="_blank" class="nav-link text-lg font-medium">المدونة</a>
-                <a href="./about/" target="_blank" class="nav-link text-lg font-medium">من نحن</a>
-                <a href="./contact/"  class="nav-link text-lg font-medium">اتصل بنا</a>
-                
-                <a href="./download/" target="_blank" class="btn-primary text-base font-semibold">حمل التطبيق</a>
-                <button id="theme-toggle" class="p-2 rounded-full bg-gray-700 dark:bg-gray-200 text-gray-200 dark:text-gray-800 transition-colors">
-                    <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                    <svg id="moon-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                    </svg>
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">جامعيون</a>
+            <nav class="desktop-nav">
+                <a href="#" class="nav-link">الرئيسية</a>
+                <a href="./blog/" target="_blank" class="nav-link">المدونة</a>
+                <a href="./about/" target="_blank" class="nav-link">من نحن</a>
+                <a href="./contact/" class="nav-link">اتصل بنا</a>
+                <a href="./download/" target="_blank" class="btn-primary">حمل التطبيق</a>
+                <button id="theme-toggle" class="theme-btn" aria-label="تبديل المظهر">
+                    <svg id="sun-icon" class="hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    <svg id="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
                 </button>
             </nav>
-            <button id="mobile-menu-button" class="md:hidden text-gray-400 focus:outline-none p-2 rounded-lg hover:bg-gray-700 transition">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
+            <button id="hamburger" class="hamburger" aria-label="القائمة">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md mt-2 py-4 px-4 transition-all duration-300 ease-in-out">
-            <nav class="flex flex-col items-start space-y-4">
-                <a href="#" class="nav-link text-lg font-medium w-full py-2 hover:bg-gray-700 rounded-lg px-4">الرئيسية</a>
-                <a href="./blog/" target="_blank" class="nav-link text-lg font-medium w-full py-2 hover:bg-gray-700 rounded-lg px-4">المدونة</a>
-                 <a href="./about/" target="_blank" class="nav-link text-lg font-medium">من نحن</a>
-                <a href="./contact/"  class="nav-link text-lg font-medium">اتصل بنا</a>
-
-                <hr class="w-full border-gray-600">
-                <a href="./download/" target="_blank" class="btn-primary text-base font-semibold w-full text-center mt-4">حمل التطبيق</a>
-                <button id="theme-toggle-mobile" class="p-2 rounded-full bg-gray-700 dark:bg-gray-200 text-gray-200 dark:text-gray-800 transition-colors">
-                    <svg id="sun-icon-mobile" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                    <svg id="moon-icon-mobile" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                    </svg>
-                </button>
-            </nav>
+        <div id="mobile-menu" class="mobile-menu">
+            <a href="#" class="nav-link">الرئيسية</a>
+            <a href="./blog/" target="_blank" class="nav-link">المدونة</a>
+            <a href="./about/" target="_blank" class="nav-link">من نحن</a>
+            <a href="./contact/" class="nav-link">اتصل بنا</a>
+            <a href="./download/" target="_blank" class="btn-primary" style="text-align:center;padding:.6rem 1rem;margin-top:.5rem;">حمل التطبيق</a>
+            <button id="theme-toggle-mobile" class="theme-btn" style="margin-top:.5rem;" aria-label="تبديل المظهر">
+                <svg id="sun-icon-mobile" class="hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                <svg id="moon-icon-mobile" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            </button>
         </div>
     </header>
-    
-    <section id="hero" class="hero-section text-center relative z-20">
-        <div class="container mx-auto px-4 relative">
-            <h1 id="hero-title" class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight fade-in-on-scroll"></h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90 fade-in-on-scroll">
-                جامعيون تطبيق ومبادرة طلابية من قلب طالب جامعي ل طلاب جامعيون.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 md:space-x-reverse mt-10 fade-in-on-scroll">
-                <a href="./download" target="_blank" class="btn-primary text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
-                    حمل التطبيق الآن
-                </a>
-                <a href="#about" class="btn-secondary text-lg font-semibold shadow-lg transform hover:scale-105">
-                    اكتشف المزيد
-                </a>
+
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge"><span></span> مبادرة طلابية مسجلة</div>
+            <h1><span class="highlight">جامعيون:</span> رفيقك الأكاديمي الشامل</h1>
+            <p>جامعيون تطبيق ومبادرة طلابية من قلب طالب جامعي ل طلاب جامعيون.</p>
+            <div class="hero-btns">
+                <a href="./download" target="_blank" class="btn-accent">حمل التطبيق الآن</a>
+                <a href="#about" class="btn-outline">اكتشف المزيد</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><div class="stat-num">١٠٠٪</div><div class="stat-label">مجاني تماماً</div></div>
+                <div class="stat"><div class="stat-num">iOS & Android</div><div class="stat-label">متاح على المنصتين</div></div>
+                <div class="stat"><div class="stat-num">٦+</div><div class="stat-label">ميزات متكاملة</div></div>
             </div>
         </div>
     </section>
 
-    <nav class="secondary-nav fixed bottom-0 left-0 w-full md:hidden bg-gray-50 dark:bg-gray-800 shadow-xl py-2 z-50 border-t border-gray-200 dark:border-gray-700">
-        <div class="container mx-auto px-1 flex justify-around items-center">
-            
-            <a href="#download" class="secondary-nav-item nav-link text-xs font-medium">
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                <span>تحميل</span>
-            </a>
-            
-            <a href="#about" class="secondary-nav-item nav-link text-xs font-medium">
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span>عن التطبيق</span>
-            </a>
-            
-            <a href="#features" class="secondary-nav-item nav-link text-xs font-medium">
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 17h18M5 12h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v3a2 2 0 002 2z"></path></svg>
-                <span>الميزات</span>
-            </a>
-            
-            <a href="./blog/"  target="_blank" class="secondary-nav-item nav-link text-xs font-medium">
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5h2m-1 0v14m-7-7h14"></path></svg>
-                <span>المدونة</span>
-                
-            </a>
-            
-            <a href="#contact" class="secondary-nav-item nav-link text-xs font-medium">
-                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
-                <span>اتصل بنا</span>
-            </a>
-        </div>
-    </nav>
-    
-    <section id="download" class="py-16 bg-gray-50 fade-in-on-scroll">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4 section-heading">حمّل تطبيق جامعيون الآن 📲</h2>
-            <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto dark:text-gray-300 text-gray-600">
-                شاهد الفيديوهات الإرشادية لطريقة تحميل وتثبيت التطبيق على جهازك بكل سهولة.
-            </p>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-right">
-
-                <div class="feature-card p-6 md:p-8 flex flex-col items-center shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                    <div class="mb-4" style="color: var(--secondary-color);">
-                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+    <section id="download" class="download-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <div class="section-tag">تحميل التطبيق</div>
+                <h2 class="section-title">حمّل تطبيق جامعيون الآن 📲</h2>
+                <p class="section-desc">شاهد الفيديوهات الإرشادية لطريقة تحميل وتثبيت التطبيق على جهازك بكل سهولة.</p>
+            </div>
+            <div class="download-grid">
+                <div class="device-card android reveal reveal-delay-1">
+                    <div class="device-icon android">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                     </div>
-                    <h3 class="text-3xl font-bold mb-4 dark:text-white text-gray-900">لأجهزة الأندرويد (Android)</h3>
-                    <p class="dark:text-gray-300 text-gray-600 mb-6">اتبع هذه الخطوات البسيطة لتحميل التطبيق .</p>
-                    
-                    <div class="video-player android-frame transition duration-300">
+                    <h3>لأجهزة الأندرويد (Android)</h3>
+                    <p>اتبع هذه الخطوات البسيطة لتحميل التطبيق .</p>
+                    <div class="video-wrap android">
                         <video controls poster="https://placehold.co/400x711/10b981/ffffff?text=Android">
                             <source src="videos/android-install.mp4" type="video/mp4">
                             متصفحك لا يدعم وسم الفيديو. يرجى التحديث.
                         </video>
                     </div>
-
-                    <a href="./download/" target="_blank" class="btn-primary mt-8 text-lg font-semibold" style="background-color: var(--secondary-color); box-shadow: 0 4px 14px rgba(0, 144, 222, 0.4); --hover-color: #0090de;">
-                        تحميل للأندرويد
-                    </a>
+                    <a href="./download/" target="_blank" class="btn-android">تحميل للأندرويد</a>
                 </div>
-
-                <div class="feature-card p-6 md:p-8 flex flex-col items-center shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                    <div class="mb-4" style="color: var(--secondary-color);">
-                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.97 19.34L12 19.34m0 0l-1.373-1.077c-.504-.395-1.07-.61-1.666-.61H4a2 2 0 01-2-2V7a2 2 0 012-2h4m10 14h-5a2 2 0 01-2-2v-6a2 2 0 012-2h5a2 2 0 012 2v6a2 2 0 01-2 2z"></path></svg>
+                <div class="device-card ios reveal reveal-delay-2">
+                    <div class="device-icon ios">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                     </div>
-                    <h3 class="text-3xl font-bold mb-4 dark:text-white text-gray-900">لأجهزة الآيفون (iOS)</h3>
-                    <p class="dark:text-gray-300 text-gray-600 mb-6">اتبع هذه الخطوات البسيطة لتحميل التطبيق .</p>
-                    
-                    <div class="video-player ios-frame transition duration-300">
+                    <h3>لأجهزة الآيفون (iOS)</h3>
+                    <p>اتبع هذه الخطوات البسيطة لتحميل التطبيق .</p>
+                    <div class="video-wrap ios">
                         <video controls poster="https://placehold.co/400x711/164e86/ffffff?text=IOS">
                             <source src="videos/ios-install.mp4" type="video/mp4">
                             متصفحك لا يدعم وسم الفيديو. يرجى التحديث.
                         </video>
                     </div>
-
-                    <a href="./download/" target="_blank" class="btn-primary mt-8 text-lg font-semibold" style="background-color: #94a3b8; box-shadow: 0 4px 14px rgba(148, 163, 184, 0.4); --hover-color: #94a3b8;">
-                        تحميل للآيفون
-                    </a>
+                    <a href="./download/" target="_blank" class="btn-ios">تحميل للآيفون</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-16 bg-white fade-in-on-scroll">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-12 section-heading">عن تطبيق جامعيون</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 items-center text-right">
-                <div>
-                    <p class="text-lg leading-relaxed max-w-3xl dark:text-gray-300 text-gray-700">
-                        تطبيق "جامعيون" هو بوابتك المتكاملة للحياة الجامعية. صُمم خصيصاً لتلبية احتياجات الطلاب، من تنظيم جداولهم الدراسية وكل شيء يخص المواد، إلى إدارة المهام والميزانية. يهدف التطبيق إلى تبسيط التجربة الأكاديمية والاجتماعية للطلاب، مما يتيح لهم التركيز على دراستهم وتحقيق أقصى استفادة من سنواتهم الجامعية.
-                    </p>
-                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="flex items-start space-x-4 space-x-reverse">
-                            <div class="flex-shrink-0 rounded-full bg-indigo-800 p-3" style="color: var(--accent-color); background-color: var(--primary-color);">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold dark:text-white text-gray-900">تنظيم أكاديمي</h4>
-                                <p class="dark:text-gray-400 text-gray-600">إدارة الجداول، المهام، والمواعيد النهائية بكل سهولة.</p>
-                            </div>
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <div class="section-tag">عن التطبيق</div>
+                    <h2 class="section-title">عن تطبيق جامعيون</h2>
+                    <p>تطبيق "جامعيون" هو بوابتك المتكاملة للحياة الجامعية. صُمم خصيصاً لتلبية احتياجات الطلاب، من تنظيم جداولهم الدراسية وكل شيء يخص المواد، إلى إدارة المهام والميزانية. يهدف التطبيق إلى تبسيط التجربة الأكاديمية والاجتماعية للطلاب، مما يتيح لهم التركيز على دراستهم وتحقيق أقصى استفادة من سنواتهم الجامعية.</p>
+                    <div class="about-points">
+                        <div class="point-card">
+                            <div class="point-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+                            <h4>تنظيم أكاديمي</h4>
+                            <p>إدارة الجداول، المهام، والمواعيد النهائية بكل سهولة.</p>
                         </div>
-                        <div class="flex items-start space-x-4 space-x-reverse">
-                            <div class="flex-shrink-0 rounded-full bg-indigo-800 p-3" style="color: var(--accent-color); background-color: var(--primary-color);">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold dark:text-white text-gray-900">أقسام شاملة</h4>
-                                <p class="dark:text-gray-400 text-gray-600">مواد دراسية، ميزانية الطالب، منتديات، والمزيد.</p>
-                            </div>
+                        <div class="point-card">
+                            <div class="point-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div>
+                            <h4>أقسام شاملة</h4>
+                            <p>مواد دراسية، ميزانية الطالب، منتديات، والمزيد.</p>
                         </div>
                     </div>
                 </div>
-                <div class="relative w-full h-80 lg:h-96 rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="https://placehold.co/1200x800/8b5cf6/ffffff?text=" alt="صورة توضيحية لتطبيق جامعيون" class="w-full h-full object-cover animate-pulse-slow">
+                <div class="about-visual reveal reveal-delay-1">
+                    <div class="about-img-wrap">
+                        <img src="https://placehold.co/600x380/003463/0090de?text=جامعيون" alt="صورة توضيحية لتطبيق جامعيون">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="py-16 bg-gray-50 fade-in-on-scroll">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4 section-heading">ميزات تطبيق جامعيون</h2>
-            <p class="text-xl dark:text-gray-300 text-gray-600 mb-12 max-w-3xl mx-auto">
-                اكتشف الأدوات القوية المصممة لجعل تجربتك الجامعية أسهل وأكثر إنتاجية.
-            </p>
-            <div id="features-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-right">
-                </div>
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <div class="section-tag">الميزات</div>
+                <h2 class="section-title">ميزات تطبيق جامعيون</h2>
+                <p class="section-desc">اكتشف الأدوات القوية المصممة لجعل تجربتك الجامعية أسهل وأكثر إنتاجية.</p>
+            </div>
+            <div class="features-grid" id="features-container"></div>
         </div>
     </section>
 
-
-
-
-
-<section id="about" class="py-16 bg-white fade-in-on-scroll">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-12 section-heading">جامعيون كــ مبادرة</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 items-center text-right">
-                <div>
-                    <p class="text-lg leading-relaxed max-w-3xl dark:text-gray-300 text-gray-700">
-                      جامعيون لم يعد كـ تطبيق هاتف فقط يساعد الطالب في رحلته الجامعية، بل ايضاً مبادرة طلابية مسجلة على منصة <a href="https://www.nahno.org/ngo/%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%D9%91%D9%88%D9%86-75712" style="text-decoration:underline; color:var(--secondary-color);" target="_blank">نحن</a> تقدم كل شيئ للطالب داخل الجامعة وخارجها، اذن جامعيون اصبح تطبيق ومبادرة جامعية من قلب طالب جامعي الى قلب طالب جامعي.
-                    </p>
-                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="flex items-start space-x-4 space-x-reverse">
-                            <div class="flex-shrink-0 rounded-full bg-indigo-800 p-3" style="color: var(--accent-color); background-color: var(--primary-color);">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold dark:text-white text-gray-900">دورات وورشات مجانية</h4>
-                                <p class="dark:text-gray-400 text-gray-600">نقدم في جامعيون دورات وورشات مجانية على منصة نحن بشهادة معتمدة وبكل المجالات.</p>
-                            </div>
+    <section id="initiative" class="initiative-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <div class="section-tag">المبادرة</div>
+                    <h2 class="section-title">جامعيون كــ مبادرة</h2>
+                    <p>جامعيون لم يعد كـ تطبيق هاتف فقط يساعد الطالب في رحلته الجامعية، بل ايضاً مبادرة طلابية مسجلة على منصة <a href="https://www.nahno.org/ngo/%D8%AC%D8%A7%D9%85%D8%B9%D9%8A%D9%91%D9%88%D9%86-75712" style="color:var(--secondary);text-decoration:underline;" target="_blank">نحن</a> تقدم كل شيئ للطالب داخل الجامعة وخارجها، اذن جامعيون اصبح تطبيق ومبادرة جامعية من قلب طالب جامعي الى قلب طالب جامعي.</p>
+                    <div class="about-points">
+                        <div class="point-card">
+                            <div class="point-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+                            <h4>دورات وورشات مجانية</h4>
+                            <p>نقدم في جامعيون دورات وورشات مجانية على منصة نحن بشهادة معتمدة وبكل المجالات.</p>
                         </div>
-                        <div class="flex items-start space-x-4 space-x-reverse">
-                            <div class="flex-shrink-0 rounded-full bg-indigo-800 p-3" style="color: var(--accent-color); background-color: var(--primary-color);">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-semibold dark:text-white text-gray-900">مساندة حقيقية</h4>
-                                <p class="dark:text-gray-400 text-gray-600">نساند الطالب على ارض الواقع بكل شيئ يحتاجه.</p>
-                            </div>
+                        <div class="point-card">
+                            <div class="point-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div>
+                            <h4>مساندة حقيقية</h4>
+                            <p>نساند الطالب على ارض الواقع بكل شيئ يحتاجه.</p>
                         </div>
                     </div>
                 </div>
-                <div class="relative w-full h-80 lg:h-96 rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="https://placehold.co/1200x800/8b5cf6/ffffff?text=صورة+التطبيق" alt="صورة توضيحية لتطبيق جامعيون" class="w-full h-full object-cover animate-pulse-slow">
+                <div class="about-visual reveal reveal-delay-1">
+                    <div class="about-img-wrap">
+                        <img src="https://placehold.co/600x380/003463/fdac13?text=المبادرة" alt="صورة توضيحية لمبادرة جامعيون">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-
-
-
-
-
-
-
-    <section id="activities" class="py-16 bg-white fade-in-on-scroll">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4 section-heading">مدونة جامعيون</h2>
-           <p class="text-xl dark:text-gray-300 text-gray-600 mb-12 max-w-3xl mx-auto">
-                مدونة متكاملة تهتم بطالب الجامعة بكل المستويات.
-            </p>
-            <div id="activities-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 text-right">
-                </div>
+    <section id="activities" class="blog-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <div class="section-tag">المدونة</div>
+                <h2 class="section-title">مدونة جامعيون</h2>
+                <p class="section-desc">مدونة متكاملة تهتم بطالب الجامعة بكل المستويات.</p>
+            </div>
+            <div class="blog-grid" id="activities-container"></div>
         </div>
     </section>
 
-    <section class="py-16 text-white text-center fade-in-on-scroll" style="background-color: var(--primary-color);">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-4">اكتشف دليل الطالب</h2>
-            <p class="text-xl opacity-90 mb-8">
-                دليل الطالب من جامعيون لقدم نصائح لرحلة جامعية مليئة بالنجاح.
-            </p>
-            <a href="./Studentgu/" target="_blank" class="btn-secondary text-lg font-semibold border-2 border-white hover:bg-white" style="color: white; border-color: white; hover-color: var(--primary-color);">
-                زيارة دليل الطالب
-            </a>
+    <div class="cta-banner reveal">
+        <div class="container" style="position:relative;z-index:1;">
+            <h2>اكتشف دليل الطالب</h2>
+            <p>دليل الطالب من جامعيون لقدم نصائح لرحلة جامعية مليئة بالنجاح.</p>
+            <a href="./Studentgu/" target="_blank" class="btn-outline">زيارة دليل الطالب</a>
         </div>
-    </section>
+    </div>
 
-    <section id="contact" class="py-16 bg-gray-50 fade-in-on-scroll">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4 section-heading">تواصل معنا</h2>
-            <p class="text-xl dark:text-gray-300 text-gray-600 mb-12 max-w-3xl mx-auto">
-                للاستفسارات، الشراكات، أو الدعم الفني، نحن هنا لمساعدتك.
-            </p>
-            <div class="max-w-xl mx-auto contact-form p-8 rounded-2xl shadow-xl dark:bg-gray-800 bg-white text-right">
-                <form id="contact-form" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium dark:text-gray-200 text-gray-700 mb-1">الاسم الكامل</label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-600 dark:border-gray-600 dark:focus:ring-indigo-500 focus:ring-blue-500 dark:focus:border-indigo-500 focus:border-blue-500 rounded-lg">
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <div class="section-tag">تواصل معنا</div>
+                <h2 class="section-title">تواصل معنا</h2>
+                <p class="section-desc">للاستفسارات، الشراكات، أو الدعم الفني، نحن هنا لمساعدتك.</p>
+            </div>
+            <div class="contact-wrap reveal">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
                     </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium dark:text-gray-200 text-gray-700 mb-1">البريد الإلكتروني</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-600 dark:border-gray-600 dark:focus:ring-indigo-500 focus:ring-blue-500 dark:focus:border-indigo-500 focus:border-blue-500 rounded-lg">
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required>
                     </div>
-                    <div>
-                        <label for="message" class="block text-sm font-medium dark:text-gray-200 text-gray-700 mb-1">الرسالة</label>
-                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-600 dark:border-gray-600 dark:focus:ring-indigo-500 focus:ring-blue-500 dark:focus:border-indigo-500 focus:border-blue-500 rounded-lg"></textarea>
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
                     </div>
-                    <button type="submit" class="btn-primary w-full text-lg font-semibold py-3" style="background-color: var(--accent-color);">إرسال الرسالة</button>
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
                 </form>
-                <p id="contact-message" class="mt-4 text-center text-lg font-semibold"></p>
+                <div class="success-msg" id="contact-message">تم إرسال رسالتك بنجاح! شكراً لتواصلك معنا.</div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-400 py-12 text-center">
-        <div class="container mx-auto px-4">
-            <a href="#" class="text-3xl font-extrabold text-white rounded-lg p-2 mb-4 block">جامعيون</a>
-            <div class="flex justify-center space-x-6 space-x-reverse mb-6">
-                <a href="#" class="footer-link text-lg"></a>
-                <a href="#download" class="footer-link text-lg"></a>
-                <a href="https://jamiyoon.vercel.app/guide" target="_blank" class="footer-link text-lg"></a>
-                <a href="#features" class="footer-link text-lg"></a>
-                <a href="#contact" class="footer-link text-lg"></a>
+    <footer>
+        <div class="container">
+            <a href="#" class="footer-logo">جامعيون</a>
+            <div class="footer-links">
+                <a href="#download">تحميل التطبيق</a>
+                <a href="#about">عن التطبيق</a>
+                <a href="#features">الميزات</a>
+                <a href="./blog/" target="_blank">المدونة</a>
+                <a href="#contact">تواصل معنا</a>
+                <a href="./about/" target="_blank">من نحن</a>
             </div>
-            <p class="mb-4">&copy; 2025 جامعيون. جميع الحقوق محفوظة.</p>
-            <div class="flex justify-center space-x-4 space-x-reverse">
-                <a href="./policy/"   target="_blank" class="text-gray-400 hover:text-white footer-link">سياسة الخصوصية</a>
-                <span class="text-gray-600">|</span>
-                <a href="./terms/" target="_blank" class="text-gray-400 hover:text-white footer-link">شروط الاستخدام</a>
+            <p class="footer-copy">© 2025 جامعيون. جميع الحقوق محفوظة.</p>
+            <div class="footer-legal">
+                <a href="./policy/" target="_blank">سياسة الخصوصية</a>
+                <span>|</span>
+                <a href="./terms/" target="_blank">شروط الاستخدام</a>
             </div>
         </div>
     </footer>
 
+    <nav class="bottom-nav">
+        <div class="bottom-nav-inner">
+            <a href="#download">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>تحميل</span>
+            </a>
+            <a href="#about">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>عن التطبيق</span>
+            </a>
+            <a href="#features">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 17h18M5 12h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v3a2 2 0 002 2z"/></svg>
+                <span>الميزات</span>
+            </a>
+            <a href="./blog/" target="_blank">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                <span>المدونة</span>
+            </a>
+            <a href="#contact">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"/></svg>
+                <span>اتصل بنا</span>
+            </a>
+        </div>
+    </nav>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            const heroTitleElement = document.getElementById('hero-title');
-            const heroTitleText = " جامعيون: رفيقك الأكاديمي الشامل";
-            let i = 0;
-
-            function typeWriter() {
-                if (i < heroTitleText.length) {
-                    heroTitleElement.innerHTML += heroTitleText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                }
+        const featuresData = [
+            {
+                title: "الموارد الدراسية",
+                description: "نوفر كل شيء يخص المواد من ملخصات ومصادر مجانية وأسئلة سنوات ودوسيات.",
+                icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>'
+            },
+            {
+                title: "جدول أكاديمي",
+                description: "أنشئ جدولًا لموادك أو لتنظيم وقتك بسهولة وفعالية.",
+                icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>'
+            },
+            {
+                title: "إدارة المهام",
+                description: "تتبع واجباتك، مشاريعك، ومواعيد التسليم الهامة من مكان واحد.",
+                icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>'
+            },
+            {
+                title: "إشعارات فورية",
+                description: "تلقي تنبيهات فورية بالإعلانات الهامة وتحديثات المواد والمواعيد النهائية.",
+                icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>'
+            },
+            {
+                title: "ميزانية الطالب",
+                description: "تتبع نفقاتك وإيراداتك الجامعية وراقب ميزانيتك بذكاء.",
+                icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>'
+            },
+            {
+                title: "منتديات ونقاشات",
+                description: "تواصل مع زملائك، اطرح الأسئلة، وتبادل الخبرات والمعلومات.",
+                icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.155A12.022 12.022 0 0112 4c4.97 0 9 3.582 9 8z"/>'
             }
-            
-            heroTitleElement.classList.add('typing-effect');
-            setTimeout(() => {
-                heroTitleElement.classList.remove('typing-effect');
-                heroTitleElement.innerHTML = heroTitleText; 
-            }, 3500); 
-            typeWriter();
+        ];
 
-
-            const featuresData = [
-
-             {
-                    title: "الموارد الدراسية",
-                    description: "نوفر كل شيء يخص المواد من ملخصات ومصادر مجانية وأسئلة سنوات ودوسيات.",
-                    icon: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>'
-                },
-                {
-                    title: "جدول أكاديمي",
-                    description: "أنشئ جدولًا لموادك أو لتنظيم وقتك بسهولة وفعالية.",
-                    icon: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>'
-                },
-                {
-                    title: "إدارة المهام",
-                    description: "تتبع واجباتك، مشاريعك، ومواعيد التسليم الهامة من مكان واحد.",
-                    icon: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>'
-                },
-                
-                
-                {
-                    title: "إشعارات فورية",
-                    description: "تلقي تنبيهات فورية بالإعلانات الهامة وتحديثات المواد والمواعيد النهائية.",
-                    icon: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17v2a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h2m0 12V5a2 2 0 012-2h2a2 2 0 012 2v12m-4 0v2a2 2 0 002 2h2a2 2 0 002-2V9m-4 0h.01"></path></svg>'
-                },
-                {
-                    title: "ميزانية الطالب",
-                    description: "تتبع نفقاتك وإيراداتك الجامعية وراقب ميزانيتك بذكاء.",
-                    icon: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>'
-                },
-                {
-                    title: "منتديات ونقاشات",
-                    description: "تواصل مع زملائك، اطرح الأسئلة، وتبادل الخبرات والمعلومات.",
-                    icon: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.155A12.022 12.022 0 0112 4c4.97 0 9 3.582 9 8z"></path></svg>'
-                }
-            ];
-
-            const activitiesData = [
-           {
-                    title: "مقالات موجهة للجامعي",
-                    date: "أنقر لزيارة المدونة",
-                    description: "مجموعة من المقالات الموجهة للطلاب تساعدك على تحسين أسلوب المذاكرة، تنظيم وقتك، والاستعداد للامتحانات بأفضل الطرق. ",
-                    link: "./blog",
-                    icon: '<svg class="w-10 h-10 mb-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.405 9.498 5 8 5a6 6 0 000 12h5.5M12 6.253v13C13.168 18.595 14.502 19 16 19a6 6 0 000-12h-5.5"></path></svg>'
-                },
-                {
-                    title: "مقالات أكاديمية",
-                     date: "أنقر لزيارة المدونة",
-                    description: "مقالات تشرح المفاهيم الجامعية بشكل مبسط،  وتقدم نصائح عملية لفهم المواد العلمية والنظرية خطوة بخطوة.",
-                    link: "./blog",
-                    icon: '<svg class="w-10 h-10 mb-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>'
-                },
-                {
-                    title: "نصائح جامعية",
-                    date: "أنقر لزيارة المدونة",
-                    description: " مقالات قصيرة وسهلة القراءة حول الحياة الجامعية:  من اختيار التخصص المناسب إلى طرق التعامل مع ضغوط الدراسة والامتحانات.",
-                    link: "./blog",
-                    icon: '<svg class="w-10 h-10 mb-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l7.662-7.662z"></path></svg>'
-                }
-            ];
-            
-            
-            const featuresContainer = document.getElementById('features-container');
-            featuresData.forEach((feature, index) => {
-                const featureElement = document.createElement('div');
-                featureElement.classList.add('feature-card', 'p-6', 'md:p-8', 'fade-in-on-scroll');
-                featureElement.innerHTML = `
-                    <div class="mb-4" style="color: var(--secondary-color);">
-                        ${feature.icon}
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 dark:text-white text-gray-900">${feature.title}</h3>
-                    <p class="dark:text-gray-300 text-gray-600 text-lg">${feature.description}</p>
-                `;
-                featuresContainer.appendChild(featureElement);
-                
-                setTimeout(() => {
-                    if (featureElement.classList.contains('fade-in-on-scroll')) {
-                        featureElement.classList.add('is-visible');
-                    }
-                }, index * 100 + 3500); 
-            });
-
-            
-            const activitiesContainer = document.getElementById('activities-container');
-            activitiesData.forEach((activity, index) => {
-                const activityElement = document.createElement('a');
-                activityElement.href = activity.link;
-                activityElement.target = "_blank";
-                activityElement.classList.add('feature-card', 'p-6', 'md:p-8', 'fade-in-on-scroll', 'cursor-pointer');
-                activityElement.innerHTML = `
-                    <div style="color: var(--secondary-color);">
-                        ${activity.icon}
-                    </div>
-                    <h3 class="text-xl font-bold mb-2 dark:text-white text-gray-900">${activity.title}</h3>
-                    <p class="dark:text-gray-400 text-gray-500 mb-3 text-sm">${activity.date}</p>
-                    <p class="dark:text-gray-300 text-gray-700">${activity.description}</p>
-                `;
-                activitiesContainer.appendChild(activityElement);
-                
-                setTimeout(() => {
-                    if (activityElement.classList.contains('fade-in-on-scroll')) {
-                        activityElement.classList.add('is-visible');
-                    }
-                }, index * 100 + 3500); 
-            });
-
-            
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const header = document.querySelector('header');
-
-            mobileMenuButton.addEventListener('click', () => {
-                const isExpanded = mobileMenu.classList.toggle('hidden');
-                
-                if (!isExpanded) {
-                    header.classList.add('border-b', 'border-gray-600');
-                } else {
-                    header.classList.remove('border-b', 'border-gray-600');
-                }
-            });
-
-            
-            const themeToggleDesktop = document.getElementById('theme-toggle');
-            const sunIconDesktop = document.getElementById('sun-icon');
-            const moonIconDesktop = document.getElementById('moon-icon');
-            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-            const sunIconMobile = document.getElementById('sun-icon-mobile');
-            const moonIconMobile = document.getElementById('moon-icon-mobile');
-            const body = document.body;
-
-            function updateTheme(isDark) {
-                if (isDark) {
-                    body.classList.add('dark');
-                    sunIconDesktop.classList.remove('hidden');
-                    moonIconDesktop.classList.add('hidden');
-                    sunIconMobile.classList.remove('hidden');
-                    moonIconMobile.classList.add('hidden');
-                } else {
-                    body.classList.remove('dark');
-                    sunIconDesktop.classList.add('hidden');
-                    moonIconDesktop.classList.remove('hidden');
-                    sunIconMobile.classList.add('hidden');
-                    moonIconMobile.classList.remove('hidden');
-                }
+        const activitiesData = [
+            {
+                title: "مقالات موجهة للجامعي",
+                date: "أنقر لزيارة المدونة",
+                description: "مجموعة من المقالات الموجهة للطلاب تساعدك على تحسين أسلوب المذاكرة، تنظيم وقتك، والاستعداد للامتحانات بأفضل الطرق.",
+                link: "./blog",
+                icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.405 9.498 5 8 5a6 6 0 000 12h5.5M12 6.253v13C13.168 18.595 14.502 19 16 19a6 6 0 000-12h-5.5"/>'
+            },
+            {
+                title: "مقالات أكاديمية",
+                date: "أنقر لزيارة المدونة",
+                description: "مقالات تشرح المفاهيم الجامعية بشكل مبسط، وتقدم نصائح عملية لفهم المواد العلمية والنظرية خطوة بخطوة.",
+                link: "./blog",
+                icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>'
+            },
+            {
+                title: "نصائح جامعية",
+                date: "أنقر لزيارة المدونة",
+                description: "مقالات قصيرة وسهلة القراءة حول الحياة الجامعية: من اختيار التخصص المناسب إلى طرق التعامل مع ضغوط الدراسة والامتحانات.",
+                link: "./blog",
+                icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l7.662-7.662z"/>'
             }
+        ];
 
-           
-            updateTheme(body.classList.contains('dark'));
-
-            
-            const toggleTheme = () => {
-                const isDark = body.classList.toggle('dark');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                updateTheme(isDark);
-            };
-
-            themeToggleDesktop.addEventListener('click', toggleTheme);
-            themeToggleMobile.addEventListener('click', toggleTheme);
-
-           
-            const contactForm = document.getElementById('contact-form');
-            const contactMessage = document.getElementById('contact-message');
-
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                
-                contactMessage.textContent = 'تم إرسال رسالتك بنجاح! شكراً لتواصلك معنا.';
-                contactMessage.classList.remove('hidden');
-                contactMessage.style.display = 'block';
-                contactMessage.classList.add('text-green-500');
-                
-                setTimeout(() => {
-                    contactMessage.style.display = 'none';
-                    contactForm.reset();
-                }, 5000);
-            });
-
-
-            
-            const fadeInElements = document.querySelectorAll('.fade-in-on-scroll');
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1 
-            };
-
-            function checkVisibility(entries, observer) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }
-
-            const observer = new IntersectionObserver(checkVisibility, observerOptions);
-
-            fadeInElements.forEach(element => {
-                if (element.getBoundingClientRect().top < window.innerHeight) {
-                     if (!element.closest('#hero')) {
-                        const delayIndex = Array.from(fadeInElements).indexOf(element);
-                        setTimeout(() => element.classList.add('is-visible'), delayIndex * 50);
-                     }
-                } else {
-                    observer.observe(element);
-                }
-            });
+        const fc = document.getElementById('features-container');
+        featuresData.forEach((f, i) => {
+            const el = document.createElement('div');
+            el.className = `feat-card reveal reveal-delay-${(i % 3) + 1}`;
+            el.innerHTML = `
+                <div class="feat-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">${f.icon}</svg>
+                </div>
+                <h3>${f.title}</h3>
+                <p>${f.description}</p>
+            `;
+            fc.appendChild(el);
         });
+
+        const ac = document.getElementById('activities-container');
+        activitiesData.forEach((a, i) => {
+            const el = document.createElement('a');
+            el.href = a.link;
+            el.target = '_blank';
+            el.className = `blog-card reveal reveal-delay-${(i % 3) + 1}`;
+            el.innerHTML = `
+                <div class="blog-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">${a.icon}</svg>
+                </div>
+                <h3>${a.title}</h3>
+                <div class="blog-date">${a.date}</div>
+                <p>${a.description}</p>
+                <div class="blog-arrow">اقرأ المزيد ←</div>
+            `;
+            ac.appendChild(el);
+        });
+
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+
+        const body = document.body;
+        const sunD = document.getElementById('sun-icon');
+        const moonD = document.getElementById('moon-icon');
+        const sunM = document.getElementById('sun-icon-mobile');
+        const moonM = document.getElementById('moon-icon-mobile');
+
+        function setTheme(light) {
+            if (light) {
+                body.classList.add('light');
+                sunD.classList.add('hidden'); moonD.classList.remove('hidden');
+                sunM.classList.add('hidden'); moonM.classList.remove('hidden');
+            } else {
+                body.classList.remove('light');
+                sunD.classList.remove('hidden'); moonD.classList.add('hidden');
+                sunM.classList.remove('hidden'); moonM.classList.add('hidden');
+            }
+            localStorage.setItem('theme', light ? 'light' : 'dark');
+        }
+
+        const saved = localStorage.getItem('theme');
+        setTheme(saved === 'light');
+
+        document.getElementById('theme-toggle').addEventListener('click', () => setTheme(!body.classList.contains('light')));
+        document.getElementById('theme-toggle-mobile').addEventListener('click', () => setTheme(!body.classList.contains('light')));
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = document.getElementById('contact-message');
+            msg.style.display = 'block';
+            setTimeout(() => { msg.style.display = 'none'; this.reset(); }, 5000);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
