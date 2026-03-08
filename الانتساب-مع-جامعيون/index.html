@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> الانتساب مع جامعيون</title>
+    <title>الانتساب مع جامعيون</title>
     <link rel="icon" type="image/png" href="logo-jamii.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #f1f5f9;
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.08) 2px, transparent 3px),
+                radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.08) 2px, transparent 3px),
+                radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.05) 1px, transparent 2px),
+                linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
             font-family: 'Cairo', sans-serif;
             text-align: right;
             direction: rtl;
@@ -19,81 +24,114 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            margin: 0;
+            padding: 20px 0;
         }
 
-        .logo_jam{
+        .logo_jam {
             width: 89px;
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.3));
         }
 
-        .coninaa{
-        display: flex;
-        flex-direction: column;
+        .coninaa {
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
         .form-select {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B7280'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23d97706'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: left 1rem top 50%;
             background-size: 1.25rem;
             padding-left: 2.5rem;
             padding-right: 1.25rem;
         }
+
+        @keyframes swing {
+            0% { transform: rotate(5deg); }
+            50% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+        .lantern {
+            transform-origin: top center;
+            animation: swing 4s ease-in-out infinite;
+        }
+        .lantern-delay {
+            animation-delay: 2s;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+        }
     </style>
 </head>
 <body>
 
-<div id="splashScreen" class="fixed inset-0 flex flex-col items-center justify-center bg-gray-900 bg-opacity-70 backdrop-blur-sm z-50 transition-opacity duration-500 opacity-100">
-    <div class="bg-white p-10 rounded-3xl shadow-2xl text-center max-w-sm w-11/12 transform scale-100 transition-transform duration-300">
-        <img src="./logo-jamii (1).png" class="h-20 w-20 text-indigo-600 mx-auto mb-4" viewBox="0 0 24 24" fill="currentColor">
-        <h2 class="text-3xl font-extrabold text-gray-800 mb-2">جامعيون</h2>
-        <p class="text-gray-600 mb-6">فريق جامعيون هو فريق وتطبيق هاتف تطوعي غير ربحي  يهدف إلى إفادة طلبة الجامعات الأردنية على كل المستويات وتنمية مهاراتهم عبر مشاريع إبداعية ومبادرات هادفة. انضم لنا لتكون جزءًا من عائلتنا.
-            
+<div id="splashScreen" class="fixed inset-0 flex flex-col items-center justify-center bg-slate-900 bg-opacity-90 backdrop-blur-md z-50 transition-opacity duration-500 opacity-100">
+    <div class="bg-white/10 border border-amber-500/30 p-10 rounded-3xl shadow-[0_0_40px_rgba(245,158,11,0.15)] text-center max-w-sm w-11/12 transform scale-100 transition-transform duration-300 relative overflow-hidden">
+        
+        <div class="absolute -top-6 -right-6 text-amber-400 opacity-50 text-8xl">🌙</div>
+
+        <img src="./logo-jamii (1).png" alt="جامعيون" class="h-24 w-24 mx-auto mb-4 relative z-10 logo_jam">
+        <h2 class="text-3xl font-extrabold text-amber-400 mb-2 glow-text">مبارك عليكم الشهر</h2>
+        <p class="text-gray-200 mb-6 text-sm leading-relaxed relative z-10">
+            فريق جامعيون يتمنى لكم صياماً مقبولاً 🌙<br>
+            نحن فريق وتطبيق تطوعي غير ربحي يهدف لإفادة طلبة الجامعات الأردنية. انضم لعائلتنا في شهر الخير وكن جزءاً من مبادراتنا.
         </p>
 
-        <a href="https://www.instagram.com/jamaiyoon/" target="_blank" class="inline-block w-full px-8 py-4 text-lg font-bold text-white bg-indigo-600 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-[1.03] hover:bg-indigo-700">تابعنا على إنستغرام</a>
-        <div class="flex items-center justify-center mt-4 text-sm font-bold text-gray-400">
-            <span id="countdown" class="ml-1 text-base">10</span>
+        <a href="https://www.instagram.com/jamaiyoon/" target="_blank" class="inline-block w-full px-8 py-4 text-lg font-bold text-slate-900 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-[1.03] hover:shadow-amber-500/50">تابعنا على إنستغرام</a>
+        
+        <div class="flex items-center justify-center mt-6 text-sm font-bold text-amber-200/70">
+            <span id="countdown" class="ml-1 text-base text-amber-400">10</span>
             <span>ثواني للفتح التلقائي</span>
         </div>
-        <button id="skipButton" class="mt-2 text-base text-gray-500 hover:text-gray-700 transition-colors duration-200">تخطي</button>
+        <button id="skipButton" class="mt-2 text-base text-gray-400 hover:text-amber-400 transition-colors duration-200">تخطي إلى النموذج</button>
     </div>
 </div>
 
-<div id="formContainer" class="w-full max-w-xl mx-auto p-8 md:p-12 bg-white rounded-3xl shadow-2xl transition-all duration-300 transform opacity-0 scale-95" style="display: none;">
+<div id="formContainer" class="w-full max-w-xl mx-auto p-8 md:p-12 bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-all duration-300 transform opacity-0 scale-95 relative mt-10 mb-10 border-t-8 border-amber-500" style="display: none;">
 
-    <div class="flex items-center justify-center mb-8 coninaa">
-        <img src="./logo-jamii (1).png" class="logo_jam" viewBox="0 0 24 24" fill="currentColor">
-        <h1 class="text-5xl font-extrabold text-center text-gray-800 mr-4 hh-jam">جامعيون</h1>
+    <div class="absolute top-0 right-8 text-amber-500 lantern w-12 h-24 hidden sm:block">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13 6H11L12 2ZM9 6H15L16 10H8L9 6ZM7 11H17V17H7V11ZM10 18H14L13 22H11L10 18Z"/></svg>
     </div>
-    <p class="text-center mb-10 text-gray-600 leading-relaxed text-lg">نحن بانتظارك! انضم إلى عائلتنا الكبيرة من المتطوعين وشارك في صناعة المستقبل.</p>
+    <div class="absolute top-0 left-8 text-amber-400 lantern lantern-delay w-10 h-20 hidden sm:block">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13 6H11L12 2ZM9 6H15L16 10H8L9 6ZM7 11H17V17H7V11ZM10 18H14L13 22H11L10 18Z"/></svg>
+    </div>
+
+    <div class="flex items-center justify-center mb-6 coninaa pt-4">
+        <img src="./logo-jamii (1).png" alt="شعار جامعيون" class="logo_jam mb-2">
+        <h1 class="text-4xl font-extrabold text-center text-slate-800 mr-4">خيمة <span class="text-amber-600">جامعيون</span></h1>
+    </div>
+    <p class="text-center mb-10 text-gray-600 leading-relaxed text-lg">أهلاً بك في عائلتنا سجل الآن لتكون جزء من فريق جامعيون.</p>
 
     <form id="enrollmentForm" action="https://formspree.io/f/xjkewgwr" method="POST" class="space-y-6">
         <div>
-            <label for="fullName" class="block font-semibold text-gray-700 mb-2">الاسم الكامل</label>
-            <input type="text" id="fullName" name="fullName" class="w-full p-4 border border-gray-200 rounded-xl bg-gray-50 text-gray-800 transition-all duration-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30" placeholder="الاسم الكامل" required>
+            <label for="fullName" class="block font-bold text-slate-700 mb-2">الاسم الكامل</label>
+            <input type="text" id="fullName" name="fullName" class="w-full p-4 border border-gray-200 rounded-xl bg-slate-50 text-slate-800 transition-all duration-200 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30" placeholder="الاسم الرباعي" required>
         </div>
 
         <div>
-            <label for="university" class="block font-semibold text-gray-700 mb-2">الجامعة</label>
-            <input type="text" id="university" name="university" class="w-full p-4 border border-gray-200 rounded-xl bg-gray-50 text-gray-800 transition-all duration-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30" placeholder="مثال: جامعة جدارا " required>
+            <label for="university" class="block font-bold text-slate-700 mb-2">الجامعة</label>
+            <input type="text" id="university" name="university" class="w-full p-4 border border-gray-200 rounded-xl bg-slate-50 text-slate-800 transition-all duration-200 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30" placeholder="مثال: جامعة جدارا" required>
         </div>
 
         <div>
-            <label for="major" class="block font-semibold text-gray-700 mb-2">التخصص الجامعي</label>
-            <input type="text" id="major" name="major" class="w-full p-4 border border-gray-200 rounded-xl bg-gray-50 text-gray-800 transition-all duration-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30" placeholder="مثال: هندسة برمجيات" required>
+            <label for="major" class="block font-bold text-slate-700 mb-2">التخصص الجامعي</label>
+            <input type="text" id="major" name="major" class="w-full p-4 border border-gray-200 rounded-xl bg-slate-50 text-slate-800 transition-all duration-200 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30" placeholder="مثال: هندسة برمجيات" required>
         </div>
 
         <div>
-            <label for="whatsappPhone" class="block font-semibold text-gray-700 mb-2">رقم واتساب (فعال)</label>
-            <input type="tel" id="whatsappPhone" name="whatsappPhone" class="w-full p-4 border border-gray-200 rounded-xl bg-gray-50 text-gray-800 transition-all duration-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30" placeholder="مثال: +962771234567" required>
+            <label for="whatsappPhone" class="block font-bold text-slate-700 mb-2">رقم واتساب (فعال)</label>
+            <input type="tel" id="whatsappPhone" name="whatsappPhone" class="w-full p-4 border border-gray-200 rounded-xl bg-slate-50 text-slate-800 transition-all duration-200 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30" placeholder="مثال: +962771234567" required>
         </div>
 
         <div>
-            <label for="academicYear" class="block font-semibold text-gray-700 mb-2">السنة الدراسية</label>
-            <select id="academicYear" name="academicYear" class="form-select w-full p-4 border border-gray-200 rounded-xl bg-gray-50 text-gray-800 transition-all duration-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30" required>
+            <label for="academicYear" class="block font-bold text-slate-700 mb-2">السنة الدراسية</label>
+            <select id="academicYear" name="academicYear" class="form-select w-full p-4 border border-gray-200 rounded-xl bg-slate-50 text-slate-800 transition-all duration-200 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30" required>
                 <option value="" disabled selected>اختر السنة الدراسية</option>
                 <option value="1">الأولى</option>
                 <option value="2">الثانية</option>
@@ -104,41 +142,45 @@
         </div>
 
         <div>
-            <label for="volunteerArea" class="block font-semibold text-gray-700 mb-2">مجال التطوع</label>
-            <select id="volunteerArea" name="volunteerArea" class="form-select w-full p-4 border border-gray-200 rounded-xl bg-gray-50 text-gray-800 transition-all duration-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30" required>
+            <label for="volunteerArea" class="block font-bold text-slate-700 mb-2">مجال التطوع</label>
+            <select id="volunteerArea" name="volunteerArea" class="form-select w-full p-4 border border-gray-200 rounded-xl bg-slate-50 text-slate-800 transition-all duration-200 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30" required>
                 <option value="" disabled selected>اختر مجال التطوع</option>
                 <option value="السوشل ميديا">السوشل ميديا</option>
                 <option value="التصميم">التصميم</option>
                 <option value="التصوير والمونتاج">التصوير والمونتاج</option>
                 <option value="تنظيم الدورات">تنظيم الدورات</option>
-               <option value="العلاقات العامة">العلاقات العامة</option>
+                <option value="العلاقات العامة">العلاقات العامة</option>
                 <option value="الدعم التقني">الدعم التقني</option>
                 <option value="غير ذلك">غير ذلك</option>
             </select>
         </div>
 
         <div id="otherVolunteerAreaContainer" class="hidden" style="display: none;">
-            <label for="otherVolunteerArea" class="block font-semibold text-gray-700 mb-2">حدد مجال التطوع الآخر</label>
-            <input type="text" id="otherVolunteerArea" name="otherVolunteerArea" class="w-full p-4 border border-gray-200 rounded-xl bg-gray-50 text-gray-800 transition-all duration-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30" placeholder="ادخل المجال" required>
+            <label for="otherVolunteerArea" class="block font-bold text-slate-700 mb-2">حدد مجال التطوع الآخر</label>
+            <input type="text" id="otherVolunteerArea" name="otherVolunteerArea" class="w-full p-4 border border-gray-200 rounded-xl bg-slate-50 text-slate-800 transition-all duration-200 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30" placeholder="ادخل المجال">
         </div>
 
         <div>
-            <label for="experience" class="block font-semibold text-gray-700 mb-2">لماذا اخرت التطوع معنا؟</label>
-            <input type="text" id="experience" name="experience" class="w-full p-4 border border-gray-200 rounded-xl bg-gray-50 text-gray-800 transition-all duration-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30" placeholder="يرجى الاجابة هنا" required>
+            <label for="experience" class="block font-bold text-slate-700 mb-2">لماذا اخترت التطوع معنا؟</label>
+            <textarea id="experience" name="experience" rows="3" class="w-full p-4 border border-gray-200 rounded-xl bg-slate-50 text-slate-800 transition-all duration-200 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30" placeholder="شاركنا شغفك..." required></textarea>
         </div>
 
         <div>
-            <label for="previousVolunteer" class="block font-semibold text-gray-700 mb-2">هل تطوعت من قبل؟ </label>
-            <input type="text" id="previousVolunteer" name="previousVolunteer" class="w-full p-4 border border-gray-200 rounded-xl bg-gray-50 text-gray-800 transition-all duration-200 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30" placeholder="اذكر مجال التطوع السابق" required>
+            <label for="previousVolunteer" class="block font-bold text-slate-700 mb-2">هل تطوعت من قبل؟</label>
+            <input type="text" id="previousVolunteer" name="previousVolunteer" class="w-full p-4 border border-gray-200 rounded-xl bg-slate-50 text-slate-800 transition-all duration-200 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30" placeholder="اذكر تجاربك السابقة إن وجدت" required>
         </div>
 
-        <button type="submit" class="w-full p-4 text-white text-xl font-bold rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg shadow-indigo-500/30 transition-all duration-300 transform hover:scale-[1.01] hover:shadow-xl hover:shadow-indigo-500/40">إرسال النموذج</button>
+        <button type="submit" class="w-full p-4 mt-4 text-slate-900 text-xl font-bold rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 shadow-lg shadow-amber-500/30 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-amber-500/50 flex justify-center items-center gap-2">
+            <span>إرسال طلب الانضمام</span>
+            <span class="text-2xl leading-none mb-1">✨</span>
+        </button>
     </form>
-
 </div>
 
-<a href="https://jamiyoon.vercel.app" target="_blank" class="fixed bottom-4 left-4 p-4 md:p-6 bg-purple-600 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 z-40 flex items-center justify-center">
-    <span class="text-3xl">⬇️</span>
+<a href="https://jamaiyoon.com/" target="_blank" class="fixed bottom-6 left-6 p-4 bg-amber-500 text-slate-900 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-all duration-300 transform hover:scale-110 z-40 flex items-center justify-center hover:bg-amber-400">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+    </svg>
 </a>
 
 <script>
@@ -155,8 +197,11 @@
             setTimeout(() => {
                 splashScreen.style.display = 'none';
                 formContainer.style.display = 'block';
-                formContainer.style.opacity = '1';
-                formContainer.style.transform = 'scale(1)';
+                // اضافة حركة لطيفة عند ظهور النموذج
+                setTimeout(() => {
+                    formContainer.style.opacity = '1';
+                    formContainer.style.transform = 'scale(1)';
+                }, 50);
             }, 500);
         }
 
