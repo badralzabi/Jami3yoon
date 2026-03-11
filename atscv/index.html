@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Builder Pro - ATS Friendly</title>
+<link href="[https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap)" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">📄</div>
+    <span class="logo-text">ATS CV</span>
+  </div>
+  <div class="header-actions">
+    <div class="ats-badge">متوافق مع ATS</div>
+    <button class="btn btn-danger" onclick="clearData()">🗑 مسح</button>
+    <button class="btn btn-primary" onclick="window.print()">🖨️ طباعة PDF</button>
+  </div>
+</header>
+
+<div class="app">
+  
+  <div class="form-panel">
+    
+    <div style="background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); padding: 12px 16px; border-radius: 8px; margin-bottom: 24px; font-size: 13px; color: #93c5fd; display: flex; align-items: center; gap: 10px;">
+      <span>💡</span> يتم حفظ بياناتك تلقائياً في المتصفح! لا تقلق إذا قمت بتحديث الصفحة.
+    </div>
+
+    <div class="section-title">المعلومات الأساسية (بالإنجليزية)</div>
+    <div class="form-card">
+      <div class="form-row">
+        <div class="form-group">
+          <label>الاسم الأول</label>
+          <input type="text" id="fname" placeholder="John" dir="ltr" oninput="saveAndUpdate()">
+        </div>
+        <div class="form-group">
+          <label>اسم العائلة</label>
+          <input type="text" id="lname" placeholder="Doe" dir="ltr" oninput="saveAndUpdate()">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>المسمى الوظيفي المهني</label>
+        <input type="text" id="jobtitle" placeholder="Senior Software Engineer" dir="ltr" oninput="saveAndUpdate()">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>البريد الإلكتروني</label>
+          <input type="email" id="email" placeholder="john@example.com" dir="ltr" oninput="saveAndUpdate()">
+        </div>
+        <div class="form-group">
+          <label>رقم الهاتف</label>
+          <input type="tel" id="phone" placeholder="+962 79 000 0000" dir="ltr" oninput="saveAndUpdate()">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>المدينة والبلد</label>
+          <input type="text" id="location" placeholder="Amman, Jordan" dir="ltr" oninput="saveAndUpdate()">
+        </div>
+        <div class="form-group">
+          <label>رابط LinkedIn / GitHub</label>
+          <input type="text" id="linkedin" placeholder="[linkedin.com/in/johndoe](https://linkedin.com/in/johndoe)" dir="ltr" oninput="saveAndUpdate()">
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">الملخص المهني (Professional Summary)</div>
+    <div class="form-card">
+      <div class="form-group">
+        <label>ملخص يبرز خبرتك (يفضل 3-4 أسطر باللغة الإنجليزية)</label>
+        <textarea id="summary" placeholder="Results-oriented Software Engineer with 5+ years of experience in designing and developing scalable web applications..." dir="ltr" oninput="saveAndUpdate()"></textarea>
+      </div>
+    </div>
+
+    <div class="section-title">الخبرة العملية (Work Experience)</div>
+    <div id="exp-list"></div>
+    <button class="add-btn" onclick="addEntry('exp')">＋ إضافة خبرة جديدة</button>
+
+    <div class="section-title">التعليم (Education)</div>
+    <div id="edu-list"></div>
+    <button class="add-btn" onclick="addEntry('edu')">＋ إضافة مؤهل أكاديمي</button>
+
+    <div class="section-title">المهارات التقنية والناعمة (Skills)</div>
+    <div class="form-card">
+      <div class="skill-input-row">
+        <input type="text" id="skill-input" placeholder="e.g. JavaScript, React, Project Management..." dir="ltr" onkeydown="if(event.key==='Enter') addSkill()">
+        <button onclick="addSkill()">＋</button>
+      </div>
+      <div class="skills-grid" id="skills-list"></div>
+    </div>
+
+    <div class="section-title">الشهادات (Certifications)</div>
+    <div id="cert-list"></div>
+    <button class="add-btn" onclick="addEntry('cert')">＋ إضافة شهادة</button>
+
+    <div style="height: 60px;"></div>
+  </div>
+
+  <div class="preview-panel">
+    <div class="cv-wrapper">
+      <div class="cv-paper" id="cv-output">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
