@@ -8,34 +8,32 @@
     <title>تحميل تطبيق جامعيون</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            --primary-color: #004d9c;
-            --secondary-color: #0077c2;
-            --accent-color: #ff7f50;
-            --text-light: #003464;
-            --bg-dark: #f3f4f6;
+            --primary: #004d9c;
+            --secondary: #0077c2;
+            --accent: #f59e0b;
+            --bg-dark: #0f172a;
             --card-bg: #ffffff;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: #f8fafc;
+            color: #1e293b;
             font-family: 'Cairo', sans-serif;
-            line-height: 1.8;
-            padding-bottom: 70px;
+            overflow-x: hidden;
         }
 
-        .header-bg {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        .hero-gradient {
+            background: linear-gradient(135deg, #004d9c 0%, #002d5c 100%);
         }
 
         .fade-in-on-scroll {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .fade-in-on-scroll.is-visible {
@@ -43,185 +41,225 @@
             transform: translateY(0);
         }
 
-        .video-guide-wrap {
-            margin-top: 1.5rem;
-            border-radius: 1rem;
-            overflow: hidden;
-            background: #000;
+        /* Floating Badge Animation */
+        .floating-badge {
+            animation: float 3s ease-in-out infinite;
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        .video-container {
             position: relative;
-        }
-
-        .video-guide-wrap video {
             width: 100%;
-            display: block;
-            max-height: 420px;
-            object-fit: contain;
+            max-width: 280px;
+            aspect-ratio: 9 / 16;
+            margin: 0 auto;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
             background: #000;
         }
 
-        .video-label {
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .video-label svg {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
+        .video-watermark {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            z-index: 10;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+            pointer-events: none;
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 77, 156, 0.08);
         }
     </style>
 </head>
 
-<body class="font-cairo">
+<body class="antialiased">
 
+    <!-- Developer Badge -->
     <a href="https://www.instagram.com/bh.adr/" target="_blank"
-        class="fixed top-5 left-5 bg-black border-2 border-white text-white p-3 rounded-xl font-bold shadow-lg z-50 transition-all duration-300 hover:scale-105 hover:bg-white hover:text-gray-800">
-        مطور التطبيق: بدر فرحان
+        class="fixed top-5 left-5 bg-white/90 backdrop-blur-sm border border-blue-100 text-blue-900 px-4 py-2 rounded-full font-bold shadow-xl z-50 transition-all duration-300 hover:scale-105 hover:bg-blue-600 hover:text-white text-sm">
+        👨‍💻 المطور: بدر فرحان
     </a>
 
-    <div class="max-w-4xl mx-auto p-5 my-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <header id="hero" class="header-bg p-8 rounded-2xl text-center text-white shadow-xl mb-12 transform -rotate-1 perspective-1000">
-            <img src="./logo/logo-jamii.png" alt="شعار جامعيّون"
-                class="logo w-24 h-24 mb-4 mx-auto rounded-full border-4 border-white transform transition-transform duration-500 hover:rotate-12">
-            <h1 class="text-5xl font-extrabold mb-2 leading-tight">جامعيون</h1>
-            <p class="text-xl opacity-90">كل ما يحتاجه الطالب في مكان واحد</p>
+        <!-- Header / Hero Section -->
+        <header id="hero" class="hero-gradient p-10 rounded-[2.5rem] text-center text-white shadow-2xl mb-8 relative overflow-hidden">
+            <div class="absolute top-[-50px] left-[-50px] w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+            
+            <div class="relative z-10">
+                <img src="./logo/logo-jamii.png" alt="شعار جامعيّون"
+                    onerror="this.src='https://placehold.co/200x200/004d9c/ffffff?text=LOGO'"
+                    class="w-24 h-24 mb-6 mx-auto rounded-3xl border-4 border-white/20 shadow-2xl transform transition-transform duration-700 hover:scale-110">
+                <h1 class="text-5xl md:text-6xl font-black mb-4 tracking-tight">جامعيون</h1>
+                <p class="text-xl md:text-2xl font-light opacity-90 max-w-2xl mx-auto leading-relaxed mb-6">
+                    منصتك المتكاملة لتجربة جامعية أسهل وأكثر تنظيماً
+                </p>
+
+                <!-- NEW: Floating Community Badge -->
+                <div class="floating-badge inline-block px-6 py-2 rounded-full text-white font-bold text-sm md:text-base shadow-lg border border-white/20">
+                    ✨ إطلاق مجتمع جامعيون داخل التطبيق
+                </div>
+            </div>
         </header>
 
-        <section class="bg-white p-8 rounded-2xl shadow-lg mb-12 fade-in-on-scroll">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-200 pb-2">عن المنصة</h2>
-            <p class="text-gray-700 leading-relaxed">جامعيون هو تطبيق ومنصة جامعيّة شاملة توفّر كل ما يحتاجه طالب الجامعة من
-                ملخصات ومواد دراسية، ومصادر شرح على يوتيوب، وأدوات لإدارة المهام والميزانية، بالإضافة إلى نصائح قيمة
-                وأقسام أخرى مفيدة جداً.</p>
-        </section>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Main Content Area -->
+            <div class="lg:col-span-8 space-y-12">
+                
+                <!-- FIRST: Download Section (Moved up) -->
+                <section class="fade-in-on-scroll">
+                    <div class="flex items-center justify-center mb-8">
+                        <span class="h-px w-12 bg-blue-200"></span>
+                        <h2 class="text-3xl font-black text-slate-800 px-4">تحميل التطبيق الآن</h2>
+                        <span class="h-px w-12 bg-blue-200"></span>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Android Card -->
+                        <div class="bg-white p-6 rounded-[2.5rem] border border-blue-100 shadow-xl flex flex-col items-center card-shadow">
+                            <a download="جامعيون.apk" href="../downloads/جامعيون.apk"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-5 px-6 rounded-2xl text-xl font-bold shadow-lg transition-all flex items-center justify-center gap-3">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.3414L20 19.5H4L6.477 15.3414H17.523ZM7.5 13H16.5V11H7.5V13ZM15.5 8H8.5V4H15.5V8Z"/></svg>
+                                أندرويد (APK)
+                            </a>
+                            <div class="mt-8 w-full">
+                                <p class="text-center font-bold text-slate-700 mb-4 text-sm">شرح التحميل للأندرويد 👇</p>
+                                <div class="video-container">
+                                    <img src="./logo/logo-jamii.png" alt="شعار" class="video-watermark">
+                                    <video controls poster="https://placehold.co/300x533/004d9c/ffffff?text=Android+Guide">
+                                        <source src="../videos/android-install.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
 
-        <section class="bg-gray-800 text-white p-8 rounded-2xl shadow-lg mb-12 fade-in-on-scroll">
-            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-gray-600 pb-2">مميزات التطبيق</h2>
-            <ul class="list-none pr-5 text-gray-300 space-y-4 text-lg">
-                <li class="flex items-center"><span class="ml-2 text-orange-400">✔</span> واجهة سهلة وسريعة</li>
-                <li class="flex items-center"><span class="ml-2 text-orange-400">✔</span> قسم للدوسيات يحوي ملخصات والمواد PDF</li>
-                <li class="flex items-center"><span class="ml-2 text-orange-400">✔</span> مصادر لشرح موادك على يوتيوب</li>
-                <li class="flex items-center"><span class="ml-2 text-orange-400">✔</span> قسم كامل لإدارة المهام بتصميم عصري</li>
-                <li class="flex items-center"><span class="ml-2 text-orange-400">✔</span> حساب المعدل التراكمي والفصلي</li>
-                <li class="flex items-center"><span class="ml-2 text-orange-400">✔</span> قسم لإدارة الميزانية</li>
-                <li class="flex items-center"><span class="ml-2 text-orange-400">✔</span> نصائح قيمة</li>
-                <li class="flex items-center"><span class="ml-2 text-orange-400">✔</span> أقسام كثيرة مفيدة جداً</li>
-            </ul>
-        </section>
+                        <!-- iOS Card -->
+                        <div class="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-xl flex flex-col items-center card-shadow">
+                            <a href="../IOS" target="_blank"
+                                class="w-full bg-slate-800 hover:bg-black text-white py-5 px-6 rounded-2xl text-xl font-bold shadow-lg transition-all flex items-center justify-center gap-3">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-1.99.76-3.27.82-1.31.05-2.31-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.89 1.22-2.11 1.09-3.33-1.04.04-2.3.69-3.05 1.56-.67.77-1.26 2.03-1.1 3.21 1.16.09 2.33-.55 3.06-1.44Z"/></svg>
+                                آيفون (iOS)
+                            </a>
+                            <div class="mt-8 w-full">
+                                <p class="text-center font-bold text-slate-700 mb-4 text-sm">شرح التحميل للآيفون 👇</p>
+                                <div class="video-container">
+                                    <img src="./logo/logo-jamii.png" alt="شعار" class="video-watermark">
+                                    <video controls poster="https://placehold.co/300x533/1e293b/ffffff?text=iOS+Guide">
+                                        <source src="../videos/ios-install.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-        <section class="text-center mb-12 fade-in-on-scroll">
-            <h2 class="text-3xl font-bold text-white mb-8">تحميل التطبيق</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- SECOND: About Section -->
+                <section class="bg-white p-8 rounded-[2rem] card-shadow border border-blue-50 fade-in-on-scroll">
+                    <div class="flex items-center mb-6">
+                        <div class="w-2 h-8 bg-blue-600 rounded-full ml-4"></div>
+                        <h2 class="text-3xl font-extrabold text-slate-800">ما هو تطبيق جامعيون؟</h2>
+                    </div>
+                    <p class="text-slate-600 text-lg leading-loose">
+                        هو رفيقك الدراسي الأول، يوفر لك وصولاً سريعاً للملخصات والمواد الدراسية، بالإضافة إلى أدوات تنظيم الوقت وحساب المعدلات. والآن، مع <span class="text-blue-600 font-bold">مجتمع جامعيون</span>، يمكنك التواصل مع زملائك ومشاركة المعرفة مباشرة داخل التطبيق.
+                    </p>
+                </section>
 
-               <div class="flex flex-col">
-                    <a download="جامعيون.apk" href="../downloads/جامعيون.apk" target="_blank"
-                        class="bg-gradient-to-r from-[#0090de] to-[#003463] text-white py-5 px-6 rounded-2xl text-xl font-semibold shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-4 space-x-reverse">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M7 10v4h3v-4H7zm4 0v4h3v-4h-3zm4 0v4h3v-4h-3zM5 18h14V6H5v12zm-2 0V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                        </svg>
-                        <span>تحميل للأندرويد (APK)</span>
-                    </a>
-                    <div class="mt-4 bg-gray-800 rounded-2xl p-4 text-right">
-                        <p class="video-label text-gray-300">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            فيديو شرح طريقة التحميل - أندرويد
-                        </p>
-                        <div class="video-guide-wrap border-2 border-[#0090de] rounded-xl">
-                            <video controls preload="none" poster="https://placehold.co/400x225/003463/0090de?text=Android+Download">
-                                <source src="../videos/android-install.mp4" type="video/mp4">
-                                متصفحك لا يدعم تشغيل الفيديو.
-                            </video>
+                <!-- Features Section -->
+                <section class="bg-slate-900 text-white p-10 rounded-[2rem] shadow-2xl fade-in-on-scroll">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center">
+                        <span class="bg-blue-500/20 p-2 rounded-lg ml-3">🌟</span>
+                        أبرز الخدمات
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span class="text-2xl ml-4">📚</span>
+                            <p class="text-slate-300">ملخصات ومواد PDF شاملة</p>
+                        </div>
+                        <div class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span class="text-2xl ml-4">🤝</span>
+                            <p class="text-slate-300">مجتمع تفاعلي بين الطلاب</p>
+                        </div>
+                        <div class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span class="text-2xl ml-4">📊</span>
+                            <p class="text-slate-300">حساب المعدلات بدقة عالية</p>
+                        </div>
+                        <div class="flex items-center p-4 bg-white/5 rounded-xl border border-white/10">
+                            <span class="text-2xl ml-4">💡</span>
+                            <p class="text-slate-300">نصائح ومصادر شرح مميزة</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="lg:col-span-4 space-y-12">
+                
+                <!-- Stats -->
+                <div class="bg-blue-600 text-white p-8 rounded-[2rem] shadow-xl text-center fade-in-on-scroll">
+                    <div class="mb-6">
+                        <span class="text-blue-200 text-xs font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">أرقامنا</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="text-4xl font-black mb-1">∞</div>
+                            <div class="text-blue-100 opacity-80 text-sm">ملخص دراسي</div>
+                        </div>
+                        <div class="h-[1px] bg-white/10"></div>
+                        <div>
+                            <div class="text-4xl font-black mb-1">∞</div>
+                            <div class="text-blue-100 opacity-80 text-sm">طالب وطالبة</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col">
-                    <a href="../IOS" target="_blank"
-                        class="bg-gray-700 hover:bg-gray-800 text-white py-5 px-6 rounded-2xl text-xl font-semibold shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-4 space-x-reverse">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0c-3.314 0-6 2.686-6 6v12c0 3.314 2.686 6 6 6s6-2.686 6-6V6c0-3.314-2.686-6-6-6zm0 2c2.21 0 4 1.79 4 4v12c0 2.21-1.79 4-4 4s-4-1.79-4-4V6c0-2.21 1.79-4 4-4zM9 9h6v2H9V9zm0 4h6v2H9v-2z"/>
-                        </svg>
-                        <span>تحميل للآيفون</span>
-                    </a>
-                    <div class="mt-4 bg-gray-800 rounded-2xl p-4 text-right">
-                        <p class="video-label text-gray-300">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            فيديو شرح طريقة التحميل - آيفون
-                        </p>
-                        <div class="video-guide-wrap border-2 border-gray-500 rounded-xl">
-                            <video controls preload="none" poster="https://placehold.co/400x225/1f2937/9ca3af?text=IOS+Download">
-                                <source src="../videos/ios-install.mp4" type="video/mp4">
-                                متصفحك لا يدعم تشغيل الفيديو.
-                            </video>
-                        </div>
+                <!-- Screenshots -->
+                <div class="space-y-6 fade-in-on-scroll">
+                    <h3 class="text-2xl font-bold text-slate-800 mr-2 flex items-center gap-2">
+                        📱 واجهات التطبيق
+                    </h3>
+                    <div class="grid grid-cols-2 lg:grid-cols-1 gap-4">
+                        <img src="https://placehold.co/400x800/004d9c/ffffff?text=App+Home" class="rounded-2xl shadow-lg hover:scale-[1.02] transition-transform border border-slate-100">
+                        <img src="https://placehold.co/400x800/0077c2/ffffff?text=Community" class="rounded-2xl shadow-lg hover:scale-[1.02] transition-transform border border-slate-100">
                     </div>
                 </div>
 
-                <div class="flex flex-col">
-                    <a href="https://jami3yoon-web.vercel.app/" id="windows-download"
-                        class="bg-gradient-to-r from-[#0090de] to-[#003463] text-white py-5 px-6 rounded-2xl text-xl font-semibold shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-4 space-x-reverse">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1 5h2v2h-2V5zm0 4h2v2h-2V9zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z"/>
-                        </svg>
-                        <span>تحميل للويندوز (قريباً)</span>
-                    </a>
-                    <div class="mt-4 bg-gray-800 rounded-2xl p-4 text-right flex items-center justify-center min-h-[160px]">
-                        <p class="text-gray-500 text-sm text-center">سيتوفر فيديو الشرح<br>عند إطلاق نسخة الويندوز</p>
+                <!-- Instagram CTA -->
+                <div class="bg-gradient-to-tr from-purple-600 via-pink-500 to-orange-400 p-1 rounded-[2.5rem] shadow-xl fade-in-on-scroll">
+                    <div class="bg-white rounded-[2.4rem] p-8 text-center">
+                        <h3 class="text-xl font-bold mb-2 text-slate-800">تواصل معنا</h3>
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">للدعم الفني أو الاستفسارات تابعونا على انستقرام</p>
+                        <a href="https://www.instagram.com/jamaiyoon/" target="_blank"
+                            class="w-full inline-block bg-gradient-to-r from-purple-600 to-pink-500 text-white py-4 rounded-2xl font-bold shadow-lg transform transition hover:brightness-110 active:scale-95">
+                            @jamaiyoon
+                        </a>
                     </div>
                 </div>
 
-            </div>
-        </section>
+            </aside>
+        </div>
 
-        <section class="bg-gray-800 p-8 rounded-2xl shadow-lg mb-12 fade-in-on-scroll">
-            <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-gray-600 pb-2">إحصائيات</h2>
-            <div class="flex flex-col md:flex-row justify-around text-center space-y-8 md:space-y-0">
-                <div class="flex-1">
-                    <h3 class="text-5xl font-extrabold text-orange-400">عدد لا محدود</h3>
-                    <p class="text-gray-400 text-lg">ملخصات</p>
-                </div>
-                <div class="flex-1">
-                    <h3 class="text-5xl font-extrabold text-orange-400">عدد لا محدود</h3>
-                    <p class="text-gray-400 text-lg">مادة دراسية</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-12 fade-in-on-scroll">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">لقطات شاشة من التطبيق</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <img src="https://placehold.co/400x700/003463/ffffff?text=Screenshot+1" alt="لقطة شاشة 1"
-                    class="w-full rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-105">
-                <img src="https://placehold.co/400x700/003463/ffffff?text=Screenshot+2" alt="لقطة شاشة 2"
-                    class="w-full rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-105">
-                <img src="https://placehold.co/400x700/003463/ffffff?text=Screenshot+3" alt="لقطة شاشة 3"
-                    class="w-full rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-105">
-            </div>
-        </section>
-
-        <section class="bg-gray-800 p-8 rounded-2xl shadow-lg mb-12 text-center fade-in-on-scroll">
-            <h2 class="text-3xl font-bold text-white mb-6">تواصل معنا عبر انستقرام</h2>
-            <a href="https://www.instagram.com/jamaiyoon/" target="_blank"
-                class="inline-block bg-gradient-to-r from-orange-400 to-pink-500 text-white py-4 px-10 rounded-full text-xl font-bold shadow-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-                تواصل معنا
-            </a>
-        </section>
-
-        <footer class="mt-12 text-center text-gray-500 text-sm">
-            © 2025 جامعيون. جميع الحقوق محفوظة.
-            <div class="mt-2">
-                <a href="https://www.instagram.com/jamaiyoon/" class="text-gray-400 hover:text-white transition-colors duration-200">إنستغرام</a>
-            </div>
+        <!-- Footer -->
+        <footer class="mt-24 pt-12 border-t border-slate-200 text-center text-slate-400">
+            <p class="text-lg font-bold text-slate-600 mb-2">جامعيون - 2025</p>
+            <p class="text-sm">نحن هنا لنجعل رحلتك الجامعية أكثر متعة وسهولة</p>
         </footer>
 
     </div>
@@ -229,22 +267,18 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const fadeInElements = document.querySelectorAll('.fade-in-on-scroll');
-            const observer = new IntersectionObserver((entries, obs) => {
+            
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        obs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1 });
-
-            fadeInElements.forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight) {
-                    el.classList.add('is-visible');
-                } else {
-                    observer.observe(el);
-                }
+            }, { 
+                threshold: 0.1
             });
+
+            fadeInElements.forEach(el => observer.observe(el));
         });
     </script>
 </body>
