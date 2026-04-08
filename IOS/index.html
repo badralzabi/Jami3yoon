@@ -11,11 +11,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  
   <meta name="apple-mobile-web-app-title" content="جامعيون">
   
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-  
   <link rel="apple-touch-startup-image" href="icons/Icon-512.png">
 
   <link rel="icon" type="image/png" href="favicon.png"/>
@@ -25,7 +23,7 @@
 
   <style>
     body {
-      background-color: #0175C2; /* نفس لون الخلفية الأساسي لتطبيق فلاتر */
+      background-color: #0175C2; /* نفس لون خلفية تطبيق فلاتر */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -35,26 +33,32 @@
       font-family: sans-serif;
     }
     
-    /* حاوية لعناصر التحميل */
     .loading-container {
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 20px;
+      max-width: 300px; /* تحديد العرض للنص الطويل */
     }
 
-    /* تصميم مؤشر التحميل (Spinner) */
     .loader {
-      border: 6px solid rgba(255, 255, 255, 0.3); /* إطار خلفي باهت */
-      border-top: 6px solid #ffffff; /* الإطار الدوار */
+      border: 6px solid rgba(255, 255, 255, 0.3);
+      border-top: 6px solid #ffffff;
       border-radius: 50%;
       width: 50px;
       height: 50px;
       animation: spin 1s linear infinite;
     }
 
-    /* أنيميشن الدوران */
+    /* 🌟 تنسيق نص التحميل الجديد 🌟 */
+    .loading-text {
+      font-size: 1rem; /* حجم خط مناسب */
+      line-height: 1.5; /* تباعد الأسطر لسهولة القراءة */
+      font-weight: normal;
+      opacity: 0.8; /* جعل النص شفاف قليلاً ليكون غير مزعج */
+    }
+
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
@@ -64,7 +68,11 @@
 <body>
   <div class="loading-container">
     <div class="loader"></div>
+    
+    <div class="loading-text">
+        جاري التحميل... بسبب صرامة الآيفون، قد تلاحظ بطئاً في التحميل الأولي، شكراً لصبرك.
     </div>
+  </div>
 
   <script src="flutter_bootstrap.js" async></script>
 </body>
