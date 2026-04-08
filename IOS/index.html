@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html>
 <head>
   <base href="/IOS/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="تطبيق مبادرة جامعيون">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,7 +25,7 @@
 
   <style>
     body {
-      background-color: #0175C2; /* نفس لون خلفية تطبيق فلاتر */
+      background-color: #0175C2;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -31,6 +33,7 @@
       margin: 0;
       color: white;
       font-family: sans-serif;
+      overflow: hidden; /* لمنع أي سكرول بالغلط أثناء التحميل */
     }
     
     .loading-container {
@@ -39,7 +42,7 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      max-width: 300px; /* تحديد العرض للنص الطويل */
+      max-width: 300px;
     }
 
     .loader {
@@ -51,12 +54,12 @@
       animation: spin 1s linear infinite;
     }
 
-    /* 🌟 تنسيق نص التحميل الجديد 🌟 */
     .loading-text {
-      font-size: 1rem; /* حجم خط مناسب */
-      line-height: 1.5; /* تباعد الأسطر لسهولة القراءة */
+      font-size: 1rem;
+      line-height: 1.5;
       font-weight: normal;
-      opacity: 0.8; /* جعل النص شفاف قليلاً ليكون غير مزعج */
+      opacity: 0.8;
+      direction: rtl; /* خلينا اتجاه النص هون بس، عشان ما نضرب فلاتر */
     }
 
     @keyframes spin {
@@ -68,9 +71,8 @@
 <body>
   <div class="loading-container">
     <div class="loader"></div>
-    
     <div class="loading-text">
-        جاري التحميل... بسبب صرامة الآيفون، قد تلاحظ بطئاً في التحميل الأولي، شكراً لصبرك.
+        جاري التحميل...<br>بسبب صرامة الآيفون، قد تلاحظ بطئاً في التحميل الأولي، شكراً لصبرك.
     </div>
   </div>
 
