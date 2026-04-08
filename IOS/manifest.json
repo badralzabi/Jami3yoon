@@ -1,7 +1,7 @@
 {
-    "name": "jami3yoon",
-    "short_name": "jami3yoon",
-    "start_url": ".",
+    "name": "جامعيون",
+    "short_name": "جامعيون",
+    "start_url": "/IOS/",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
