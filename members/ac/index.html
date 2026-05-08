@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تأكيد الانضمام | مبادرة جامعيون</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #004d9c;
+            --secondary-color: #0077c2;
+            --accent-color: #ff7f50;
+            --text-dark: #1f2937;
+            --bg-light: #f3f4f6;
+            --card-bg: #f0fbff;
+            --card-border: #d7eefb;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Cairo', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .form-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 25px rgba(0, 77, 156, 0.1);
+            border-radius: 1.5rem;
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #003366;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 77, 156, 0.3);
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23004d9c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: left 1rem center;
+            background-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-card">
+        <!-- رأس النموذج -->
+        <div class="header-bg p-6 text-center text-white">
+            <h1 class="text-2xl font-bold">تأكيد الانضمام</h1>
+            <p class="opacity-90 text-sm mt-2">مبادرة جامعيون - معاً لخدمة الطلاب</p>
+        </div>
+
+        <!-- محتوى النموذج -->
+        <form action="https://formspree.io/f/xlgzpdyj" method="POST" class="p-8">
+            
+            <div class="mb-8">
+                <label for="confirm-selection" class="block text-primary-color font-bold mb-4 text-lg text-center">
+                    هل ترغب في تأكيد انضمامك رسمياً لفريق المبادرة؟
+                </label>
+                
+                <div class="relative">
+                    <select 
+                        id="confirm-selection" 
+                        name="هل تؤكد الانضمام؟" 
+                        required 
+                        class="w-full p-4 border-2 border-card-border rounded-xl focus:border-primary-color focus:outline-none bg-white text-gray-700 font-bold text-center"
+                    >
+                        <option value="" disabled selected>اختر إجابتك...</option>
+                        <option value="نعم">نعم، أرغب في الانضمام</option>
+                        <option value="لا">لا، لا أرغب حالياً</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- زر الإرسال -->
+            <button type="submit" class="w-full btn-submit text-white font-bold py-4 rounded-xl text-lg shadow-lg">
+                إرسال التأكيد &larr;
+            </button>
+
+            <p class="text-center text-gray-500 text-xs mt-6">
+                بمجرد الضغط على إرسال، سيتم تسجيل ردك لدى إدارة المبادرة.
+            </p>
+        </form>
+    </div>
+
+</body>
+
+</html>
